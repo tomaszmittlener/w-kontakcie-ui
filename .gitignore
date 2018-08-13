@@ -57,3 +57,9 @@ public/
 
 # Bundle stats
 bundle-stats.json
+
+#Webstorm
+.idea/
+
+#mac-os
+.DS_Store/
