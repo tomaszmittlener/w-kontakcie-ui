@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { ms } from '../../layout/helpers'
+import { ms } from 'src/layout/helpers'
 
 const H1 = styled.h1`
   text-decoration: none;
