@@ -1,11 +1,12 @@
 import React from "react";
 import styled from 'styled-components'
-import { Link } from "gatsby";
-
+import { Link } from 'gatsby'
+import { ms } from '../../layout/helpers'
 
 const H1 = styled.h1`
   text-decoration: none;
   color: ${({theme:{colors}}) => colors.secondary};
+  font-size: ${ms(0)};
 `
 
 class PostListing extends React.Component {
