@@ -11,7 +11,6 @@
     "gatsby-plugin-google-analytics": "next",
     "gatsby-plugin-lodash": "next",
     "gatsby-plugin-manifest": "next",
-    "gatsby-plugin-nprogress": "next",
     "gatsby-plugin-offline": "next",
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-sharp": "next",
@@ -29,10 +28,8 @@
     "prismjs": "^1.15.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-disqus-comments": "^1.1.1",
     "react-helmet": "^5.2.0",
     "react-share": "^2.0.0",
-    "react-twitter-widgets": "^1.7.1",
     "url-join": "^4.0.0"
   },
   "devDependencies": {
