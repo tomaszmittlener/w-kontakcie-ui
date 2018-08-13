@@ -4,6 +4,7 @@
   "version": "1.1.0",
   "author": "Ruben Harutyunyan <vagr9k@gmail.com>",
   "dependencies": {
+    "babel-plugin-styled-components": "^1.5.1",
     "gatsby": "next",
     "gatsby-image": "next",
     "gatsby-plugin-catch-links": "next",
@@ -15,6 +16,7 @@
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-sharp": "next",
     "gatsby-plugin-sitemap": "next",
+    "gatsby-plugin-styled-components": "^2.0.11",
     "gatsby-remark-autolink-headers": "next",
     "gatsby-remark-copy-linked-files": "next",
     "gatsby-remark-images": "next",
@@ -25,11 +27,13 @@
     "gatsby-transformer-sharp": "next",
     "lodash": "^4.17.4",
     "moment": "^2.22.2",
+    "polished": "^1.9.3",
     "prismjs": "^1.15.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-helmet": "^5.2.0",
     "react-share": "^2.0.0",
+    "styled-components": "^3.4.2",
     "url-join": "^4.0.0"
   },
   "devDependencies": {

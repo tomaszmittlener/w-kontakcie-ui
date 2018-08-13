@@ -1,5 +1,12 @@
 import React from "react";
+import styled from 'styled-components'
 import { Link } from "gatsby";
+
+
+const H1 = styled.h1`
+  text-decoration: none;
+  color: ${({theme:{colors}}) => colors.secondary};
+`
 
 class PostListing extends React.Component {
   getPostList() {
@@ -24,7 +31,8 @@ class PostListing extends React.Component {
         {/* Your post list here. */
         postList.map(post => (
           <Link to={post.path} key={post.title}>
-            <h1>{post.title}</h1>
+            <H1>{post.title}</H1>
+            <p>{post.excerpt}</p>
           </Link>
         ))}
       </div>

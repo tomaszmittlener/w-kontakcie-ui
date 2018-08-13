@@ -1,7 +1,8 @@
-import React from "react";
+import React, {Fragment} from "react";
 import Helmet from "react-helmet";
+import {ThemeProvider}from 'styled-components'
 import config from "../../data/SiteConfig";
-import "./index.css";
+import theme from './theme'
 
 export default class MainLayout extends React.Component {
   getLocalTitle() {
@@ -41,13 +42,15 @@ export default class MainLayout extends React.Component {
   render() {
     const { children } = this.props;
     return (
-      <div>
-        <Helmet>
-          <title>{`${config.siteTitle} |  ${this.getLocalTitle()}`}</title>
-          <meta name="description" content={config.siteDescription} />
-        </Helmet>
-        {children}
-      </div>
+      <ThemeProvider theme={theme}>
+        <Fragment>
+          <Helmet>
+            <title>{`${config.siteTitle} |  ${this.getLocalTitle()}`}</title>
+            <meta name="description" content={config.siteDescription} />
+          </Helmet>
+          {children}
+        </Fragment>
+      </ThemeProvider>
     );
   }
 }

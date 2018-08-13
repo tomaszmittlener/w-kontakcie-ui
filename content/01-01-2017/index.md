@@ -65,3 +65,5 @@ Sub quid deprenderat mores postquam tectoque maiestatemque debebat quibus;
 subitam amittere illius esse dona. Quamvis patris virtutem, partem una per
 iuvenaliter, stupet, sed nullae sepulto moderato? Nec phaedimus aequoris dixit.
 Hic bis parenti: e petunt satis.
+
+![Chinese Salty Egg](./salty_egg.jpg)
