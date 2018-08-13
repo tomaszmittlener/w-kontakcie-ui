@@ -1,10 +1,18 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
+import Img from "gatsby-image";
+import styled from 'styled-components'
 import Layout from "../layout";
 import PostListing from "../components/PostListing/PostListing";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
+
+const Logo = styled(Img)`
+  max-height: 200px;
+  width: 200px;
+  height: 100%;
+`
 
 class Index extends React.Component {
   render() {
@@ -14,6 +22,11 @@ class Index extends React.Component {
         <div className="index-container">
           <Helmet title={config.siteTitle} />
           <SEO />
+          <Logo
+            title="Logo"
+            alt="Logo of a company"
+            fluid={this.props.data.logo.childImageSharp.fluid}
+          />
           <PostListing postEdges={postEdges} />
         </div>
       </Layout>
@@ -24,7 +37,7 @@ class Index extends React.Component {
 export default Index;
 
 /* eslint no-undef: "off" */
-export const pageQuery = graphql`
+export const pageQuery = graphql`  
   query IndexQuery {
     allMarkdownRemark(
       limit: 2000
@@ -46,6 +59,15 @@ export const pageQuery = graphql`
           }
         }
       }
-    }
+    },
+      logo: file(relativePath: { eq: "logo.png" }) {
+          childImageSharp {
+              # Specify the image processing specifications right in the query.
+              # Makes it trivial to update as your page's design changes.
+              fluid(maxWidth: 200) {
+                  ...GatsbyImageSharpFluid
+              }
+          }
+      }
   }
 `;

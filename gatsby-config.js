@@ -1,6 +1,5 @@
 const config = require("./data/SiteConfig");
 const urljoin = require("url-join");
-const path = require('path')
 
 module.exports = {
   pathPrefix: config.pathPrefix,
@@ -20,6 +19,8 @@ module.exports = {
     }
   },
   plugins: [
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-lodash",
