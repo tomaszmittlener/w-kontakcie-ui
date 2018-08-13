@@ -2,6 +2,7 @@ import React, {Fragment} from "react";
 import Helmet from "react-helmet";
 import {ThemeProvider}from 'styled-components'
 import config from "../../data/SiteConfig";
+import "./global-styles"
 import theme from './theme'
 
 export default class MainLayout extends React.Component {
@@ -22,6 +23,8 @@ export default class MainLayout extends React.Component {
       title = "Categories";
     } else if (currentPath === "about/") {
       title = "About";
+    } else if (currentPath === "colors") {
+      title = "Colors";
     } else if (currentPath.indexOf("posts")) {
       title = "Article";
     } else if (currentPath.indexOf("tags/")) {

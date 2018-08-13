@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from 'react';
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
@@ -7,6 +7,7 @@ import Layout from "../layout";
 import PostListing from "../components/PostListing/PostListing";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
+import Footer from '../components/Footer/Footer';
 
 const Logo = styled(Img)`
   max-height: 200px;
@@ -19,7 +20,7 @@ class Index extends React.Component {
     const postEdges = this.props.data.allMarkdownRemark.edges;
     return (
       <Layout location={this.props.location}>
-        <div className="index-container">
+        <Fragment>
           <Helmet title={config.siteTitle} />
           <SEO />
           <Logo
@@ -28,7 +29,8 @@ class Index extends React.Component {
             fluid={this.props.data.logo.childImageSharp.fluid}
           />
           <PostListing postEdges={postEdges} />
-        </div>
+          <Footer config={config} />
+        </Fragment>
       </Layout>
     );
   }

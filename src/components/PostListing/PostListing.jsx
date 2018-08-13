@@ -1,13 +1,8 @@
-import React from "react";
+import React, { Fragment } from 'react';
 import styled from 'styled-components'
-import { Link } from 'gatsby'
-import { ms } from '../../layout/helpers'
-
-const H1 = styled.h1`
-  text-decoration: none;
-  color: ${({theme:{colors}}) => colors.secondary};
-  font-size: ${ms(0)};
-`
+import Link from '../../components/Link'
+import {ParagraphText} from '../../components/Text'
+import {H2} from '../../components/Headings'
 
 class PostListing extends React.Component {
   getPostList() {
@@ -31,10 +26,12 @@ class PostListing extends React.Component {
       <div>
         {/* Your post list here. */
         postList.map(post => (
-          <Link to={post.path} key={post.title}>
-            <H1>{post.title}</H1>
-            <p>{post.excerpt}</p>
-          </Link>
+          <Fragment key={post.title}>
+            <Link to={post.path}>
+              <H2>{post.title}</H2>
+            </Link>
+            <ParagraphText>{post.excerpt}</ParagraphText>
+          </Fragment>
         ))}
       </div>
     );
