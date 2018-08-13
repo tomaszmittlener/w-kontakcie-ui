@@ -23,7 +23,6 @@ module.exports = {
     "gatsby-plugin-styled-components",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-lodash",
-    "gatsby-plugin-root-import",
     {
       resolve: "gatsby-source-filesystem",
       options: {
