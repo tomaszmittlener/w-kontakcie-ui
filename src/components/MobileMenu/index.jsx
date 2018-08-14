@@ -12,17 +12,21 @@ const MenuContainer = styled.nav`
   width: 100%;
   left: 0;
   top: 0;
-  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
-  opacity: ${({ open }) => (open ? '1' : '0')};
+  transform: ${({open}) => (open ? 'translateX(0)' : 'translateX(-100%)')};
+  opacity: ${({open}) => (open ? '1' : '0')};
   transition: all 0.4s;
-  background: ${({ theme: { colors } }) => colors.secondary};
+  background: ${({theme: {colors}}) => colors.secondary};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-family: ${({ theme: { typo: { fontFamily } } }) => fontFamily.secondary};
-  ${({ open }) =>
-  open &&
-  css`
+  font-family: ${({
+    theme: {
+      typo: {fontFamily},
+    },
+  }) => fontFamily.secondary};
+  ${({open}) =>
+    open &&
+    css`
       left: -100vw;
       height: 100%;
       overflow: scroll;
@@ -41,7 +45,7 @@ const MenuItems = styled.ul`
 
 const Item = styled.li`
   font-size: ${ms(1)};
-  border-top: 1px solid ${({ theme }) => theme.colors.disabled};
+  border-top: 1px solid ${({theme}) => theme.colors.disabled};
 `
 
 const MainNavigationLink = styled.button`
@@ -52,23 +56,20 @@ const MainNavigationLink = styled.button`
 
 class MobileMenu extends React.PureComponent {
   render() {
-    const {
-      className,
-      navigationLinks,
-      isMenuOpen,
-      toggleMenu
-    } = this.props
+    const {className, navigationLinks, isMenuOpen, toggleMenu} = this.props
 
     return (
       <MenuContainer open={isMenuOpen} className={className}>
-          <button onClick={toggleMenu}>X</button>
-          <MenuItems>
-            {map(navigationLinks, item => (
-              <Item key={item.id} onClick={toggleMenu}>
-                <MainNavigationLink to={item.slug}>{item.title}</MainNavigationLink>
-              </Item>
-            ))}
-          </MenuItems>
+        <button onClick={toggleMenu}>X</button>
+        <MenuItems>
+          {map(navigationLinks, item => (
+            <Item key={item.id} onClick={toggleMenu}>
+              <MainNavigationLink to={item.slug}>
+                {item.title}
+              </MainNavigationLink>
+            </Item>
+          ))}
+        </MenuItems>
       </MenuContainer>
     )
   }
