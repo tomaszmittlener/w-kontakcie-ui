@@ -4,8 +4,8 @@ import map from 'lodash/map'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import {H1, H2, H3} from 'src/components/Headings'
-import Theme from 'src/layout/theme'
-import Layout from 'src/layout'
+import Theme from 'src/layouts/theme'
+import Layout from 'src/layouts'
 import {ParagraphText} from 'src/components/Text'
 
 const Logo = styled(Img)`
@@ -89,15 +89,15 @@ const PageContainer = styled.div`
   flex-direction: column;
 `
 
-const SecondPage = ({data, location}) => (
-  <Layout location={location}>
+export default props => (
+  <Layout location={props.location}>
     <PageContainer>
       <SectionContainer>
         <LogoColumn>
           <Logo
             title="Logo"
             alt="Logo of a company"
-            fluid={data.logo.childImageSharp.fluid}
+            fluid={props.data.logo.childImageSharp.fluid}
           />
         </LogoColumn>
         <ColorColumn>
@@ -142,7 +142,7 @@ const SecondPage = ({data, location}) => (
   </Layout>
 )
 
-export default SecondPage
+// export default withAppContext(ColorsPage)
 
 export const query = graphql`
   # other examples for queries: https://github.com/gatsbyjs/gatsby/tree/master/examples/using-gatsby-image/src/pages

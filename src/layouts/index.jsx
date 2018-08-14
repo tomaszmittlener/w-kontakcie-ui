@@ -1,9 +1,15 @@
 import React, {Fragment} from 'react'
+import PropTypes from 'prop-types'
 import styled, {ThemeProvider, css} from 'styled-components'
+import {locationPropTypesShape} from 'src/utils/PropTypes'
+import {
+  contextPropTypesShape,
+  withAppContext,
+  withAppContextProvider,
+} from 'src/context'
 import config from '../../data/SiteConfig'
 import {getLocalTitle} from '../utils'
 import './global-styles'
-import theme from './theme'
 import AppHelmet from '../components/Helmet'
 import MobileMenu from '../components/MobileMenu'
 
@@ -26,11 +32,11 @@ const ViewContainer = styled.div`
     `};
 `
 
-export default class MainLayout extends React.Component {
-  state = {
-    isMenuOpen: false,
-  }
+const Content = styled.div`
+  ${({isMenuOpen}) => isMenuOpen && 'cursor: e-resize;'};
+`
 
+class Layout extends React.Component {
   toggleMenu = () =>
     this.setState(prevState => ({isMenuOpen: !prevState.isMenuOpen}))
 
@@ -38,8 +44,8 @@ export default class MainLayout extends React.Component {
     const {
       children,
       location: {pathname},
+      context: {toggleMenuOpen, isMenuOpen, theme},
     } = this.props
-    const {isMenuOpen} = this.state
     return (
       <ThemeProvider theme={theme}>
         <Fragment>
@@ -48,16 +54,23 @@ export default class MainLayout extends React.Component {
             title={`${config.siteTitle} |  ${getLocalTitle(pathname)}`}
           />
           <ViewContainer isMenuOpen={isMenuOpen}>
-            <button onClick={this.toggleMenu}>open menu</button>
-            {children}
-            <MobileMenu
+            <button onClick={toggleMenuOpen}>open menu</button>
+            <Content
               isMenuOpen={isMenuOpen}
-              toggleMenu={this.toggleMenu}
-              navigationLinks={[{}]}
-            />
+              onClick={() => isMenuOpen && toggleMenuOpen()}>
+              {children}
+            </Content>
+            <MobileMenu />
           </ViewContainer>
         </Fragment>
       </ThemeProvider>
     )
   }
 }
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+  location: locationPropTypesShape.isRequired,
+  context: contextPropTypesShape.isRequired,
+}
+
+export default withAppContextProvider(withAppContext(Layout))

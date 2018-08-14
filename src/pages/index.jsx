@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react';
-import Helmet from "react-helmet";
-import { graphql } from "gatsby";
-import Img from "gatsby-image";
+import React, {Fragment} from 'react'
+import Helmet from 'react-helmet'
+import {graphql} from 'gatsby'
+import Img from 'gatsby-image'
 import styled from 'styled-components'
-import Layout from "../layout";
-import PostListing from "../components/PostListing/PostListing";
-import SEO from "../components/SEO/SEO";
-import config from "../../data/SiteConfig";
-import Footer from '../components/Footer/Footer';
+import Layout from '../layouts'
+import PostListing from '../components/PostListing/PostListing'
+import SEO from '../components/SEO/SEO'
+import config from '../../data/SiteConfig'
+import Footer from '../components/Footer/Footer'
 
 const Logo = styled(Img)`
   max-height: 200px;
@@ -17,7 +17,7 @@ const Logo = styled(Img)`
 
 class Index extends React.Component {
   render() {
-    const postEdges = this.props.data.allMarkdownRemark.edges;
+    const postEdges = this.props.data.allMarkdownRemark.edges
     return (
       <Layout location={this.props.location}>
         <Fragment>
@@ -32,18 +32,18 @@ class Index extends React.Component {
           <Footer config={config} />
         </Fragment>
       </Layout>
-    );
+    )
   }
 }
 
-export default Index;
+export default Index
 
 /* eslint no-undef: "off" */
-export const pageQuery = graphql`  
+export const pageQuery = graphql`
   query IndexQuery {
     allMarkdownRemark(
       limit: 2000
-      sort: { fields: [fields___date], order: DESC }
+      sort: {fields: [fields___date], order: DESC}
     ) {
       edges {
         node {
@@ -61,15 +61,15 @@ export const pageQuery = graphql`
           }
         }
       }
-    },
-      logo: file(relativePath: { eq: "logo.png" }) {
-          childImageSharp {
-              # Specify the image processing specifications right in the query.
-              # Makes it trivial to update as your page's design changes.
-              fluid(maxWidth: 200) {
-                  ...GatsbyImageSharpFluid
-              }
-          }
+    }
+    logo: file(relativePath: {eq: "logo.png"}) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        # Makes it trivial to update as your page's design changes.
+        fluid(maxWidth: 200) {
+          ...GatsbyImageSharpFluid
+        }
       }
+    }
   }
-`;
+`

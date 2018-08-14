@@ -1,7 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
+import {contextPropTypesShape, withAppContext} from 'src/context'
 import map from 'lodash/map'
-import {ms} from '../../layout/helpers'
+import {ms} from '../../layouts/helpers'
 
 const MenuContainer = styled.nav`
   position: fixed;
@@ -54,14 +56,16 @@ const MainNavigationLink = styled.button`
 
 class MobileMenu extends React.PureComponent {
   render() {
-    const {className, navigationLinks, isMenuOpen, toggleMenu} = this.props
-
+    const {
+      className,
+      context: {toggleMenuOpen, isMenuOpen},
+    } = this.props
     return (
       <MenuContainer open={isMenuOpen} className={className}>
-        <button onClick={toggleMenu}>X</button>
+        <button onClick={toggleMenuOpen}>X</button>
         <MenuItems>
-          {map(navigationLinks, item => (
-            <Item key={item.id} onClick={toggleMenu}>
+          {map([{}], (item, i) => (
+            <Item key={i} onClick={toggleMenuOpen}>
               <MainNavigationLink to={item.slug}>
                 {item.title}
               </MainNavigationLink>
@@ -73,4 +77,13 @@ class MobileMenu extends React.PureComponent {
   }
 }
 
-export default MobileMenu
+MobileMenu.propTypes = {
+  className: PropTypes.string,
+  context: contextPropTypesShape.isRequired,
+}
+
+MobileMenu.defaultProps = {
+  className: '',
+}
+
+export default withAppContext(MobileMenu)

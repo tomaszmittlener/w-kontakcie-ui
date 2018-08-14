@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { textPropTypes, textDefaultProps } from '../../../constants/PropTypes'
-import { ms } from '../../../layout/helpers'
+import { ms } from '../../../layouts/helpers'
 import TextBasixMixin from './TextBasicMixin'
 
 const StyledText = styled.p`
