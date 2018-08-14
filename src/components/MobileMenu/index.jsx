@@ -9,11 +9,10 @@ const MenuContainer = styled.nav`
   height: 100%;
   overflow-y: auto;
   box-sizing: border-box;
-  width: 100%;
-  left: 0;
+  width: 200px;
+  left: calc(100vw + 200px);
   top: 0;
-  transform: ${({open}) => (open ? 'translateX(0)' : 'translateX(-100%)')};
-  opacity: ${({open}) => (open ? '1' : '0')};
+  transform: ${({open}) => (open ? 'translateX(0)' : 'translateX(100%)')};
   transition: all 0.4s;
   background: ${({theme: {colors}}) => colors.secondary};
   display: flex;
@@ -27,12 +26,11 @@ const MenuContainer = styled.nav`
   ${({open}) =>
     open &&
     css`
-      left: -100vw;
-      height: 100%;
+      left: 100vw;
       overflow: scroll;
       position: absolute;
       transition: transform 0.5s ease, -webkit-transform 0.5s ease;
-      width: 100vw;
+      width: 200px;
       z-index: 30;
     `};
 `

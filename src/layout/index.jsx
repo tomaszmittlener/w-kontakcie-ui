@@ -8,7 +8,8 @@ import AppHelmet from '../components/Helmet'
 import MobileMenu from '../components/MobileMenu'
 
 const ViewContainer = styled.div`
-  min-height: 120vh;
+  min-height: 100vh;
+  width: 100vw;
   //display: flex;
   //flex-direction: column;
   //justify-content: space-between;
@@ -21,7 +22,7 @@ const ViewContainer = styled.div`
       position: fixed;
       min-height: unset;
       height: 100%;
-      transform: translate3d(100vw, 0, 0);
+      transform: translate3d(-200px, 0, 0);
     `};
 `
 
