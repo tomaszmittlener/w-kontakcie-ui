@@ -3,10 +3,10 @@ import {graphql} from 'gatsby'
 import map from 'lodash/map'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import Theme from '../layout/theme'
-import Layout from '../layout'
-import {H1, H2, H3} from '../components/Headings'
-import {ParagraphText} from '../components/Text'
+import {H1, H2, H3} from 'src/components/Headings'
+import Theme from 'src/layout/theme'
+import Layout from 'src/layout'
+import {ParagraphText} from 'src/components/Text'
 
 const Logo = styled(Img)`
   max-height: 200px;

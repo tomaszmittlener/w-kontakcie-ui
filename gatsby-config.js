@@ -1,5 +1,6 @@
 const config = require('./data/SiteConfig')
 const urljoin = require('url-join')
+const path = require('path')
 
 module.exports = {
   pathPrefix: config.pathPrefix,
@@ -25,6 +26,7 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-lodash',
+    'gatsby-plugin-root-import',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
