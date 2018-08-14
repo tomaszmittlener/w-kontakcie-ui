@@ -21,7 +21,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-transformer-sharp',
-    'gatsby-plugin-eslint',
     'gatsby-plugin-sharp',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
