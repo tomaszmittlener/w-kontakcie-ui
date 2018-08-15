@@ -15,7 +15,6 @@ const ImageContainer = styled(Img)`
 
 class Index extends React.Component {
   render() {
-    console.log(this.props)
     const postEdges = this.props.data.allMarkdownRemark.edges
     return (
       <Layout location={this.props.location}>

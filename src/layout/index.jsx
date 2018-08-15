@@ -12,7 +12,6 @@ import {
   withAppContext,
   withAppContextProvider,
 } from 'src/context'
-import {ms} from 'src/layout/helpers'
 import {withLocalesContextProvider} from 'src/context/locales'
 import config from '../../data/SiteConfig'
 import './global-styles'
