@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
+import {Link} from 'gatsby'
 import {contextPropTypesShape, withAppContext} from 'src/context'
 import map from 'lodash/map'
+import menuItelmsList from '../../../data/MenuItems'
 import {ms} from '../../layout/helpers'
 
 const MenuContainer = styled.nav`
@@ -16,15 +18,10 @@ const MenuContainer = styled.nav`
   top: 0;
   transform: ${({open}) => (open ? 'translateX(0)' : 'translateX(100%)')};
   transition: all 0.5s ease-in-out;
-  background: ${({theme: {colors}}) => colors.secondary};
+  background: ${({theme: {colors}}) => colors.primary};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-family: ${({
-    theme: {
-      typo: {fontFamily},
-    },
-  }) => fontFamily.secondary};
   ${({open}) =>
     open &&
     css`
@@ -43,15 +40,27 @@ const MenuItems = styled.ul`
   margin: 0;
 `
 
-const Item = styled.li`
+const MainNavigationLink = styled(Link)`
+  padding: ${ms(0)};
   font-size: ${ms(1)};
-  border-top: 1px solid ${({theme}) => theme.colors.disabled};
-`
+  color: ${({theme: {colors}}) => colors.canvas};
+  font-family: ${({
+    theme: {
+      typo: {fontFamily},
+    },
+  }) => fontFamily.secondary};
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  opacity: 1;
+  transition: 0.6ms all linear;
 
-const MainNavigationLink = styled.button`
-  padding: ${ms(0)} 0 ${ms(0)} ${ms(2)};
-  width: 100%;
-  height: 100%;
+  &.active {
+    opacity: 0.4;
+  }
+  &:hover {
+    opacity: 0.7;
+  }
 `
 
 class MobileMenu extends React.PureComponent {
@@ -62,14 +71,15 @@ class MobileMenu extends React.PureComponent {
     } = this.props
     return (
       <MenuContainer open={isMenuOpen} className={className}>
-        <button onClick={toggleMenuOpen}>X</button>
         <MenuItems>
-          {map([{}], (item, i) => (
-            <Item key={i} onClick={toggleMenuOpen}>
-              <MainNavigationLink to={item.slug}>
-                {item.title}
-              </MainNavigationLink>
-            </Item>
+          {map(menuItelmsList, (item, i) => (
+            <MainNavigationLink
+              activeClassName="active"
+              key={i}
+              to={item.link}
+              onClick={toggleMenuOpen}>
+              {item.title}
+            </MainNavigationLink>
           ))}
         </MenuItems>
       </MenuContainer>

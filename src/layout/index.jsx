@@ -12,6 +12,7 @@ import {
   withAppContext,
   withAppContextProvider,
 } from 'src/context'
+import {ms} from 'src/layout/helpers'
 import {withLocalesContextProvider} from 'src/context/locales'
 import config from '../../data/SiteConfig'
 import './global-styles'
@@ -47,6 +48,10 @@ const ViewContainer = styled.div`
     `};
 `
 
+const ContentContainer = styled.div`
+  padding: ${ms(8)} 0 0 0;
+`
+
 class Layout extends React.Component {
   toggleMenu = () =>
     this.setState(prevState => ({isMenuOpen: !prevState.isMenuOpen}))
@@ -68,7 +73,7 @@ class Layout extends React.Component {
             isMenuOpen={isMenuOpen}
             onClick={() => isMenuOpen && toggleMenuOpen()}>
             <Header />
-            <div>{children}</div>
+            <ContentContainer>{children}</ContentContainer>
             <Footer />
             <MobileMenu />
           </ViewContainer>
