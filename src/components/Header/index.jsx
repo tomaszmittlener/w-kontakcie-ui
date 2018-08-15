@@ -23,11 +23,12 @@ const Container = styled.nav`
   width: 100vw;
   position: fixed;
   top: 0;
-  background-color: ${({theme: {colors}}) => rgba(colors.canvas, 1)};
+  background-color: ${({theme: {colors}}) => rgba(colors.primary, 0)};
   display: flex;
   justify-content: space-between;
   padding: ${ms(1)} ${ms(0)};
   align-items: center;
+  z-index: ${({theme: {layers}}) => layers.topBottom};
 `
 
 const Logo = styled(LogoSVG)`

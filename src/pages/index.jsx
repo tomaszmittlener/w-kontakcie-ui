@@ -4,25 +4,27 @@ import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import Layout from '../layout'
-import PostListing from '../components/PostListing/PostListing'
 import SEO from '../components/SEO/SEO'
 import config from '../../data/SiteConfig'
 
-const Logo = styled(Img)`
-  max-height: 200px;
-  width: 200px;
-  height: 100%;
+const ImageContainer = styled(Img)`
+  height: 475px;
+  z-index: ${({theme: {layers}}) => layers.bottom};
+
 `
 
 class Index extends React.Component {
   render() {
+    console.log(this.props)
     const postEdges = this.props.data.allMarkdownRemark.edges
     return (
       <Layout location={this.props.location}>
         <Fragment>
           <Helmet title={config.siteTitle} />
           <SEO />
-          <PostListing postEdges={postEdges} />
+          <ImageContainer
+            sizes={this.props.data.picture.childImageSharp.fixed}
+          />
         </Fragment>
       </Layout>
     )
@@ -52,6 +54,15 @@ export const pageQuery = graphql`
             cover
             date
           }
+        }
+      }
+    }
+    picture: file(relativePath: {eq: "mountains.png"}) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        # Makes it trivial to update as your page's design changes.
+        fixed(width: 1920) {
+          ...GatsbyImageSharpFixed
         }
       }
     }

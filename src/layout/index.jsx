@@ -42,14 +42,14 @@ const ViewContainer = styled.div`
         left: 0;
         right: 0;
         width: 100%;
-        z-index: 1;
+        z-index: ${({theme: {layers}}) => layers.top};
         height: 100%;
       }
     `};
 `
 
+//   padding: ${ms(8)} 0 0 0;
 const ContentContainer = styled.div`
-  padding: ${ms(8)} 0 0 0;
 `
 
 class Layout extends React.Component {

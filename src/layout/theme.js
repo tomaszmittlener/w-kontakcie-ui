@@ -19,7 +19,7 @@ export default {
       primary: "'ralewayregular', 'abelregular', sans-serif",
       primaryItalic: "'ralewayitalic', 'abelregular', sans-serif",
       primaryBold: "'ralewaybold', 'abelregular', sans-serif",
-    }
+    },
   },
   mq: {
     tablet: `@media ${TABLET_MEDIA_QUERY}`,
@@ -29,6 +29,7 @@ export default {
   },
   layers: {
     top: 1000,
+    topBottom: 950,
     middle: 900,
     bottom: 800,
   },
