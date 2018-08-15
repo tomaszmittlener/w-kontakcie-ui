@@ -21,6 +21,6 @@ export default [
   },
   {
     link: 'articles',
-    title: 'Pomoc Online',
+    title: 'Artykuły',
   },
 ]
