@@ -23,7 +23,7 @@ const ViewContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   transform: none;
-  transition: all 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   position: relative;
   ${({isMenuOpen}) =>
     isMenuOpen &&
@@ -32,11 +32,19 @@ const ViewContainer = styled.div`
       min-height: unset;
       height: 100%;
       transform: translate3d(-200px, 0, 0);
+      &:before {
+        cursor: e-resize;
+        pointer-events: auto;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1;
+        height: 100%;
+      }
     `};
-`
-
-const Content = styled.div`
-  ${({isMenuOpen}) => isMenuOpen && 'cursor: e-resize;'};
 `
 
 class Layout extends React.Component {
@@ -56,13 +64,11 @@ class Layout extends React.Component {
             description={config.siteDescription}
             title={`${config.siteTitle} |  ${getLocalTitle(pathname)}`}
           />
-          <ViewContainer isMenuOpen={isMenuOpen}>
+          <ViewContainer
+            isMenuOpen={isMenuOpen}
+            onClick={() => isMenuOpen && toggleMenuOpen()}>
             <Header />
-            <Content
-              isMenuOpen={isMenuOpen}
-              onClick={() => isMenuOpen && toggleMenuOpen()}>
-              {children}
-            </Content>
+            <div>{children}</div>
             <Footer />
             <MobileMenu />
           </ViewContainer>

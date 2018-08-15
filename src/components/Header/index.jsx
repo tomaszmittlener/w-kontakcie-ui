@@ -5,12 +5,12 @@ import {compose} from 'src/utils'
 import {contextPropTypesShape, withAppContext} from 'src/context'
 import {withLocales} from 'src/context/locales'
 import {graphql, StaticQuery} from 'gatsby'
-import Img from 'gatsby-image'
 import {rgba} from 'polished'
 import LogoSVG from 'src/components/Logo'
+import {ms} from 'src/layout/helpers'
 
 const MobileTheme = css`
-  min-height: 60px;
+  //min-height: 60px;
 `
 
 const DesktopTheme = css`
@@ -26,23 +26,27 @@ const Container = styled.nav`
   background-color: ${({theme: {colors}}) => rgba(colors.canvas, 1)};
   display: flex;
   justify-content: space-between;
+  padding: ${ms(1)} ${ms(0)};
+  align-items: center;
 `
 
 const Logo = styled(LogoSVG)`
-  max-height: 400px;
-  width: 400px;
-  height: 100%;
+  //width: 89px; //5.6
+  //height: 51px; //2.9
+  width: ${ms(6)}; //52
+  height: ${ms(3.4)}; // 30
 `
 
 const HamburgerButton = styled.button`
   border: 0;
   outline: none;
-  width: 40px;
-  height: 40px;
-  border-top: 5px solid ${({theme: {colors}}) => rgba(colors.primary, 1)};
+  width: 22px;
+  height: 22px;
+  border-top: 2px solid ${({theme: {colors}}) => rgba(colors.primary, 1)};
   background: transparent;
   position: relative;
-  transition: 300ms transform linear;
+  transition: 300ms all linear;
+  cursor: pointer;
   &:before,
   &:after {
     content: '';
@@ -50,34 +54,28 @@ const HamburgerButton = styled.button`
     top: 0;
     left: 0;
     width: 100%;
-    border-top: 5px solid ${({theme: {colors}}) => rgba(colors.primary, 1)};
-    transform: translateY(10px);
-    transition: 300ms transform linear;
+    border-top: 2px solid ${({theme: {colors}}) => rgba(colors.primary, 1)};
+    transform: translateY(8px);
+    transition: 300ms all linear;
   }
   &:after {
-    transform: translateY(25px);
+    transform: translateY(18px);
   }
   &:focus {
     transform: rotate(45deg) translateY(5px);
     border: none;
     &:after {
-      transform: rotate(-90deg) translateX(-10px);
+      transform: rotate(-90deg) translateX(-8px);
     }
   }
 `
 
-const Header = ({
-  t,
-  context: {toggleMenuOpen, isMobile, isTablet},
-  data
-}) => {
-  return (
-    <Container isMobile={isTablet || isMobile}>
-      <Logo />
-      <HamburgerButton onClick={toggleMenuOpen} />
-    </Container>
-  )
-}
+const Header = ({t, context: {toggleMenuOpen, isMobile, isTablet}, data}) => (
+  <Container isMobile={isTablet || isMobile}>
+    <Logo />
+    <HamburgerButton onClick={toggleMenuOpen} />
+  </Container>
+)
 
 Header.propTypes = {
   context: contextPropTypesShape.isRequired,
