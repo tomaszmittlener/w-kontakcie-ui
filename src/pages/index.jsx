@@ -55,14 +55,5 @@ export const pageQuery = graphql`
         }
       }
     }
-    logo: file(relativePath: {eq: "logo.png"}) {
-      childImageSharp {
-        # Specify the image processing specifications right in the query.
-        # Makes it trivial to update as your page's design changes.
-        fluid(maxWidth: 200) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
   }
 `

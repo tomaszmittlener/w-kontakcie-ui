@@ -1,9 +1,11 @@
 import React from 'react'
-import {graphql, StaticQuery} from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby';
 
-export const withStaticGraphQl = ({query}) => Component => props => (
-  <StaticQuery
-    query={query}
-    render={data => <Component {...props} data={data} />}
-  />
-)
+export const withStaticGraphQl = ({query}) => Component => props => {
+  return (
+    <StaticQuery
+      query={query}
+      render={data => <Component {...props} data={data} />}
+    />
+  )
+}
