@@ -4,8 +4,8 @@ import map from 'lodash/map'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import {H1, H2, H3} from 'src/components/Headings'
-import Theme from 'src/layouts/theme'
-import Layout from 'src/layouts'
+import Theme from 'src/layout/theme'
+import Layout from 'src/layout'
 import {ParagraphText} from 'src/components/Text'
 
 const Logo = styled(Img)`

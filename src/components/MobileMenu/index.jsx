@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
 import {contextPropTypesShape, withAppContext} from 'src/context'
 import map from 'lodash/map'
-import {ms} from '../../layouts/helpers'
+import {ms} from '../../layout/helpers'
 
 const MenuContainer = styled.nav`
   position: fixed;
@@ -15,7 +15,7 @@ const MenuContainer = styled.nav`
   left: calc(100vw + 200px);
   top: 0;
   transform: ${({open}) => (open ? 'translateX(0)' : 'translateX(100%)')};
-  transition: all 0.4s;
+  transition: all 0.5s ease-in-out;
   background: ${({theme: {colors}}) => colors.secondary};
   display: flex;
   flex-direction: column;

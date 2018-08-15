@@ -1,4 +1,5 @@
 import config from '../../data/SiteConfig'
+import reduceRight from 'lodash/reduceRight'
 
 export const getLocalTitle = pathname => {
   function capitalize(string) {
@@ -35,5 +36,11 @@ export const getLocalTitle = pathname => {
   return title
 }
 
-
 export const isWindowDefined = typeof window !== `undefined`
+
+export const compose = (...fns) =>
+  reduceRight(
+    fns,
+    (prevFn, nextFn) => (...args) => nextFn(prevFn(...args)),
+    value => value,
+  )

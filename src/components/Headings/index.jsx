@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ms } from '../../layouts/helpers'
+import { ms } from '../../layout/helpers'
 
 export const H1 = styled.h1`
   font-size: ${ms(4)}; // 36px

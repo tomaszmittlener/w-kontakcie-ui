@@ -3,11 +3,10 @@ import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import Layout from '../layouts'
+import Layout from '../layout'
 import PostListing from '../components/PostListing/PostListing'
 import SEO from '../components/SEO/SEO'
 import config from '../../data/SiteConfig'
-import Footer from '../components/Footer/Footer'
 
 const Logo = styled(Img)`
   max-height: 200px;
@@ -29,7 +28,6 @@ class Index extends React.Component {
             fluid={this.props.data.logo.childImageSharp.fluid}
           />
           <PostListing postEdges={postEdges} />
-          <Footer config={config} />
         </Fragment>
       </Layout>
     )

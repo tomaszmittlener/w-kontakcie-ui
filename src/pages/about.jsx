@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Helmet from 'react-helmet'
-import Layout from 'src/layouts'
+import Layout from 'src/layout'
 import About from 'src/components/About/About'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
 import config from '../../data/SiteConfig'

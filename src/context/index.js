@@ -1,5 +1,5 @@
 import React from 'react'
-import theme from 'src/layouts/theme'
+import theme from 'src/layout/theme'
 import PropTypes from 'prop-types'
 import {
   TABLET_MEDIA_QUERY,
