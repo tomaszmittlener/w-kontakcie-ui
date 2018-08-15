@@ -1,5 +1,5 @@
-import config from '../../data/SiteConfig'
 import reduceRight from 'lodash/reduceRight'
+import config from '../../data/SiteConfig'
 
 export const getLocalTitle = pathname => {
   function capitalize(string) {
