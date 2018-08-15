@@ -1,12 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import get from 'lodash/get'
 import Locales from '../../data/SiteLocales'
 
 export const LocalesContext = React.createContext()
 
-const LocalesContextProvider = ({children}) => (
-  <LocalesContext.Provider value={Locales}>{children}</LocalesContext.Provider>
-)
+class LocalesContextProvider extends React.Component {
+  t = key => get(Locales, key)
+  render() {
+    return (
+      <LocalesContext.Provider
+        value={this.t}>
+        {this.props.children}
+      </LocalesContext.Provider>
+    );
+  }
+}
 
 LocalesContextProvider.propTypes = {
   children: PropTypes.any,
@@ -20,7 +29,7 @@ export function withLocales(Component) {
   return function ThemedComponent(props) {
     return (
       <LocalesContext.Consumer>
-        {localesContext => <Component {...props} locales={localesContext} />}
+        {localesContext => <Component {...props} t={localesContext} />}
       </LocalesContext.Consumer>
     )
   }

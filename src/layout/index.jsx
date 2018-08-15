@@ -12,7 +12,7 @@ import {
   withAppContext,
   withAppContextProvider,
 } from 'src/context'
-import {withLocalesContextProvider, withLocales} from 'src/context/locales'
+import {withLocalesContextProvider} from 'src/context/locales'
 import config from '../../data/SiteConfig'
 import './global-styles'
 
@@ -44,7 +44,6 @@ class Layout extends React.Component {
     this.setState(prevState => ({isMenuOpen: !prevState.isMenuOpen}))
 
   render() {
-    console.log(this.props)
     const {
       children,
       location: {pathname},
@@ -82,5 +81,4 @@ export default compose(
   withAppContextProvider,
   withLocalesContextProvider,
   withAppContext,
-  withLocales,
 )(Layout)

@@ -22,11 +22,6 @@ class Index extends React.Component {
         <Fragment>
           <Helmet title={config.siteTitle} />
           <SEO />
-          <Logo
-            title="Logo"
-            alt="Logo of a company"
-            fluid={this.props.data.logo.childImageSharp.fluid}
-          />
           <PostListing postEdges={postEdges} />
         </Fragment>
       </Layout>
