@@ -29,8 +29,11 @@ export default {
   },
   layers: {
     top: 1000,
-    topBottom: 950,
-    middle: 900,
-    bottom: 800,
+    middleTom: 800,
+    bottomTom: 600,
+    middle: 400,
+    topBottom: 200,
+    middleBottom: 0,
+    bottom: -200,
   },
 }

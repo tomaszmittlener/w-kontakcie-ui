@@ -9,34 +9,24 @@ import {ms} from '../../layout/helpers'
 
 const MenuContainer = styled.nav`
   position: fixed;
-  z-index: 1000;
   height: 100%;
   overflow-y: auto;
   box-sizing: border-box;
   width: 200px;
-  left: calc(100vw + 200px);
   top: 0;
-  transform: ${({open}) => (open ? 'translateX(0)' : 'translateX(100%)')};
   transition: all 0.5s ease-in-out;
-  background: ${({theme: {colors}}) => colors.primary};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  ${({open}) =>
-    open &&
-    css`
-      left: 100vw;
-      overflow: scroll;
-      position: absolute;
-      transition: transform 0.5s ease, -webkit-transform 0.5s ease;
-      width: 200px;
-      z-index: 30;
-    `};
+  z-index: ${({theme: {layers}}) => layers.bottom};
+  background: ${({theme: {colors}}) => colors.primary};
+  right: 0;
+  bottom: 0;
 `
 
 const MenuItems = styled.ul`
   list-style-type: none;
-  padding: 0;
+  padding: ${ms(8)} 0 0 0;
   margin: 0;
 `
 
@@ -53,7 +43,7 @@ const MainNavigationLink = styled(Link)`
   display: block;
   text-align: center;
   opacity: 1;
-  transition: 0.6ms all linear;
+  transition: all 0.6ms linear;
 
   &.active {
     opacity: 0.4;

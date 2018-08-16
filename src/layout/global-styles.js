@@ -17,6 +17,7 @@ ${normalize()}
   html,
   body {
     width: 100%;
+
   }
 
   body {

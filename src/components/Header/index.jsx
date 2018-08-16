@@ -25,10 +25,10 @@ const Container = styled.nav`
   top: 0;
   background-color: ${({theme: {colors}}) => rgba(colors.primary, 0)};
   display: flex;
-  justify-content: space-between;
+  //justify-content: space-between;
   padding: ${ms(1)} ${ms(0)};
   align-items: center;
-  z-index: ${({theme: {layers}}) => layers.topBottom};
+  z-index: ${({theme: {layers}}) => layers.middleTom};
 `
 
 const Logo = styled(LogoSVG)`
@@ -36,6 +36,7 @@ const Logo = styled(LogoSVG)`
   //height: 51px; //2.9
   width: ${ms(6)}; //52
   height: ${ms(3.4)}; // 30
+  margin: 0 auto;
 `
 
 const HamburgerButton = styled.button`

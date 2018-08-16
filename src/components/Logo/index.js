@@ -1,10 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 
 // const colors = ['#174677', '#2B768A', '#2FBB92'] // picked from img
 const colors = ['#25516C', '#2B768A', '#2FBB92']
 
 const Svg = styled.svg`
+  cursor: pointer;
   #slice_1 {
     fill: ${colors[0]};
   }
@@ -38,6 +39,24 @@ const SvgComponent = ({withText, className}) => (
         d="M20.2357563,1.26333803 C15.3723148,3.08298592 12.931635,8.3826338 14.8322168,13.0389718 L28.6021555,46.868493 C30.0560686,50.4550986 33.6716534,52.6668592 37.4740967,52.6668592 C38.629804,52.6668592 39.7842315,52.4708028 40.902823,52.0431549 C45.7867422,50.2222817 48.2082241,44.9238592 46.3076424,40.2662958 L32.5543417,6.438 C31.0914697,2.85507042 27.4669259,0.644535211 23.6580833,0.645760563 C22.5164544,0.645760563 21.3569075,0.844267606 20.2357563,1.26333803"
         id="path-7"
       />
+      <linearGradient id="logo-gradient" x1="50%" y1="0%" x2="50%" y2="100%">
+        <stop offset="0%" stopColor="#7A5FFF">
+          <animate
+            attributeName="stop-color"
+            values="#7A5FFF; #01FF89; #7A5FFF"
+            dur="4s"
+            repeatCount="indefinite"
+          />
+        </stop>
+        <stop offset="100%" stopColor="#01FF89">
+          <animate
+            attributeName="stop-color"
+            values="#01FF89; #7A5FFF; #01FF89"
+            dur="4s"
+            repeatCount="indefinite"
+          />
+        </stop>
+      </linearGradient>
       <linearGradient
         id="gradient-horizontal-slice_2"
         x1="0%"

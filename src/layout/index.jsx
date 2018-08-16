@@ -25,6 +25,7 @@ const ViewContainer = styled.div`
   transform: none;
   transition: transform 0.5s ease-in-out;
   position: relative;
+  z-index: ${({theme: {layers}}) => layers.middle};
   ${({isMenuOpen}) =>
     isMenuOpen &&
     css`
@@ -74,8 +75,8 @@ class Layout extends React.Component {
             <Header />
             <ContentContainer>{children}</ContentContainer>
             <Footer />
-            <MobileMenu />
           </ViewContainer>
+          <MobileMenu />
         </Fragment>
       </ThemeProvider>
     )
