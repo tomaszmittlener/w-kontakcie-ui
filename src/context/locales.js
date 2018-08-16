@@ -9,11 +9,10 @@ class LocalesContextProvider extends React.Component {
   t = key => get(Locales, key)
   render() {
     return (
-      <LocalesContext.Provider
-        value={this.t}>
+      <LocalesContext.Provider value={this.t}>
         {this.props.children}
       </LocalesContext.Provider>
-    );
+    )
   }
 }
 

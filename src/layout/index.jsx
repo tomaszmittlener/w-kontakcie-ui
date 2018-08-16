@@ -50,6 +50,9 @@ const ViewContainer = styled.div`
 
 //   padding: ${ms(8)} 0 0 0;
 const ContentContainer = styled.div`
+  flex: 1;
+  background-color: ${({theme: {colors}}) => colors.canvas};
+  z-index: ${({theme: {layers}}) => layers.middle};
 `
 
 class Layout extends React.Component {

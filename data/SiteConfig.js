@@ -12,8 +12,8 @@ module.exports = {
   postDefaultCategoryID: 'Terapia', // Default category for posts.
   dateFromFormat: 'YYYY-MM-DD', // Date format used in the frontmatter.
   dateFormat: 'DD/MM/YYYY', // Date format for display.
-  userName: 'Anna D.', // Username to display in the author segment.
-  userLocation: 'North Pole, Earth', // User location to display in the author segment.
+  userName: 'Anna Dejewska', // Username to display in the author segment.
+  userLocation: 'Grunwaldza 34, 80-220 Gdańsk', // User location to display in the author segment.
   userAvatar: 'https://api.adorable.io/avatars/150/test.png', // User avatar to display in the author segment.
   userDescription:
     "Yeah, I like animals better than people sometimes... Especially dogs. Dogs are the best. Every time you come home, they act like they haven't seen you in a year. And the good thing about dogs... is they got different dogs for different people.", // User description to display in the author segment.
@@ -35,7 +35,7 @@ module.exports = {
       iconClassName: 'fa fa-envelope',
     },
   ],
-  copyright: 'Copyright © 2017. Advanced User', // Copyright string for the footer of the website and RSS feed.
+  copyright: 'Copyright © 2018. W kontakcie', // Copyright string for the footer of the website and RSS feed.
   themeColor: '#c62828', // Used for setting manifest and progress theme colors.
   backgroundColor: '#e0e0e0', // Used for setting manifest background color.
 }

@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 
 const AppHelmet = ({title, description}) => (
   <Helmet>
+    <html lang="pl-PL" />
     <title>{title}</title>
     <meta name="description" content={description} />
   </Helmet>

@@ -6,22 +6,36 @@ const colors = ['#25516C', '#2B768A', '#2FBB92']
 
 const Svg = styled.svg`
   cursor: pointer;
-  #slice_1 {
-    fill: ${colors[0]};
-  }
-  #slice_2 {
-    fill: url(#gradient-horizontal-slice_2);
-  }
-  #slice_3 {
-    fill: url(#gradient-horizontal-slice_3);
-  }
+  #slice_1,
+  #slice_2,
+  #slice_3,
   #slice_4 {
-    fill: ${colors[2]};
+    fill: ${({theme: {colors}}) => colors.text};
+    transition: fill 300ms linear;
+  }
+  &:hover {
+    #slice_1 {
+      fill: ${colors[0]};
+    }
+    #slice_2 {
+      fill: url(#gradient-horizontal-slice_2);
+    }
+    #slice_3 {
+      fill: url(#gradient-horizontal-slice_3);
+    }
+    #slice_4 {
+      fill: ${colors[2]};
+    }
   }
 `
 
 const SvgComponent = ({withText, className}) => (
-  <Svg width="89px" height="81px" viewBox={withText ? "0 0 89 81" : "0 1 92 53"} version="1.1" className={className}>
+  <Svg
+    width="89px"
+    height="81px"
+    viewBox={withText ? '0 0 89 81' : '0 1 92 53'}
+    version="1.1"
+    className={className}>
     <defs>
       <path
         d="M70.0706736,6.44290141 L69.0455113,8.9585493 C69.0455113,8.97815493 69.0275934,8.99530986 69.0275934,9.01246479 C67.4239375,13.5634225 69.8658971,18.6118732 74.5808757,20.3604507 C79.3700857,22.1457887 84.7736252,19.9511831 86.7855542,15.4725211 C86.8239497,15.3830704 86.8623453,15.2936197 86.8994611,15.204169 L87.7927985,12.9740282 C89.6562645,8.33484507 87.2155848,3.07073239 82.3700612,1.26946479 C81.2527495,0.840591549 80.0791243,0.644535211 78.9400551,0.644535211 C75.1388916,0.644535211 71.5245866,2.85874648 70.0706736,6.44290141"

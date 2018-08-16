@@ -27,3 +27,12 @@ export const H3 = styled.h3`
   font-family: ${({theme: {typo: {fontFamily}}}) => fontFamily.primary};
   font-weight: unset;
 `
+export const H4 = styled.h4`
+  font-family: ${({ theme: { typo: { fontFamily } } }) => fontFamily.primary};
+  font-size: ${ms(1)}; //22px
+  line-height: 1.5;
+  margin: 0;
+  color: ${({ color, theme: { colors } }) => (color ? colors[color] : 'inherit')};
+  font-family: ${({theme: {typo: {fontFamily}}}) => fontFamily.primary};
+  font-weight: unset;
+`

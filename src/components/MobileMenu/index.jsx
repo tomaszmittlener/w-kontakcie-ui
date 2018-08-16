@@ -8,6 +8,7 @@ import menuItelmsList from '../../../data/MenuItems'
 import {ms} from '../../layout/helpers'
 
 const MenuContainer = styled.nav`
+  text-transform: uppercase;
   position: fixed;
   height: 100%;
   overflow-y: auto;
