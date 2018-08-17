@@ -7,7 +7,7 @@ import {withLocales} from 'src/context/locales'
 import {graphql, StaticQuery, Link} from 'gatsby'
 import {rgba} from 'polished'
 import LogoSVG from 'src/components/Logo'
-import {ms} from 'src/layout/helpers'
+import {ms} from 'src/utils/index'
 import map from 'lodash/map'
 import menuItelmsList from '../../../data/MenuItems'
 

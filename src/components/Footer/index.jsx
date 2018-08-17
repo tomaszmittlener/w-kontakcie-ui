@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 import {H4} from 'src/components/Headings'
-import {ms} from 'src/layout/helpers'
+import {ms} from 'src/utils/index'
 import config from '../../../data/SiteConfig'
 
 const Container = styled.footer`

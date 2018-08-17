@@ -2,7 +2,7 @@ import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled, {ThemeProvider, css} from 'styled-components'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
-import {getLocalTitle, compose} from 'src/utils'
+import {getLocalTitle, compose, ms} from 'src/utils'
 import {Helmet, MobileMenu, Header, Footer, Transition} from 'src/components'
 import {
   contextPropTypesShape,
@@ -45,11 +45,15 @@ const ViewContainer = styled.div`
     `};
 `
 
-//   padding: ${ms(8)} 0 0 0;
 const ContentContainer = styled.div`
   flex: 1;
   background-color: ${({theme: {colors}}) => colors.canvas};
   z-index: ${({theme: {layers}}) => layers.middle};
+  ${({withTopPadding}) =>
+    withTopPadding &&
+    css`
+      padding: ${ms(8)} 0 0 0;
+    `};
 `
 
 class Layout extends React.Component {
@@ -61,6 +65,7 @@ class Layout extends React.Component {
       children,
       location: {pathname},
       context: {toggleMenuOpen, isMenuOpen, theme},
+      withTopPadding,
     } = this.props
     return (
       <ThemeProvider theme={theme}>
@@ -73,7 +78,7 @@ class Layout extends React.Component {
             isMenuOpen={isMenuOpen}
             onClick={() => isMenuOpen && toggleMenuOpen()}>
             <Header />
-            <ContentContainer>
+            <ContentContainer withTopPadding={withTopPadding}>
               <Transition>{children}</Transition>
             </ContentContainer>
             <Footer />
@@ -88,6 +93,11 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
   location: locationPropTypesShape.isRequired,
   context: contextPropTypesShape.isRequired,
+  withTopPadding: contextPropTypesShape,
+}
+
+Layout.defaultProps = {
+  withTopPadding: false,
 }
 
 export default compose(

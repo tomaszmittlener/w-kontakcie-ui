@@ -1,25 +1,23 @@
 import React, {Component, Fragment} from 'react'
 import Helmet from 'react-helmet'
 import Layout from 'src/layout'
-import About from 'src/components/About/About'
+import {H1} from 'src/components'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
 import config from '../../data/SiteConfig'
 
-class AboutPage extends Component {
+class ArticlesPage extends Component {
   render() {
     return (
       <Layout location={this.props.location} withTopPadding>
-        <Fragment>
-          <Helmet title={`O mnie | ${config.siteTitle}`} />
-          <About />
-        </Fragment>
+        <Helmet title={`Artykuły | ${config.siteTitle}`} />
+        <H1>Artykuły</H1>
       </Layout>
     )
   }
 }
 
-AboutPage.propTypes = {
+ArticlesPage.propTypes = {
   location: locationPropTypesShape.isRequired,
 }
 
-export default AboutPage
+export default ArticlesPage

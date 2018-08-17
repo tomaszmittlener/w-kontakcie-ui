@@ -9,7 +9,7 @@ import {H2, H3} from 'src/components/Headings'
 import {ParagraphText} from 'src/components/Text'
 
 import {rgba} from 'polished'
-import {ms} from 'src/layout/helpers'
+import {ms} from 'src/utils/index'
 import Img from 'gatsby-image'
 import menuItelmsList from '../../../data/MenuItems'
 

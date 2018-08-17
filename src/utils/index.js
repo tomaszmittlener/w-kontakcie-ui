@@ -1,4 +1,5 @@
 import reduceRight from 'lodash/reduceRight'
+import modularScale from 'polished/lib/helpers/modularScale'
 import config from '../../data/SiteConfig'
 
 export const getLocalTitle = pathname => {
@@ -44,3 +45,7 @@ export const compose = (...fns) =>
     (prevFn, nextFn) => (...args) => nextFn(prevFn(...args)),
     value => value,
   )
+
+export function ms(step) {
+  return modularScale(step, '1rem', 'minorThird').replace('em', 'rem')
+}

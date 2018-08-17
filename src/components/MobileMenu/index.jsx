@@ -5,7 +5,7 @@ import {Link} from 'gatsby'
 import {contextPropTypesShape, withAppContext} from 'src/context'
 import map from 'lodash/map'
 import menuItelmsList from '../../../data/MenuItems'
-import {ms} from '../../layout/helpers'
+import {ms} from '../../utils/index'
 
 const MenuContainer = styled.nav`
   text-transform: uppercase;
