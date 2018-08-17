@@ -29,7 +29,7 @@ const Svg = styled.svg`
   }
 `
 
-const SvgComponent = ({withText, className}) => (
+const Logo = ({withText, className}) => (
   <Svg
     width="89px"
     height="81px"
@@ -132,4 +132,4 @@ const SvgComponent = ({withText, className}) => (
   </Svg>
 )
 
-export default SvgComponent
+export default Logo
