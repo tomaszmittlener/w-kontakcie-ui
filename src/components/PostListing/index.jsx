@@ -3,7 +3,7 @@ import Link from '../../components/Link'
 import {ParagraphText} from '../../components/Text'
 import {H2} from '../../components/Headings'
 
-class PostListing extends React.Component {
+class Index extends React.Component {
   getPostList() {
     const postList = []
     this.props.postEdges.forEach(postEdge => {
@@ -37,4 +37,4 @@ class PostListing extends React.Component {
   }
 }
 
-export default PostListing
+export default Index

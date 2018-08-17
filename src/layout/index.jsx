@@ -3,17 +3,13 @@ import PropTypes from 'prop-types'
 import styled, {ThemeProvider, css} from 'styled-components'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
 import {getLocalTitle, compose} from 'src/utils'
-import AppHelmet from 'src/components/Helmet'
-import MobileMenu from 'src/components/MobileMenu'
-import Header from 'src/components/Header/index'
-import Footer from 'src/components/Footer'
-import Transition from 'src/components/Transition'
+import {Helmet, MobileMenu, Header, Footer, Transition} from 'src/components'
 import {
   contextPropTypesShape,
   withAppContext,
   withAppContextProvider,
+  withLocalesContextProvider,
 } from 'src/context'
-import {withLocalesContextProvider} from 'src/context/locales'
 import config from '../../data/SiteConfig'
 import './global-styles'
 
@@ -69,7 +65,7 @@ class Layout extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <Fragment>
-          <AppHelmet
+          <Helmet
             description={config.siteDescription}
             title={`${config.siteTitle} |  ${getLocalTitle(pathname)}`}
           />

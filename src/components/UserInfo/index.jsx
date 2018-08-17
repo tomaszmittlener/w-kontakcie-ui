@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 
-class UserInfo extends Component {
+class Index extends Component {
   render() {
     return <div>anna@terapia.pl</div>
   }
 }
 
-export default UserInfo
+export default Index

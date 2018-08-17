@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
-import {SpanText, ParagraphText} from 'src/components/Text'
 import {H4} from 'src/components/Headings'
 import {ms} from 'src/layout/helpers'
-import UserLinks from '../UserLinks/UserLinks'
 import config from '../../../data/SiteConfig'
 
 const Container = styled.footer`

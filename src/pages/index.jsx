@@ -4,8 +4,8 @@ import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import AboutMeSection from 'src/components/AboutMe'
-import Layout from '../layout'
-import SEO from '../components/SEO/SEO'
+import Layout from 'src/layout'
+import {SEO} from 'src/components'
 import config from '../../data/SiteConfig'
 
 const ImageContainer = styled(Img)`
@@ -15,8 +15,6 @@ const ImageContainer = styled(Img)`
 
 class Index extends React.Component {
   render() {
-    console.log(this.props)
-
     const postEdges = this.props.data.allMarkdownRemark.edges
     return (
       <Layout location={this.props.location}>
@@ -24,7 +22,7 @@ class Index extends React.Component {
           <Helmet title={config.siteTitle} />
           <SEO />
           <ImageContainer
-            sizes={this.props.data.picture.childImageSharp.fixed}
+            fluid={this.props.data.picture.childImageSharp.fluid}
           />
           <AboutMeSection />
         </Fragment>
@@ -59,14 +57,15 @@ export const pageQuery = graphql`
         }
       }
     }
-    picture: file(relativePath: {eq: "background2.jpg"}) {
+    picture: file(relativePath: {eq: "background.jpg"}) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
-        fixed(
-          width: 1920 #          duotone: {highlight: "#f00e2e", shadow: "#192550", opacity: 50}
+        fluid(
+          maxWidth: 1920
+          maxHeight: 475 #          duotone: {highlight: "#f00e2e", shadow: "#192550", opacity: 50}
         ) {
-          ...GatsbyImageSharpFixed
+          ...GatsbyImageSharpFluid
         }
       }
     }

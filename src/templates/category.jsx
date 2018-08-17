@@ -1,8 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
-import Layout from '../layout'
-import PostListing from '../components/PostListing/PostListing'
+import Layout from 'src/layout'
+import {PostListing} from 'src/components'
 import config from '../../data/SiteConfig'
 
 export default class CategoryTemplate extends React.Component {

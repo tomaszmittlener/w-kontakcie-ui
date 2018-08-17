@@ -16,7 +16,7 @@ A blog starter skeleton with advanced features for [Gatsby](https://github.com/g
 
 This project aims to provide a minimal base for building advanced GatsbyJS powered blogs.
 
-It doesn't define any UI limitations in any way, and only gives you the basic components for SEO/Social Media/etc.
+It doesn't define any UI limitations in any way, and only gives you the basic components for Index/Social Media/etc.
 
 You are free to use any UI framework/styling options available to you.
 
@@ -65,7 +65,7 @@ If you are interested in a foundation for building ultra-fast websites, you can 
   - Google+ share button
   - LinkedIn share button
   - Telegram share button
-- SEO
+- Index
   - Sitemap generation
   - robots.txt
   - General description tags
@@ -117,8 +117,8 @@ Edit the export object in `data/SiteConfig`:
 module.exports = {
   siteTitle: "Gatsby Advanced Starter", // Site title.
   siteTitleShort: "GA Starter", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
-  siteTitleAlt: "GatsbyJS Advanced Starter", // Alternative site title for SEO.
-  siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
+  siteTitleAlt: "GatsbyJS Advanced Starter", // Alternative site title for Index.
+  siteLogo: "/logos/logo-1024.png", // Logo used for Index and manifest.
   siteUrl: "https://vagr9k.github.io", // Domain of your website without pathPrefix.
   pathPrefix: "/gatsby-advanced-starter", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription: "A GatsbyJS stater with Advanced design in mind.", // Website description used for RSS feeds/meta description tag.
@@ -130,8 +130,7 @@ module.exports = {
   dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
   dateFormat: "DD/MM/YYYY", // Date format for display.
   userName: "Advanced User", // Username to display in the author segment.
-  userTwitter: "", // Optionally renders "Follow Me" in the UserInfo segment.
-  userLocation: "North Pole, Earth", // User location to display in the author segment.
+  userTwitter: "", IndexuserLocation: "North Pole, Earth", // User location to display in the author segment.
   userAvatar: "https://api.adorable.io/avatars/150/test.png", // User avatar to display in the author segment.
   userDescription:
     "Yeah, I like animals better than people sometimes... Especially dogs. Dogs are the best. Every time you come home, they act like they haven't seen you in a year. And the good thing about dogs... is they got different dogs for different people.", // User description to display in the author segment.
