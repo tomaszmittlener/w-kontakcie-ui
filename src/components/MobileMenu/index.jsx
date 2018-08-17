@@ -65,6 +65,7 @@ class MobileMenu extends React.PureComponent {
         <MenuItems>
           {map(menuItelmsList, (item, i) => (
             <MainNavigationLink
+              exact
               activeClassName="active"
               key={i}
               to={item.link}

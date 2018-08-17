@@ -93,7 +93,7 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
   location: locationPropTypesShape.isRequired,
   context: contextPropTypesShape.isRequired,
-  withTopPadding: contextPropTypesShape,
+  withTopPadding: PropTypes.bool,
 }
 
 Layout.defaultProps = {

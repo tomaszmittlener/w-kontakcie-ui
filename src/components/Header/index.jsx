@@ -25,7 +25,8 @@ const Container = styled.nav`
   width: 100vw;
   position: absolute;
   top: 0;
-  background-color: ${({theme: {colors}}) => rgba(colors.primary, 0)}; // color is off
+  background-color: ${({theme: {colors}}) =>
+    rgba(colors.primary, 0)}; // color is off
   display: flex;
   //justify-content: space-between;
   padding: ${ms(1)} ${ms(2)};
@@ -80,16 +81,18 @@ const HamburgerButton = styled.button`
   &:after {
     transform: translateY(12px);
   }
-  &:focus {
-    transform: rotate(45deg) translateY(0);
-    border: none;
-    &:after {
-      transform: rotate(-90deg) translateX(-10px);
-    }
-    &:before {
-      transform: translateY(10px);
-    }
-  }
+  ${({isMenuOpen}) =>
+    isMenuOpen &&
+    css`
+      transform: rotate(45deg) translateY(0);
+      border: none;
+      &:after {
+        transform: rotate(-90deg) translateX(-10px);
+      }
+      &:before {
+        transform: translateY(10px);
+      }
+    `};
 `
 
 const MenuItems = styled.div`
@@ -124,16 +127,23 @@ const MainNavigationLink = styled(Link)`
   }
 `
 
-const Header = ({t, context: {toggleMenuOpen, isMobile, isTablet}, data}) => (
+const Header = ({
+  t,
+  context: {toggleMenuOpen, isMobile, isTablet, isMenuOpen},
+  data,
+}) => (
   <Container isMobile={isTablet || isMobile}>
     <LogoContainer to="/">
       <Logo withText={!(isTablet || isMobile)} />
     </LogoContainer>
-    {(isTablet || isMobile) && <HamburgerButton onClick={toggleMenuOpen} />}
+    {(isTablet || isMobile) && (
+      <HamburgerButton onClick={toggleMenuOpen} isMenuOpen={isMenuOpen} />
+    )}
     {!(isTablet || isMobile) && (
       <MenuItems>
         {map(menuItelmsList, (item, i) => (
           <MainNavigationLink
+            exact
             activeClassName="active"
             key={i}
             to={item.link}
