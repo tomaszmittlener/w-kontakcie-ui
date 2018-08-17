@@ -9,10 +9,11 @@ module.exports = {
   siteRss: '/rss.xml', // Path to the RSS file.
   siteFBAppID: '1825356251115265', // FB Application ID for using app insights
   googleAnalyticsID: '', // GA tracking ID.
-  postDefaultCategoryID: 'Terapia', // Default category for posts.
+  postDefaultCategoryID: 'psychologia', // Default category for posts.
   dateFromFormat: 'YYYY-MM-DD', // Date format used in the frontmatter.
   dateFormat: 'DD/MM/YYYY', // Date format for display.
   userName: 'Anna Dejewska', // Username to display in the author segment.
+  userEmail: 'anna.dejewska1@gmail.com',
   userLocation: 'Grunwaldza 34, 80-220 Gdańsk', // User location to display in the author segment.
   userAvatar: 'https://api.adorable.io/avatars/150/test.png', // User avatar to display in the author segment.
   userDescription:

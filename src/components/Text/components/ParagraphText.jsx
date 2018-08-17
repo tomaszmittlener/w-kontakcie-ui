@@ -1,16 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { textPropTypes, textDefaultProps } from '../../../constants/PropTypes'
-import { ms } from '../../../utils/index'
+import {textPropTypes, textDefaultProps} from '../../../constants/PropTypes'
+import {ms} from '../../../utils/index'
 import TextBasixMixin from './TextBasicMixin'
 
 const StyledText = styled.p`
   ${TextBasixMixin};
-  margin: ${({ nomargin, smallmargin }) => (nomargin ? 0 : (smallmargin && `0 0 ${ms(-4)}`) || `0 0 ${ms(0)}`)}};
+  margin: ${({nomargin, smallmargin}) =>
+    nomargin ? 0 : (smallmargin && `0 0 ${ms(-4)}`) || `0 0 ${ms(0)}`}};
 `
 
-function ParagraphText({ className, color, size, children, nopadding, smallmargin, weight }) {
+function ParagraphText({
+  className,
+  color,
+  size,
+  children,
+  nopadding,
+  smallmargin,
+  weight,
+}) {
   return (
     <StyledText
       color={color}
@@ -18,8 +27,7 @@ function ParagraphText({ className, color, size, children, nopadding, smallmargi
       nopadding={nopadding}
       smallmargin={smallmargin}
       weight={weight}
-      className={className}
-    >
+      className={className}>
       {children}
     </StyledText>
   )
@@ -37,4 +45,4 @@ ParagraphText.defaultProps = {
   smallmargin: false,
 }
 
-export default (ParagraphText)
+export default ParagraphText
