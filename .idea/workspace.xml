@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="365faf1c-173a-47b9-8a92-7235283a3aca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Icons/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/appContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/SiteConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/SiteConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Icons/Email.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Icons/EmailIcon.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PostListing/PostListing.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostListing/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PostTags/PostTags.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostTags/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SEO/SEO.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SEO/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SocialLinks/SocialLinks.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SocialLinks/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserInfo/UserInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserInfo/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserLinks/UserLinks.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserLinks/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/context/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/b16-tomorrow-dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/category.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/post.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/post.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/post.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/tag.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/tag.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -109,7 +89,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="eslintignore" value="1" />
-          <entry key="js" value="4596" />
+          <entry key="js" value="4615" />
           <entry key="json" value="42" />
           <entry key="jsx" value="6036" />
           <entry key="svg" value="1" />
@@ -120,7 +100,7 @@
           <entry key="GraphQL" value="19" />
           <entry key="JSON" value="42" />
           <entry key="JSX Harmony" value="5855" />
-          <entry key="JavaScript" value="4497" />
+          <entry key="JavaScript" value="4516" />
           <entry key="Less" value="261" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="SVG" value="1" />
@@ -131,7 +111,7 @@
           <entry key="css" value="4" />
           <entry key="eslintignore" value="1" />
           <entry key="jpg" value="2" />
-          <entry key="js" value="36" />
+          <entry key="js" value="37" />
           <entry key="json" value="2" />
           <entry key="jsx" value="30" />
           <entry key="png" value="1" />
@@ -144,7 +124,7 @@
           <entry key="Image" value="3" />
           <entry key="JSON" value="2" />
           <entry key="JSX Harmony" value="30" />
-          <entry key="JavaScript" value="36" />
+          <entry key="JavaScript" value="37" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="SVG" value="5" />
         </counts>
@@ -170,8 +150,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/layout/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="77" column="31" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
+            <state relative-caret-position="1278">
+              <caret line="82" column="22" selection-start-line="82" selection-start-column="22" selection-end-line="82" selection-end-column="22" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -221,11 +201,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/SiteConfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
+            <state relative-caret-position="322">
+              <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gatsby-config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="482">
+              <caret line="104" column="16" lean-forward="true" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -237,18 +226,6 @@
               <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/category.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -457,28 +434,6 @@
               <item name="wkontakcie-ui" type="b2602c69:ProjectViewProjectNode" />
               <item name="wkontakcie-ui" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="wkontakcie-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wkontakcie-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wkontakcie-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wkontakcie-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wkontakcie-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wkontakcie-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wkontakcie-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wkontakcie-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -547,12 +502,12 @@
       <workItem from="1534183357962" duration="1396000" />
       <workItem from="1534237620398" duration="199000" />
       <workItem from="1534237850890" duration="21861000" />
-      <workItem from="1534445446829" duration="6207000" />
+      <workItem from="1534445446829" duration="6627000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91676000" />
+    <option name="totallyTimeSpent" value="92096000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -572,7 +527,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32987553" />
       <window_info anchor="bottom" id="GraphQL" order="9" weight="0.2313278" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.49481326" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.25726143" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Quokka" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -615,13 +570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="563">
           <caret line="31" column="14" selection-start-line="31" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gatsby-config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="68" column="32" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -946,17 +894,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/context/index.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/layout/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="77" column="31" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
+        <state relative-caret-position="104">
+          <caret line="62" column="38" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
@@ -970,10 +911,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/index.jsx">
+    <entry file="file://$PROJECT_DIR$/src/context/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="62" column="38" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
+        <state relative-caret-position="115">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layout/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1278">
+          <caret line="82" column="22" selection-start-line="82" selection-start-column="22" selection-end-line="82" selection-end-column="22" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
@@ -982,8 +930,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/SiteConfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
+        <state relative-caret-position="322">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gatsby-config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="104" column="16" lean-forward="true" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="34" />
         </state>
       </provider>
     </entry>

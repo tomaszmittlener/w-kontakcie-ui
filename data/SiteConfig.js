@@ -3,8 +3,8 @@ module.exports = {
   siteTitleShort: 'W Kontakcie', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: 'W Kontakcie', // Alternative site title for Index.
   siteLogo: 'logo.png', // Logo used for Index and manifest.
-  siteUrl: 'netlify.com/', // Domain of your website without pathPrefix.
-  pathPrefix: 'reverent-goldberg-099d94', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
+  siteUrl: 'https://www.reverent-goldberg-099d94.netlify.com/', // Domain of your website without pathPrefix.
+  pathPrefix: 'https://www.reverent-goldberg-099d94.netlify.com/', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription: "Gabinet terapeutyczny 'W kontakcie'", // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml', // Path to the RSS file.
   siteFBAppID: '1825356251115265', // FB Application ID for using app insights
