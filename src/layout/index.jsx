@@ -7,6 +7,7 @@ import AppHelmet from 'src/components/Helmet'
 import MobileMenu from 'src/components/MobileMenu'
 import Header from 'src/components/Header/index'
 import Footer from 'src/components/Footer'
+import Transition from 'src/components/Transition'
 import {
   contextPropTypesShape,
   withAppContext,
@@ -76,7 +77,9 @@ class Layout extends React.Component {
             isMenuOpen={isMenuOpen}
             onClick={() => isMenuOpen && toggleMenuOpen()}>
             <Header />
-            <ContentContainer>{children}</ContentContainer>
+            <ContentContainer>
+              <Transition>{children}</Transition>
+            </ContentContainer>
             <Footer />
           </ViewContainer>
           <MobileMenu />
