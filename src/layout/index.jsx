@@ -3,7 +3,14 @@ import PropTypes from 'prop-types'
 import styled, {ThemeProvider, css} from 'styled-components'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
 import {getLocalTitle, compose, ms} from 'src/utils'
-import {Helmet, MobileMenu, Header, Footer, Transition} from 'src/components'
+import {
+  Helmet,
+  MobileMenu,
+  Header,
+  Footer,
+  Transition,
+  MenuButton,
+} from 'src/components'
 import {
   contextPropTypesShape,
   withAppContext,
@@ -14,39 +21,24 @@ import config from '../../data/SiteConfig'
 import './global-styles'
 
 const ViewContainer = styled.div`
+  height: 100%;
   min-height: 100vh;
-  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transform: none;
-  transition: transform 0.5s ease-in-out;
-  position: relative;
+  background-color: ${({theme: {colors}}) => colors.canvas};
+  transition: 0.5s transform linear;
   z-index: ${({theme: {layers}}) => layers.middle};
+  position: relative;
   ${({isMenuOpen}) =>
     isMenuOpen &&
     css`
-      position: fixed;
-      min-height: unset;
-      height: 100%;
-      transform: translate3d(-200px, 0, 0);
-      &:before {
-        cursor: e-resize;
-        pointer-events: auto;
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        z-index: ${({theme: {layers}}) => layers.top};
-        height: 100%;
-      }
+      transform: translateX(-200px);
     `};
 `
 
-const ContentContainer = styled.div`
-  flex: 1;
+const ContentContainer = styled.main`
+  position: relative;
   background-color: ${({theme: {colors}}) => colors.canvas};
   z-index: ${({theme: {layers}}) => layers.middle};
   ${({withTopPadding}) =>
@@ -56,6 +48,7 @@ const ContentContainer = styled.div`
     `};
 `
 
+
 class Layout extends React.Component {
   toggleMenu = () =>
     this.setState(prevState => ({isMenuOpen: !prevState.isMenuOpen}))
@@ -64,7 +57,7 @@ class Layout extends React.Component {
     const {
       children,
       location: {pathname},
-      context: {toggleMenuOpen, isMenuOpen, theme},
+      context: {toggleMenuOpen, isMenuOpen, theme, isTablet, isMobile},
       withTopPadding,
     } = this.props
     return (
@@ -74,16 +67,23 @@ class Layout extends React.Component {
             description={config.siteDescription}
             title={`${config.siteTitle} |  ${getLocalTitle(pathname)}`}
           />
+          <MenuButton
+            onClick={toggleMenuOpen}
+            isMenuOpen={isMenuOpen}
+            shouldDisplay={isTablet || isMobile}
+          />
+          <MobileMenu />
           <ViewContainer
             isMenuOpen={isMenuOpen}
             onClick={() => isMenuOpen && toggleMenuOpen()}>
             <Header />
-            <ContentContainer withTopPadding={withTopPadding}>
-              <Transition>{children}</Transition>
-            </ContentContainer>
+            <Transition>
+              <ContentContainer withTopPadding={withTopPadding}>
+                {children}
+              </ContentContainer>
+            </Transition>
             <Footer />
           </ViewContainer>
-          <MobileMenu />
         </Fragment>
       </ThemeProvider>
     )

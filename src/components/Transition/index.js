@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import {Transition as ReactTransition} from 'react-transition-group'
 import getTransitionStyle from 'src/utils/getTransitinStyle'
 import {historyExitingEventType, timeout} from '../../../gatsby-browser'
@@ -28,7 +28,6 @@ class Transition extends React.Component {
     this.setState({exiting: true})
   }
 
-
   render() {
     const transitionProps = {
       timeout: {
@@ -38,17 +37,17 @@ class Transition extends React.Component {
       appear: true,
       in: !this.state.exiting,
     }
-
+    const childrenWithProps = status =>
+      React.Children.map(this.props.children, child =>
+        React.cloneElement(child, {
+          style: {
+            ...getTransitionStyle({status, timeout}),
+          },
+        }),
+      )
     return (
       <ReactTransition {...transitionProps}>
-        {status => (
-          <div
-            style={{
-              ...getTransitionStyle({status, timeout}),
-            }}>
-            {this.props.children}
-          </div>
-        )}
+        {status => childrenWithProps(status)}
       </ReactTransition>
     )
   }

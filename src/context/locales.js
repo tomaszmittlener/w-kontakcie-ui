@@ -7,8 +7,16 @@ import Config from '../../data/SiteConfig'
 export const LocalesContext = React.createContext()
 
 class LocalesContextProvider extends React.Component {
-  t = key => get(Locales, key)
-  config = key => get(Config, key)
+  getNestedProp = (nestedObj, stringKey) => {
+    const pathArr = stringKey.split('.')
+    return pathArr.reduce(
+      (obj, key) => (obj && obj[key] !== 'undefined' ? obj[key] : undefined),
+      nestedObj,
+    )
+  }
+
+  t = key => this.getNestedProp(Locales, key)
+  config = key => this.getNestedProp(Config, key)
 
   render() {
     const values = {
@@ -16,9 +24,7 @@ class LocalesContextProvider extends React.Component {
       config: key => this.config(key),
     }
     return (
-      <LocalesContext.Provider
-        value={values}
-      >
+      <LocalesContext.Provider value={values}>
         {this.props.children}
       </LocalesContext.Provider>
     )

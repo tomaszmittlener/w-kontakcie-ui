@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react'
+import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
@@ -6,6 +7,10 @@ import styled from 'styled-components'
 import AboutMeSection from 'src/components/AboutMe'
 import Layout from 'src/layout'
 import {SEO} from 'src/components'
+import {
+  ImageFluidPropTypesShape,
+  locationPropTypesShape,
+} from 'src/utils/PropTypes'
 import config from '../../data/SiteConfig'
 
 const ImageContainer = styled(Img)`
@@ -15,15 +20,16 @@ const ImageContainer = styled(Img)`
 
 class Index extends React.Component {
   render() {
-    const postEdges = this.props.data.allMarkdownRemark.edges
+    const {
+      location,
+      data: {picture},
+    } = this.props
     return (
-      <Layout location={this.props.location}>
+      <Layout location={location}>
         <Fragment>
           <Helmet title={config.siteTitle} />
           <SEO />
-          <ImageContainer
-            fluid={this.props.data.picture.childImageSharp.fluid}
-          />
+          <ImageContainer fluid={picture.childImageSharp.fluid} />
           <AboutMeSection />
         </Fragment>
       </Layout>
@@ -31,32 +37,18 @@ class Index extends React.Component {
   }
 }
 
+Index.propTypes = {
+  location: locationPropTypesShape.isRequired,
+  data: PropTypes.shape({
+    picture: ImageFluidPropTypesShape.isRequired,
+  }).isRequired,
+}
+
 export default Index
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(
-      limit: 2000
-      sort: {fields: [fields___date], order: DESC}
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-            date
-          }
-          excerpt
-          timeToRead
-          frontmatter {
-            title
-            tags
-            cover
-            date
-          }
-        }
-      }
-    }
     picture: file(relativePath: {eq: "background.jpg"}) {
       childImageSharp {
         # Specify the image processing specifications right in the query.

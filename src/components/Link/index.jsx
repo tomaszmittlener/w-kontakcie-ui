@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Link} from 'gatsby'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 
 import {textPropTypes, textDefaultProps} from '../../constants/PropTypes'
 
-const StyledLink = styled(Link)`
+const LinkMixin = css`
   text-decoration: none;
   color: ${({color, theme: {colors}}) => (color ? colors[color] : colors.text)};
   font-size: ${({size}) => size || 'inherit'};
@@ -16,21 +16,38 @@ const StyledLink = styled(Link)`
   }
 `
 
-function SpanText({className, size, color, children, to}) {
+const WrappedLink = styled(
+  ({size, color, children, to, exact, ...otherProps}) => {
+    const href = /(http|https)(.+)/.exec(to)
+    return href ? (
+      <a href={href[0]} {...otherProps}>
+        {children}
+      </a>
+    ) : (
+      <Link to={to} exact={exact} {...otherProps}>
+        {children}
+      </Link>
+    )
+  },
+)`
+  ${LinkMixin};
+`
+
+function CusotmLink({className, size, color, children, to}) {
   return (
-    <StyledLink size={size} color={color} className={className} to={to}>
+    <WrappedLink size={size} color={color} className={className} to={to}>
       {children}
-    </StyledLink>
+    </WrappedLink>
   )
 }
 
-SpanText.propTypes = {
+CusotmLink.propTypes = {
   ...textPropTypes,
   to: PropTypes.string.isRequired,
 }
 
-SpanText.defaultProps = {
+CusotmLink.defaultProps = {
   ...textDefaultProps,
 }
 
-export default SpanText
+export default CusotmLink

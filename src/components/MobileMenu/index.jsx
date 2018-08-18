@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 import {Link} from 'gatsby'
 import {contextPropTypesShape, withAppContext} from 'src/context'
 import map from 'lodash/map'
@@ -10,19 +10,19 @@ import {ms} from '../../utils/index'
 const MenuContainer = styled.nav`
   text-transform: uppercase;
   position: fixed;
-  height: 100%;
+  height: 100vh;
   overflow-y: auto;
   box-sizing: border-box;
   width: 200px;
-  top: 0;
   transition: all 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  z-index: ${({theme: {layers}}) => layers.bottom};
   background: ${({theme: {colors}}) => colors.primary};
+  top: 0;
   right: 0;
   bottom: 0;
+  //transform: translateX(200px);
 `
 
 const MenuItems = styled.ul`

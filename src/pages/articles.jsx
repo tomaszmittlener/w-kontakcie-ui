@@ -1,8 +1,9 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 import Helmet from 'react-helmet'
 import Layout from 'src/layout'
 import {H1, PostListing} from 'src/components'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
+import {graphql} from 'gatsby'
 import config from '../../data/SiteConfig'
 
 class ArticlesPage extends Component {

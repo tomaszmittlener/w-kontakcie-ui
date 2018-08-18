@@ -48,13 +48,13 @@ export class AppContextProvider extends React.Component {
     isWindowDefined &&
     window.matchMedia(
       `screen and ${TABLET_MEDIA_QUERY} and (max-width: ${DESKTOP_MEDIA_QUERY_MIN_WIDTH -
-      1}px)`,
+        1}px)`,
     )
   desktopViewport =
     isWindowDefined &&
     window.matchMedia(
       `screen and ${DESKTOP_MEDIA_QUERY} and (max-width: ${DESKTOP_L_MEDIA_QUERY_MIN_WIDTH -
-      1}px)`,
+        1}px)`,
     )
   desktopLViewport =
     isWindowDefined && window.matchMedia(`screen and ${DESKTOP_L_MEDIA_QUERY}`)

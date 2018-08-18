@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 import {compose} from 'src/utils'
-import {contextPropTypesShape, withAppContext} from 'src/context'
 import {withLocales} from 'src/context/locales'
-import {graphql, StaticQuery, Link} from 'gatsby'
+import {graphql, StaticQuery} from 'gatsby'
 import {H2, H3} from 'src/components/Headings'
 import {ParagraphText} from 'src/components/Text'
 import {ms} from 'src/utils/index'
 import Img from 'gatsby-image'
+import { ImageFluidPropTypesShape, localesPropTypesShape } from 'src/utils/PropTypes';
 
-const ImageContainer = styled(Img)`
+const Avatar = styled(Img)`
   height: 200px;
   width: 200px;
   border-radius: 100%;
@@ -19,11 +19,10 @@ const ImageContainer = styled(Img)`
     margin: 0 ${ms(1)} 0 0;
   }
 `
-const Container = styled.div`
+const Container = styled.figure`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${({theme: {colors}}) => colors.canvas};
   padding: ${ms(2)};
   margin: 0 auto;
   max-width: 100ch;
@@ -32,13 +31,10 @@ const Container = styled.div`
     align-items: flex-start;
   }
 `
-const DescriptionContainer = styled.div`
-  max-width: 100ch;
+const DescriptionContainer = styled.figcaption`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: ${({theme: {colors}}) => colors.text};
-  font-weight: lighter;
   ${({theme: {mq}}) => mq.desktop} {
     align-items: flex-start;
   }
@@ -52,35 +48,28 @@ const ProfessionText = styled(H3)`
   font-weight: bold;
   padding: 0 0 ${ms(0)} 0;
 `
-const AboutMe = ({t, context: {toggleMenuOpen, isMobile, isTablet}, data}) => (
+
+const AboutMe = ({t, data}) => (
   <Container>
-    <ImageContainer sizes={data.meImage.childImageSharp.fluid} />
+    <Avatar sizes={data.meImage.childImageSharp.fluid} />
     <DescriptionContainer>
-      <NameText>Anna Dejewska</NameText>
-      <ProfessionText>psycholog, terapeuta</ProfessionText>
+      <NameText>{t('owner.name')}</NameText>
+      <ProfessionText>{t('owner.profession')}</ProfessionText>
       <ParagraphText>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        {t('aboutMe.description')}
       </ParagraphText>
     </DescriptionContainer>
   </Container>
 )
 
 AboutMe.propTypes = {
-  context: contextPropTypesShape.isRequired,
-  t: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    meImage: ImageFluidPropTypesShape.isRequired,
+  }).isRequired,
+  ...localesPropTypesShape,
 }
 
-const HeaderToExport = compose(
-  withAppContext,
-  withLocales,
-)(AboutMe)
+const HeaderToExport = compose(withLocales)(AboutMe)
 
 export default props => (
   <StaticQuery
