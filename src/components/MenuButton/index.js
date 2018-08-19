@@ -62,7 +62,11 @@ const HamburgerButton = styled.div`
 
 const MenuButton = ({isMenuOpen, onClick, shouldDisplay}) =>
   shouldDisplay && (
-    <Circle onClick={onClick} isMenuOpen={isMenuOpen}>
+    <Circle
+      aria-label="open mobile menu button"
+      aria-current={isMenuOpen}
+      onClick={onClick}
+      isMenuOpen={isMenuOpen}>
       <HamburgerButton isMenuOpen={isMenuOpen} />
     </Circle>
   )

@@ -22,7 +22,6 @@ const MenuContainer = styled.nav`
   top: 0;
   right: 0;
   bottom: 0;
-  //transform: translateX(200px);
 `
 
 const MenuItems = styled.ul`
@@ -61,17 +60,22 @@ class MobileMenu extends React.PureComponent {
       context: {toggleMenuOpen, isMenuOpen},
     } = this.props
     return (
-      <MenuContainer open={isMenuOpen} className={className}>
+      <MenuContainer
+        aria-expanded={isMenuOpen}
+        open={isMenuOpen}
+        className={className}>
         <MenuItems>
           {map(menuItelmsList, (item, i) => (
-            <MainNavigationLink
-              exact
-              activeClassName="active"
-              key={i}
-              to={item.link}
-              onClick={toggleMenuOpen}>
-              {item.title}
-            </MainNavigationLink>
+            <li key={`${item.link}-${i}`}>
+              <MainNavigationLink
+                aria-label={`go to "${item.title}" page`}
+                exact
+                activeClassName="active"
+                to={item.link}
+                onClick={toggleMenuOpen}>
+                {item.title}
+              </MainNavigationLink>
+            </li>
           ))}
         </MenuItems>
       </MenuContainer>

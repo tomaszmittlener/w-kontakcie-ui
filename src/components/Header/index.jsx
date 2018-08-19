@@ -42,7 +42,7 @@ const LogoContainer = styled(Link)`
   }
 `
 
-const MenuItems = styled.div`
+const MenuItems = styled.ul`
   display: flex;
   flex-direction: row;
   list-style-type: none;
@@ -81,21 +81,25 @@ class Header extends React.Component {
       context: {toggleMenuOpen, isMobile, isTablet},
     } = this.props
     return (
-      <Container isMobile={isTablet || isMobile}>
-        <LogoContainer to="/">
+      <Container
+        isMobile={isTablet || isMobile}
+      >
+        <LogoContainer to="/" aria-label="got to Home page">
           <Logo withText={!(isTablet || isMobile)} />
         </LogoContainer>
         {!(isTablet || isMobile) && (
-          <MenuItems>
+          <MenuItems aria-hidden={isTablet || isMobile}>
             {map(menuItemsList, (item, i) => (
-              <MainNavigationLink
-                exact
-                activeClassName="active"
-                key={i}
-                to={item.link}
-                onClick={toggleMenuOpen}>
-                {item.title}
-              </MainNavigationLink>
+              <li key={`${item.link}-${i}`}>
+                <MainNavigationLink
+                  aria-label={`go to "${item.title}" page`}
+                  exact
+                  activeClassName="active"
+                  to={item.link}
+                  onClick={toggleMenuOpen}>
+                  {item.title}
+                </MainNavigationLink>
+              </li>
             ))}
           </MenuItems>
         )}

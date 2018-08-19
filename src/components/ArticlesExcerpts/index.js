@@ -51,6 +51,7 @@ const AboutMe = ({t, articlesExcerpts: {edges: articles}}) => (
       <ArticleContainer key={id}>
         <Link to={fields.slug}>
           <StyledImage
+            title="article cover image"
             src={frontmatter.cover}
             aspectRatio={2}
             maxWidth="800px"

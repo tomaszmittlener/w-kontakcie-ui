@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 
-const Image = ({src, aspectRatio, maxWidth, className, alt}) => {
+const Image = ({src, aspectRatio, maxWidth, className, alt, title}) => {
   const image = {
     base64: '',
     sizes: `(max-width: ${maxWidth}) 100vw, ${maxWidth}`,
@@ -10,7 +10,7 @@ const Image = ({src, aspectRatio, maxWidth, className, alt}) => {
     src,
     aspectRatio,
   }
-  return <Img fluid={image} className={className} alt={alt} />
+  return <Img fluid={image} className={className} alt={alt} title={title}/>
 }
 
 Image.propTypes = {
@@ -18,14 +18,14 @@ Image.propTypes = {
   aspectRatio: PropTypes.number,
   maxWidth: PropTypes.string,
   className: PropTypes.string,
-  alt: PropTypes.string,
+  alt: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 }
 
 Image.defaultProps = {
   aspectRatio: 4,
   maxWidth: '1920px',
   className: '',
-  alt: '',
 }
 
 export default Image

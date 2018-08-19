@@ -4,10 +4,10 @@ module.exports = {
   siteTitleAlt: 'W Kontakcie', // Alternative site title for Index.
   siteLogo: 'logo.png', // Logo used for Index and manifest.
   siteUrl: 'https:/', // Domain of your website without pathPrefix.
-  pathPrefix: '/www.reverent-goldberg-099d94.netlify.com', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
+  pathPrefix: '/reverent-goldberg-099d94.netlify.com', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription: "Gabinet terapeutyczny 'W kontakcie'", // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml', // Path to the RSS file.
-  siteFBAppID: '1825356251115265', // FB Application ID for using app insights
+  siteFBAppID: 'psychoterapiaAnnaDejewska', // FB Application ID for using app insights
   googleAnalyticsID: '', // GA tracking ID.
   postDefaultCategoryID: 'psychologia', // Default category for posts.
   dateFromFormat: 'YYYY-MM-DD', // Date format used in the frontmatter.
@@ -37,6 +37,6 @@ module.exports = {
     },
   ],
   copyright: 'Copyright © 2018. W kontakcie', // Copyright string for the footer of the website and RSS feed.
-  themeColor: '#c62828', // Used for setting manifest and progress theme colors.
-  backgroundColor: '#e0e0e0', // Used for setting manifest background color.
+  themeColor: '#25516C', // Used for setting manifest and progress theme colors.
+  backgroundColor: '#FBFBFB', // Used for setting manifest background color.
 }

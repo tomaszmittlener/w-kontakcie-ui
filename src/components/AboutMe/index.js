@@ -56,7 +56,10 @@ const ProfessionText = styled(H3)`
 
 const AboutMe = ({t, meImage}) => (
   <Figure>
-    <Avatar sizes={meImage.childImageSharp.fluid} />
+    <Avatar
+      title="avatar"
+      alt="Anna Dejewska's circle shape photo"
+      sizes={meImage.childImageSharp.fluid} />
     <FigCaption>
       <NameText>{t('owner.name')}</NameText>
       <ProfessionText>{t('owner.profession')}</ProfessionText>

@@ -79,10 +79,6 @@ const Article = styled.article`
   margin: 0 auto;
 `
 
-const StyledParagraph = styled(ParagraphText)`
-//column-count: 2;
-`
-
 class Index extends React.Component {
   render() {
     const {
@@ -93,7 +89,11 @@ class Index extends React.Component {
       <Layout location={location}>
         <Helmet title={config.siteTitle} />
         <SEO />
-        <ImageContainer fluid={bgImage.childImageSharp.fluid} />
+        <ImageContainer
+          title="Home page cover photo"
+          alt="Long bridge at the sea in the sunset"
+          fluid={bgImage.childImageSharp.fluid}
+        />
         <AboutMeSection>
           <Title>O mnie</Title>
           <AboutMe meImage={meImage} />
@@ -102,14 +102,14 @@ class Index extends React.Component {
           <Title>Oferta</Title>
           <Article>
             <H3>Konsultacja psychologiczna</H3>
-            <StyledParagraph>
+            <ParagraphText>
               Zwykle od jednego do trzech spotkań, w trakcie których można
               określić charakter zgłaszanych problemów oraz wybrać odpowiednią
               formę pomocy tj. psychoterapię indywidualną, grupową, wsparcie
               psychologiczne czy dodatkowo konsultację psychiatryczną.
-            </StyledParagraph>
+            </ParagraphText>
             <H3>Psychoterapia indywidualna</H3>
-            <StyledParagraph>
+            <ParagraphText>
               Rozpoczęcie psychoterapii poprzedzone jest konsultacją, która
               pozwala na rozeznanie się w trudnościach i podjęciu najlepszej
               formy pomocy. Praca terapeutyczna opiera się na cyklu
@@ -119,7 +119,7 @@ class Index extends React.Component {
               osoby oraz poprawę jakości jej życia. Psychoterapia polega na
               szczególnej formie rozmowy, o określonych zasadach i warunkach,
               które zostają ustalone na początku kontaktu.{' '}
-            </StyledParagraph>
+            </ParagraphText>
           </Article>
         </OfferSection>
         <ArticlesSection>

@@ -40,7 +40,10 @@ export default class PostTemplate extends React.Component {
         </Helmet>
         <SEO postPath={slug} postNode={postNode} postSEO />
         <article>
-          <ImageContainer fluid={image} />
+          <ImageContainer
+
+            fluid={image}
+          />
           <h1>{post.title}</h1>
           <MarkdownAST htmlAst={postNode.htmlAst} />
 
