@@ -1,20 +1,68 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Layout from 'src/layout'
-import {H1, PostListing} from 'src/components'
-import {locationPropTypesShape} from 'src/utils/PropTypes'
+import {
+  ArticlesExcerpts,
+  PageSectionTitle,
+  PageSection,
+} from 'src/components'
+import {rgba} from 'polished'
+
+import {
+  articlesExcerptsPropTypesShape,
+  locationPropTypesShape,
+  ImageFluidPropTypesShape,
+} from 'src/utils/PropTypes'
 import {graphql} from 'gatsby'
+import styled from 'styled-components'
+import Img from 'gatsby-image'
+import {ms} from 'src/utils'
 import config from '../../data/SiteConfig'
+
+const ImageContainer = styled(Img)`
+  height: 475px;
+`
+
+const ArticlesContainer = PageSection.extend`
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  figure:nth-of-type(odd) {
+    background: ${({theme: {colors}}) => rgba(colors.third, 0.2)};
+  }
+  ${({theme: {mq}}) => mq.desktop} {
+    figure:nth-of-type(even) {
+      border: 2px solid ${({theme: {colors}}) => rgba(colors.third, 0.2)};
+    }
+  }
+`
+
+const StyledPageSectionTitle = styled(PageSectionTitle)`
+
+`
 
 class ArticlesPage extends Component {
   render() {
-    const postEdges = this.props.data.allMarkdownRemark.edges;
-
+    const {
+      location,
+      data: {bgImage, articlesExcerpts},
+    } = this.props
     return (
-      <Layout location={this.props.location} withTopPadding>
+      <Layout location={location}>
         <Helmet title={`Artykuły | ${config.siteTitle}`} />
-        <H1>Artykuły</H1>
-        <PostListing postEdges={postEdges} />
+        <ImageContainer
+          title="Home page cover photo"
+          alt="Long bridge at the sea in the sunset"
+          fluid={bgImage.childImageSharp.fluid}
+        />
+        <ArticlesContainer>
+          <StyledPageSectionTitle>Artykuły</StyledPageSectionTitle>
+          <ArticlesExcerpts articlesExcerpts={articlesExcerpts} small />
+        </ArticlesContainer>
+
+        {/* <PostListing postEdges={postEdges} /> */}
       </Layout>
     )
   }
@@ -22,6 +70,10 @@ class ArticlesPage extends Component {
 
 ArticlesPage.propTypes = {
   location: locationPropTypesShape.isRequired,
+  data: PropTypes.shape({
+    bgImage: ImageFluidPropTypesShape.isRequired,
+    articlesExcerpts: articlesExcerptsPropTypesShape.isRequired,
+  }).isRequired,
 }
 
 export default ArticlesPage
@@ -29,12 +81,26 @@ export default ArticlesPage
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query ArticlesPageQuery {
-    allMarkdownRemark(
+    bgImage: file(relativePath: {eq: "articles-background.jpg"}) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        # Makes it trivial to update as your page's design changes.
+        fluid(
+          maxWidth: 1920
+          cropFocus: NORTHEAST #                      duotone: {highlight: "#f00e2e", shadow: "#192550", opacity: 50}
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    articlesExcerpts: allMarkdownRemark(
       limit: 2000
       sort: {fields: [fields___date], order: DESC}
     ) {
+      totalCount
       edges {
         node {
+          id
           fields {
             slug
             date

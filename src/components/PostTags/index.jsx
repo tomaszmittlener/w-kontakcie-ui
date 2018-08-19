@@ -1,11 +1,18 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 import kebabCase from 'lodash/kebabCase'
-import {Link} from 'gatsby'
+import {Link} from 'src/components'
 import {ms} from 'src/utils'
 import {rgba} from 'polished'
 
-const TagButton = styled(Link)`
+const TagsList = styled.ul`
+  margin: 0;
+  padding: 0;
+  list-style: none;
+`
+
+const TagItem = styled.li`
+  display: inline-block;
   margin: ${ms(-8)};
   font: inherit;
   line-height: normal;
@@ -28,27 +35,22 @@ const TagButton = styled(Link)`
   }
 `
 
-const TagsContainer = styled.div`
-  padding: ${ms(0)};
-`
-
-// const Title = styled(ParagraphText)``
-
 class Index extends Component {
   render() {
     const {tags} = this.props
     return (
-      <TagsContainer>
-        {tags &&
-          tags.map(tag => (
-            <TagButton
-              key={tag}
-              style={{textDecoration: 'none'}}
-              to={`/tags/${kebabCase(tag)}`}>
-              {tag}
-            </TagButton>
+      tags && (
+        <TagsList
+          aria-label="Tags list">
+          {tags.map(tag => (
+            <TagItem key={tag}>
+              <Link
+                aria-label={`go to "${tag}" tag page`}
+                to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
+            </TagItem>
           ))}
-      </TagsContainer>
+        </TagsList>
+      )
     )
   }
 }

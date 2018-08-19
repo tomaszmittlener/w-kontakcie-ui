@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {H1, H2, H3, Link, ParagraphText} from 'src/components/index'
 import {ms} from 'src/utils'
 import RehypeReact from 'rehype-react'
+import isEmpty from 'lodash/isEmpty'
 
 const EmphasisText = styled.em`
   font-style: italic;
@@ -35,7 +36,12 @@ const defaultComponents = {
 
 const MarkdownAst = ({htmlAst, customComponents}) => {
   const renderAst = new RehypeReact({
-    createElement: React.createElement,
+    createElement: (component, props, children) => {
+      if (component === 'div') {
+        return <Fragment>{children}</Fragment>
+      }
+      return React.createElement(component, props, children)
+    },
     components: {
       ...defaultComponents,
       ...customComponents,

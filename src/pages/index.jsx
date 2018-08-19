@@ -5,7 +5,6 @@ import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import Layout from 'src/layout'
-import {ms} from 'src/utils/index'
 import {
   SEO,
   AboutMe,
@@ -13,8 +12,9 @@ import {
   H1,
   H3,
   ParagraphText,
+  PageSectionTitle,
+  PageSection,
 } from 'src/components'
-import {rgba} from 'polished'
 import {
   articlesExcerptsPropTypesShape,
   ImageFluidPropTypesShape,
@@ -27,39 +27,18 @@ const ImageContainer = styled(Img)`
   z-index: ${({theme: {layers}}) => layers.bottom};
 `
 
-const Section = styled.section`
-  background-color: ${({theme: {colors}}) => colors.canvas};
-  padding: ${ms(4)} 0;
-`
-
-const Title = styled(H1)`
-  display: inline-block;
-  text-align: center;
-  width: 100%;
-  color: ${({theme: {colors}}) => rgba(colors.text, 0.7)};
-  margin: 0 0 ${ms(4)} 0;
-  &:after,
-  &:before {
-    content: '';
-    border-top: 1px solid ${({theme: {colors}}) => rgba(colors.text, 0.3)};
-    width: 40px;
-    transform: translateY(-10px);
-    display: inline-block;
-    margin: 0 5px;
-  }
-`
 
 // about me
-const AboutMeSection = Section.extend`
+const AboutMeSection = PageSection.extend`
   max-width: 1000px;
   margin: 0 auto;
 `
 
 // articles
-const ArticlesSection = Section.extend``
+// const ArticlesSection = Section.extend``
 
 // offer
-const OfferSection = Section.extend`
+const OfferSection = PageSection.extend`
   background-color: ${({theme: {colors}}) => colors.third};
 `
 
@@ -95,11 +74,11 @@ class Index extends React.Component {
           fluid={bgImage.childImageSharp.fluid}
         />
         <AboutMeSection>
-          <Title>O mnie</Title>
+          <PageSectionTitle>O mnie</PageSectionTitle>
           <AboutMe meImage={meImage} />
         </AboutMeSection>
         <OfferSection>
-          <Title>Oferta</Title>
+          <PageSectionTitle>Oferta</PageSectionTitle>
           <Article>
             <H3>Konsultacja psychologiczna</H3>
             <ParagraphText>
@@ -122,12 +101,12 @@ class Index extends React.Component {
             </ParagraphText>
           </Article>
         </OfferSection>
-        <ArticlesSection>
-          <Title>Artykuły</Title>
+        <PageSection>
+          <PageSectionTitle>Artykuły</PageSectionTitle>
           <ArticlesWrapper>
             <ArticlesExcerpts articlesExcerpts={articlesExcerpts} />
           </ArticlesWrapper>
-        </ArticlesSection>
+        </PageSection>
       </Layout>
     )
   }

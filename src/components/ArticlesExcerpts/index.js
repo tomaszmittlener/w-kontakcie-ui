@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import styled from 'styled-components'
+import React, {Fragment} from 'react'
+import styled, {css} from 'styled-components'
 import {withLocales} from 'src/context/locales'
 import {ms, formatDate, compose} from 'src/utils'
 import {
@@ -10,11 +10,17 @@ import {Link, Image, H2, ParagraphText} from 'src/components'
 import map from 'lodash/map'
 import {rgba} from 'polished'
 
+
+// padding: ${ms(0)}; // ?? where should it go ??
+
 const ArticleContainer = styled.figure`
   margin: 0 0 ${ms(2)} 0;
+  padding: ${ms(0)};
   ${({theme: {mq}}) => mq.desktop} {
+    padding: 0;
     margin: ${ms(0)} ${ms(-1)};
   }
+  ${({small}) => small && smallMixin};
 `
 
 const StyledImage = styled(Image)`
@@ -26,6 +32,21 @@ const StyledImage = styled(Image)`
   }
   ${({theme: {mq}}) => mq.desktop} {
     width: 450px;
+  }
+`
+
+const smallMixin = css`
+  ${({theme: {mq}}) => mq.desktop} {
+    padding: ${ms(0)};
+    max-width: 300px;
+  }
+
+  ${StyledImage} {
+    ${({theme: {mq}}) => mq.desktop} {
+      height: 150px;
+      width: 100%;
+      margin: 0 auto;
+    }
   }
 `
 
@@ -45,12 +66,13 @@ const StyledH2 = styled(H2)`
   }
 `
 
-const AboutMe = ({t, articlesExcerpts: {edges: articles}}) => (
+const ArticlesExcerpts = ({t, articlesExcerpts: {edges: articles}, small}) => (
   <Fragment>
     {map(articles, ({node: {id, excerpt, fields, frontmatter}}) => (
-      <ArticleContainer key={id}>
+      <ArticleContainer key={id} small={small}>
         <Link to={fields.slug}>
           <StyledImage
+            small={small}
             title="article cover image"
             src={frontmatter.cover}
             aspectRatio={2}
@@ -68,9 +90,9 @@ const AboutMe = ({t, articlesExcerpts: {edges: articles}}) => (
   </Fragment>
 )
 
-AboutMe.propTypes = {
+ArticlesExcerpts.propTypes = {
   articlesExcerpts: articlesExcerptsPropTypesShape.isRequired,
   ...localesPropTypesShape,
 }
 
-export default compose(withLocales)(AboutMe)
+export default compose(withLocales)(ArticlesExcerpts)

@@ -45,9 +45,11 @@ const ContentContainer = styled.main`
     withTopPadding &&
     css`
       padding: ${ms(8)} 0 0 0;
+      ${({theme: {mq}}) => mq.desktop} {
+        padding: ${ms(9.5)} 0 0 0;
+      }
     `};
 `
-
 
 class Layout extends React.Component {
   toggleMenu = () =>

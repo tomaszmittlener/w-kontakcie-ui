@@ -14,10 +14,10 @@ const Avatar = styled(Img)`
   margin: 0 ${ms(-5)} 0 0;
 `
 
-const Container = styled.div`
+const Figure = styled.figure`
   display: flex;
   align-items: center;
-  padding: ${ms(0)};
+  margin: 0;
 `
 
 const StyledLink = styled(Link)`
@@ -40,23 +40,20 @@ const StyledParagraphText = styled(ParagraphText)`
   line-height: 1;
 `
 
-const TextContainer = styled.div`
-  height: 100%;
-`
 
 class UserInfo extends Component {
   render() {
     const {config, data} = this.props
     return (
-      <Container>
+      <Figure>
         <Avatar sizes={data.meImage.childImageSharp.fluid} />
-        <TextContainer>
+        <figcaption>
           <StyledParagraphText>{config('userName')}</StyledParagraphText>
           <StyledLink to={`mailto:${config('userEmail')}`}>
             {config('userEmail')}
           </StyledLink>
-        </TextContainer>
-      </Container>
+        </figcaption>
+      </Figure>
     )
   }
 }

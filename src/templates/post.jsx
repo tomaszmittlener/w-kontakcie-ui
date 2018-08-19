@@ -7,14 +7,105 @@ import {
 import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
 import Layout from 'src/layout'
-import Img from 'gatsby-image'
-import styled from 'styled-components';
-import {UserInfo, SEO, PostTags, MarkdownAST} from 'src/components'
+import styled from 'styled-components'
+import {rgba} from 'polished'
+import {
+  UserInfo,
+  SEO,
+  PostTags,
+  MarkdownAST,
+  PageSection,
+  Image,
+  H1,
+} from 'src/components'
+import {ms} from 'src/utils'
 import config from '../../data/SiteConfig'
 
-const ImageContainer = styled(Img)`
+const CoverImage = styled(Image)`
   height: 475px;
   z-index: ${({theme: {layers}}) => layers.bottom};
+`
+
+const ArticleSection = styled(PageSection)`
+  max-width: 1000px;
+  margin: 0 auto;
+`
+
+const Article = styled.article`
+  max-width: 80ch;
+  margin: 0 auto;
+  padding: 0 ${ms(1)};
+  & > p:first-of-type {
+    padding: ${ms(5)} 0 0 0;
+    &:first-letter {
+      float: left;
+      margin-right: 10px;
+      margin-left: -5px;
+      margin-top: 5px;
+      line-height: 0.73em;
+      font-size: 5.5em;
+      font-weight: 800;
+      color: ${({theme: {colors}}) => colors.secondary};
+      font-family: ${({
+        theme: {
+          typo: {fontFamily},
+        },
+      }) => fontFamily.secondary};
+    }
+  }
+
+  blockquote {
+    margin: ${ms(7)};
+    text-align: justify;
+
+    font-style: italic;
+    & > :last-child {
+      margin-bottom: 0;
+    }
+    &:before {
+      content: '\\201C';
+      font-size: ${ms(8)};
+      line-height: 0;
+      float: left;
+      margin-left: -${ms(3)};
+      margin-top: ${ms(-1)};
+      color: ${({theme: {colors}}) => rgba(colors.primary, 0.4)};
+    }
+    &:after {
+      content: '\\201D';
+      font-size: ${ms(8)};
+      line-height: 0;
+      float: right;
+      margin-right: -${ms(-8)};
+      margin-top: ${ms(3.9)};
+      color: ${({theme: {colors}}) => rgba(colors.primary, 0.4)};
+    }
+  }
+`
+
+const ImageContainer = styled.div`
+  position: relative;
+`
+
+const MainTitle = styled(H1)`
+  position: absolute;
+  top: 20px;
+  font-weight: bold;
+  padding: ${ms(0)};
+  //text-shadow: 89px 70px #ffffff;
+  font-size: ${ms(4)};
+  line-height: ${ms(4)};
+  background-color: ${({theme: {colors}}) => rgba(colors.canvas, 0.4)};
+  width: 100%;
+    ${({theme: {mq}}) => mq.tablet} {
+    top: 100px;
+  }
+  ${({theme: {mq}}) => mq.desktop} {
+      top: 50%;
+        font-size: ${ms(8)};
+  line-height: ${ms(8)};
+
+  }
 `
 
 export default class PostTemplate extends React.Component {
@@ -25,31 +116,30 @@ export default class PostTemplate extends React.Component {
         markdownRemark: postNode,
         markdownRemark: {frontmatter: post},
       },
+      location,
     } = this.props
-    const image = {
-      aspectRatio: 4.033613445378151,
-      base64: '',
-      sizes: '(max-width: 1920px) 100vw, 1920px',
-      src: post.cover,
-      srcSet: '',
-    }
     return (
-      <Layout location={this.props.location}>
+      <Layout location={location} withTopPadding>
         <Helmet>
           <title>{`${post.title} | ${config.siteTitle}`}</title>
         </Helmet>
         <SEO postPath={slug} postNode={postNode} postSEO />
-        <article>
-          <ImageContainer
-
-            fluid={image}
+        <ImageContainer>
+          <CoverImage
+            title="Article cover image"
+            alt={`cover image of "${post.title}" article`}
+            src={post.cover}
           />
-          <h1>{post.title}</h1>
-          <MarkdownAST htmlAst={postNode.htmlAst} />
-
-          <PostTags tags={post.tags} />
+          <MainTitle>{post.title}</MainTitle>
+        </ImageContainer>
+        <ArticleSection>
+          <Article>
+            <MarkdownAST htmlAst={postNode.htmlAst} />
+          </Article>
           <UserInfo />
-        </article>
+          Podobna tematyka:
+          <PostTags tags={post.tags} />
+        </ArticleSection>
       </Layout>
     )
   }

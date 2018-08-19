@@ -1,6 +1,6 @@
 ---
 title: "Bold Mage"
-cover: "https://pixabay.com/get/ea30b70d20f2093ed1534705fb0938c9bd22ffd41cb2154796f8c07aa0/sheep-3562868_1920.jpg"
+cover: "https://elspapmindfulness.files.wordpress.com/2015/06/sky-sunny-clouds-cloudy.jpg"
 date: "01/01/2017"
 category: "tech"
 tags:

@@ -17,6 +17,8 @@ export {default as UserLInks} from './UserLinks'
 export {default as MarkdownAST} from './MarkdownAST'
 export {default as MenuButton} from './MenuButton'
 export {default as Image} from './Image'
+export {default as PageSectionTitle} from './PageSectionTitle'
+export {default as PageSection} from './PageSection'
 
 // index page components
 export {default as ArticlesExcerpts} from './ArticlesExcerpts'
