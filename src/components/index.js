@@ -1,6 +1,5 @@
 export {default as Footer} from './Footer'
 export {default as Header} from './Header'
-export {default as AboutMe} from './AboutMe'
 export {H1, H2, H3, H4} from './Headings'
 export {default as Helmet} from './Helmet'
 export {FacebookIcon, EmailIcon, LinkedInIcon, MapIcon} from './Icons'
@@ -17,3 +16,8 @@ export {default as UserInfo} from './UserInfo'
 export {default as UserLInks} from './UserLinks'
 export {default as MarkdownAST} from './MarkdownAST'
 export {default as MenuButton} from './MenuButton'
+export {default as Image} from './Image'
+
+// index page components
+export {default as ArticlesExcerpts} from './ArticlesExcerpts'
+export {default as AboutMe} from './AboutMe'

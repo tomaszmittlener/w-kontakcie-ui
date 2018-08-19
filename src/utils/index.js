@@ -49,3 +49,6 @@ export const compose = (...fns) =>
 export function ms(step) {
   return modularScale(step, '1rem', 'minorThird').replace('em', 'rem')
 }
+
+export const formatDate = date =>
+  new Date(date).toString().replace(/\S+\s(\S+)\s(\d+)\s(\d+)\s.*/, '$2-$1-$3')

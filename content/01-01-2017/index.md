@@ -1,6 +1,6 @@
 ---
 title: "Bold Mage"
-cover: "https://pixabay.com/get/ea30b3092bf2043ed1534705fb094f9ee071e1d01bac104496f4c47ba7eabdb0/flamingo-3526365_1920.jpg"
+cover: "https://pixabay.com/get/ea30b70d20f2093ed1534705fb0938c9bd22ffd41cb2154796f8c07aa0/sheep-3562868_1920.jpg"
 date: "01/01/2017"
 category: "tech"
 tags:

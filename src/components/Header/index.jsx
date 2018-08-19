@@ -9,7 +9,7 @@ import {rgba} from 'polished'
 import LogoSVG from 'src/components/Logo'
 import {ms} from 'src/utils/index'
 import map from 'lodash/map'
-import menuItelmsList from '../../../data/MenuItems'
+import menuItemsList from '../../../data/MenuItems'
 
 const Container = styled.nav`
   width: 100vw;
@@ -19,9 +19,8 @@ const Container = styled.nav`
   padding: ${ms(1)} ${ms(2)};
   align-items: center;
   z-index: ${({theme: {layers}}) => layers.middleTom};
-  height: 100px;
   ${({theme: {mq}}) => mq.desktop} {
-    padding: ${ms(1)} 0;
+    padding: ${ms(1)} ${ms(-1)};
   }
 `
 
@@ -88,7 +87,7 @@ class Header extends React.Component {
         </LogoContainer>
         {!(isTablet || isMobile) && (
           <MenuItems>
-            {map(menuItelmsList, (item, i) => (
+            {map(menuItemsList, (item, i) => (
               <MainNavigationLink
                 exact
                 activeClassName="active"

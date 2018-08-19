@@ -15,10 +15,8 @@ export default {
   },
   typo: {
     fontFamily: {
-      secondary: "'Javiera', sans-serif",
       primary: "'Hinda Murai', helvetica, arial, sans-serif;",
-      primaryItalic: "'ralewayitalic', 'abelregular', sans-serif",
-      primaryBold: "'ralewaybold', 'abelregular', sans-serif",
+      secondary: "'Javiera', 'Hinda Murai', helvetica, arial, sans-serif;",
     },
   },
   mq: {

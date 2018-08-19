@@ -28,3 +28,24 @@ export const localesPropTypesShape = {
   t: PropTypes.func.isRequired,
   config: PropTypes.func.isRequired,
 }
+
+export const articlesExcerptsPropTypesShape = PropTypes.shape({
+  totalCount: PropTypes.number.isRequired,
+  edges: PropTypes.arrayOf(
+    PropTypes.shape({
+      node: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        timeToRead: PropTypes.number.isRequired,
+        excerpt: PropTypes.string.isRequired,
+        fields: PropTypes.shape({
+          date: PropTypes.string.isRequired,
+          slug: PropTypes.string.isRequired,
+        }).isRequired,
+        frontmatter: PropTypes.shape({
+          cover: PropTypes.string.isRequired,
+          title: PropTypes.string.isRequired,
+        }).isRequired,
+      }).isRequired,
+    }).isRequired,
+  ),
+})
