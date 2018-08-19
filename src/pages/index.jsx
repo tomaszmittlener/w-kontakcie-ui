@@ -43,10 +43,10 @@ const OfferSection = PageSection.extend`
 `
 
 const ArticlesWrapper = styled.div`
+  align-items: flex-start;
   display: flex;
   margin: 0 auto;
   flex-direction: column;
-  align-items: center;
   ${({theme: {mq}}) => mq.desktop} {
     flex-direction: row;
     max-width: 1000px;
