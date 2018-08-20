@@ -2,11 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Layout from 'src/layout'
-import {
-  ArticlesExcerpts,
-  PageSectionTitle,
-  PageSection,
-} from 'src/components'
+import {ArticlesExcerpts, PageSectionTitle, PageSection} from 'src/components'
 import {rgba} from 'polished'
 
 import {
@@ -39,9 +35,7 @@ const ArticlesContainer = PageSection.extend`
   }
 `
 
-const StyledPageSectionTitle = styled(PageSectionTitle)`
-
-`
+const StyledPageSectionTitle = styled(PageSectionTitle)``
 
 class ArticlesPage extends Component {
   render() {
@@ -61,8 +55,6 @@ class ArticlesPage extends Component {
           <StyledPageSectionTitle>Artykuły</StyledPageSectionTitle>
           <ArticlesExcerpts articlesExcerpts={articlesExcerpts} small />
         </ArticlesContainer>
-
-        {/* <PostListing postEdges={postEdges} /> */}
       </Layout>
     )
   }
@@ -85,10 +77,7 @@ export const pageQuery = graphql`
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
-        fluid(
-          maxWidth: 1920
-          cropFocus: NORTHEAST #                      duotone: {highlight: "#f00e2e", shadow: "#192550", opacity: 50}
-        ) {
+        fluid(maxWidth: 1920, cropFocus: NORTHEAST) {
           ...GatsbyImageSharpFluid
         }
       }

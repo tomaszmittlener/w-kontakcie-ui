@@ -8,6 +8,7 @@ import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
 import Layout from 'src/layout'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 import {rgba} from 'polished'
 import {
   UserInfo,
@@ -21,7 +22,7 @@ import {
 import {ms} from 'src/utils'
 import config from '../../data/SiteConfig'
 
-const CoverImage = styled(Image)`
+const StyledImg = styled(Img)`
   height: 475px;
   z-index: ${({theme: {layers}}) => layers.bottom};
 `
@@ -129,9 +130,13 @@ export default class PostTemplate extends React.Component {
       data: {
         markdownRemark: postNode,
         markdownRemark: {frontmatter: post},
+        picture: {
+          childImageSharp: {fluid},
+        },
       },
       location,
     } = this.props
+    console.log(this.props)
     return (
       <Layout location={location} withTopPadding>
         <Helmet>
@@ -139,10 +144,10 @@ export default class PostTemplate extends React.Component {
         </Helmet>
         <SEO postPath={slug} postNode={postNode} postSEO />
         <ImageContainer>
-          <CoverImage
+          <StyledImg
             title="Article cover image"
             alt={`cover image of "${post.title}" article`}
-            src={post.cover}
+            fluid={fluid}
           />
           <MainTitle>{post.title}</MainTitle>
         </ImageContainer>
@@ -167,7 +172,7 @@ PostTemplate.propTypes = {
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPostBySlug($slug: String!, $cover: String!) {
     markdownRemark(fields: {slug: {eq: $slug}}) {
       html
       htmlAst
@@ -189,15 +194,16 @@ export const pageQuery = graphql`
         date
       }
     }
-    picture: file(relativePath: {eq: "cover.jpg"}) {
+    picture: file(relativePath: {eq: $cover}) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
         fluid(
+          cropFocus: CENTER
           maxWidth: 1920
           maxHeight: 475 #          duotone: {highlight: "#f00e2e", shadow: "#192550", opacity: 50}
         ) {
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }

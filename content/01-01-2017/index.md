@@ -1,6 +1,6 @@
 ---
 title: "Bold Mage"
-cover: "https://elspapmindfulness.files.wordpress.com/2015/06/sky-sunny-clouds-cloudy.jpg"
+cover: banksytrolleyhunters.jpg
 date: "01/01/2017"
 category: "tech"
 tags:

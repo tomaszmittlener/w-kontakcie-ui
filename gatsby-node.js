@@ -111,6 +111,7 @@ exports.createPages = ({graphql, actions}) => {
                   frontmatter {
                     tags
                     category
+                    cover
                   }
                   fields {
                     slug
@@ -145,6 +146,7 @@ exports.createPages = ({graphql, actions}) => {
             component: postPage,
             context: {
               slug: edge.node.fields.slug,
+              cover: edge.node.frontmatter.cover,
             },
           })
         })
