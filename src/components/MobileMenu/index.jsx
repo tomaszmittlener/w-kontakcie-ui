@@ -14,18 +14,11 @@ const MenuContainer = styled.nav`
   overflow-y: auto;
   box-sizing: border-box;
   width: 200px;
-  transition: all 0.5s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: block;
   background: ${({theme: {colors}}) => colors.primary};
   top: 0;
   right: 0;
   bottom: 0;
-`
-
-const MenuItems = styled.ul`
-  list-style-type: none;
   padding: ${ms(8)} 0 0 0;
   margin: 0;
 `
@@ -43,7 +36,7 @@ const MainNavigationLink = styled(Link)`
   display: block;
   text-align: center;
   opacity: 1;
-  transition: all 0.6ms linear;
+  transition: all 0.3s ease-in-out;
 
   &.active {
     opacity: 0.4;
@@ -64,20 +57,17 @@ class MobileMenu extends React.PureComponent {
         aria-expanded={isMenuOpen}
         open={isMenuOpen}
         className={className}>
-        <MenuItems>
-          {map(menuItelmsList, (item, i) => (
-            <li key={`${item.link}-${i}`}>
-              <MainNavigationLink
-                aria-label={`go to "${item.title}" page`}
-                exact
-                activeClassName="active"
-                to={item.link}
-                onClick={toggleMenuOpen}>
-                {item.title}
-              </MainNavigationLink>
-            </li>
-          ))}
-        </MenuItems>
+        {map(menuItelmsList, (item, i) => (
+          <MainNavigationLink
+            ey={`${item.link}-${i}`}
+            aria-label={`go to "${item.title}" page`}
+            exact
+            activeClassName="active"
+            to={item.link}
+            onClick={toggleMenuOpen}>
+            {item.title}
+          </MainNavigationLink>
+        ))}
       </MenuContainer>
     )
   }

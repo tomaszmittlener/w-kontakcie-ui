@@ -97,14 +97,13 @@ const MainTitle = styled(H1)`
   line-height: ${ms(4)};
   background-color: ${({theme: {colors}}) => rgba(colors.canvas, 0.4)};
   width: 100%;
-    ${({theme: {mq}}) => mq.tablet} {
+  ${({theme: {mq}}) => mq.tablet} {
     top: 100px;
   }
   ${({theme: {mq}}) => mq.desktop} {
-      top: 50%;
-        font-size: ${ms(8)};
-  line-height: ${ms(8)};
-
+    top: 50%;
+    font-size: ${ms(8)};
+    line-height: ${ms(8)};
   }
 `
 

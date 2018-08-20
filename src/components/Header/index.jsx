@@ -11,8 +11,8 @@ import {ms} from 'src/utils/index'
 import map from 'lodash/map'
 import menuItemsList from '../../../data/MenuItems'
 
-const Container = styled.nav`
-  width: 100vw;
+const Container = styled.header`
+  width: 100%;
   position: absolute;
   background-color: ${({theme: {colors}}) => rgba(colors.primary, 0)};
   display: flex;
@@ -42,7 +42,7 @@ const LogoContainer = styled(Link)`
   }
 `
 
-const MenuItems = styled.ul`
+const MenuItems = styled.nav`
   display: flex;
   flex-direction: row;
   list-style-type: none;
@@ -81,25 +81,22 @@ class Header extends React.Component {
       context: {toggleMenuOpen, isMobile, isTablet},
     } = this.props
     return (
-      <Container
-        isMobile={isTablet || isMobile}
-      >
+      <Container isMobile={isTablet || isMobile}>
         <LogoContainer to="/" aria-label="got to Home page">
           <Logo withText={!(isTablet || isMobile)} />
         </LogoContainer>
         {!(isTablet || isMobile) && (
           <MenuItems aria-hidden={isTablet || isMobile}>
             {map(menuItemsList, (item, i) => (
-              <li key={`${item.link}-${i}`}>
-                <MainNavigationLink
-                  aria-label={`go to "${item.title}" page`}
-                  exact
-                  activeClassName="active"
-                  to={item.link}
-                  onClick={toggleMenuOpen}>
-                  {item.title}
-                </MainNavigationLink>
-              </li>
+              <MainNavigationLink
+                key={`${item.link}-${i}`}
+                aria-label={`go to "${item.title}" page`}
+                exact
+                activeClassName="active"
+                to={item.link}
+                onClick={toggleMenuOpen}>
+                {item.title}
+              </MainNavigationLink>
             ))}
           </MenuItems>
         )}

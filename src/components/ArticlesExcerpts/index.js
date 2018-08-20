@@ -31,7 +31,7 @@ const StyledImage = styled(Image)`
     opacity: 0.8;
   }
   ${({theme: {mq}}) => mq.desktop} {
-    width: 450px;
+    width: 100%;
   }
 `
 
