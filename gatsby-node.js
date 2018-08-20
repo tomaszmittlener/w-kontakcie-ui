@@ -53,6 +53,7 @@ exports.onCreateNode = ({node, actions, getNode}) => {
   if (node.internal.type === 'MarkdownRemark') {
     const fileNode = getNode(node.parent)
     const parsedFilePath = path.parse(fileNode.relativePath)
+    const parsedRelativeDirectory = path.parse(fileNode.relativeDirectory)
     if (
       Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
       Object.prototype.hasOwnProperty.call(node.frontmatter, 'title')
@@ -78,6 +79,11 @@ exports.onCreateNode = ({node, actions, getNode}) => {
           node,
           name: 'date',
           value: date.toISOString(),
+        })
+        createNodeField({
+          node,
+          name: 'directory',
+          value: parsedRelativeDirectory.base,
         })
       }
     }
@@ -112,9 +118,11 @@ exports.createPages = ({graphql, actions}) => {
                     tags
                     category
                     cover
+                    date
                   }
                   fields {
                     slug
+                    directory
                   }
                 }
               }
@@ -146,7 +154,7 @@ exports.createPages = ({graphql, actions}) => {
             component: postPage,
             context: {
               slug: edge.node.fields.slug,
-              cover: edge.node.frontmatter.cover,
+              directoryName: edge.node.fields.directory,
             },
           })
         })

@@ -172,7 +172,7 @@ PostTemplate.propTypes = {
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!, $cover: String!) {
+  query BlogPostBySlug($slug: String!, $directoryName: String!) {
     markdownRemark(fields: {slug: {eq: $slug}}) {
       html
       htmlAst
@@ -194,7 +194,10 @@ export const pageQuery = graphql`
         date
       }
     }
-    picture: file(relativePath: {eq: $cover}) {
+    picture: file(
+      name: {eq: "cover"}
+      relativeDirectory: {eq: $directoryName}
+    ) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.

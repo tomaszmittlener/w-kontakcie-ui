@@ -41,7 +41,7 @@ class ArticlesPage extends Component {
   render() {
     const {
       location,
-      data: {bgImage, articlesExcerpts},
+      data: {bgImage, articlesExcerpts, articlesImages},
     } = this.props
     return (
       <Layout location={location}>
@@ -53,7 +53,11 @@ class ArticlesPage extends Component {
         />
         <ArticlesContainer>
           <StyledPageSectionTitle>Artykuły</StyledPageSectionTitle>
-          <ArticlesExcerpts articlesExcerpts={articlesExcerpts} small />
+          <ArticlesExcerpts
+            articlesExcerpts={articlesExcerpts}
+            small
+            articlesImages={articlesImages}
+          />
         </ArticlesContainer>
       </Layout>
     )
@@ -93,6 +97,7 @@ export const pageQuery = graphql`
           fields {
             slug
             date
+            directory
           }
           excerpt
           timeToRead
@@ -101,6 +106,18 @@ export const pageQuery = graphql`
             tags
             cover
             date
+          }
+        }
+      }
+    }
+    articlesImages: allFile(filter: {name: {eq: "cover"}}) {
+      edges {
+        node {
+          relativeDirectory
+          childImageSharp {
+            fluid(maxWidth: 800, maxHeight: 200) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }

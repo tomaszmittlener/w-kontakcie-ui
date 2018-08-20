@@ -27,7 +27,6 @@ const ImageContainer = styled(Img)`
   z-index: ${({theme: {layers}}) => layers.bottom};
 `
 
-
 // about me
 const AboutMeSection = PageSection.extend`
   max-width: 1000px;
@@ -62,8 +61,9 @@ class Index extends React.Component {
   render() {
     const {
       location,
-      data: {bgImage, meImage, articlesExcerpts},
+      data: {bgImage, meImage, articlesExcerpts, articlesImages},
     } = this.props
+    console.log(articlesImages)
     return (
       <Layout location={location}>
         <Helmet title={config.siteTitle} />
@@ -104,7 +104,10 @@ class Index extends React.Component {
         <PageSection>
           <PageSectionTitle>Artykuły</PageSectionTitle>
           <ArticlesWrapper>
-            <ArticlesExcerpts articlesExcerpts={articlesExcerpts} />
+            <ArticlesExcerpts
+              articlesExcerpts={articlesExcerpts}
+              articlesImages={articlesImages}
+            />
           </ArticlesWrapper>
         </PageSection>
       </Layout>
@@ -118,6 +121,7 @@ Index.propTypes = {
     bgImage: ImageFluidPropTypesShape.isRequired,
     meImage: ImageFluidPropTypesShape.isRequired,
     articlesExcerpts: articlesExcerptsPropTypesShape.isRequired,
+    articlesImages: PropTypes.arrayOf(ImageFluidPropTypesShape).isRequired,
   }).isRequired,
 }
 
@@ -155,6 +159,7 @@ export const pageQuery = graphql`
           fields {
             date
             slug
+            directory
           }
           id
           timeToRead
@@ -162,6 +167,18 @@ export const pageQuery = graphql`
           frontmatter {
             title
             cover
+          }
+        }
+      }
+    }
+    articlesImages: allFile(filter: {name: {eq: "cover"}}) {
+      edges {
+        node {
+          relativeDirectory
+          childImageSharp {
+            fluid(maxWidth: 800, maxHeight: 200) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }

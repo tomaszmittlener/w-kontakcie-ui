@@ -40,6 +40,7 @@ export const articlesExcerptsPropTypesShape = PropTypes.shape({
         fields: PropTypes.shape({
           date: PropTypes.string.isRequired,
           slug: PropTypes.string.isRequired,
+          directory: PropTypes.string.isRequired,
         }).isRequired,
         frontmatter: PropTypes.shape({
           cover: PropTypes.string.isRequired,

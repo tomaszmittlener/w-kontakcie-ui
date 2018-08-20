@@ -1,6 +1,6 @@
 ---
 title: "The Fallen Time"
-cover: background2.jpg
+cover: "https://www.romecentral.com/wp-content/uploads/2016/05/stevejobs_banksy_rc.jpg"
 date: "01/02/2017"
 category: "another one"
 tags:
