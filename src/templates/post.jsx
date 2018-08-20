@@ -89,22 +89,37 @@ const ImageContainer = styled.div`
 
 const MainTitle = styled(H1)`
   position: absolute;
-  top: 20px;
+  //top: 20px;
   font-weight: bold;
   padding: ${ms(0)};
   //text-shadow: 89px 70px #ffffff;
-  font-size: ${ms(4)};
-  line-height: ${ms(4)};
   background-color: ${({theme: {colors}}) => rgba(colors.canvas, 0.4)};
-  width: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  font-size: ${ms(7)};
+  line-height: 100%;
+  margin: 0;
   ${({theme: {mq}}) => mq.tablet} {
-    top: 100px;
-  }
+  font-size: ${ms(8)};
+  } 
+
   ${({theme: {mq}}) => mq.desktop} {
-    top: 50%;
-    font-size: ${ms(8)};
-    line-height: ${ms(8)};
+    font-size: ${ms(10)};
+    //top: 0;
+    //bottom: 0;
+    //right: 0;
+    //left: 0;
+    //font-size: 100px;
+    //line-height: 100%;
   }
+
+}
+
 `
 
 export default class PostTemplate extends React.Component {
