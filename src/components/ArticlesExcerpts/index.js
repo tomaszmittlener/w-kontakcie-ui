@@ -6,15 +6,12 @@ import {ms, formatDate, compose} from 'src/utils'
 import {
   localesPropTypesShape,
   articlesExcerptsPropTypesShape,
-  ImageFluidPropTypesShape,
-} from 'src/utils/PropTypes'
-import {Link, Image, H2, ParagraphText} from 'src/components'
+  imageFluidPropTypesShape, articlesImagesPropTypesShape
+} from 'src/utils/PropTypes';
+import {Link, H2, ParagraphText} from 'src/components'
 import map from 'lodash/map'
-import {rgba} from 'polished'
 import Img from 'gatsby-image'
 import filter from 'lodash/filter'
-
-// padding: ${ms(0)}; // ?? where should it go ??
 
 const ArticleContainer = styled.figure`
   margin: 0 0 ${ms(2)} 0;
@@ -103,7 +100,7 @@ const ArticlesExcerpts = ({
 )
 
 ArticlesExcerpts.propTypes = {
-  articlesImages: PropTypes.arrayOf(ImageFluidPropTypesShape).isRequired,
+  articlesImages: articlesImagesPropTypesShape.isRequired,
   articlesExcerpts: articlesExcerptsPropTypesShape.isRequired,
   ...localesPropTypesShape,
 }

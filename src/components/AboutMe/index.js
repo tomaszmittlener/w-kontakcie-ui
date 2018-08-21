@@ -1,15 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {compose} from 'src/utils'
 import {withLocales} from 'src/context/locales'
-import {graphql, StaticQuery} from 'gatsby'
 import {H2, H3} from 'src/components/Headings'
 import {ParagraphText} from 'src/components/Text'
 import {ms} from 'src/utils/index'
 import Img from 'gatsby-image'
 import {
-  ImageFluidPropTypesShape,
+  imageFluidPropTypesShape,
   localesPropTypesShape,
 } from 'src/utils/PropTypes'
 
@@ -69,7 +67,7 @@ const AboutMe = ({t, meImage}) => (
 )
 
 AboutMe.propTypes = {
-  meImage: ImageFluidPropTypesShape.isRequired,
+  meImage: imageFluidPropTypesShape.isRequired,
   ...localesPropTypesShape,
 }
 

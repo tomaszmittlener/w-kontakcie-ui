@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
@@ -9,7 +9,6 @@ import {
   SEO,
   AboutMe,
   ArticlesExcerpts,
-  H1,
   H3,
   ParagraphText,
   PageSectionTitle,
@@ -17,7 +16,8 @@ import {
 } from 'src/components'
 import {
   articlesExcerptsPropTypesShape,
-  ImageFluidPropTypesShape,
+  articlesImagesPropTypesShape,
+  imageFluidPropTypesShape,
   locationPropTypesShape,
 } from 'src/utils/PropTypes'
 import config from '../../data/SiteConfig'
@@ -32,9 +32,6 @@ const AboutMeSection = PageSection.extend`
   max-width: 1000px;
   margin: 0 auto;
 `
-
-// articles
-// const ArticlesSection = Section.extend``
 
 // offer
 const OfferSection = PageSection.extend`
@@ -63,7 +60,6 @@ class Index extends React.Component {
       location,
       data: {bgImage, meImage, articlesExcerpts, articlesImages},
     } = this.props
-    console.log(articlesImages)
     return (
       <Layout location={location}>
         <Helmet title={config.siteTitle} />
@@ -118,10 +114,10 @@ class Index extends React.Component {
 Index.propTypes = {
   location: locationPropTypesShape.isRequired,
   data: PropTypes.shape({
-    bgImage: ImageFluidPropTypesShape.isRequired,
-    meImage: ImageFluidPropTypesShape.isRequired,
+    bgImage: imageFluidPropTypesShape.isRequired,
+    meImage: imageFluidPropTypesShape.isRequired,
     articlesExcerpts: articlesExcerptsPropTypesShape.isRequired,
-    articlesImages: PropTypes.arrayOf(ImageFluidPropTypesShape).isRequired,
+    articlesImages: articlesImagesPropTypesShape.isRequired,
   }).isRequired,
 }
 

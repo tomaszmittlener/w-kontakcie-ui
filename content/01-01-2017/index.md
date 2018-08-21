@@ -1,6 +1,6 @@
 ---
 title: "Bold Mage"
-cover: banksytrolleyhunters.jpg
+cover: "cover.jpg"
 date: "01/01/2017"
 category: "tech"
 tags:

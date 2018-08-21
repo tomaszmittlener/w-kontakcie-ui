@@ -4,16 +4,15 @@ import Helmet from 'react-helmet'
 import Layout from 'src/layout'
 import {ArticlesExcerpts, PageSectionTitle, PageSection} from 'src/components'
 import {rgba} from 'polished'
-
 import {
   articlesExcerptsPropTypesShape,
   locationPropTypesShape,
-  ImageFluidPropTypesShape,
+  imageFluidPropTypesShape,
 } from 'src/utils/PropTypes'
+
 import {graphql} from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import {ms} from 'src/utils'
 import config from '../../data/SiteConfig'
 
 const ImageContainer = styled(Img)`
@@ -67,7 +66,7 @@ class ArticlesPage extends Component {
 ArticlesPage.propTypes = {
   location: locationPropTypesShape.isRequired,
   data: PropTypes.shape({
-    bgImage: ImageFluidPropTypesShape.isRequired,
+    bgImage: imageFluidPropTypesShape.isRequired,
     articlesExcerpts: articlesExcerptsPropTypesShape.isRequired,
   }).isRequired,
 }

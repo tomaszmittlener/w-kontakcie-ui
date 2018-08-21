@@ -59,7 +59,7 @@ class MobileMenu extends React.PureComponent {
         className={className}>
         {map(menuItelmsList, (item, i) => (
           <MainNavigationLink
-            ey={`${item.link}-${i}`}
+            key={`${item.link}-${i}`}
             aria-label={`go to "${item.title}" page`}
             exact
             activeClassName="active"

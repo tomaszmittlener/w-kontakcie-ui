@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import {
   locationPropTypesShape,
   pageContextPropTypesShape,
-} from 'src/utils/PropTypes'
+  articleMarkdownPropTypesShape, imageFluidPropTypesShape
+} from 'src/utils/PropTypes';
 import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
 import Layout from 'src/layout'
@@ -16,7 +17,6 @@ import {
   PostTags,
   MarkdownAST,
   PageSection,
-  Image,
   H1,
 } from 'src/components'
 import {ms} from 'src/utils'
@@ -136,7 +136,6 @@ export default class PostTemplate extends React.Component {
       },
       location,
     } = this.props
-    console.log(this.props)
     return (
       <Layout location={location} withTopPadding>
         <Helmet>
@@ -165,7 +164,10 @@ export default class PostTemplate extends React.Component {
 }
 
 PostTemplate.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    markdownRemark: articleMarkdownPropTypesShape.isRequired,
+    picture: imageFluidPropTypesShape.isRequired,
+  }).isRequired,
   location: locationPropTypesShape.isRequired,
   pageContext: pageContextPropTypesShape.isRequired,
 }

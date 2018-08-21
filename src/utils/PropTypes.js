@@ -12,15 +12,20 @@ export const pageContextPropTypesShape = PropTypes.shape({
   slug: PropTypes.string,
 })
 
-export const ImageFluidPropTypesShape = PropTypes.shape({
+export const fluidPropTypesShape = PropTypes.shape({
+  aspectRatio: PropTypes.number.isRequired,
+  sizes: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  srcSet: PropTypes.string.isRequired,
+  base64: PropTypes.string,
+  srcSetWebp: PropTypes.string,
+  tracedSVG: PropTypes.string,
+  srcWebp: PropTypes.string,
+})
+
+export const imageFluidPropTypesShape = PropTypes.shape({
   childImageSharp: PropTypes.shape({
-    fluid: PropTypes.shape({
-      aspectRatio: PropTypes.number.isRequired,
-      base64: PropTypes.string.isRequired,
-      sizes: PropTypes.string.isRequired,
-      src: PropTypes.string.isRequired,
-      srcSet: PropTypes.string.isRequired,
-    }).isRequired,
+    fluid: fluidPropTypesShape.isRequired,
   }).isRequired,
 })
 
@@ -28,6 +33,19 @@ export const localesPropTypesShape = {
   t: PropTypes.func.isRequired,
   config: PropTypes.func.isRequired,
 }
+
+export const articlesImagesPropTypesShape = PropTypes.shape({
+  edges: PropTypes.arrayOf(
+    PropTypes.shape({
+      node: PropTypes.shape({
+        childImageSharp: PropTypes.shape({
+          fluid: fluidPropTypesShape.isRequired,
+        }).isRequired,
+        relativeDirectory: PropTypes.string.isRequired,
+      }),
+    }).isRequired,
+  ).isRequired,
+})
 
 export const articlesExcerptsPropTypesShape = PropTypes.shape({
   totalCount: PropTypes.number.isRequired,
@@ -49,4 +67,31 @@ export const articlesExcerptsPropTypesShape = PropTypes.shape({
       }).isRequired,
     }).isRequired,
   ),
+})
+export const articleMarkdownPropTypesShape = PropTypes.shape({
+  excerpt: PropTypes.string.isRequired,
+  fields: PropTypes.shape({
+    date: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+    nextSlug: PropTypes.string.isRequired,
+    nextTitle: PropTypes.string.isRequired,
+    prevSlug: PropTypes.string.isRequired,
+    prevTitle: PropTypes.string.isRequired,
+  }).isRequired,
+  frontmatter: PropTypes.shape({
+    category: PropTypes.string,
+    cover: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+  html: PropTypes.string.isRequired,
+  htmlAst: PropTypes.shape({
+    children: PropTypes.array.isRequired, // unpredictable structure
+    data: PropTypes.shape({
+      quirksMode: PropTypes.bool.isRequired,
+    }).isRequired,
+    type: PropTypes.string.isRequired,
+  }),
+  timeToRead: PropTypes.number.isRequired,
 })
