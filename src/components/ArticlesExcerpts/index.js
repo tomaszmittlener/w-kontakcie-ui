@@ -1,13 +1,12 @@
 import React, {Fragment} from 'react'
-import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
 import {withLocales} from 'src/context/locales'
 import {ms, formatDate, compose} from 'src/utils'
 import {
   localesPropTypesShape,
   articlesExcerptsPropTypesShape,
-  imageFluidPropTypesShape, articlesImagesPropTypesShape
-} from 'src/utils/PropTypes';
+  articlesImagesPropTypesShape,
+} from 'src/utils/PropTypes'
 import {Link, H2, ParagraphText} from 'src/components'
 import map from 'lodash/map'
 import Img from 'gatsby-image'

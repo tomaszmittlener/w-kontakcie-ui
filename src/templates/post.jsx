@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import {
   locationPropTypesShape,
   pageContextPropTypesShape,
-  articleMarkdownPropTypesShape, imageFluidPropTypesShape
-} from 'src/utils/PropTypes';
+  articleMarkdownPropTypesShape,
+  imageFluidPropTypesShape,
+} from 'src/utils/PropTypes'
 import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
 import Layout from 'src/layout'
@@ -90,10 +91,8 @@ const ImageContainer = styled.div`
 
 const MainTitle = styled(H1)`
   position: absolute;
-  //top: 20px;
   font-weight: bold;
   padding: ${ms(0)};
-  //text-shadow: 89px 70px #ffffff;
   background-color: ${({theme: {colors}}) => rgba(colors.canvas, 0.4)};
   top: 0;
   bottom: 0;
@@ -111,12 +110,6 @@ const MainTitle = styled(H1)`
 
   ${({theme: {mq}}) => mq.desktop} {
     font-size: ${ms(10)};
-    //top: 0;
-    //bottom: 0;
-    //right: 0;
-    //left: 0;
-    //font-size: 100px;
-    //line-height: 100%;
   }
 
 }

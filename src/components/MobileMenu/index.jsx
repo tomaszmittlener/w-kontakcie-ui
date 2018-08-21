@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import {Link} from 'gatsby'
 import {contextPropTypesShape, withAppContext} from 'src/context'
 import map from 'lodash/map'
-import menuItelmsList from '../../../data/MenuItems'
-import {ms} from '../../utils/index'
+import menuItemsList from '../../../data/MenuItems'
+import {ms} from 'src/utils/index'
 
 const MenuContainer = styled.nav`
   text-transform: uppercase;
@@ -57,7 +57,7 @@ class MobileMenu extends React.PureComponent {
         aria-expanded={isMenuOpen}
         open={isMenuOpen}
         className={className}>
-        {map(menuItelmsList, (item, i) => (
+        {map(menuItemsList, (item, i) => (
           <MainNavigationLink
             key={`${item.link}-${i}`}
             aria-label={`go to "${item.title}" page`}
