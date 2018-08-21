@@ -129,12 +129,13 @@ export default class PostTemplate extends React.Component {
       },
       location,
     } = this.props
+    console.log(this.props.data)
     return (
       <Layout location={location} withTopPadding>
         <Helmet>
           <title>{`${post.title} | ${config.siteTitle}`}</title>
         </Helmet>
-        <SEO postPath={slug} postNode={postNode} postSEO />
+        <SEO postPath={slug} postNode={postNode} postCoverUrl={fluid.src} postSEO />
         <ImageContainer>
           <StyledImg
             title="Article cover image"

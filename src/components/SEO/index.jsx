@@ -5,7 +5,7 @@ import config from '../../../data/SiteConfig'
 
 class Index extends Component {
   render() {
-    const {postNode, postPath, postSEO} = this.props
+    const {postNode, postPath, postSEO, postCoverUrl} = this.props
     let title
     let description
     let image
@@ -16,7 +16,7 @@ class Index extends Component {
       description = postMeta.description
         ? postMeta.description
         : postNode.excerpt
-      image = 'logo.jpg' // TODO: add address for the cover
+      image = postCoverUrl || 'logo.jpg'
       postURL = urljoin(config.siteUrl, config.pathPrefix, postPath)
     } else {
       title = config.siteTitle
