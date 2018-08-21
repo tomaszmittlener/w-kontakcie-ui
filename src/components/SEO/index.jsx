@@ -16,7 +16,7 @@ class Index extends Component {
       description = postMeta.description
         ? postMeta.description
         : postNode.excerpt
-      image = postMeta.cover
+      image = 'logo.jpg' // TODO: add address for the cover
       postURL = urljoin(config.siteUrl, config.pathPrefix, postPath)
     } else {
       title = config.siteTitle

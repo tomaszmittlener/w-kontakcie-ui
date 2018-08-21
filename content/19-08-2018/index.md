@@ -1,7 +1,6 @@
 ---
 title: "Niebieskie Karty jako dowód w sprawie, i nie tylko"
 category: "tech"
-cover: "https://toronto.citynews.ca/wp-content/blogs.dir/sites/10/2018/06/14/banksy-trolley-hunters.jpg"
 date: "19/08/2018"
 tags:
     - psychologia

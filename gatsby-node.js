@@ -117,7 +117,6 @@ exports.createPages = ({graphql, actions}) => {
                   frontmatter {
                     tags
                     category
-                    cover
                     date
                   }
                   fields {

@@ -61,7 +61,6 @@ export const articlesExcerptsPropTypesShape = PropTypes.shape({
           directory: PropTypes.string.isRequired,
         }).isRequired,
         frontmatter: PropTypes.shape({
-          cover: PropTypes.string.isRequired,
           title: PropTypes.string.isRequired,
         }).isRequired,
       }).isRequired,
@@ -80,7 +79,6 @@ export const articleMarkdownPropTypesShape = PropTypes.shape({
   }).isRequired,
   frontmatter: PropTypes.shape({
     category: PropTypes.string,
-    cover: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     tags: PropTypes.arrayOf(PropTypes.string).isRequired,
