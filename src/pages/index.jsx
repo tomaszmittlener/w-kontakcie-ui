@@ -5,6 +5,7 @@ import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import Layout from 'src/layout'
+import Particles from 'react-particles-js'
 import {
   SEO,
   AboutMe,
@@ -21,22 +22,33 @@ import {
   locationPropTypesShape,
 } from 'src/utils/PropTypes'
 import config from '../../data/SiteConfig'
+import particlesConfig from '../../data/particlesjs-config'
 
-const ImageContainer = styled(Img)`
+const ImageContainer = styled.section`
   height: 475px;
   z-index: ${({theme: {layers}}) => layers.bottom};
 `
 
+const StyledParticles = styled(Particles)`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  //height: 100%;
+`
+
 // about me
 const AboutMeSection = PageSection.extend`
+  background-color: ${({theme: {colors}}) => colors.third};
+
+`
+const AboutMeContainer = styled.div`
   max-width: 1000px;
   margin: 0 auto;
 `
-
 // offer
-const OfferSection = PageSection.extend`
-  background-color: ${({theme: {colors}}) => colors.third};
-`
+const OfferSection = PageSection.extend``
 
 const ArticlesWrapper = styled.div`
   align-items: flex-start;
@@ -54,6 +66,10 @@ const Article = styled.article`
   margin: 0 auto;
 `
 
+const ArticlesSection = PageSection.extend`
+  background-color: ${({theme: {colors}}) => colors.third};
+`
+
 class Index extends React.Component {
   render() {
     const {
@@ -64,14 +80,17 @@ class Index extends React.Component {
       <Layout location={location}>
         <Helmet title={config.siteTitle} />
         <SEO />
+        <StyledParticles params={particlesConfig} />
         <ImageContainer
           title="Home page cover photo"
           alt="Long bridge at the sea in the sunset"
           fluid={bgImage.childImageSharp.fluid}
         />
         <AboutMeSection>
-          <PageSectionTitle>O mnie</PageSectionTitle>
-          <AboutMe meImage={meImage} />
+          <AboutMeContainer>
+            <PageSectionTitle>O mnie</PageSectionTitle>
+            <AboutMe meImage={meImage} />
+          </AboutMeContainer>
         </AboutMeSection>
         <OfferSection>
           <PageSectionTitle>Oferta</PageSectionTitle>
@@ -97,7 +116,7 @@ class Index extends React.Component {
             </ParagraphText>
           </Article>
         </OfferSection>
-        <PageSection>
+        <ArticlesSection>
           <PageSectionTitle>Artykuły</PageSectionTitle>
           <ArticlesWrapper>
             <ArticlesExcerpts
@@ -105,7 +124,7 @@ class Index extends React.Component {
               articlesImages={articlesImages}
             />
           </ArticlesWrapper>
-        </PageSection>
+        </ArticlesSection>
       </Layout>
     )
   }

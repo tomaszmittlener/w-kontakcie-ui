@@ -42,7 +42,6 @@ class ArticlesPage extends Component {
       location,
       data: {bgImage, articlesExcerpts, articlesImages},
     } = this.props
-    console.log(this.props)
     return (
       <Layout location={location}>
         <Helmet title={`Artykuły | ${config.siteTitle}`} />

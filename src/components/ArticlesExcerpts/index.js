@@ -26,14 +26,6 @@ const StyledImage = styled(Img)`
   height: 200px;
   opacity: 1;
   transition: opacity 300ms linear;
-  &:hover {
-    & > img:first-of-type {
-      opacity: 1 !important;
-    }
-    & > img:last-of-type {
-      opacity: 0 !important;
-    }
-  }
   ${ArticleContainer}:hover & {
     opacity: 0.8;
   }
