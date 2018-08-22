@@ -26,7 +26,6 @@ import particlesConfig from '../../data/particlesjs-config'
 
 const ImageContainer = styled.section`
   height: 475px;
-  z-index: ${({theme: {layers}}) => layers.bottom};
 `
 
 const StyledParticles = styled(Particles)`
@@ -35,6 +34,7 @@ const StyledParticles = styled(Particles)`
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: ${({theme: {layers}}) => layers.bottom};
   //height: 100%;
 `
 
