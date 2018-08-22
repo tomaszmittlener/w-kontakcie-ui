@@ -24,9 +24,7 @@ import {
 import config from '../../data/SiteConfig'
 import particlesConfig from '../../data/particlesjs-config'
 
-const ImageContainer = styled.section`
-  height: 475px;
-`
+const ImageContainer = PageSection
 
 const StyledParticles = styled(Particles)`
   position: absolute;
@@ -34,7 +32,7 @@ const StyledParticles = styled(Particles)`
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: ${({theme: {layers}}) => layers.bottom};
+    z-index: ${({theme: {layers}}) => layers.bottom};Z
   //height: 100%;
 `
 
