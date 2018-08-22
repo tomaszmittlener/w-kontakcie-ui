@@ -1,30 +1,30 @@
 import React from 'react'
 import styled, {keyframes} from 'styled-components'
 
-// const colors = ['#174677', '#2B768A', '#2FBB92'] // picked from img
-const colors = ['#25516C', '#2B768A', '#2FBB92']
+// const gradientColors = ['#174677', '#2B768A', '#2FBB92'] // picked from img
+const gradientColors = ['#25516C', '#2B768A', '#2FBB92']
 
 const Svg = styled.svg`
   cursor: pointer;
-  #slice_1,
-  #slice_2,
-  #slice_3,
+  #slice_1 {
+    fill: ${gradientColors[0]};
+  }
+  #slice_2 {
+    fill: url(#gradient-horizontal-slice_2);
+  }
+  #slice_3 {
+    fill: url(#gradient-horizontal-slice_3);
+  }
   #slice_4 {
-    fill: ${({theme: {colors}}) => colors.text};
-    transition: fill 300ms linear;
+    fill: ${gradientColors[2]};
   }
   &:hover {
-    #slice_1 {
-      fill: ${colors[0]};
-    }
-    #slice_2 {
-      fill: url(#gradient-horizontal-slice_2);
-    }
-    #slice_3 {
-      fill: url(#gradient-horizontal-slice_3);
-    }
+    #slice_1,
+    #slice_2,
+    #slice_3,
     #slice_4 {
-      fill: ${colors[2]};
+      fill: ${({theme: {colors}}) => colors.text};
+      transition: fill 300ms linear;
     }
   }
 `
@@ -81,10 +81,10 @@ const Logo = ({withText, className}) => (
         y1="100%"
         x2="100%"
         y2="0%">
-        <stop offset="0%" stopColor={colors[0]} />
-        <stop offset="30%" stopColor={colors[0]} />
-        <stop offset="70%" stopColor={colors[1]} />
-        <stop offset="100%" stopColor={colors[1]} />
+        <stop offset="0%" stopColor={gradientColors[0]} />
+        <stop offset="30%" stopColor={gradientColors[0]} />
+        <stop offset="70%" stopColor={gradientColors[1]} />
+        <stop offset="100%" stopColor={gradientColors[1]} />
       </linearGradient>
 
       <linearGradient
@@ -93,8 +93,8 @@ const Logo = ({withText, className}) => (
         y1="100%"
         x2="100%"
         y2="0%">
-        <stop offset="0%" stopColor={colors[0]} />
-        <stop offset="100%" stopColor={colors[2]} />
+        <stop offset="0%" stopColor={gradientColors[0]} />
+        <stop offset="100%" stopColor={gradientColors[2]} />
       </linearGradient>
     </defs>
     <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">

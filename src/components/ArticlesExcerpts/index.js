@@ -26,6 +26,14 @@ const StyledImage = styled(Img)`
   height: 200px;
   opacity: 1;
   transition: opacity 300ms linear;
+  &:hover {
+    & > img:first-of-type {
+      opacity: 1 !important;
+    }
+    & > img:last-of-type {
+      opacity: 0 !important;
+    }
+  }
   ${ArticleContainer}:hover & {
     opacity: 0.8;
   }
@@ -72,29 +80,27 @@ const ArticlesExcerpts = ({
   small,
 }) => (
   <Fragment>
-    {map(articles, ({node: {id, excerpt, fields, frontmatter}}) => {
-      return (
-        <ArticleContainer key={id} small={small}>
-          <Link to={fields.slug}>
-            <StyledImage
-              title="article cover image"
-              fluid={
-                filter(
-                  articlesImages.edges,
-                  image => fields.directory === image.node.relativeDirectory,
-                )[0].node.childImageSharp.fluid
-              }
-              alt={`cover image of "${frontmatter.title}" article`}
-            />
-            <figcaption>
-              <StyledH2>{frontmatter.title}</StyledH2>
-              <DateText>{formatDate(fields.date)}</DateText>
-              <ParagraphText>{excerpt}</ParagraphText>
-            </figcaption>
-          </Link>
-        </ArticleContainer>
-      )
-    })}
+    {map(articles, ({node: {id, excerpt, fields, frontmatter}}) => (
+      <ArticleContainer key={id} small={small}>
+        <Link to={fields.slug}>
+          <StyledImage
+            title="article cover image"
+            fluid={
+              filter(
+                articlesImages.edges,
+                image => fields.directory === image.node.relativeDirectory,
+              )[0].node.childImageSharp.fluid
+            }
+            alt={`cover image of "${frontmatter.title}" article`}
+          />
+          <figcaption>
+            <StyledH2>{frontmatter.title}</StyledH2>
+            <DateText>{formatDate(fields.date)}</DateText>
+            <ParagraphText>{excerpt}</ParagraphText>
+          </figcaption>
+        </Link>
+      </ArticleContainer>
+    ))}
   </Fragment>
 )
 

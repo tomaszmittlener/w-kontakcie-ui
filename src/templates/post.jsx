@@ -129,13 +129,17 @@ export default class PostTemplate extends React.Component {
       },
       location,
     } = this.props
-    console.log(this.props.data)
     return (
       <Layout location={location} withTopPadding>
         <Helmet>
           <title>{`${post.title} | ${config.siteTitle}`}</title>
         </Helmet>
-        <SEO postPath={slug} postNode={postNode} postCoverUrl={fluid.src} postSEO />
+        <SEO
+          postPath={slug}
+          postNode={postNode}
+          postCoverUrl={fluid.src}
+          postSEO
+        />
         <ImageContainer>
           <StyledImg
             title="Article cover image"
@@ -200,6 +204,7 @@ export const pageQuery = graphql`
           cropFocus: CENTER
           maxWidth: 1920
           maxHeight: 475 #          duotone: {highlight: "#f00e2e", shadow: "#192550", opacity: 50}
+          traceSVG: {color: "rgb(56, 47, 92)", threshold: 75}
         ) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }

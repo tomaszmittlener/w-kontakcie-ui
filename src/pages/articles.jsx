@@ -42,6 +42,7 @@ class ArticlesPage extends Component {
       location,
       data: {bgImage, articlesExcerpts, articlesImages},
     } = this.props
+    console.log(this.props)
     return (
       <Layout location={location}>
         <Helmet title={`Artykuły | ${config.siteTitle}`} />
@@ -113,8 +114,16 @@ export const pageQuery = graphql`
         node {
           relativeDirectory
           childImageSharp {
-            fluid(maxWidth: 800, maxHeight: 200) {
-              ...GatsbyImageSharpFluid
+            fluid(
+              maxWidth: 800
+              maxHeight: 200
+              traceSVG: {
+                color: "rgb(56, 47, 92)"
+                threshold: 75
+                turnPolicy: TURNPOLICY_LEFT
+              }
+            ) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
         }

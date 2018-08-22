@@ -28,8 +28,8 @@ const Logo = styled(LogoSVG)`
   width: ${ms(6)};
   height: ${ms(3.4)};
   ${({theme: {mq}}) => mq.desktop} {
-    width: ${ms(7)};
-    height: ${ms(6.3)};
+    width: ${ms(7 * 1.2)};
+    height: ${ms(6.3 * 1.2)};
   }
 `
 
