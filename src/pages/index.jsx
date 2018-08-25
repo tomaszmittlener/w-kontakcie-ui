@@ -24,22 +24,25 @@ import {
 import config from '../../data/SiteConfig'
 import particlesConfig from '../../data/particlesjs-config'
 
-const ImageContainer = PageSection
-
+const ImageContainer = PageSection.extend`
+  height: 25vh;
+  ${({theme: {mq}}) => mq.desktop} {
+    height: 475px;
+  }
+`
 const StyledParticles = styled(Particles)`
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-    z-index: ${({theme: {layers}}) => layers.bottom};Z
+  z-index: ${({theme: {layers}}) => layers.bottom};
   //height: 100%;
 `
 
 // about me
 const AboutMeSection = PageSection.extend`
   background-color: ${({theme: {colors}}) => colors.third};
-
 `
 const AboutMeContainer = styled.div`
   max-width: 1000px;
