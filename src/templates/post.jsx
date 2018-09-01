@@ -18,7 +18,7 @@ import {
   PostTags,
   MarkdownAST,
   PageSection,
-  H1,
+  PageMainTitle,
 } from 'src/components'
 import {ms} from 'src/utils'
 import config from '../../data/SiteConfig'
@@ -89,32 +89,6 @@ const ImageContainer = styled.div`
   position: relative;
 `
 
-const MainTitle = styled(H1)`
-  position: absolute;
-  font-weight: bold;
-  padding: ${ms(0)};
-  background-color: ${({theme: {colors}}) => rgba(colors.canvas, 0.4)};
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  font-size: ${ms(7)};
-  line-height: 100%;
-  margin: 0;
-  ${({theme: {mq}}) => mq.tablet} {
-  font-size: ${ms(8)};
-  } 
-
-  ${({theme: {mq}}) => mq.desktop} {
-    font-size: ${ms(10)};
-  }
-
-}
-
-`
 
 export default class PostTemplate extends React.Component {
   render() {
@@ -146,7 +120,7 @@ export default class PostTemplate extends React.Component {
             alt={`cover image of "${post.title}" article`}
             fluid={fluid}
           />
-          <MainTitle>{post.title}</MainTitle>
+          <PageMainTitle>{post.title}</PageMainTitle>
         </ImageContainer>
         <ArticleSection>
           <Article>

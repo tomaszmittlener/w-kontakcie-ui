@@ -31,9 +31,7 @@ const Svg = styled.svg`
 
 const Logo = ({withText, className}) => (
   <Svg
-    width="89px"
-    height="81px"
-    viewBox={withText ? '0 0 89 81' : '0 1 92 53'}
+    viewBox={withText ? '0 0 89 81' : '0 0 92 53'}
     version="1.1"
     role="img"
     aria-label={`Logo "W kontakcie"`}

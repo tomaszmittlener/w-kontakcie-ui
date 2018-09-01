@@ -19,7 +19,9 @@ export {default as MenuButton} from './MenuButton'
 export {default as Image} from './Image'
 export {default as PageSectionTitle} from './PageSectionTitle'
 export {default as PageSection} from './PageSection'
+export {default as PageMainTitle} from './PageMainTitle'
 
 // index page components
 export {default as ArticlesExcerpts} from './ArticlesExcerpts'
 export {default as AboutMe} from './AboutMe'
+export {default as Intro} from './Intro'

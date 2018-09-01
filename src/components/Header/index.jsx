@@ -77,7 +77,6 @@ const MainNavigationLink = styled(Link)`
 class Header extends React.Component {
   render() {
     const {
-      t,
       context: {toggleMenuOpen, isMobile, isTablet},
     } = this.props
     return (
@@ -107,14 +106,10 @@ class Header extends React.Component {
 
 Header.propTypes = {
   context: contextPropTypesShape.isRequired,
-  t: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
-  fixedHeader: PropTypes.bool,
 }
 
 const HeaderToExport = compose(
   withAppContext,
-  withLocales,
 )(Header)
 
 export default props => (

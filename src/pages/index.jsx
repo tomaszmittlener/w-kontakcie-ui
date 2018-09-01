@@ -14,7 +14,12 @@ import {
   ParagraphText,
   PageSectionTitle,
   PageSection,
+  Logo,
+  PageMainTitle,
+  SpanText,
+  Intro,
 } from 'src/components'
+import {ms} from 'src/utils'
 import {
   articlesExcerptsPropTypesShape,
   articlesImagesPropTypesShape,
@@ -24,12 +29,6 @@ import {
 import config from '../../data/SiteConfig'
 import particlesConfig from '../../data/particlesjs-config'
 
-const ImageContainer = PageSection.extend`
-  height: 25vh;
-  ${({theme: {mq}}) => mq.desktop} {
-    height: 475px;
-  }
-`
 const StyledParticles = styled(Particles)`
   position: absolute;
   top: 0;
@@ -60,6 +59,9 @@ const ArticlesWrapper = styled.div`
     flex-direction: row;
     max-width: 1000px;
   }
+  > figure {
+    flex: 1;
+  }
 `
 
 const Article = styled.article`
@@ -71,6 +73,7 @@ const ArticlesSection = PageSection.extend`
   background-color: ${({theme: {colors}}) => colors.third};
 `
 
+
 class Index extends React.Component {
   render() {
     const {
@@ -78,15 +81,13 @@ class Index extends React.Component {
       data: {bgImage, meImage, articlesExcerpts, articlesImages},
     } = this.props
     return (
-      <Layout location={location}>
+      <Layout location={location} withTopPadding>
         <Helmet title={config.siteTitle} />
         <SEO />
         <StyledParticles params={particlesConfig} />
-        <ImageContainer
-          title="Home page cover photo"
-          alt="Long bridge at the sea in the sunset"
-          fluid={bgImage.childImageSharp.fluid}
-        />
+        <PageSection>
+          <Intro />
+        </PageSection>
         <AboutMeSection>
           <AboutMeContainer>
             <PageSectionTitle>O mnie</PageSectionTitle>
