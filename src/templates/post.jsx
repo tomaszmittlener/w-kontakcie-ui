@@ -69,9 +69,7 @@ const Article = styled.article`
   }
 
   blockquote {
-    margin: ${ms(7)};
     text-align: justify;
-
     font-style: italic;
     & > :last-child {
       margin-bottom: 0;
@@ -96,8 +94,12 @@ const Article = styled.article`
     }
 
     background-color: ${({theme: {colors}}) => colors.canvas};
-    padding: ${ms(6)};
-    box-sizing: content-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: ${ms(7)} ${ms(0)};
+    ${({theme: {mq}}) => mq.tablet} {
+      margin: ${ms(7)} ${ms(6)};
+    }
   }
 `
 
