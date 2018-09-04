@@ -34,17 +34,15 @@ const StyledParticles = styled(Particles)`
   left: 0;
   right: 0;
   z-index: ${({theme: {layers}}) => layers.bottom};
-  //height: 100%;
 `
-
 
 // about me
 const AboutMeContainer = styled.div`
   max-width: 1000px;
   margin: 0 auto;
 `
-// offer
 
+// offer
 const ArticlesWrapper = styled.div`
   align-items: flex-start;
   display: flex;
@@ -76,16 +74,20 @@ class Index extends React.Component {
         </PageSection>
         <PageSection dark>
           <AboutMeContainer>
-            <PageSectionTitle>O mnie</PageSectionTitle>
+            <PageSectionTitle>
+              {t('mainPage.aboutMeSectionTitle')}
+            </PageSectionTitle>
             <AboutMeSection meImage={meImage} />
           </AboutMeContainer>
         </PageSection>
         <PageSection>
-          <PageSectionTitle>Oferta</PageSectionTitle>
+          <PageSectionTitle>{t('mainPage.offerSectionTitle')}</PageSectionTitle>
           <OfferSection />
         </PageSection>
         <PageSection dark>
-          <PageSectionTitle>Artykuły</PageSectionTitle>
+          <PageSectionTitle>
+            {t('mainPage.articlesSectionTitle')}
+          </PageSectionTitle>
           <ArticlesWrapper>
             <ArticlesExcerpts
               articlesExcerpts={articlesExcerpts}

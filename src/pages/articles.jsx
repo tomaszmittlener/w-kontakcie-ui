@@ -119,7 +119,7 @@ export const pageQuery = graphql`
           relativeDirectory
           childImageSharp {
             fluid(maxWidth: 800, maxHeight: 200) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

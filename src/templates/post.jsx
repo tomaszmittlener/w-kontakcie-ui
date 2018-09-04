@@ -21,7 +21,6 @@ import {rgba} from 'polished'
 import {
   UserInfo,
   SEO,
-  PostTags,
   MarkdownAST,
   PageSection,
   PageMainTitle,
@@ -32,16 +31,24 @@ const StyledImg = styled(Img)`
   height: 475px;
   z-index: ${({theme: {layers}}) => layers.bottom};
 `
+const StyledUserInfo = styled(UserInfo)`
+  display: inline-flex;
+  width: auto;
+  margin: 0 auto;
+  ${({theme: {mq}}) => mq.desktop} {
+    margin: 0 0 0 auto;
+  }
+`
 
 const ArticleSection = styled(PageSection)`
-  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
+  max-width: 80ch;
 `
 
 const Article = styled.article`
-  max-width: 80ch;
-  margin: 0 auto;
-  padding: 0 ${ms(1)};
+  padding: 0 ${ms(1)} ${ms(4)} 0;
   & > p:first-of-type {
     padding: ${ms(5)} 0 0 0;
     &:first-letter {
@@ -134,9 +141,7 @@ class PostTemplate extends React.Component {
           <Article>
             <MarkdownAST htmlAst={postNode.htmlAst} />
           </Article>
-          <UserInfo />
-          Podobna tematyka:
-          <PostTags tags={post.tags} />
+          <StyledUserInfo />
         </ArticleSection>
       </Layout>
     )
@@ -188,9 +193,8 @@ export const pageQuery = graphql`
           cropFocus: CENTER
           maxWidth: 1920
           maxHeight: 475 #          duotone: {highlight: "#f00e2e", shadow: "#192550", opacity: 50}
-          traceSVG: {color: "rgb(56, 47, 92)", threshold: 75}
         ) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }

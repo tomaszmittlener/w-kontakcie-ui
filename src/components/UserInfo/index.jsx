@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {Link, ParagraphText} from 'src/components'
 import {withLocales} from 'src/context'
@@ -6,12 +6,13 @@ import {graphql, StaticQuery} from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import {ms} from 'src/utils'
+import {imageFluidPropTypesShape} from 'src/utils/PropTypes'
 
 const Avatar = styled(Img)`
   height: 70px;
   width: 70px;
   border-radius: 100%;
-  margin: 0 ${ms(-5)} 0 0;
+  margin: 0 ${ms(-1)} 0 0;
 `
 
 const Figure = styled.figure`
@@ -40,12 +41,11 @@ const StyledParagraphText = styled(ParagraphText)`
   line-height: 1;
 `
 
-
 class UserInfo extends Component {
   render() {
-    const {config, data} = this.props
+    const {config, data, className} = this.props
     return (
-      <Figure>
+      <Figure className={className}>
         <Avatar sizes={data.meImage.childImageSharp.fluid} />
         <figcaption>
           <StyledParagraphText>{config('userName')}</StyledParagraphText>
@@ -60,6 +60,14 @@ class UserInfo extends Component {
 
 UserInfo.propTypes = {
   config: PropTypes.func.isRequired,
+  data: PropTypes.shape({
+    meImage: imageFluidPropTypesShape.isRequired,
+  }).isRequired,
+  className: PropTypes.string,
+}
+
+UserInfo.defaultProps = {
+  className: '',
 }
 
 const ComponentToExport = withLocales(UserInfo)
