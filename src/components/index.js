@@ -23,5 +23,6 @@ export {default as PageMainTitle} from './PageMainTitle'
 
 // index page components
 export {default as ArticlesExcerpts} from './ArticlesExcerpts'
-export {default as AboutMe} from './AboutMe'
+export {default as AboutMeSection} from './AboutMeSection'
+export {default as OfferSection} from './OfferSection'
 export {default as Intro} from './Intro'

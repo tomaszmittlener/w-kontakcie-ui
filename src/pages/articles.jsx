@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Layout from 'src/layout'
 import {ArticlesExcerpts, PageSectionTitle, PageSection} from 'src/components'
+import {compose} from 'src/utils'
+import {withLocales, withLocalesContextProvider} from 'src/context'
 import {rgba} from 'polished'
 import {
   articlesExcerptsPropTypesShape,
@@ -71,7 +73,10 @@ ArticlesPage.propTypes = {
   }).isRequired,
 }
 
-export default ArticlesPage
+export default compose(
+  withLocalesContextProvider,
+  withLocales,
+)(ArticlesPage)
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
@@ -113,15 +118,7 @@ export const pageQuery = graphql`
         node {
           relativeDirectory
           childImageSharp {
-            fluid(
-              maxWidth: 800
-              maxHeight: 200
-              traceSVG: {
-                color: "rgb(56, 47, 92)"
-                threshold: 75
-                turnPolicy: TURNPOLICY_LEFT
-              }
-            ) {
+            fluid(maxWidth: 800, maxHeight: 200) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }

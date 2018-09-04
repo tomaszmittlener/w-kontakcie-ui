@@ -1,11 +1,23 @@
 import React from 'react'
-import styled, {keyframes} from 'styled-components'
+import styled, {keyframes, css} from 'styled-components'
 
 // const gradientColors = ['#174677', '#2B768A', '#2FBB92'] // picked from img
 const gradientColors = ['#25516C', '#2B768A', '#2FBB92']
 
-const Svg = styled.svg`
+const hoverTransition = css`
   cursor: pointer;
+  &:hover {
+    #slice_1,
+    #slice_2,
+    #slice_3,
+    #slice_4 {
+      fill: ${({theme: {colors}}) => colors.text};
+      transition: fill 300ms linear;
+    }
+  }
+`
+
+const Svg = styled.svg`
   #slice_1 {
     fill: ${gradientColors[0]};
   }
@@ -18,19 +30,12 @@ const Svg = styled.svg`
   #slice_4 {
     fill: ${gradientColors[2]};
   }
-  &:hover {
-    #slice_1,
-    #slice_2,
-    #slice_3,
-    #slice_4 {
-      fill: ${({theme: {colors}}) => colors.text};
-      transition: fill 300ms linear;
-    }
-  }
+  ${({withoutHover}) => !withoutHover && hoverTransition }
 `
 
-const Logo = ({withText, className}) => (
+const Logo = ({withText, className, withoutHover}) => (
   <Svg
+    withoutHover={withoutHover}
     viewBox={withText ? '0 0 89 81' : '0 0 92 53'}
     version="1.1"
     role="img"
@@ -100,11 +105,11 @@ const Logo = ({withText, className}) => (
         {withText && (
           <text
             id="text"
-            fontFamily="LucidaGrande, Lucida Grande"
+            fontFamily="'Hinda Murai', helvetica, arial, sans-serif;"
             fontSize="21.5406"
             fontWeight="normal"
-            fill="#1A1919">
-            <tspan x="0.24688365" y="75.6684656">
+            fill="#242021">
+            <tspan x="6.5" y="75.6684656">
               w relacji
             </tspan>
           </text>

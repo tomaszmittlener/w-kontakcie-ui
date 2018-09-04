@@ -12,12 +12,8 @@ export default [
     title: 'Terapia',
   },
   {
-    link: 'coaching',
-    title: 'Coaching',
-  },
-  {
-    link: 'online-help',
-    title: 'Pomoc Online ',
+    link: 'contact',
+    title: 'Kontakt',
   },
   {
     link: 'articles',

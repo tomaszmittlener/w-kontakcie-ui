@@ -1,5 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {compose, ms} from 'src/utils'
+import {
+  withAppContextProvider,
+  withAppContext,
+  withLocalesContextProvider,
+} from 'src/context'
 import {
   locationPropTypesShape,
   pageContextPropTypesShape,
@@ -20,7 +26,6 @@ import {
   PageSection,
   PageMainTitle,
 } from 'src/components'
-import {ms} from 'src/utils'
 import config from '../../data/SiteConfig'
 
 const StyledImg = styled(Img)`
@@ -82,6 +87,10 @@ const Article = styled.article`
       margin-top: ${ms(3.9)};
       color: ${({theme: {colors}}) => rgba(colors.primary, 0.4)};
     }
+
+    background-color: ${({theme: {colors}}) => colors.canvas};
+    padding: ${ms(6)};
+    box-sizing: content-box;
   }
 `
 
@@ -89,8 +98,7 @@ const ImageContainer = styled.div`
   position: relative;
 `
 
-
-export default class PostTemplate extends React.Component {
+class PostTemplate extends React.Component {
   render() {
     const {
       pageContext: {slug},
@@ -104,7 +112,7 @@ export default class PostTemplate extends React.Component {
       location,
     } = this.props
     return (
-      <Layout location={location} withTopPadding>
+      <Layout location={location}>
         <Helmet>
           <title>{`${post.title} | ${config.siteTitle}`}</title>
         </Helmet>
@@ -143,6 +151,8 @@ PostTemplate.propTypes = {
   location: locationPropTypesShape.isRequired,
   pageContext: pageContextPropTypesShape.isRequired,
 }
+
+export default withLocalesContextProvider(PostTemplate)
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled, {ThemeProvider, css} from 'styled-components'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
 import {getLocalTitle, compose, ms} from 'src/utils'
+import Particles from 'react-particles-js'
 import {
   Helmet,
   MobileMenu,
@@ -15,10 +16,22 @@ import {
   contextPropTypesShape,
   withAppContext,
   withAppContextProvider,
+  withLocales,
   withLocalesContextProvider,
 } from 'src/context'
 import config from '../../data/SiteConfig'
 import './global-styles'
+import particlesConfig from '../../data/particlesjs-config'
+
+const StyledParticles = styled(Particles)`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: ${({theme: {layers}}) => layers.bottom};
+  //height: 100%;
+`
 
 const ViewContainer = styled.div`
   height: 100%;
@@ -52,16 +65,15 @@ const ContentContainer = styled.main`
 `
 
 class Layout extends React.Component {
-  toggleMenu = () =>
-    this.setState(prevState => ({isMenuOpen: !prevState.isMenuOpen}))
-
   render() {
     const {
       children,
       location: {pathname},
       context: {toggleMenuOpen, isMenuOpen, theme, isTablet, isMobile},
       withTopPadding,
+      hideLogo,
     } = this.props
+
     return (
       <ThemeProvider theme={theme}>
         <Fragment>
@@ -78,9 +90,10 @@ class Layout extends React.Component {
           <ViewContainer
             isMenuOpen={isMenuOpen}
             onClick={() => isMenuOpen && toggleMenuOpen()}>
-            <Header />
+            <Header hideLogo={hideLogo} />
             <Transition>
               <ContentContainer withTopPadding={withTopPadding}>
+                <StyledParticles params={particlesConfig} />
                 {children}
               </ContentContainer>
             </Transition>
@@ -96,14 +109,15 @@ Layout.propTypes = {
   location: locationPropTypesShape.isRequired,
   context: contextPropTypesShape.isRequired,
   withTopPadding: PropTypes.bool,
+  hideLogo: PropTypes.bool,
 }
 
 Layout.defaultProps = {
   withTopPadding: false,
+  hideLogo: false,
 }
 
 export default compose(
   withAppContextProvider,
-  withLocalesContextProvider,
   withAppContext,
 )(Layout)

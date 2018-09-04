@@ -25,6 +25,7 @@ const Container = styled.header`
 `
 
 const Logo = styled(LogoSVG)`
+  opacity: ${({hideLogo}) => (hideLogo ? 0 : 1)};
   width: ${ms(6)};
   height: ${ms(3.4)};
   ${({theme: {mq}}) => mq.desktop} {
@@ -77,12 +78,13 @@ const MainNavigationLink = styled(Link)`
 class Header extends React.Component {
   render() {
     const {
+      hideLogo,
       context: {toggleMenuOpen, isMobile, isTablet},
     } = this.props
     return (
       <Container isMobile={isTablet || isMobile}>
         <LogoContainer to="/" aria-label="got to Home page">
-          <Logo withText={!(isTablet || isMobile)} />
+          <Logo withText={!(isTablet || isMobile)} hideLogo={hideLogo} />
         </LogoContainer>
         {!(isTablet || isMobile) && (
           <MenuItems aria-hidden={isTablet || isMobile}>
@@ -106,11 +108,14 @@ class Header extends React.Component {
 
 Header.propTypes = {
   context: contextPropTypesShape.isRequired,
+  hideLogo: PropTypes.bool,
 }
 
-const HeaderToExport = compose(
-  withAppContext,
-)(Header)
+Header.defaultProps = {
+  hideLogo: false,
+}
+
+const HeaderToExport = compose(withAppContext)(Header)
 
 export default props => (
   <StaticQuery
