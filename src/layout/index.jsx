@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled, {ThemeProvider, css} from 'styled-components'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
 import {getLocalTitle, compose, ms} from 'src/utils'
-import Particles from 'react-particles-js'
 import {
   Helmet,
   MobileMenu,
@@ -16,22 +15,9 @@ import {
   contextPropTypesShape,
   withAppContext,
   withAppContextProvider,
-  withLocales,
-  withLocalesContextProvider,
 } from 'src/context'
 import config from '../../data/SiteConfig'
 import './global-styles'
-import particlesConfig from '../../data/particlesjs-config'
-
-const StyledParticles = styled(Particles)`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: ${({theme: {layers}}) => layers.bottom};
-  //height: 100%;
-`
 
 const ViewContainer = styled.div`
   height: 100%;
@@ -93,7 +79,6 @@ class Layout extends React.Component {
             <Header hideLogo={hideLogo} />
             <Transition>
               <ContentContainer withTopPadding={withTopPadding}>
-                <StyledParticles params={particlesConfig} />
                 {children}
               </ContentContainer>
             </Transition>

@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
-import Img from 'gatsby-image'
+import Particles from 'react-particles-js'
+
 import {compose} from 'src/utils'
 import {withLocales, withLocalesContextProvider} from 'src/context'
 import styled from 'styled-components'
@@ -11,13 +12,8 @@ import {
   SEO,
   AboutMeSection,
   ArticlesExcerpts,
-  H3,
-  ParagraphText,
   PageSectionTitle,
   PageSection,
-  Logo,
-  PageMainTitle,
-  SpanText,
   Intro,
   OfferSection,
 } from 'src/components'
@@ -29,6 +25,18 @@ import {
 } from 'src/utils/PropTypes'
 
 import config from '../../data/SiteConfig'
+import particlesConfig from '../../data/particlesjs-config'
+
+const StyledParticles = styled(Particles)`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: ${({theme: {layers}}) => layers.bottom};
+  //height: 100%;
+`
+
 
 // about me
 const AboutMeContainer = styled.div`
@@ -60,6 +68,7 @@ class Index extends React.Component {
     } = this.props
     return (
       <Layout location={location} withTopPadding hideLogo>
+        <StyledParticles params={particlesConfig} />
         <Helmet title={config.siteTitle} />
         <SEO />
         <PageSection>
