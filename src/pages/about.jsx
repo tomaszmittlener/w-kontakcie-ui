@@ -4,20 +4,15 @@ import Helmet from 'react-helmet'
 import Layout from 'src/layout'
 import About from 'src/components/About/About'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
-import {LocalesContext} from 'src/context'
+import {compose} from 'src/utils'
+import {withLocalesContextProvider, withLocales} from 'src/context'
 
 class AboutPage extends Component {
   render() {
     return (
       <Layout location={this.props.location} withTopPadding>
-        <LocalesContext.Consumer>
-          {({config}) => (
-            <Fragment>
-              <Helmet title={`O mnie | ${config('siteTitle')}`} />
-              <About />
-            </Fragment>
-          )}
-        </LocalesContext.Consumer>
+        <Helmet title={`O mnie | ${this.props.config('siteTitle')}`} />
+        <About />
       </Layout>
     )
   }
@@ -27,4 +22,7 @@ AboutPage.propTypes = {
   location: locationPropTypesShape.isRequired,
 }
 
-export default AboutPage
+export default compose(
+  withLocalesContextProvider,
+  withLocales,
+)(AboutPage)
