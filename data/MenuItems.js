@@ -19,4 +19,8 @@ export default [
     link: 'articles',
     title: 'Artykuły',
   },
+  {
+    link: 'coaching',
+    title: 'Coaching',
+  },
 ]
