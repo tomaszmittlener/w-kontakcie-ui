@@ -26,3 +26,6 @@ export {default as ArticlesExcerpts} from './ArticlesExcerpts'
 export {default as AboutMeSection} from './AboutMeSection'
 export {default as OfferSection} from './OfferSection'
 export {default as Intro} from './Intro'
+
+// page bodies
+export {default as AboutPageBody} from './AboutPageBody'
