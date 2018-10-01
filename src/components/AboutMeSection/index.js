@@ -1,10 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import {compose} from 'src/utils'
+import {compose, ms} from 'src/utils'
 import {withLocales} from 'src/context/locales'
-import {H2, H3} from 'src/components/Headings'
-import {ParagraphText} from 'src/components/Text'
-import {ms} from 'src/utils/index'
+import {H2, H3, ParagraphText} from 'src/components'
 import Img from 'gatsby-image'
 import {
   imageFluidPropTypesShape,

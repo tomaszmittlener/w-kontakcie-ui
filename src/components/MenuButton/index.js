@@ -60,15 +60,14 @@ const HamburgerButton = styled.div`
     `};
 `
 
-const MenuButton = ({isMenuOpen, onClick, shouldDisplay}) =>
-  shouldDisplay && (
-    <Circle
-      aria-label="open mobile menu button"
-      aria-current={isMenuOpen}
-      onClick={onClick}
-      isMenuOpen={isMenuOpen}>
-      <HamburgerButton isMenuOpen={isMenuOpen} />
-    </Circle>
-  )
+const MenuButton = ({isMenuOpen, onClick}) => (
+  <Circle
+    aria-label="open mobile menu button"
+    aria-current={isMenuOpen}
+    onClick={onClick}
+    isMenuOpen={isMenuOpen}>
+    <HamburgerButton isMenuOpen={isMenuOpen} />
+  </Circle>
+)
 
 export default MenuButton

@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import {ms} from '../../utils/index'
 
 export const H1 = styled.h1`
-  font-size: ${ms(4)}; // 36px
+  display: inline-block;
+  font-size: ${ms(4)};
   line-height: ${ms(4)};
   text-transform: uppercase;
   margin: 0 0 ${ms(2)} 0;
@@ -16,7 +17,8 @@ export const H1 = styled.h1`
 `
 
 export const H2 = styled.h2`
-  font-size: ${ms(3)}; //32px
+  display: inline-block;
+  font-size: ${ms(3)};
   line-height: ${ms(3)};
   margin: 0 0 ${ms(1)} 0;
   color: ${({color, theme: {colors}}) => (color ? colors[color] : 'inherit')};
@@ -29,12 +31,13 @@ export const H2 = styled.h2`
 `
 
 export const H3 = styled.h3`
+  display: inline-block;
   font-family: ${({
     theme: {
       typo: {fontFamily},
     },
   }) => fontFamily.primary};
-  font-size: ${ms(2)}; //22px
+  font-size: ${ms(2)};
   line-height: ${ms(2)};
   margin: 0 0 ${ms(0)} 0;
   color: ${({color, theme: {colors}}) => (color ? colors[color] : 'inherit')};

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {imageFluidPropTypesShape} from 'src/utils/PropTypes'
 import Img from 'gatsby-image'
@@ -9,33 +8,42 @@ import {withLocales} from 'src/context/locales'
 
 const Container = styled.section`
   display: flex;
-  background-color: ${({theme: {colors}}) => colors.third};
+  flex-direction: column;
   height: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  min-height: unset;
+  padding: ${ms(2)};
+  ${({theme: {mq}}) => mq.tablet} {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: ${ms(10)};
+  }
 `
 
 const PhotoSection = styled.aside`
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   align-items: center;
   height: 100%;
-  border-right: 1px solid ${({theme: {colors}}) => colors.primary};
+  ${({theme: {mq}}) => mq.tablet} {
+    width: 35%;
+    padding: 20px;
+  }
 `
 
 const DescriptionSection = styled.article`
   display: flex;
   flex-direction: column;
-  flex-grow: 3;
+  ${({theme: {mq}}) => mq.tablet} {
+    width: 55%;
+  }
 `
 
 const Avatar = styled(Img)`
-  height: 200px;
   width: 200px;
+  margin: 0 0 ${ms(6)} 0;
   border-radius: 100%;
-  margin: 0 0 ${ms(1)} 0;
-  ${({theme: {mq}}) => mq.desktop} {
-    margin: 0 ${ms(1)} 0 0;
-  }
 `
 
 const Figure = styled.figure`
@@ -82,7 +90,20 @@ class AboutPageBody extends React.Component {
           </Figure>
         </PhotoSection>
         <DescriptionSection>
-          KOMPETENCJE
+          <H2>Doświadczenie</H2>
+          <ParagraphText>
+            <ul>
+              <li>Lorem ipsum dolor sit amet, consectetur</li>
+              <li>adipiscing elit, sed do eiusmod tempor incididunt</li>
+              <li> Ut enim ad minim veniam, quis nostrud exercitation</li>
+              <li>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur
+              </li>
+            </ul>
+          </ParagraphText>
+          <H2>Prywatnie</H2>
+          <ParagraphText> {t('aboutMe.description')}</ParagraphText>
         </DescriptionSection>
       </Container>
     )

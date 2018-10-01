@@ -9,7 +9,7 @@ export default [
   },
   {
     link: 'therapy',
-    title: 'Terapia',
+    title: 'Psychoterapia',
   },
   {
     link: 'contact',

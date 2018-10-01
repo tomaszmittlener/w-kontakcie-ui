@@ -13,9 +13,9 @@ const Container = styled.div`
 `
 
 const StyledLogo = styled(Logo)`
-  width: ${ms(14)};
+  width: ${ms(8)};
   ${({theme: {mq}}) => mq.desktop} {
-    width: ${ms(16)};
+    width: ${ms(10)};
   }
 `
 
@@ -31,13 +31,6 @@ const Text = styled(SpanText)`
       typo: {fontFamily},
     },
   }) => fontFamily.secondary};
-  &:before {
-    content: '';
-    align-self: center;
-    width: 70%;
-    margin: ${ms(-4)} 0;
-    border-top: 1px solid ${({theme: {colors}}) => colors.third};
-  }
 `
 
 const Intro = ({t}) => (

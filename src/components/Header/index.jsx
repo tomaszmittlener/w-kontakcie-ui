@@ -12,34 +12,27 @@ import menuItemsList from '../../../data/MenuItems'
 
 const Container = styled.header`
   width: 100%;
-  position: absolute;
-  background-color: ${({theme: {colors}}) => rgba(colors.primary, 0)};
+  position: fixed;
+  background: linear-gradient(
+    to bottom,
+    ${({theme: {colors}, opacity}) => rgba(colors.third, opacity)},
+    ${({theme: {colors}, opacity}) => rgba(colors.canvas, opacity)}
+  );
   display: flex;
-  padding: ${ms(1)} ${ms(2)};
+  padding: ${ms(0)} ${ms(2)};
   align-items: center;
   z-index: ${({theme: {layers}}) => layers.middleTom};
-  ${({theme: {mq}}) => mq.desktop} {
-    padding: ${ms(1)} ${ms(-1)};
-  }
+  padding: ${ms(-1)} ${ms(-1)};
 `
 
 const Logo = styled(LogoSVG)`
-  opacity: ${({hideLogo}) => (hideLogo ? 0 : 1)};
-  width: ${ms(6)};
-  height: ${ms(3.4)};
-  ${({theme: {mq}}) => mq.desktop} {
-    width: ${ms(7 * 1.2)};
-    height: ${ms(6.3 * 1.2)};
-  }
+  height: ${ms(4.3)};
 `
 
 const LogoContainer = styled(Link)`
-  margin: 0 auto;
+  margin: 0;
   display: flex;
   transform: translateX(22px);
-  ${({theme: {mq}}) => mq.desktop} {
-    margin: 0;
-  }
 `
 
 const MenuItems = styled.nav`
@@ -75,15 +68,30 @@ const MainNavigationLink = styled(Link)`
 `
 
 class Header extends React.Component {
+  state = {
+    scrollPosition: 0,
+  }
+
+  componentDidMount() {
+    window.onscroll = () => {
+      const newScrollHeight = Math.ceil(window.scrollY / 50) * 50
+      if (this.state.scrollPosition !== newScrollHeight) {
+        this.setState({scrollPosition: newScrollHeight})
+      }
+    }
+  }
+
   render() {
     const {
-      hideLogo,
       context: {toggleMenuOpen, isMobile, isTablet},
     } = this.props
+    const opacity = 1 - Math.min(100 / this.state.scrollPosition, 1)
     return (
-      <Container isMobile={isTablet || isMobile}>
+      <Container
+        isMobile={isTablet || isMobile}
+        opacity={Number(opacity.toFixed(1))}>
         <LogoContainer to="/" aria-label="got to Home page">
-          <Logo withText={!(isTablet || isMobile)} hideLogo={hideLogo} />
+          <Logo />
         </LogoContainer>
         {!(isTablet || isMobile) && (
           <MenuItems aria-hidden={isTablet || isMobile}>

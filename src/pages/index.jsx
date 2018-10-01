@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
-
-import {compose} from 'src/utils'
+import sal from 'sal.js'
+import {compose, ms} from 'src/utils'
 import {withLocales, withLocalesContextProvider} from 'src/context'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import Layout from 'src/layout'
 import {
   SEO,
@@ -46,6 +46,23 @@ const ArticlesWrapper = styled.div`
   }
 `
 
+const GradientPageSection = styled.section`
+  padding: ${ms(8)} ${ms(2)};
+  height: 100%;
+  background-image: linear-gradient(to center, ${({theme: {colors}}) =>
+    colors.third} , ${({theme: {colors}}) => colors.canvas});
+    min-height: unset;
+  }
+`
+const GradientBottonPageSection = styled.section`
+  padding: ${ms(8)} ${ms(2)};
+  height: 100%;
+  background-image: linear-gradient(to top, ${({theme: {colors}}) =>
+    colors.third} , ${({theme: {colors}}) => colors.canvas});
+    min-height: unset;
+  }
+`
+
 class Index extends React.Component {
   render() {
     const {
@@ -53,14 +70,15 @@ class Index extends React.Component {
       location,
       data: {meImage, articlesExcerpts, articlesImages},
     } = this.props
+    sal()
     return (
       <Layout location={location} withTopPadding hideLogo>
         <Helmet title={config.siteTitle} />
         <SEO />
-        <PageSection>
+        <GradientPageSection dark>
           <Intro />
-        </PageSection>
-        <PageSection dark>
+        </GradientPageSection>
+        <PageSection>
           <AboutMeContainer>
             <PageSectionTitle>
               {t('mainPage.aboutMeSectionTitle')}
@@ -72,17 +90,18 @@ class Index extends React.Component {
           <PageSectionTitle>{t('mainPage.offerSectionTitle')}</PageSectionTitle>
           <OfferSection />
         </PageSection>
-        <PageSection dark>
+        <GradientBottonPageSection>
           <PageSectionTitle>
             {t('mainPage.articlesSectionTitle')}
           </PageSectionTitle>
-          <ArticlesWrapper>
+          <ArticlesWrapper
+          >
             <ArticlesExcerpts
               articlesExcerpts={articlesExcerpts}
               articlesImages={articlesImages}
             />
           </ArticlesWrapper>
-        </PageSection>
+        </GradientBottonPageSection>
       </Layout>
     )
   }

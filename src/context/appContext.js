@@ -1,6 +1,7 @@
 import React from 'react'
 import theme from 'src/layout/theme'
 import PropTypes from 'prop-types'
+import debounce from 'lodash/debounce'
 import {
   TABLET_MEDIA_QUERY,
   DESKTOP_L_MEDIA_QUERY,

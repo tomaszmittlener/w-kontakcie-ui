@@ -8,7 +8,7 @@ export default styled(H1)`
   text-align: center;
   width: 100%;
   color: ${({theme: {colors}}) => rgba(colors.text, 0.7)};
-  margin: 0 0 ${ms(4)} 0;
+  margin: 0 0 ${ms(8)} 0;
   &:after,
   &:before {
     content: '';

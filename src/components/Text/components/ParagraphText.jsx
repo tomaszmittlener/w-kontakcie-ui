@@ -3,12 +3,12 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import {textPropTypes, textDefaultProps} from '../../../constants/PropTypes'
 import {ms} from '../../../utils/index'
-import TextBasixMixin from './TextBasicMixin'
+import TextBasicMixin from './TextBasicMixin'
 
 const StyledText = styled.p`
-  ${TextBasixMixin};
+  ${TextBasicMixin};
   margin: ${({nomargin, smallmargin}) =>
-    nomargin ? 0 : (smallmargin && `0 0 ${ms(-4)}`) || `0 0 ${ms(0)}`}};
+    nomargin ? 0 : (smallmargin && `0 0 ${ms(-2)}`) || `0 0 ${ms(3)}`}};
 `
 
 function ParagraphText({

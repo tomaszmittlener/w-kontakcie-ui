@@ -43,10 +43,7 @@ const ContentContainer = styled.main`
   ${({withTopPadding}) =>
     withTopPadding &&
     css`
-      padding: ${ms(8)} 0 0 0;
-      ${({theme: {mq}}) => mq.desktop} {
-        padding: ${ms(9.5)} 0 0 0;
-      }
+      padding: ${ms(7.5)} 0 0 0;
     `};
 `
 
@@ -60,6 +57,8 @@ class Layout extends React.Component {
       hideLogo,
     } = this.props
 
+    const isMobileView = isMobile || isTablet
+
     return (
       <ThemeProvider theme={theme}>
         <Fragment>
@@ -67,16 +66,14 @@ class Layout extends React.Component {
             description={config.siteDescription}
             title={`${config.siteTitle} |  ${getLocalTitle(pathname)}`}
           />
-          <MenuButton
-            onClick={toggleMenuOpen}
-            isMenuOpen={isMenuOpen}
-            shouldDisplay={isTablet || isMobile}
-          />
-          <MobileMenu />
+          {isMobileView && (
+            <MenuButton onClick={toggleMenuOpen} isMenuOpen={isMenuOpen} />
+          )}
+          {isMobileView && <MobileMenu />}
           <ViewContainer
             isMenuOpen={isMenuOpen}
             onClick={() => isMenuOpen && toggleMenuOpen()}>
-            <Header hideLogo={hideLogo} />
+            {!isMobileView && <Header />}
             <Transition>
               <ContentContainer withTopPadding={withTopPadding}>
                 {children}

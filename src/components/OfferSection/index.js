@@ -7,7 +7,7 @@ import {H3} from 'src/components/Headings'
 import {ParagraphText} from 'src/components/Text'
 
 const Article = styled.article`
-  max-width: 1000px;
+  max-width: 750px;
   margin: 0 auto;
 `
 

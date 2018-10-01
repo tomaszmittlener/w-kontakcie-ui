@@ -1,5 +1,6 @@
-import { injectGlobal } from 'styled-components'
-import { normalize } from 'polished'
+import {injectGlobal} from 'styled-components'
+import {normalize} from 'polished'
+import 'sal.js/dist/sal.css'
 import Theme from './theme'
 import './fonts'
 
