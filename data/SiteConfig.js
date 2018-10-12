@@ -5,7 +5,7 @@ module.exports = {
   siteLogo: 'logo.png', // Logo used for Index and manifest.
   siteUrl: 'https:/', // Domain of your website without pathPrefix.
   pathPrefix: '/reverent-goldberg-099d94.netlify.com', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
-  siteDescription: "Gabinet terapeutyczny 'W kontakcie'", // Website description used for RSS feeds/meta description tag.
+  siteDescription: "Gabinet terapeutyczny 'W relacji'", // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml', // Path to the RSS file.
   siteFBAppID: 'psychoterapiaAnnaDejewska', // FB Application ID for using app insights
   googleAnalyticsID: '', // GA tracking ID.
@@ -14,7 +14,7 @@ module.exports = {
   dateFormat: 'DD/MM/YYYY', // Date format for display.
   userName: 'Anna Dejewska', // Username to display in the author segment.
   userEmail: 'anna.dejewska1@gmail.com',
-  userLocation: 'Grunwaldza 34, 80-220 Gdańsk', // User location to display in the author segment.
+  userLocation: 'ul. Waryńskiego 40c/1, 80-433 Gdańsk-Wrzeszcz', // User location to display in the author segment.
   userAvatar: 'https://api.adorable.io/avatars/150/test.png', // User avatar to display in the author segment.
   userDescription:
     "Yeah, I like animals better than people sometimes... Especially dogs. Dogs are the best. Every time you come home, they act like they haven't seen you in a year. And the good thing about dogs... is they got different dogs for different people.", // User description to display in the author segment.

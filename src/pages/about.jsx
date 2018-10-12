@@ -4,11 +4,9 @@ import Helmet from 'react-helmet'
 import Layout from 'src/layout'
 import {compose} from 'src/utils'
 import {withLocalesContextProvider, withLocales} from 'src/context'
-import {AboutPageBody} from 'src/components'
+import {AboutPageBody, PageSectionTitle} from 'src/components'
 import {graphql} from 'gatsby'
 import {
-  articlesExcerptsPropTypesShape,
-  articlesImagesPropTypesShape,
   imageFluidPropTypesShape,
   locationPropTypesShape,
 } from 'src/utils/PropTypes'

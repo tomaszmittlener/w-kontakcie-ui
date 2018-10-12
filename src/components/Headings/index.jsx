@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import {ms} from '../../utils/index'
 
 export const H1 = styled.h1`
-  display: inline-block;
+  display: block;
   font-size: ${ms(4)};
   line-height: ${ms(4)};
   text-transform: uppercase;
@@ -17,7 +17,7 @@ export const H1 = styled.h1`
 `
 
 export const H2 = styled.h2`
-  display: inline-block;
+  display: block;
   font-size: ${ms(3)};
   line-height: ${ms(3)};
   margin: 0 0 ${ms(1)} 0;
@@ -31,7 +31,7 @@ export const H2 = styled.h2`
 `
 
 export const H3 = styled.h3`
-  display: inline-block;
+  display: block;
   font-family: ${({
     theme: {
       typo: {fontFamily},
