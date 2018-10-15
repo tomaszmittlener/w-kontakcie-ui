@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, {keyframes, css} from 'styled-components'
+import styled, {css} from 'styled-components'
 
 // const gradientColors = ['#174677', '#2B768A', '#2FBB92'] // picked from img
 const gradientColors = ['#25516C', '#2B768A', '#2FBB92']
@@ -30,7 +30,7 @@ const Svg = styled.svg`
   #slice_4 {
     fill: ${gradientColors[2]};
   }
-  ${({withoutHover}) => !withoutHover && hoverTransition }
+  ${({withoutHover}) => !withoutHover && hoverTransition};
 `
 
 const Logo = ({withText, className, withoutHover}) => (

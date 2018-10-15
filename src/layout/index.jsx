@@ -2,15 +2,8 @@ import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled, {ThemeProvider, css} from 'styled-components'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
-import {getLocalTitle, compose, ms} from 'src/utils'
-import {
-  Helmet,
-  MobileMenu,
-  Header,
-  Footer,
-  Transition,
-  MenuButton,
-} from 'src/components'
+import {getLocalTitle, compose} from 'src/utils'
+import {Helmet, MobileMenu, Header, Footer, Transition} from 'src/components'
 import {
   contextPropTypesShape,
   withAppContext,
@@ -40,11 +33,6 @@ const ContentContainer = styled.main`
   position: relative;
   background-color: ${({theme: {colors}}) => colors.canvas};
   z-index: ${({theme: {layers}}) => layers.middle};
-  ${({withTopPadding}) =>
-    withTopPadding &&
-    css`
-      padding: ${ms(7.5)} 0 0 0;
-    `};
 `
 
 class Layout extends React.Component {
@@ -53,8 +41,6 @@ class Layout extends React.Component {
       children,
       location: {pathname},
       context: {toggleMenuOpen, isMenuOpen, theme, isTablet, isMobile},
-      withTopPadding,
-      hideLogo,
     } = this.props
 
     const isMobileView = isMobile || isTablet
@@ -66,18 +52,13 @@ class Layout extends React.Component {
             description={config.siteDescription}
             title={`${config.siteTitle} |  ${getLocalTitle(pathname)}`}
           />
-          {isMobileView && (
-            <MenuButton onClick={toggleMenuOpen} isMenuOpen={isMenuOpen} />
-          )}
           {isMobileView && <MobileMenu />}
+          <Header />
           <ViewContainer
             isMenuOpen={isMenuOpen}
             onClick={() => isMenuOpen && toggleMenuOpen()}>
-            {!isMobileView && <Header />}
             <Transition>
-              <ContentContainer withTopPadding={withTopPadding}>
-                {children}
-              </ContentContainer>
+              <ContentContainer>{children}</ContentContainer>
             </Transition>
             <Footer />
           </ViewContainer>
@@ -90,13 +71,6 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
   location: locationPropTypesShape.isRequired,
   context: contextPropTypesShape.isRequired,
-  withTopPadding: PropTypes.bool,
-  hideLogo: PropTypes.bool,
-}
-
-Layout.defaultProps = {
-  withTopPadding: false,
-  hideLogo: false,
 }
 
 export default compose(

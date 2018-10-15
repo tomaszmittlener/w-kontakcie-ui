@@ -1,9 +1,10 @@
 import styled from 'styled-components'
-import {H1} from 'src/components'
+import {H2} from 'src/components'
 import rgba from 'polished/lib/color/rgba'
 import {ms} from 'src/utils'
 
-export default styled(H1)`
+export default styled(H2)`
+  text-transform: uppercase;
   display: inline-block;
   text-align: center;
   width: 100%;

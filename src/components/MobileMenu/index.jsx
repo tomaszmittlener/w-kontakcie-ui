@@ -4,11 +4,10 @@ import styled from 'styled-components'
 import {Link} from 'gatsby'
 import {contextPropTypesShape, withAppContext} from 'src/context'
 import map from 'lodash/map'
+import {ms} from 'src/utils'
 import menuItemsList from '../../../data/MenuItems'
-import {ms} from 'src/utils/index'
 
 const MenuContainer = styled.nav`
-  text-transform: uppercase;
   position: fixed;
   height: 100vh;
   overflow-y: auto;
@@ -25,13 +24,13 @@ const MenuContainer = styled.nav`
 
 const MainNavigationLink = styled(Link)`
   padding: ${ms(0)};
-  font-size: ${ms(1)};
+  font-size: ${ms(0)};
   color: ${({theme: {colors}}) => colors.canvas};
   font-family: ${({
     theme: {
       typo: {fontFamily},
     },
-  }) => fontFamily.secondary};
+  }) => fontFamily.primary};
   text-decoration: none;
   display: block;
   text-align: center;

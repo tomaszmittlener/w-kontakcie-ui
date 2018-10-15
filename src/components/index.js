@@ -20,6 +20,11 @@ export {default as Image} from './Image'
 export {default as PageSectionTitle} from './PageSectionTitle'
 export {default as PageSection} from './PageSection'
 export {default as PageMainTitle} from './PageMainTitle'
+export {default as Button} from './Button'
+export {default as SectionLayout} from './SectionLayout'
+export {default as SectionContent} from './SectionContent'
+export {default as HumanImage} from './HumanImage'
+export {default as MazeBrainImage} from './MazeBrainImage'
 
 // index page components
 export {default as ArticlesExcerpts} from './ArticlesExcerpts'

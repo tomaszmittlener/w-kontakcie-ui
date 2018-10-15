@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
 import {ms} from 'src/utils'
 
@@ -7,15 +8,10 @@ const Circle = styled.button`
   outline: none;
   padding: 0;
   background-color: transparent;
-  border: 1px solid ${({theme: {colors}}) => colors.text};
-  border-radius: 100%;
+  border: none;
   width: 40px;
   height: 40px;
   cursor: pointer;
-  position: fixed;
-  right: 20px;
-  top: 15px;
-  z-index: ${({theme: {layers}}) => layers.top};
 `
 
 const HamburgerButton = styled.div`
@@ -69,5 +65,10 @@ const MenuButton = ({isMenuOpen, onClick}) => (
     <HamburgerButton isMenuOpen={isMenuOpen} />
   </Circle>
 )
+
+MenuButton.propTypes = {
+  isMenuOpen: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+}
 
 export default MenuButton

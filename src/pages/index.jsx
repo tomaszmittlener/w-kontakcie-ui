@@ -5,7 +5,7 @@ import {graphql} from 'gatsby'
 import sal from 'sal.js'
 import {compose, ms} from 'src/utils'
 import {withLocales, withLocalesContextProvider} from 'src/context'
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 import Layout from 'src/layout'
 import {
   SEO,
@@ -15,6 +15,12 @@ import {
   PageSection,
   Intro,
   OfferSection,
+  SectionLayout,
+  SectionContent,
+  H1,
+  ParagraphText,
+  HumanImage,
+  MazeBrainImage,
 } from 'src/components'
 import {
   articlesExcerptsPropTypesShape,
@@ -63,6 +69,53 @@ const GradientBottonPageSection = styled.section`
   }
 `
 
+const HeroSection = styled.header`
+  padding: ${ms(13)} 0 ${ms(11)};
+  background-color: ${({theme: {colors}}) => colors.third};
+`
+
+const HeroParagraph = styled(ParagraphText)`
+  font-size: ${ms(5)};
+  line-height: ${ms(5)};
+  font-family: ${({
+    theme: {
+      typo: {fontFamily},
+    },
+  }) => fontFamily.secondary};
+`
+
+const HumanAnimation = styled.div`
+  position: relative;
+  height: 457px;
+  width: 312px;
+`
+
+const Brain = styled(MazeBrainImage)`
+  position: absolute;
+  left: 70px;
+  top: 40px;
+`
+const Human = styled(HumanImage)`
+  position: absolute;
+`
+const HeroSectionContent = styled(SectionContent)`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  ${({theme: {mq}}) => mq.desktop} {
+    flex-direction: row;
+  }
+`
+const HeroText = styled.div`
+  flex: 1;
+`
+
+const HeroIllustration = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+`
+
 class Index extends React.Component {
   render() {
     const {
@@ -75,27 +128,44 @@ class Index extends React.Component {
       <Layout location={location} withTopPadding hideLogo>
         <Helmet title={config.siteTitle} />
         <SEO />
-        <GradientPageSection dark>
-          <Intro />
-        </GradientPageSection>
+        <HeroSection>
+          <SectionLayout>
+            <HeroSectionContent>
+              <HeroText>
+                <H1>{t('company.name')}</H1>
+                <HeroParagraph>{t('company.type')}</HeroParagraph>
+              </HeroText>
+              <HeroIllustration>
+                <HumanAnimation>
+                  <Human />
+                  <Brain />
+                </HumanAnimation>
+              </HeroIllustration>
+            </HeroSectionContent>
+          </SectionLayout>
+        </HeroSection>
+
         <PageSection>
-          <AboutMeContainer>
-            <PageSectionTitle>
-              {t('mainPage.aboutMeSectionTitle')}
-            </PageSectionTitle>
-            <AboutMeSection meImage={meImage} />
-          </AboutMeContainer>
+          <SectionLayout>
+            <SectionContent>
+              <PageSectionTitle>
+                {t('mainPage.aboutMeSectionTitle')}
+              </PageSectionTitle>
+              <AboutMeSection meImage={meImage} />
+            </SectionContent>
+          </SectionLayout>
         </PageSection>
+
         <PageSection>
           <PageSectionTitle>{t('mainPage.offerSectionTitle')}</PageSectionTitle>
           <OfferSection />
         </PageSection>
+
         <GradientBottonPageSection>
           <PageSectionTitle>
             {t('mainPage.articlesSectionTitle')}
           </PageSectionTitle>
-          <ArticlesWrapper
-          >
+          <ArticlesWrapper>
             <ArticlesExcerpts
               articlesExcerpts={articlesExcerpts}
               articlesImages={articlesImages}

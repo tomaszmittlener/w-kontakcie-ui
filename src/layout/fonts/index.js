@@ -4,6 +4,7 @@ import hindaMurai from './hindmadurai-light-webfont.woff'
 import hindaMuraiMedium from './hindmadurai-medium-webfont.woff'
 
 injectGlobal`
+@import url('https://fonts.googleapis.com/css?family=Bitter|Noto+Serif|Port+Lligat+Slab|Fjord+One');
 
 @font-face {
   font-family: 'Javiera';
