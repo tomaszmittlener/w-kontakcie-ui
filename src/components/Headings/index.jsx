@@ -32,8 +32,8 @@ export const H2 = styled.h2`
 
 export const H3 = styled.h3`
   display: block;
-  font-size: ${ms(2)};
-  line-height: ${ms(2)};
+  font-size: ${ms(3)};
+  line-height: ${ms(3)};
   margin: 0 0 ${ms(0)} 0;
   color: ${({color, theme: {colors}}) => (color ? colors[color] : 'inherit')};
   font-family: ${({

@@ -67,10 +67,8 @@ const HeroIllustration = styled.div`
 `
 
 const HeroQuoteParagraph = styled.p`
-  font-style: italic;
-  margin: 0;
-  font-size: ${ms(3)};
-  line-height: ${ms(3)};
+  font-size: ${ms(4)};
+  line-height: ${ms(4)};
   font-family: ${({
     theme: {
       typo: {fontFamily},

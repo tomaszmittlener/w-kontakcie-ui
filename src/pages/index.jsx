@@ -7,6 +7,7 @@ import {compose, ms} from 'src/utils'
 import {withLocales, withLocalesContextProvider} from 'src/context'
 import styled from 'styled-components'
 import Layout from 'src/layout'
+import {NavLink} from 'react-router-dom'
 import {
   SEO,
   AboutMeSection,
@@ -17,9 +18,15 @@ import {
   SectionLayout,
   SectionContent,
   H1,
+  H2,
+  H3,
+  H4,
   ParagraphText,
   HumanImage,
   MazeBrainImage,
+  HealthIcon,
+  WhistleIcon,
+  Link,
 } from 'src/components'
 import {
   articlesExcerptsPropTypesShape,
@@ -115,6 +122,48 @@ const HeroIllustration = styled.div`
   justify-content: center;
 `
 
+const SectionTitle = styled(H2)`
+  text-align: center;
+`
+
+const OptionsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  margin: ${ms(8)} 0;
+`
+const Option = styled.div`
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  padding-left: ${ms(0)};
+  padding-right: ${ms(0)};
+  margin: 0 0 ${ms(3)} 0;
+`
+
+const OptionFigure = styled.figure`
+  margin: 0 0 ${ms(5)} 0;
+`
+const DescriptionList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-indent: 0;
+`
+const ReadMoreLink = styled(Link)`
+  margin: ${ms(2)} 0 0 0;
+  display: block;
+  font-weight: bold;
+  color: ${({theme: {colors}}) => colors.primary};
+`
+
+const OptionTitle = styled(H3)`
+  margin: 0 0 ${ms(2)} 0;
+  display: block;
+`
+
 class Index extends React.Component {
   render() {
     const {
@@ -147,30 +196,41 @@ class Index extends React.Component {
         <PageSection>
           <SectionLayout>
             <SectionContent>
-              <PageSectionTitle>
-                {t('mainPage.aboutMeSectionTitle')}
-              </PageSectionTitle>
-              <AboutMeSection meImage={meImage} />
+              <SectionTitle>Jak mogę Ci pomóc?</SectionTitle>
+              <OptionsContainer>
+                <Option>
+                  <NavLink to="/therapy">
+                    <OptionFigure>
+                      <HealthIcon />
+                    </OptionFigure>
+                  </NavLink>
+                  <OptionTitle>Psychoterapia</OptionTitle>
+                  <DescriptionList>
+                    <li>Trudności w relacjach</li>
+                    <li>Depresja</li>
+                    <li>Kryzysy i trudności osobiste</li>
+                    <li>Lęki, nerwice</li>
+                    <li>Trudności w pracy</li>
+                  </DescriptionList>
+                  <ReadMoreLink to="/therapy">Czytaj wiecej</ReadMoreLink>
+                </Option>
+                <Option>
+                  <NavLink to="/coaching">
+                    <OptionFigure>
+                      <WhistleIcon />
+                    </OptionFigure>
+                  </NavLink>
+                  <OptionTitle>Coaching</OptionTitle>
+                  <DescriptionList>
+                    <li>Business Coaching</li>
+                    <li>Life coaching</li>
+                  </DescriptionList>
+                  <ReadMoreLink to="/coaching">Czytaj wiecej</ReadMoreLink>
+                </Option>
+              </OptionsContainer>
             </SectionContent>
           </SectionLayout>
         </PageSection>
-
-        <PageSection>
-          <PageSectionTitle>{t('mainPage.offerSectionTitle')}</PageSectionTitle>
-          <OfferSection />
-        </PageSection>
-
-        <GradientBottonPageSection>
-          <PageSectionTitle>
-            {t('mainPage.articlesSectionTitle')}
-          </PageSectionTitle>
-          <ArticlesWrapper>
-            <ArticlesExcerpts
-              articlesExcerpts={articlesExcerpts}
-              articlesImages={articlesImages}
-            />
-          </ArticlesWrapper>
-        </GradientBottonPageSection>
       </Layout>
     )
   }

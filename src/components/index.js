@@ -31,6 +31,9 @@ export {default as PuzzleImage} from './PuzzleImage'
 export {default as PlantBrainImage} from './PlantBrainImage'
 export {default as MechanicBrainImage} from './MechanicBrainImage'
 
+// Icons
+export {HealthIcon, WhistleIcon} from './Icons'
+
 // index page components
 export {default as ArticlesExcerpts} from './ArticlesExcerpts'
 export {default as AboutMeSection} from './AboutMeSection'
