@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const MazeBrainSvg = ({className, strokeColor, fillColor}) => (
+const MazeBrainSvg = ({className, strokeColor, fillColor, height}) => (
   <svg
-    width="312px"
-    height="457px"
+    height={height}
     viewBox="0 0 312 457"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
@@ -28,11 +27,13 @@ MazeBrainSvg.propTypes = {
   strokeColor: PropTypes.string,
   fillColor: PropTypes.string,
   className: PropTypes.string,
+  height: PropTypes.string,
 }
 
 MazeBrainSvg.defaultProps = {
   strokeColor: '#FBFBFB',
   fillColor: '#FBFBFB',
+  height: '457px',
   className: '',
 }
 

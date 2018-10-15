@@ -10,7 +10,6 @@ import Theme from 'src/layout/theme'
 import {
   H1,
   HumanImage,
-  PuzzleImage,
   ParagraphText,
   SectionContent,
   SectionLayout,

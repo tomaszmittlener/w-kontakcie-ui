@@ -29,6 +29,7 @@ export {default as HumanImage} from './HumanImage'
 export {default as MazeBrainImage} from './MazeBrainImage'
 export {default as PuzzleImage} from './PuzzleImage'
 export {default as PlantBrainImage} from './PlantBrainImage'
+export {default as MechanicBrainImage} from './MechanicBrainImage'
 
 // index page components
 export {default as ArticlesExcerpts} from './ArticlesExcerpts'
