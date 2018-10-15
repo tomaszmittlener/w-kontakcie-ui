@@ -8,10 +8,6 @@ export default [
     title: 'Psychoterapia',
   },
   {
-    link: 'articles',
-    title: 'Artykuły',
-  },
-  {
     link: 'coaching',
     title: 'Coaching',
   },

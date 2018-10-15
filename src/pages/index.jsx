@@ -13,7 +13,6 @@ import {
   ArticlesExcerpts,
   PageSectionTitle,
   PageSection,
-  Intro,
   OfferSection,
   SectionLayout,
   SectionContent,
