@@ -2,7 +2,7 @@ import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {ms, compose} from 'src/utils'
-import {H1, H2, H3, ParagraphText, PageSectionTitle} from 'src/components'
+import {H2, H3, ParagraphText} from 'src/components'
 import {withLocales} from 'src/context/locales'
 import map from 'lodash/map'
 import {therapy, workAreas, therapyPracticalInfo} from '../../../data/TextLists'
@@ -19,7 +19,7 @@ const Container = styled.section`
 
 class PageBodyTherapy extends React.Component {
   render() {
-    const {meImage, t} = this.props
+    const {t} = this.props
     return (
       <Container>
         {map(therapy, (section, sectionIndex) => (

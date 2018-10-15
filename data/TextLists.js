@@ -181,7 +181,7 @@ export const businessCoachingAdvantages = [
   },
 ]
 
-export const lifeCoachingAdganatages = [
+export const lifeCoachingAdvanatages = [
   {
     title: 'Korzyści z Life Coachingu',
     description: 'Osoba, która decyduje się na coaching będzie mogła:',

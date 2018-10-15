@@ -30,3 +30,4 @@ export {default as Intro} from './Intro'
 // page bodies
 export {default as PageBodyAboutMe} from './PageBodyAboutMe'
 export {default as PageBodyTherapy} from './PageBodyTherapy'
+export {default as PageBodyCoaching} from './PageBodyCoaching'
