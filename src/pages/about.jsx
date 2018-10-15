@@ -1,10 +1,10 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Layout from 'src/layout'
 import {compose} from 'src/utils'
 import {withLocalesContextProvider, withLocales} from 'src/context'
-import {AboutPageBody, PageSectionTitle} from 'src/components'
+import {PageBodyAboutMe} from 'src/components'
 import {graphql} from 'gatsby'
 import {
   imageFluidPropTypesShape,
@@ -20,7 +20,7 @@ class AboutPage extends Component {
     return (
       <Layout location={this.props.location} withTopPadding>
         <Helmet title={`O mnie | ${config('siteTitle')}`} />
-        <AboutPageBody meImage={meImage} />
+        <PageBodyAboutMe meImage={meImage} />
       </Layout>
     )
   }

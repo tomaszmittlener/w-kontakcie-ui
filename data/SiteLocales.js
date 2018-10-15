@@ -4,6 +4,12 @@ export default {
     name: 'Anna Dejewska',
     profession: 'psycholog, psychoterapeuta, coach',
     phone: '530 521 218',
+    description: {
+      main:
+        'Jestem psychoterapeutką i psychologiem oraz certyfikowanym coachem. Od 10 lat pracuję z osobami, które borykają się z różnego rodzaju problemami i trudnościami w sferze  prywatnej i zawodowej oraz pragną poprawić jakość swojego życia. Jako terapeuta zajmuje się przede wszystkim z problemami związanymi z depresją, samotnością trudnościami w relacjach, agresją, nerwicami, stratą i traumatycznymi przeżyciami.',
+      accented:
+        'Prowadzę terapię indywidualną osób dorosłych i młodzieży oraz life i business coaching.',
+    },
   },
   company: {
     name: 'W relacji',
@@ -13,13 +19,15 @@ export default {
   },
   articlesPage: {
     title: 'Artykuły',
+    competencesSection: {
+      title: 'Kompetencje',
+    },
+    experienceSection: {
+      title: 'Doświadczenie',
+    },
   },
   aboutMePage: {
     pageTitle: 'O mnie',
-    description:
-      'Jestem psychoterapeutką i psychologiem oraz certyfikowanym coachem. Od 10 lat pracuję z osobami, które borykają się z różnego rodzaju problemami i trudnościami w sferze  prywatnej i zawodowej oraz pragną poprawić jakość swojego życia. Jako terapeuta zajmuje się przede wszystkim z problemami związanymi z depresją, samotnością trudnościami w relacjach, agresją, nerwicami, stratą i traumatycznymi przeżyciami.',
-    accented:
-      'Prowadzę terapię indywidualną osób dorosłych i młodzieży oraz life i business coaching.',
   },
   coachingPage: {
     pageTitle: 'Coaching',

@@ -1,10 +1,13 @@
-import React from 'react'
+import React, {Fragment} from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {imageFluidPropTypesShape} from 'src/utils/PropTypes'
 import Img from 'gatsby-image'
 import {ms, compose} from 'src/utils'
 import {H2, H3, ParagraphText} from 'src/components'
 import {withLocales} from 'src/context/locales'
+import map from 'lodash/map'
+import {experience, competences} from '../../../data/TextLists'
 
 const Container = styled.section`
   display: flex;
@@ -32,7 +35,7 @@ const PhotoSection = styled.aside`
   }
 `
 
-const DescriptionSection = styled.article`
+const ExperienceSection = styled.article`
   display: flex;
   flex-direction: column;
   ${({theme: {mq}}) => mq.tablet} {
@@ -85,26 +88,33 @@ class AboutPageBody extends React.Component {
             <FigCaption>
               <NameText>{t('owner.name')}</NameText>
               <ProfessionText>{t('owner.profession')}</ProfessionText>
-              <ParagraphText>{t('aboutMe.description')}</ParagraphText>
+              <ParagraphText>{t('owner.description.main')}</ParagraphText>
+              <ParagraphText>{t('owner.description.accented')}</ParagraphText>
             </FigCaption>
           </Figure>
         </PhotoSection>
-        <DescriptionSection>
-          <H2>Doświadczenie</H2>
-          <ParagraphText>
-            <ul>
-              <li>Lorem ipsum dolor sit amet, consectetur</li>
-              <li>adipiscing elit, sed do eiusmod tempor incididunt</li>
-              <li> Ut enim ad minim veniam, quis nostrud exercitation</li>
-              <li>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur
-              </li>
-            </ul>
-          </ParagraphText>
-          <H2>Prywatnie</H2>
-          <ParagraphText> {t('aboutMe.description')}</ParagraphText>
-        </DescriptionSection>
+        <ExperienceSection>
+          <H2>{t('articlesPage.competencesSection.title')}</H2>
+          <ul>
+            {map(competences[0].bullets, (competence, competenceIndex) => (
+              <li key={`competence-${competenceIndex}`}>{competence}</li>
+            ))}
+          </ul>
+          <H2>{t('articlesPage.experienceSection.title')}</H2>
+          {map(experience, (exp, expIndex) => (
+            <Fragment key={`therapy-${exp.title}-${expIndex}`}>
+              {exp.title && <H3>{exp.title}</H3>}
+              <ParagraphText>{exp.description}</ParagraphText>
+              <ul>
+                {map(exp.bullets, (bullet, bulletIndex) => (
+                  <li key={`therapy-${exp.title}-${expIndex}-${bulletIndex}`}>
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </Fragment>
+          ))}
+        </ExperienceSection>
       </Container>
     )
   }
@@ -112,6 +122,7 @@ class AboutPageBody extends React.Component {
 
 AboutPageBody.propTypes = {
   meImage: imageFluidPropTypesShape.isRequired,
+  t: PropTypes.func.isRequired,
 }
 
 export default compose(withLocales)(AboutPageBody)

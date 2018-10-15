@@ -1,12 +1,14 @@
-export const competences = {
-  title: 'Kompetencje',
-  description: '',
-  bullets: [
-    'Mgr Psychologii Uniwersytet Gdański',
-    'Instytut Integralnej Psychoterapii Gestalt w Krakowie Instytut IITG należy do Inernational Federation of Gestalt Training Organization (FORGE) i European Association for Gestalt Therapy (EAGT) międzynarodowych federacji zrzeszających ośrodki szkolące w zakresie terapii Gestalt.',
-    'Certyfikat Coacha ICC – International Coaching Community',
-  ],
-}
+export const competences = [
+  {
+    title: 'Kompetencje',
+    description: '',
+    bullets: [
+      'Mgr Psychologii Uniwersytet Gdański',
+      'Instytut Integralnej Psychoterapii Gestalt w Krakowie Instytut IITG należy do Inernational Federation of Gestalt Training Organization (FORGE) i European Association for Gestalt Therapy (EAGT) międzynarodowych federacji zrzeszających ośrodki szkolące w zakresie terapii Gestalt.',
+      'Certyfikat Coacha ICC – International Coaching Community',
+    ],
+  },
+]
 
 export const experience = [
   {
@@ -63,33 +65,7 @@ export const therapy = [
   },
 ]
 
-export const therapyPracticalInfo = [
-  {
-    title: 'Konsultacje',
-    description: 'Pracę zaczynam od konsultacji (1-3)',
-    bullets: [
-      'konsultacje umożliwiają mi zapoznanie się z problemem oraz pozwalają ustalić cel i obszar wspólnej pracy, czyli ustalić kontrakt',
-      'dla klienta konsultacja to czas na decyzję, czy jestem terapeutą, z którym chce pracować',
-      'konsultacja trwa 50 min.',
-    ],
-  },
-  {
-    title: 'Proces terapeutyczny',
-    description:
-      'Po konsultacjach i ustaleniu kontraktu rozpoczyna się proces terapeutyczny.',
-    bullets: [
-      'sesje odbywają się raz w tygodniu',
-      'sesja trwa 50 min',
-      'zarówno po konsultacji jak i w trakcie procesu można przerwać spotkania po omówieniu sytuacji na trzech sesjach podsumowujących proces',
-      'treść sesji jest objęta z mojej strony tajemnicą zawodową',
-      'prowadzę terapię indywidualną osób dorosłych oraz młodzieży',
-      'pracuję w oparciu o kodeks etyczny psychoterapeuty European Association for Gestalt Therapy',
-      'pozostaję w stałej superwizji mojej pracy terapeutycznej, dzięki której mogę utrzymać wysokie standardy pracy.',
-    ],
-  },
-]
-
-export const workArea = [
+export const workAreas = [
   {
     title: 'Trudności w relacjach',
     description: '',
@@ -145,6 +121,32 @@ export const workArea = [
       'spędzanie zbyt dużej ilości czasu w pracy',
       'perfekcjonizm',
       'poczucie wypalenia zawodowego',
+    ],
+  },
+]
+
+export const therapyPracticalInfo = [
+  {
+    title: 'Konsultacje',
+    description: 'Pracę zaczynam od konsultacji (1-3)',
+    bullets: [
+      'konsultacje umożliwiają mi zapoznanie się z problemem oraz pozwalają ustalić cel i obszar wspólnej pracy, czyli ustalić kontrakt',
+      'dla klienta konsultacja to czas na decyzję, czy jestem terapeutą, z którym chce pracować',
+      'konsultacja trwa 50 min.',
+    ],
+  },
+  {
+    title: 'Proces terapeutyczny',
+    description:
+      'Po konsultacjach i ustaleniu kontraktu rozpoczyna się proces terapeutyczny.',
+    bullets: [
+      'sesje odbywają się raz w tygodniu',
+      'sesja trwa 50 min',
+      'zarówno po konsultacji jak i w trakcie procesu można przerwać spotkania po omówieniu sytuacji na trzech sesjach podsumowujących proces',
+      'treść sesji jest objęta z mojej strony tajemnicą zawodową',
+      'prowadzę terapię indywidualną osób dorosłych oraz młodzieży',
+      'pracuję w oparciu o kodeks etyczny psychoterapeuty European Association for Gestalt Therapy',
+      'pozostaję w stałej superwizji mojej pracy terapeutycznej, dzięki której mogę utrzymać wysokie standardy pracy.',
     ],
   },
 ]

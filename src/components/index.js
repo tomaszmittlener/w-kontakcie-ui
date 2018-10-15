@@ -28,4 +28,5 @@ export {default as OfferSection} from './OfferSection'
 export {default as Intro} from './Intro'
 
 // page bodies
-export {default as AboutPageBody} from './AboutPageBody'
+export {default as PageBodyAboutMe} from './PageBodyAboutMe'
+export {default as PageBodyTherapy} from './PageBodyTherapy'
