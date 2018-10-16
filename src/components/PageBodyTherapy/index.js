@@ -10,6 +10,8 @@ import {
   PageSection,
   SectionContent,
   SectionLayout,
+  Accordeon,
+  FeaturesTable,
 } from 'src/components'
 import {withLocales} from 'src/context/locales'
 import map from 'lodash/map'
@@ -68,22 +70,7 @@ class PageBodyTherapy extends React.Component {
               <SectionTitle>
                 {t('therapyPage.workAreaSection.title')}
               </SectionTitle>
-              {map(workAreas, (area, areaIndex) => (
-                <Fragment key={`therapy-${area.title}-${areaIndex}`}>
-                  {area.title && <H3>{area.title}</H3>}
-                  <ParagraphText>{area.description}</ParagraphText>
-                  <ul>
-                    {map(area.bullets, (bullet, bulletIndex) => (
-                      <li
-                        key={`therapy-${
-                          area.title
-                        }-${areaIndex}-${bulletIndex}`}>
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-                </Fragment>
-              ))}
+              <Accordeon data={workAreas} />
             </SectionContent>
           </SectionLayout>
         </PageSection>
@@ -93,22 +80,7 @@ class PageBodyTherapy extends React.Component {
               <SectionTitle>
                 {t('therapyPage.practicalInfoSection.title')}
               </SectionTitle>
-              {map(therapyPracticalInfo, (info, areaIndex) => (
-                <Fragment key={`practicalInfo-${info.title}-${areaIndex}`}>
-                  {info.title && <H3>{info.title}</H3>}
-                  <ParagraphText>{info.description}</ParagraphText>
-                  <ul>
-                    {map(info.bullets, (bullet, bulletIndex) => (
-                      <li
-                        key={`therapy-${
-                          info.title
-                        }-${areaIndex}-${bulletIndex}`}>
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-                </Fragment>
-              ))}
+              <FeaturesTable data={therapyPracticalInfo} />
             </SectionContent>
           </SectionLayout>
         </PageSection>

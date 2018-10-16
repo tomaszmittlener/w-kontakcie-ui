@@ -1,3 +1,6 @@
+import React from 'react'
+import { EarthIcon, HealthIcon, LocationIcon, PhoneIcon, RoadSignIcon } from 'src/components';
+
 export const competences = [
   {
     title: 'Kompetencje',
@@ -69,6 +72,7 @@ export const workAreas = [
   {
     title: 'Trudności w relacjach',
     description: '',
+    img: <EarthIcon />,
     bullets: [
       'brak porozumienia w związku',
       'samotność i niemożność wejścia w relację/związek',
@@ -82,6 +86,7 @@ export const workAreas = [
   {
     title: 'Depresja',
     description: '',
+    img: <PhoneIcon />,
     bullets: [
       'przeżywanie długotrwałego smutku, żalu',
       'niechęć do działania, apatia',
@@ -93,6 +98,7 @@ export const workAreas = [
   {
     title: 'Kryzysy i trudności osobiste',
     description: '',
+    img: <HealthIcon />,
     bullets: [
       'nieradzenie sobie z emocjami',
       'doświadczenie poczucia braku sensu życia lub trudności w znalezieniu celu w życiu',
@@ -104,6 +110,7 @@ export const workAreas = [
   {
     title: 'Lęki, nerwice',
     description: '',
+    img: <LocationIcon />,
     bullets: [
       'niepokój, ataki paniki',
       'rozdrażnienie',
@@ -114,6 +121,7 @@ export const workAreas = [
   {
     title: 'Trudności w pracy',
     description: '',
+    img: <RoadSignIcon />,
     bullets: [
       'problemy w relacjach: przełożony/podwładny/współpracownik',
       'odczuwanie nadmiernego stresu w pracy',
@@ -129,6 +137,7 @@ export const therapyPracticalInfo = [
   {
     title: 'Konsultacje',
     description: 'Pracę zaczynam od konsultacji (1-3)',
+    img: <PhoneIcon />,
     bullets: [
       'konsultacje umożliwiają mi zapoznanie się z problemem oraz pozwalają ustalić cel i obszar wspólnej pracy, czyli ustalić kontrakt',
       'dla klienta konsultacja to czas na decyzję, czy jestem terapeutą, z którym chce pracować',
@@ -137,6 +146,7 @@ export const therapyPracticalInfo = [
   },
   {
     title: 'Proces terapeutyczny',
+    img: <EarthIcon />,
     description:
       'Po konsultacjach i ustaleniu kontraktu rozpoczyna się proces terapeutyczny.',
     bullets: [

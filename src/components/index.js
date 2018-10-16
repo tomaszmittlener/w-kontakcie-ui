@@ -24,6 +24,8 @@ export {default as Button} from './Button'
 export {default as SectionLayout} from './SectionLayout'
 export {default as SectionContent} from './SectionContent'
 export {default as Map} from './Map'
+export {default as Accordeon} from './Accordeon'
+export {default as FeaturesTable} from './FeaturesTable'
 
 // Images
 export {default as HumanImage} from './HumanImage'
@@ -34,7 +36,16 @@ export {default as MechanicBrainImage} from './MechanicBrainImage'
 export {default as ContactImage} from './ContactImage'
 
 // Icons
-export {HealthIcon, WhistleIcon, PlaneIcon, EarthIcon, PhoneIcon, RoadSignIcon, LocationIcon} from './Icons'
+export {
+  HealthIcon,
+  WhistleIcon,
+  PlaneIcon,
+  EarthIcon,
+  PhoneIcon,
+  RoadSignIcon,
+  LocationIcon,
+  ArrowIcon,
+} from './Icons'
 
 // index page components
 export {default as ArticlesExcerpts} from './ArticlesExcerpts'
