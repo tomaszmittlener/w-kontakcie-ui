@@ -71,6 +71,9 @@ const MapContainer = styled.div`
   flex-direction: row;
   margin: 0 auto;
 `
+const MapPageSection = styled(PageSection)`
+  width: 100%;
+`
 
 class PageBodyContact extends React.Component {
   render() {
@@ -96,8 +99,10 @@ class PageBodyContact extends React.Component {
                   <Option>
                     <OptionTitle>Adres</OptionTitle>
                     <DescriptionList>
-                      <li>{t('company.address')}</li>
-                      <li>{t('company.address2')}</li>
+                      <Link to="https://www.google.com/maps/place/Ludwika+Wary%C5%84skiego+40c,+80-980+Gda%C5%84sk,+Polska/@54.3789796,18.6109153,18z/data=!3m1!4b1!4m5!3m4!1s0x46fd749674506061:0x8465d06b7b224b1e!8m2!3d54.3789796!4d18.6120096?hl=pl-PL">
+                        <li>{t('company.address')}</li>
+                        <li>{t('company.address2')}</li>
+                      </Link>
                     </DescriptionList>
                   </Option>
                   <Option>

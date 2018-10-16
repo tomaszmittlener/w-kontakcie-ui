@@ -64,7 +64,7 @@ class PageBodyHome extends React.Component {
         <PageSection>
           <SectionLayout>
             <SectionContent>
-              <SectionTitle>Jak mogę Ci pomóc?</SectionTitle>
+              <SectionTitle>Jak mogę pomóc?</SectionTitle>
             </SectionContent>
           </SectionLayout>
         </PageSection>

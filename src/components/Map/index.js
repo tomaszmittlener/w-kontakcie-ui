@@ -1,7 +1,13 @@
 import React, {Component} from 'react'
+import styled from 'styled-components'
 import GoogleMapReact from 'google-map-react'
+import Logo from 'src/components/Logo'
 
-const AnyReactComponent = ({text}) => <div>{text}</div>
+const StyledLogo = styled(Logo)`
+  height: 30px;
+`
+
+const AnyReactComponent = () => <StyledLogo withoutHover withText />
 
 class SimpleMap extends Component {
   static defaultProps = {
@@ -9,13 +15,10 @@ class SimpleMap extends Component {
       lat: 54.379154,
       lng: 18.6115159,
     },
-    zoom: 18,
+    zoom: 17,
   }
 
   createMapOptions = maps => ({
-    panControl: false,
-    mapTypeControl: false,
-    scrollwheel: false,
     styles: [
       {
         featureType: 'administrative',
@@ -25,19 +28,10 @@ class SimpleMap extends Component {
             visibility: 'on',
           },
           {
-            color: '#0096aa',
+            color: '#25516c',
           },
           {
             weight: '0.30',
-          },
-          {
-            saturation: '-75',
-          },
-          {
-            lightness: '5',
-          },
-          {
-            gamma: '1',
           },
         ],
       },
@@ -46,13 +40,7 @@ class SimpleMap extends Component {
         elementType: 'labels.text.fill',
         stylers: [
           {
-            color: '#0096aa',
-          },
-          {
-            saturation: '-75',
-          },
-          {
-            lightness: '5',
+            color: '#25516c',
           },
         ],
       },
@@ -61,19 +49,13 @@ class SimpleMap extends Component {
         elementType: 'labels.text.stroke',
         stylers: [
           {
-            color: '#ffe146',
+            color: '#b1c3c3',
           },
           {
             visibility: 'on',
           },
           {
             weight: '6',
-          },
-          {
-            saturation: '-28',
-          },
-          {
-            lightness: '0',
           },
         ],
       },
@@ -97,13 +79,7 @@ class SimpleMap extends Component {
         elementType: 'all',
         stylers: [
           {
-            color: '#ffe146',
-          },
-          {
-            saturation: '-28',
-          },
-          {
-            lightness: '0',
+            color: '#b1c3c3',
           },
         ],
       },
@@ -121,19 +97,10 @@ class SimpleMap extends Component {
         elementType: 'all',
         stylers: [
           {
-            color: '#0096aa',
+            color: '#25516c',
           },
           {
             visibility: 'simplified',
-          },
-          {
-            saturation: '-75',
-          },
-          {
-            lightness: '5',
-          },
-          {
-            gamma: '1',
           },
         ],
       },
@@ -145,16 +112,10 @@ class SimpleMap extends Component {
             visibility: 'on',
           },
           {
-            color: '#ffe146',
+            color: '#b1c3c3',
           },
           {
             weight: 8,
-          },
-          {
-            saturation: '-28',
-          },
-          {
-            lightness: '0',
           },
         ],
       },
@@ -166,19 +127,10 @@ class SimpleMap extends Component {
             visibility: 'on',
           },
           {
-            color: '#0096aa',
+            color: '#25516c',
           },
           {
             weight: 8,
-          },
-          {
-            lightness: '5',
-          },
-          {
-            gamma: '1',
-          },
-          {
-            saturation: '-75',
           },
         ],
       },
@@ -199,7 +151,7 @@ class SimpleMap extends Component {
             visibility: 'simplified',
           },
           {
-            color: '#0096aa',
+            color: '#25516c',
           },
           {
             saturation: '-75',
@@ -220,7 +172,7 @@ class SimpleMap extends Component {
             visibility: 'on',
           },
           {
-            color: '#0096aa',
+            color: '#25516c',
           },
           {
             saturation: '-75',
@@ -241,13 +193,7 @@ class SimpleMap extends Component {
             visibility: 'simplified',
           },
           {
-            color: '#ffe146',
-          },
-          {
-            saturation: '-28',
-          },
-          {
-            lightness: '0',
+            color: '#b1c3c3',
           },
         ],
       },
@@ -274,11 +220,7 @@ class SimpleMap extends Component {
           options={this.createMapOptions}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}>
-          <AnyReactComponent
-            lat={54.379154}
-            lng={18.6115159}
-            text="W relacji"
-          />
+          <AnyReactComponent lat={54.379154} lng={18.6115159} />
         </GoogleMapReact>
       </div>
     )

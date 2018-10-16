@@ -28,7 +28,7 @@ const WrappedLink = styled(
   ({size, color, children, to, exact, ...otherProps}) => {
     const href = /(http|https|tel|mailto)(.+)/.exec(to)
     return href ? (
-      <a href={href[0]} {...otherProps}>
+      <a href={href[0]} target="_blank" {...otherProps}>
         {children}
       </a>
     ) : (

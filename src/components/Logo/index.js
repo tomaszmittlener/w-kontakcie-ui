@@ -39,7 +39,7 @@ const Logo = ({withText, className, withoutHover}) => (
     viewBox={withText ? '0 0 89 81' : '0 0 92 53'}
     version="1.1"
     role="img"
-    aria-label={`Logo "W kontakcie"`}
+    aria-label={`Logo "W relacji"`}
     className={className}>
     <title>Logo "W kontakcie"</title>
     <desc>Logo gabinetu terapeutycznego "W kontakcie"</desc>
