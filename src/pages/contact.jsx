@@ -13,6 +13,10 @@ import {
   MazeBrainImage,
   ParagraphText,
   SectionContent,
+  PlaneIcon,
+  PhoneIcon,
+  ContactImage,
+  Link,
 } from 'src/components'
 import {
   withAppContext,
@@ -22,8 +26,11 @@ import {
 } from 'src/context'
 
 const HeroSection = styled.header`
-  padding: ${ms(13)} 0 ${ms(11)};
+  padding: ${ms(13)} 0 0;
   background-color: ${({theme: {colors}}) => colors.third};
+  ${({theme: {mq}}) => mq.desktop} {
+    padding: ${ms(13)} 0 ${ms(11)};
+  }
 `
 
 const HeroParagraph = styled(ParagraphText)`
@@ -38,14 +45,11 @@ const HeroParagraph = styled(ParagraphText)`
 
 const HumanAnimation = styled.div`
   position: relative;
-  height: 457px;
-  width: 312px;
 `
 
-const Brain = styled(MazeBrainImage)`
-  position: absolute;
-  left: 70px;
-  top: 40px;
+const Plane = styled(PhoneIcon)`
+  height: 200px;
+  transform: scale(-1, 1);
 `
 const Human = styled(HumanImage)`
   position: absolute;
@@ -66,6 +70,21 @@ const HeroIllustration = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
+  margin: ${ms(10)} 0 0 0;
+  ${({theme: {mq}}) => mq.desktop} {
+    margin: 0 0 0 ${ms(4)};
+  }
+`
+
+const HeroQuoteParagraph = styled.p`
+  font-size: ${ms(3)};
+  line-height: ${ms(3.5)};
+  margin: 0 0 ${ms(0)} 0;
+  font-family: ${({
+    theme: {
+      typo: {fontFamily},
+    },
+  }) => fontFamily.primary};
 `
 
 class ContactPage extends Component {
@@ -78,13 +97,21 @@ class ContactPage extends Component {
           <SectionLayout>
             <HeroSectionContent>
               <HeroText>
-                <H1>{t('company.name')}</H1>
-                <HeroParagraph>{t('company.type')}</HeroParagraph>
+                <H1>Skontaktuj sie</H1>
+                <HeroQuoteParagraph>
+                  tel:{' '}
+                  <Link to={`tel:${t('owner.phone')}`}>{t('owner.phone')}</Link>
+                </HeroQuoteParagraph>
+                <HeroQuoteParagraph>
+                  email:{' '}
+                  <Link to={`mailto:${t('owner.email')}`}>
+                    {t('owner.email')}
+                  </Link>
+                </HeroQuoteParagraph>
               </HeroText>
               <HeroIllustration>
                 <HumanAnimation>
-                  <Human />
-                  <Brain />
+                  <ContactImage />
                 </HumanAnimation>
               </HeroIllustration>
             </HeroSectionContent>

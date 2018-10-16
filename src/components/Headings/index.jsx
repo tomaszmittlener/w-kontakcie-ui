@@ -2,10 +2,9 @@ import styled from 'styled-components'
 import {ms} from '../../utils/index'
 
 export const H1 = styled.h1`
-  word-break: break-all;
   display: block;
-  font-size: ${ms(10)};
-  line-height: ${ms(10.5)};
+  font-size: ${ms(9)};
+  line-height: ${ms(9.5)};
   margin: 0 0 ${ms(2)} 0;
   color: ${({color, theme: {colors}}) => (color ? colors[color] : 'inherit')};
   font-family: ${({
@@ -18,8 +17,8 @@ export const H1 = styled.h1`
 
 export const H2 = styled.h2`
   display: block;
-  font-size: ${ms(7)};
-  line-height: ${ms(7.5)};
+  font-size: ${ms(6)};
+  line-height: ${ms(6.5)};
   margin: 0 0 ${ms(1)} 0;
   color: ${({color, theme: {colors}}) => (color ? colors[color] : 'inherit')};
   font-family: ${({

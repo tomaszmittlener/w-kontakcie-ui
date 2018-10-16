@@ -6,19 +6,27 @@ import styled, {css} from 'styled-components'
 import {textPropTypes, textDefaultProps} from '../../constants/PropTypes'
 
 const LinkMixin = css`
+  background: linear-gradient(
+      to bottom,
+      ${({theme: {colors}}) => colors.primary} 0%,
+      ${({theme: {colors}}) => colors.primary} 100%
+    )
+    repeat-x 0 100%;
+  background-size: 2px 2px;
+  color: ${({theme: {colors}}) => colors.text};
   text-decoration: none;
-  color: ${({color, theme: {colors}}) => (color ? colors[color] : colors.text)};
-  font-size: ${({size}) => size || 'inherit'};
-  transition: color 300ms linear;
+  transition: all 0.3s;
+  display: inline-block;
+
   &:hover {
-    color: ${({color, theme: {colors}}) =>
-      color ? colors[color] : colors.primary};
+    background-size: 2px 50px;
+    color: ${({theme: {colors}}) => colors.third};
   }
 `
 
 const WrappedLink = styled(
   ({size, color, children, to, exact, ...otherProps}) => {
-    const href = /(http|https)(.+)/.exec(to)
+    const href = /(http|https|tel|mailto)(.+)/.exec(to)
     return href ? (
       <a href={href[0]} {...otherProps}>
         {children}

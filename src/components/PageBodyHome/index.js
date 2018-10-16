@@ -48,8 +48,7 @@ const DescriptionList = styled.ul`
 `
 const ReadMoreLink = styled(Link)`
   margin: ${ms(2)} 0 0 0;
-  display: block;
-  font-weight: bold;
+  display: inline-block;
   color: ${({theme: {colors}}) => colors.primary};
 `
 

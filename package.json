@@ -26,6 +26,7 @@
     "gatsby-source-filesystem": "next",
     "gatsby-transformer-remark": "next",
     "gatsby-transformer-sharp": "^2.1.1-beta.7",
+    "google-map-react": "^1.0.9",
     "lodash": "^4.17.4",
     "moment": "^2.22.2",
     "polished": "^1.9.3",

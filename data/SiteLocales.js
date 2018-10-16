@@ -4,6 +4,7 @@ export default {
     name: 'Anna Dejewska',
     profession: 'psycholog, psychoterapeuta, coach',
     phone: '530 521 218',
+    email: 'a.dejewska@gmail.com',
     description: {
       main:
         'Jestem psychoterapeutką i psychologiem oraz certyfikowanym coachem. Od 10 lat pracuję z osobami, które borykają się z różnego rodzaju problemami i trudnościami w sferze  prywatnej i zawodowej oraz pragną poprawić jakość swojego życia. Jako terapeuta zajmuje się przede wszystkim z problemami związanymi z depresją, samotnością trudnościami w relacjach, agresją, nerwicami, stratą i traumatycznymi przeżyciami.',
@@ -15,7 +16,8 @@ export default {
     name: 'W relacji',
     type: 'Gabinet Psychoterapii i Rozwoju Osobistego',
     openHours: 'pn-pt. 08:00-20:00',
-    address: 'ul. Waryńskiego 40c/1, 80-433 Gdańsk-Wrzeszcz',
+    address: 'ul. Waryńskiego 40c/1',
+    address2: '80-433 Gdańsk-Wrzeszcz',
   },
   articlesPage: {
     title: 'Artykuły',

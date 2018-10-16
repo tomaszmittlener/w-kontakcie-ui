@@ -1,7 +1,7 @@
 import styled, {css} from 'styled-components'
 import {ms} from 'src/utils'
 
-export default styled.section`
+export default styled.div`
   margin: 0 auto;
   ${({theme}) => theme.mq.tablet} {
     width: 75%;
