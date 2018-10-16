@@ -27,6 +27,7 @@ import {
   HealthIcon,
   WhistleIcon,
   Link,
+  PageBodyHome,
 } from 'src/components'
 import {
   articlesExcerptsPropTypesShape,
@@ -122,46 +123,6 @@ const HeroIllustration = styled.div`
   justify-content: center;
 `
 
-const SectionTitle = styled(H2)`
-  text-align: center;
-`
-
-const OptionsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
-  margin: ${ms(8)} 0;
-`
-const Option = styled.div`
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  padding: 0 ${ms(3)};
-  margin: 0 0 ${ms(3)} 0;
-  width: 250px;
-`
-
-const OptionFigure = styled.figure`
-  margin: 0 0 ${ms(3)} 0;
-`
-const DescriptionList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-indent: 0;
-`
-const ReadMoreLink = styled(Link)`
-  margin: ${ms(2)} 0 0 0;
-  display: block;
-  font-weight: bold;
-  color: ${({theme: {colors}}) => colors.primary};
-`
-
-const OptionTitle = styled(H3)`
-  margin: 0 0 ${ms(2)} 0;
-  display: block;
-`
 
 class Index extends React.Component {
   render() {
@@ -191,52 +152,7 @@ class Index extends React.Component {
             </HeroSectionContent>
           </SectionLayout>
         </HeroSection>
-
-        <PageSection>
-          <SectionLayout>
-            <SectionContent>
-              <SectionTitle>Jak mogę Ci pomóc?</SectionTitle>
-            </SectionContent>
-          </SectionLayout>
-        </PageSection>
-        <PageSection>
-          <SectionLayout>
-            <SectionContent>
-              <OptionsContainer>
-                <Option>
-                  <NavLink to="/therapy">
-                    <OptionFigure>
-                      <HealthIcon />
-                    </OptionFigure>
-                  </NavLink>
-                  <OptionTitle>Psychoterapia</OptionTitle>
-                  <DescriptionList>
-                    <li>Trudności w relacjach</li>
-                    <li>Depresja</li>
-                    <li>Kryzysy i trudności osobiste</li>
-                    <li>Lęki, nerwice</li>
-                    <li>Trudności w pracy</li>
-                  </DescriptionList>
-                  <ReadMoreLink to="/therapy">Czytaj wiecej</ReadMoreLink>
-                </Option>
-                <Option>
-                  <NavLink to="/coaching">
-                    <OptionFigure>
-                      <WhistleIcon />
-                    </OptionFigure>
-                  </NavLink>
-                  <OptionTitle>Coaching</OptionTitle>
-                  <DescriptionList>
-                    <li>Prowadzenie szkoleń w zakresie:</li>
-                    <li>Business Coaching</li>
-                    <li>Life coaching</li>
-                  </DescriptionList>
-                  <ReadMoreLink to="/coaching">Czytaj wiecej</ReadMoreLink>
-                </Option>
-              </OptionsContainer>
-            </SectionContent>
-          </SectionLayout>
-        </PageSection>
+        <PageBodyHome />
       </Layout>
     )
   }
