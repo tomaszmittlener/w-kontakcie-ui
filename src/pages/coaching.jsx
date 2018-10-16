@@ -36,6 +36,7 @@ const HumanAnimationTwo = HumanAnimation.extend`
 `
 
 const Mechanic = styled(MechanicBrainImage)``
+
 const Puzzle = styled(PuzzleImage)`
   position: absolute;
   left: 100px;
@@ -51,8 +52,11 @@ const HumanTwo = styled(HumanImage)`
 const HeroSectionContent = styled(SectionContent)`
   display: flex;
   align-items: center;
-  flex-direction: row;
   position: relative;
+  flex-direction: column;
+  ${({theme: {mq}}) => mq.desktop} {
+    flex-direction: row;
+  }
 `
 
 const HeroText = styled.div`
@@ -63,7 +67,10 @@ const HeroIllustration = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
-  margin: 0 0 0 ${ms(4)};
+  margin: ${ms(4)} 0 0 0;
+  ${({theme: {mq}}) => mq.desktop} {
+    margin: 0 0 0 ${ms(4)};
+  }
 `
 
 const HeroQuoteParagraph = styled.p`
@@ -73,7 +80,7 @@ const HeroQuoteParagraph = styled.p`
     theme: {
       typo: {fontFamily},
     },
-  }) => fontFamily.secondary};
+  }) => fontFamily.primary};
 `
 
 class CoachingPage extends Component {

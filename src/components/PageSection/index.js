@@ -2,7 +2,7 @@ import styled, {css} from 'styled-components'
 import {ms} from 'src/utils'
 
 export default styled.section`
-  margin: ${ms(12)} 0;
+  margin: ${ms(11)} 0;
   height: 100%;
   ${({dark}) =>
     dark &&

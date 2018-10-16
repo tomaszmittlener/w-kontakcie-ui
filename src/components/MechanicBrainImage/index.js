@@ -2,7 +2,7 @@ import React from 'react'
 
 const MechanicBrainSvg = ({className}) => (
   <svg
-    height="300px"
+    height="250px"
     viewBox="0 0 122 105"
     version="1.1"
     role="img"

@@ -137,9 +137,7 @@ const Option = styled.div`
   text-align: center;
   align-items: center;
   justify-content: center;
-  width: 25%;
-  padding-left: ${ms(0)};
-  padding-right: ${ms(0)};
+  padding: 0 ${ms(2)};
   margin: 0 0 ${ms(3)} 0;
 `
 
@@ -197,6 +195,12 @@ class Index extends React.Component {
           <SectionLayout>
             <SectionContent>
               <SectionTitle>Jak mogę Ci pomóc?</SectionTitle>
+            </SectionContent>
+          </SectionLayout>
+        </PageSection>
+        <PageSection>
+          <SectionLayout>
+            <SectionContent>
               <OptionsContainer>
                 <Option>
                   <NavLink to="/therapy">
