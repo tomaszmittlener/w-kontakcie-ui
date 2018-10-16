@@ -137,12 +137,13 @@ const Option = styled.div`
   text-align: center;
   align-items: center;
   justify-content: center;
-  padding: 0 ${ms(2)};
+  padding: 0 ${ms(3)};
   margin: 0 0 ${ms(3)} 0;
+  width: 250px;
 `
 
 const OptionFigure = styled.figure`
-  margin: 0 0 ${ms(5)} 0;
+  margin: 0 0 ${ms(3)} 0;
 `
 const DescriptionList = styled.ul`
   list-style: none;
@@ -226,6 +227,7 @@ class Index extends React.Component {
                   </NavLink>
                   <OptionTitle>Coaching</OptionTitle>
                   <DescriptionList>
+                    <li>Prowadzenie szkoleń w zakresie:</li>
                     <li>Business Coaching</li>
                     <li>Life coaching</li>
                   </DescriptionList>

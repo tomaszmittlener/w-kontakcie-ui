@@ -18,15 +18,41 @@ const Container = styled.header`
   align-items: center;
   z-index: ${({theme: {layers}}) => layers.middleTom};
   transition: all 250ms ease-in-out;
-  background-color: ${({theme: {colors}}) => colors.canvas};
-  border-bottom: 0.0625rem solid #dbd9d2;
   padding: ${ms(-2)} ${ms(2)};
+  background-color: transparent;
+  border: none;
+  &:before {
+    opacity: 1;
+  }
+
+  &:hover {
+    &:before {
+      opacity: 1;
+    }
+  }
+
+  &:before {
+    transition: opacity 0.15s linear 0.1s;
+    content: '';
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    top: -${ms(3)};
+    width: 100%;
+    height: calc(100% + ${ms(3)});
+    background-color: ${({theme: {colors}}) => colors.canvas};
+    border-bottom: 0.0625rem solid #dbd9d2;
+    z-index: 0;
+  }
+
   ${({isOnTop}) =>
     isOnTop &&
     css`
-      border-bottom: none;
-      background-color: transparent;
+      &:before {
+        opacity: 0;
+      }
     `};
+
   ${({theme}) => theme.mq.desktop} {
     padding: ${ms(0)} ${ms(8)};
     ${({isOnTop}) =>
@@ -38,6 +64,7 @@ const Container = styled.header`
 `
 
 const Content = styled.div`
+  z-index: ${({theme: {layers}}) => layers.top};
   display: flex;
   align-items: center;
   width: 100%;
@@ -48,6 +75,7 @@ const Content = styled.div`
 `
 
 const Logo = styled(LogoSVG)`
+  z-index: ${({theme: {layers}}) => layers.top};
   height: ${ms(4.3)};
 `
 
