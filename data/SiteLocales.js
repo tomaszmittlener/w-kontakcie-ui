@@ -58,6 +58,9 @@ export default {
     pageTitle: 'Psychoterapia',
     pageQuote: '„Całe prawdziwe życie jest spotkaniem”',
     pageQuoteAuthor: 'Martin Buber, „Ja i Ty”',
+    methodologySection: {
+      title: 'Metodologia',
+    },
     workAreaSection: {
       title: 'Obszary pracy',
     },

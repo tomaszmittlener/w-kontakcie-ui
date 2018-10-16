@@ -1,27 +1,15 @@
-
-
-
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {ms, compose} from 'src/utils'
-import {
-  H2,
-  H3,
-  H4,
-  ParagraphText,
-  PageSection,
-  SectionContent,
-  SectionLayout,
-  ArrowIcon,
-  EarthIcon,
-} from 'src/components'
+import {ms} from 'src/utils'
+import {H3, ParagraphText} from 'src/components'
 import map from 'lodash/map'
 
 const ItemContainer = styled.figure`
   display: flex;
   flex-direction: column;
   padding: ${ms(4)} 0;
+  margin: 0;
   border-bottom: 1px solid black;
   ${({theme: {mq}}) => mq.desktop} {
     flex-direction: row;
@@ -41,9 +29,6 @@ const ImageContainer = styled.div`
   }
 `
 
-const ItemsList = styled.ul`
-  font-size: ${ms(1)};
-`
 const TextContainer = styled.ul`
   display: flex;
   flex-direction: column;
@@ -66,13 +51,13 @@ class FeaturesTable extends React.Component {
             <TextContainer>
               <H3>{item.title}</H3>
               <Description>{item.description}</Description>
-              <ItemsList>
+              <ul>
                 {map(item.bullets, (bullet, bulletIndex) => (
                   <li key={`therapy-${item.title}-${itemIndex}-${bulletIndex}`}>
                     {bullet}
                   </li>
                 ))}
-              </ItemsList>
+              </ul>
             </TextContainer>
           </ItemContainer>
         ))}

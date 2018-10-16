@@ -19,6 +19,7 @@ import {contextPropTypesShape, withAppContext} from 'src/context'
 const ItemContainer = styled.figure`
   display: flex;
   flex-direction: column;
+  margin: 0;
 `
 
 const ExpandedDescription = styled.div`
@@ -41,6 +42,8 @@ const ItemTitle = styled.div`
 const Items = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  justify-content: center;
   ${({theme: {mq}}) => mq.desktop} {
     flex: 1;
   }
@@ -66,9 +69,7 @@ const MobileImage = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-`
-const ItemsList = styled.ul`
-  font-size: ${ms(1)};
+  padding: ${ms(4)} 0;
 `
 
 class Accordeon extends React.Component {
@@ -101,14 +102,14 @@ class Accordeon extends React.Component {
                 {isMobileView && (
                   <MobileImage>{data[this.state.openItem].img}</MobileImage>
                 )}
-                <ItemsList>
+                <ul>
                   {map(item.bullets, (bullet, bulletIndex) => (
                     <li
                       key={`therapy-${item.title}-${itemIndex}-${bulletIndex}`}>
                       {bullet}
                     </li>
                   ))}
-                </ItemsList>
+                </ul>
               </ExpandedDescription>
             </ItemContainer>
           ))}

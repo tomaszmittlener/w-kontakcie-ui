@@ -1,5 +1,4 @@
-import styled, {css} from 'styled-components'
-import {ms} from 'src/utils'
+import styled from 'styled-components'
 
 export default styled.div`
   margin: 0 auto;

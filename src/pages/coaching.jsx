@@ -31,24 +31,6 @@ const HumanAnimation = styled.div`
   height: 500px;
 `
 
-const HumanAnimationTwo = HumanAnimation.extend`
-  margin: 30px 0 0 ${ms(5)};
-`
-
-const Mechanic = styled(MechanicBrainImage)``
-
-const Puzzle = styled(PuzzleImage)`
-  position: absolute;
-  left: 100px;
-  top: 40px;
-`
-const Human = styled(HumanImage)`
-  position: absolute;
-  transform: scaleX(-1);
-`
-const HumanTwo = styled(HumanImage)`
-  position: absolute;
-`
 const HeroSectionContent = styled(SectionContent)`
   display: flex;
   align-items: center;
@@ -98,7 +80,6 @@ class CoachingPage extends Component {
                   {t('coachingPage.pageQuote')}
                 </HeroQuoteParagraph>
               </HeroText>
-
               <HeroIllustration>
                 <MechanicBrainImage />
               </HeroIllustration>

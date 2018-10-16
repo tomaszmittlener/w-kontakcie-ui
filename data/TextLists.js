@@ -57,7 +57,6 @@ export const experience = [
 
 export const therapy = [
   {
-    title: 'Metodologia',
     description:
       'Pracuję w podejściu humanistycznej psychoterapii Gestalt, ponieważ w najpełniejszy sposób wyraża ona moje rozumienie uważnej, partnerskiej obecności drugiego człowieka, w procesie uzdrawiania i stawania się sobą… w relacji z i do świata.',
   },

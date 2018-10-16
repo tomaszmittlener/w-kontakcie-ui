@@ -5,7 +5,6 @@ import {ms, compose} from 'src/utils'
 import {
   H2,
   H3,
-  H4,
   ParagraphText,
   PageSection,
   SectionContent,
@@ -14,6 +13,7 @@ import {
   FeaturesTable,
 } from 'src/components'
 import {withLocales} from 'src/context/locales'
+import {StyledFirstLetter, MaxWidthText} from 'src/layout/mixins'
 import map from 'lodash/map'
 import {therapy, workAreas, therapyPracticalInfo} from '../../../data/TextLists'
 
@@ -41,6 +41,11 @@ const SectionTitle = styled(H2)`
   text-align: center;
 `
 
+const MethodologySectionContent = SectionContent.extend`
+  ${StyledFirstLetter};
+  ${MaxWidthText};
+`
+
 class PageBodyTherapy extends React.Component {
   render() {
     const {t} = this.props
@@ -55,13 +60,22 @@ class PageBodyTherapy extends React.Component {
               <HeroAuthorParagraph>
                 {t('therapyPage.pageQuoteAuthor')}
               </HeroAuthorParagraph>
+            </SectionContent>
+          </SectionLayout>
+        </PageSection>
+        <PageSection>
+          <SectionLayout>
+            <MethodologySectionContent>
+              <SectionTitle>
+                {t('therapyPage.methodologySection.title')}
+              </SectionTitle>
               {map(therapy, (section, sectionIndex) => (
                 <Fragment key={`therapy-${section.title}-${sectionIndex}`}>
                   {section.title && <H3>{section.title}</H3>}
                   <ParagraphText>{section.description}</ParagraphText>
                 </Fragment>
               ))}
-            </SectionContent>
+            </MethodologySectionContent>
           </SectionLayout>
         </PageSection>
         <PageSection>

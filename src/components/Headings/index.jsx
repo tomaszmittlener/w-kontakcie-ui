@@ -19,7 +19,7 @@ export const H2 = styled.h2`
   display: block;
   font-size: ${ms(6)};
   line-height: ${ms(6.5)};
-  margin: 0 0 ${ms(1)} 0;
+  margin: 0 0 ${ms(2)} 0;
   color: ${({color, theme: {colors}}) => (color ? colors[color] : 'inherit')};
   font-family: ${({
     theme: {
