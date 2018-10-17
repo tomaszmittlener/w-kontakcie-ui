@@ -33,27 +33,10 @@ const HeroSection = styled.header`
   }
 `
 
-const HeroParagraph = styled(ParagraphText)`
-  font-size: ${ms(5)};
-  line-height: ${ms(5)};
-  font-family: ${({
-    theme: {
-      typo: {fontFamily},
-    },
-  }) => fontFamily.secondary};
-`
-
 const HumanAnimation = styled.div`
   position: relative;
 `
 
-const Plane = styled(PhoneIcon)`
-  height: 200px;
-  transform: scale(-1, 1);
-`
-const Human = styled(HumanImage)`
-  position: absolute;
-`
 const HeroSectionContent = styled(SectionContent)`
   display: flex;
   align-items: center;
@@ -97,7 +80,7 @@ class ContactPage extends Component {
           <SectionLayout>
             <HeroSectionContent>
               <HeroText>
-                <H1>Skontaktuj sie</H1>
+                <H1>Kontakt</H1>
                 <HeroQuoteParagraph>
                   tel:{' '}
                   <Link to={`tel:${t('owner.phone')}`}>{t('owner.phone')}</Link>

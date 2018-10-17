@@ -53,6 +53,9 @@ const HeroIllustration = styled.div`
   ${({theme: {mq}}) => mq.desktop} {
     margin: 0 0 0 ${ms(4)};
   }
+  > svg {
+    height: 350px;
+  }
 `
 
 const HeroQuoteParagraph = styled.p`
@@ -76,9 +79,6 @@ class CoachingPage extends Component {
             <HeroSectionContent>
               <HeroText>
                 <H1>{t('coachingPage.pageTitle')}</H1>
-                <HeroQuoteParagraph>
-                  {t('coachingPage.pageQuote')}
-                </HeroQuoteParagraph>
               </HeroText>
               <HeroIllustration>
                 <MechanicBrainImage />

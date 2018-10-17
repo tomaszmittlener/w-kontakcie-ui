@@ -9,16 +9,86 @@ import {
   PageSection,
   SectionLayout,
   SectionContent,
+  GraphIcon,
+  AppleIcon,
 } from 'src/components'
 import {withLocales} from 'src/context/locales'
 import map from 'lodash/map'
+import {MaxWidthText, StyledFirstLetter} from 'src/layout/mixins'
+import {lighten} from 'polished'
+
 import {
   businessCoachingAdvantages,
   lifeCoachingAdvanatages,
 } from '../../../data/TextLists'
 
 const SectionTitle = styled(H2)`
+  text-align: left;
+`
+
+const FormattedTextSectionContent = SectionContent.extend`
+  ${StyledFirstLetter};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p {
+    ${MaxWidthText};
+    max-width: 60ch;
+  }
+`
+
+const BusinessCoachingImageContainer = styled.figure`
+  margin: ${ms(7)} 0;
+  padding: 0;
+  order: 2;
+
+  align-items: center;
+  > svg {
+    height: 150px;
+  }
+  ${({theme: {mq}}) => mq.desktop} {
+    order: unset;
+    margin: 0 0 0 ${ms(10)};
+    > svg {
+      height: 200px;
+    }
+  }
+`
+const LifeCoachingImageContainer = BusinessCoachingImageContainer.extend`
+  ${({theme: {mq}}) => mq.desktop} {
+    margin: 0 ${ms(10)} 0 0;
+  }
+`
+
+const CoachingTextContainer = styled.div`
+  order: 1;
+  ${({theme: {mq}}) => mq.desktop} {
+    order: unset;
+  }
+`
+
+const CoachingWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  ${({theme: {mq}}) => mq.desktop} {
+    flex-direction: row;
+  }
+`
+
+const QuoteParagraph = styled(H2)`
   text-align: center;
+  font-style: italic;
+  font-family: ${({
+    theme: {
+      typo: {fontFamily},
+    },
+  }) => fontFamily.secondary};
+`
+
+const DarkPageSection = styled(PageSection)`
+  background-color: ${({theme: {colors}}) => lighten(0.2, colors.third)};
+  padding: ${ms(10)} 0;
 `
 
 class PageBodyCoaching extends React.Component {
@@ -26,25 +96,40 @@ class PageBodyCoaching extends React.Component {
     const {t} = this.props
     return (
       <Fragment>
+
+        <PageSection>
+          <SectionLayout>
+            <FormattedTextSectionContent>
+              <CoachingWrapper>
+                <CoachingTextContainer>
+                  <SectionTitle>
+                    {t('coachingPage.businessCoachingSection.title')}
+                  </SectionTitle>
+                  <ParagraphText>
+                    {t('coachingPage.businessCoachingSection.infoText')}
+                  </ParagraphText>
+                  <ParagraphText>
+                    {t('coachingPage.businessCoachingSection.infoText2')}
+                  </ParagraphText>
+                  <ParagraphText>
+                    {t('coachingPage.businessCoachingSection.infoText3')}
+                  </ParagraphText>
+                </CoachingTextContainer>
+                <BusinessCoachingImageContainer>
+                  <GraphIcon />
+                </BusinessCoachingImageContainer>
+              </CoachingWrapper>
+            </FormattedTextSectionContent>
+          </SectionLayout>
+        </PageSection>
+
         <PageSection>
           <SectionLayout>
             <SectionContent>
-              <SectionTitle>
-                {t('coachingPage.businessCoachingSection.title')}
-              </SectionTitle>
-              <ParagraphText>
-                {t('coachingPage.businessCoachingSection.infoText')}
-              </ParagraphText>
-              <ParagraphText>
-                {t('coachingPage.businessCoachingSection.infoText2')}
-              </ParagraphText>
-              <ParagraphText>
-                {t('coachingPage.businessCoachingSection.infoText3')}
-              </ParagraphText>
               {map(businessCoachingAdvantages, (entry, entryIndex) => (
                 <Fragment key={`therapy-${entry.title}-${entryIndex}`}>
                   {entry.title && <H3>{entry.title}</H3>}
-                  <H3>{entry.description}</H3>
+                  <ParagraphText>{entry.description}</ParagraphText>
                   <ul>
                     {map(entry.bullets, (bullet, bulletIndex) => (
                       <li
@@ -60,21 +145,45 @@ class PageBodyCoaching extends React.Component {
             </SectionContent>
           </SectionLayout>
         </PageSection>
+
+        <DarkPageSection>
+          <SectionLayout>
+            <SectionContent>
+              <QuoteParagraph> {t('coachingPage.pageQuote')}</QuoteParagraph>
+            </SectionContent>
+          </SectionLayout>
+        </DarkPageSection>
+
+
+        <PageSection>
+          <SectionLayout>
+            <FormattedTextSectionContent>
+              <CoachingWrapper>
+                <LifeCoachingImageContainer>
+                  <AppleIcon />
+                </LifeCoachingImageContainer>
+                <CoachingTextContainer>
+                  <SectionTitle>
+                    {t('coachingPage.lifeCoachingSection.title')}
+                  </SectionTitle>
+                  <ParagraphText>
+                    {t('coachingPage.lifeCoachingSection.infoText')}
+                  </ParagraphText>
+                  <ParagraphText>
+                    {t('coachingPage.lifeCoachingSection.infoText2')}
+                  </ParagraphText>
+                  <ParagraphText>
+                    {t('coachingPage.lifeCoachingSection.infoText3')}
+                  </ParagraphText>
+                </CoachingTextContainer>
+              </CoachingWrapper>
+            </FormattedTextSectionContent>
+          </SectionLayout>
+        </PageSection>
+
         <PageSection>
           <SectionLayout>
             <SectionContent>
-              <SectionTitle>
-                {t('coachingPage.lifeCoachingSection.title')}
-              </SectionTitle>
-              <ParagraphText>
-                {t('coachingPage.lifeCoachingSection.infoText')}
-              </ParagraphText>
-              <ParagraphText>
-                {t('coachingPage.lifeCoachingSection.infoText2')}
-              </ParagraphText>
-              <ParagraphText>
-                {t('coachingPage.lifeCoachingSection.infoText3')}
-              </ParagraphText>
               {map(lifeCoachingAdvanatages, (entry, entryIndex) => (
                 <Fragment key={`practicalInfo-${entry.title}-${entryIndex}`}>
                   {entry.title && <H3>{entry.title}</H3>}
@@ -94,6 +203,7 @@ class PageBodyCoaching extends React.Component {
             </SectionContent>
           </SectionLayout>
         </PageSection>
+
       </Fragment>
     )
   }

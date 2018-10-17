@@ -15,9 +15,10 @@ import {
 import {withLocales} from 'src/context/locales'
 import {StyledFirstLetter, MaxWidthText} from 'src/layout/mixins'
 import map from 'lodash/map'
+import {lighten} from 'polished'
 import {therapy, workAreas, therapyPracticalInfo} from '../../../data/TextLists'
 
-const HeroQuoteParagraph = styled(H2)`
+const QuoteParagraph = styled(H2)`
   text-align: center;
   font-style: italic;
   font-family: ${({
@@ -30,6 +31,7 @@ const HeroAuthorParagraph = styled(ParagraphText)`
   text-align: right;
   font-size: ${ms(3)};
   line-height: ${ms(5)};
+  margin: 0;
   font-family: ${({
     theme: {
       typo: {fontFamily},
@@ -39,6 +41,10 @@ const HeroAuthorParagraph = styled(ParagraphText)`
 
 const SectionTitle = styled(H2)`
   text-align: center;
+`
+const DarkPageSection = styled(PageSection)`
+  background-color: ${({theme: {colors}}) => lighten(0.2, colors.third)};
+  padding: ${ms(10)} 0;
 `
 
 const MethodologySectionContent = SectionContent.extend`
@@ -51,18 +57,6 @@ class PageBodyTherapy extends React.Component {
     const {t} = this.props
     return (
       <Fragment>
-        <PageSection>
-          <SectionLayout>
-            <SectionContent>
-              <HeroQuoteParagraph>
-                {t('therapyPage.pageQuote')}
-              </HeroQuoteParagraph>
-              <HeroAuthorParagraph>
-                {t('therapyPage.pageQuoteAuthor')}
-              </HeroAuthorParagraph>
-            </SectionContent>
-          </SectionLayout>
-        </PageSection>
         <PageSection>
           <SectionLayout>
             <MethodologySectionContent>
@@ -78,6 +72,16 @@ class PageBodyTherapy extends React.Component {
             </MethodologySectionContent>
           </SectionLayout>
         </PageSection>
+        <DarkPageSection>
+          <SectionLayout>
+            <SectionContent>
+              <QuoteParagraph>{t('therapyPage.pageQuote')}</QuoteParagraph>
+              <HeroAuthorParagraph>
+                {t('therapyPage.pageQuoteAuthor')}
+              </HeroAuthorParagraph>
+            </SectionContent>
+          </SectionLayout>
+        </DarkPageSection>
         <PageSection>
           <SectionLayout>
             <SectionContent>

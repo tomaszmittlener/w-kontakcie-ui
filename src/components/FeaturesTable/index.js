@@ -10,7 +10,10 @@ const ItemContainer = styled.figure`
   flex-direction: column;
   padding: ${ms(4)} 0;
   margin: 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid ${({theme: {colors}}) => colors.text};
+  &:last-of-type {
+    border-bottom: none;
+  }
   ${({theme: {mq}}) => mq.desktop} {
     flex-direction: row;
   }
@@ -22,7 +25,7 @@ const ImageContainer = styled.div`
   justify-content: center;
   margin: ${ms(4)};
   > svg {
-    height: 200px;
+    height: 130px;
   }
   ${({theme: {mq}}) => mq.desktop} {
     flex: 1;
@@ -33,7 +36,7 @@ const TextContainer = styled.ul`
   display: flex;
   flex-direction: column;
   ${({theme: {mq}}) => mq.desktop} {
-    flex: 2;
+    flex: 3;
   }
 `
 const Description = styled(ParagraphText)`

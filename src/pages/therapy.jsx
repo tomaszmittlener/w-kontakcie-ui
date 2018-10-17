@@ -15,6 +15,7 @@ import {
   SectionLayout,
   PageBodyTherapy,
   PlantBrainImage,
+  TherapyImage,
 } from 'src/components'
 import config from '../../data/SiteConfig'
 
@@ -25,21 +26,8 @@ const HeroSection = styled.header`
 
 const HumanAnimation = styled.div`
   position: relative;
-  width: 312px;
-  margin-top: 100px;
-  height: 500px;
-  transform: translateX(-20px);
 `
 
-const Puzzle = styled(PlantBrainImage)`
-  position: absolute;
-  left: 150px;
-  top: -100px;
-`
-const Human = styled(HumanImage)`
-  position: absolute;
-  transform: rotate(20deg);
-`
 const HeroSectionContent = styled(SectionContent)`
   display: flex;
   align-items: center;
@@ -78,8 +66,7 @@ class TherapyPage extends Component {
               </HeroText>
               <HeroIllustration>
                 <HumanAnimation>
-                  <Human strokeColor={Theme.colors.third} />
-                  <Puzzle />
+                  <TherapyImage />
                 </HumanAnimation>
               </HeroIllustration>
             </HeroSectionContent>

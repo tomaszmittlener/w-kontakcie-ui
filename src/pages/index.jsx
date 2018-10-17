@@ -38,44 +38,6 @@ import {
 
 import config from '../../data/SiteConfig'
 
-// about me
-const AboutMeContainer = styled.div`
-  max-width: 1000px;
-  margin: 0 auto;
-`
-
-// offer
-const ArticlesWrapper = styled.div`
-  align-items: flex-start;
-  display: flex;
-  margin: 0 auto;
-  flex-direction: column;
-  ${({theme: {mq}}) => mq.desktop} {
-    flex-direction: row;
-    max-width: 1000px;
-  }
-  > figure {
-    flex: 1;
-  }
-`
-
-const GradientPageSection = styled.section`
-  padding: ${ms(8)} ${ms(2)};
-  height: 100%;
-  background-image: linear-gradient(to center, ${({theme: {colors}}) =>
-    colors.third} , ${({theme: {colors}}) => colors.canvas});
-    min-height: unset;
-  }
-`
-const GradientBottonPageSection = styled.section`
-  padding: ${ms(8)} ${ms(2)};
-  height: 100%;
-  background-image: linear-gradient(to top, ${({theme: {colors}}) =>
-    colors.third} , ${({theme: {colors}}) => colors.canvas});
-    min-height: unset;
-  }
-`
-
 const HeroSection = styled.header`
   padding: ${ms(13)} 0 ${ms(11)};
   background-color: ${({theme: {colors}}) => colors.third};
@@ -123,15 +85,9 @@ const HeroIllustration = styled.div`
   justify-content: center;
 `
 
-
 class Index extends React.Component {
   render() {
-    const {
-      t,
-      location,
-      data: {meImage, articlesExcerpts, articlesImages},
-    } = this.props
-    sal()
+    const {t, location} = this.props
     return (
       <Layout location={location} withTopPadding hideLogo>
         <Helmet title={config.siteTitle} />

@@ -192,7 +192,7 @@ export const businessCoachingAdvantages = [
 
 export const lifeCoachingAdvanatages = [
   {
-    title: 'Korzyści z Life Coachingu',
+    title: '',
     description: 'Osoba, która decyduje się na coaching będzie mogła:',
     bullets: [
       'lepiej określać swoje cele (osobiste, zawodowe) i szybciej je osiągać',

@@ -19,7 +19,17 @@ import {contextPropTypesShape, withAppContext} from 'src/context'
 const ItemContainer = styled.figure`
   display: flex;
   flex-direction: column;
-  margin: 0;
+  padding: 0 0 ${ms(1.5)} 0;
+  margin: 0 0 ${ms(1.5)} 0;
+  border-bottom: 1px solid black;
+  ${H3} {
+    margin: 0;
+  }
+  &:last-of-type {
+    padding: 0;
+    margin: 0;
+    border-bottom: none;
+  }
 `
 
 const ExpandedDescription = styled.div`
@@ -28,7 +38,7 @@ const ExpandedDescription = styled.div`
 const IconContainer = styled.div`
   transform: ${({isOpen}) => (isOpen ? 'rotateX(180deg)' : 'none')};
   transition: transform 300ms ease-in-out;
-  margin: 0 ${ms(0)} ${ms(0)} 0;
+  margin: 0 ${ms(0)} 0;
 `
 const ItemTitle = styled.div`
   display: flex;

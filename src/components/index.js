@@ -34,6 +34,7 @@ export {default as PuzzleImage} from './PuzzleImage'
 export {default as PlantBrainImage} from './PlantBrainImage'
 export {default as MechanicBrainImage} from './MechanicBrainImage'
 export {default as ContactImage} from './ContactImage'
+export {default as TherapyImage} from './TherapyImage'
 
 // Icons
 export {
@@ -45,6 +46,8 @@ export {
   RoadSignIcon,
   LocationIcon,
   ArrowIcon,
+  GraphIcon,
+  AppleIcon,
 } from './Icons'
 
 // index page components
