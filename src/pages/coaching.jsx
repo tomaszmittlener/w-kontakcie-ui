@@ -50,23 +50,17 @@ const HeroIllustration = styled.div`
   display: flex;
   justify-content: center;
   margin: ${ms(4)} 0 0 0;
+  > svg {
+    height: 200px;
+  }
   ${({theme: {mq}}) => mq.desktop} {
     margin: 0 0 0 ${ms(4)};
-  }
-  > svg {
-    height: 350px;
+    > svg {
+      height: 350px;
+    }
   }
 `
 
-const HeroQuoteParagraph = styled.p`
-  font-size: ${ms(4)};
-  line-height: ${ms(4)};
-  font-family: ${({
-    theme: {
-      typo: {fontFamily},
-    },
-  }) => fontFamily.primary};
-`
 
 class CoachingPage extends Component {
   render() {

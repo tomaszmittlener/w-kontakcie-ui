@@ -40,7 +40,7 @@ const HeroAuthorParagraph = styled(ParagraphText)`
 `
 
 const SectionTitle = styled(H2)`
-  text-align: center;
+  text-align: left;
 `
 const DarkPageSection = styled(PageSection)`
   background-color: ${({theme: {colors}}) => lighten(0.2, colors.third)};

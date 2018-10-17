@@ -10,23 +10,60 @@ import {
   ParagraphText,
   SectionLayout,
   SectionContent,
+  AccordeonTable,
 } from 'src/components'
 import {withLocales} from 'src/context/locales'
 import map from 'lodash/map'
+import {MaxWidthText, StyledFirstLetter} from 'src/layout/mixins'
 import {experience, competences} from '../../../data/TextLists'
 
 const NameText = styled(H2)`
   font-weight: bold;
   text-align: center;
+  margin: 0 0 ${ms(0)} 0;
 `
 
 const SectionTitle = styled(H2)`
-  text-align: center;
+  text-align: left;
 `
 const ProfessionText = styled(H4)`
-  font-size: ${ms(0)};
+  font-size: ${ms(1)};
   text-align: center;
   font-weight: bold;
+  margin: 0 0 ${ms(5)} 0;
+`
+
+const ParagraphSectionContent = styled(SectionContent)`
+  ${StyledFirstLetter} ${MaxWidthText};
+`
+
+const ItemsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+`
+const Item = styled.div`
+  display: flex;
+  margin: 0 0 ${ms(6)} 0;
+  width: 100%;
+  align-items: center;
+`
+
+const ItemFigure = styled.figure`
+  margin: 0 ${ms(3)} 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+`
+
+const ItemTitle = styled(ParagraphText)`
+  margin: 0;
+  display: block;
+  font-size: ms(0.5);
+  flex: 5;
 `
 
 class AboutPageBody extends React.Component {
@@ -36,12 +73,16 @@ class AboutPageBody extends React.Component {
       <Fragment>
         <PageSection>
           <SectionLayout>
-            <SectionContent>
+            <ParagraphSectionContent>
               <NameText>{t('owner.name')}</NameText>
               <ProfessionText>{t('owner.profession')}</ProfessionText>
-              <ParagraphText>{t('owner.description.main')}</ParagraphText>
-              <ParagraphText>{t('owner.description.accented')}</ParagraphText>
-            </SectionContent>
+              <ParagraphText size={ms(0.5)}>
+                {t('owner.description.main')}
+              </ParagraphText>
+              <ParagraphText size={ms(0.5)}>
+                {t('owner.description.accented')}
+              </ParagraphText>
+            </ParagraphSectionContent>
           </SectionLayout>
         </PageSection>
 
@@ -51,11 +92,14 @@ class AboutPageBody extends React.Component {
               <SectionTitle>
                 {t('articlesPage.competencesSection.title')}
               </SectionTitle>
-              <ul>
-                {map(competences[0].bullets, (competence, competenceIndex) => (
-                  <li key={`competence-${competenceIndex}`}>{competence}</li>
+              <ItemsContainer>
+                {map(competences, (competence, competenceIndex) => (
+                  <Item key={competenceIndex}>
+                    <ItemFigure>{competence.img}</ItemFigure>
+                    <ItemTitle>{competence.title}</ItemTitle>
+                  </Item>
                 ))}
-              </ul>
+              </ItemsContainer>
             </SectionContent>
           </SectionLayout>
         </PageSection>
@@ -65,20 +109,15 @@ class AboutPageBody extends React.Component {
               <SectionTitle>
                 {t('articlesPage.experienceSection.title')}
               </SectionTitle>
-              {map(experience, (exp, expIndex) => (
-                <Fragment key={`therapy-${exp.title}-${expIndex}`}>
-                  {exp.title && <H4>{exp.title}</H4>}
-                  <ParagraphText>{exp.description}</ParagraphText>
-                  <ul>
-                    {map(exp.bullets, (bullet, bulletIndex) => (
-                      <li
-                        key={`therapy-${exp.title}-${expIndex}-${bulletIndex}`}>
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-                </Fragment>
-              ))}
+              <ParagraphText size={ms(0.5)}>
+                Od 10 lat zajmuję się pracą indywidualną i grupową z osobami o
+                różnym spectrum problemów i wyzwań. Początkowo jako trener i
+                coach a następnie psychoterapeuta miałam okazję współpracować z
+                ponad tysiącem osób zarówno w kontekście ich pracy zawodowej jak
+                też w życiu prywatnym. Mam świadomość jak obie te sfery się
+                przenikają.
+              </ParagraphText>
+              <AccordeonTable data={experience} />
             </SectionContent>
           </SectionLayout>
         </PageSection>

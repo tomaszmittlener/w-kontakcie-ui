@@ -4,15 +4,14 @@ import {rgba} from 'polished'
 
 export const StyledFirstLetter = css`
   p:first-of-type {
-    padding: ${ms(4)} 0 0 0;
     margin: 0 0 ${ms(4)} 0;
     &:first-letter {
       float: left;
       margin-right: 10px;
       margin-left: -5px;
-      margin-top: 5px;
+      margin-top: 8px;
       line-height: 0.73em;
-      font-size: 5.5em;
+      font-size: 4.5rem;
       font-weight: 800;
       color: ${({theme: {colors}}) => colors.primary};
       font-family: ${({

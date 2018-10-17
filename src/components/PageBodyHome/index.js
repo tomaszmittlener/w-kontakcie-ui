@@ -26,7 +26,6 @@ const OptionsContainer = styled.div`
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
-  margin: ${ms(8)} 0;
 `
 const Option = styled.div`
   text-align: center;
@@ -61,16 +60,13 @@ class PageBodyHome extends React.Component {
     const {t} = this.props
     return (
       <Fragment>
+
         <PageSection>
           <SectionLayout>
             <SectionContent>
-              <SectionTitle>Jak mogę pomóc?</SectionTitle>
-            </SectionContent>
-          </SectionLayout>
-        </PageSection>
-        <PageSection>
-          <SectionLayout>
-            <SectionContent>
+              <SectionContent>
+                <SectionTitle>Jak mogę pomóc?</SectionTitle>
+              </SectionContent>
               <OptionsContainer>
                 <Option>
                   <NavLink to="/therapy">

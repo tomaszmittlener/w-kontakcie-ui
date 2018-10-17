@@ -25,7 +25,9 @@ export {default as SectionLayout} from './SectionLayout'
 export {default as SectionContent} from './SectionContent'
 export {default as Map} from './Map'
 export {default as Accordeon} from './Accordeon'
+export {default as AccordeonTable} from './AccordeonTable'
 export {default as FeaturesTable} from './FeaturesTable'
+export {default as FeaturesItems} from './FeaturesItems'
 
 // Images
 export {default as HumanImage} from './HumanImage'
@@ -48,6 +50,12 @@ export {
   ArrowIcon,
   GraphIcon,
   AppleIcon,
+  CheckIcon,
+  TwoArrowsIcon,
+  PlusIcon,
+  Educationcon,
+  ExamIcon,
+  CertificateIcon,
 } from './Icons'
 
 // index page components

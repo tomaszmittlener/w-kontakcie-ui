@@ -11,8 +11,12 @@ const ItemContainer = styled.figure`
   padding: ${ms(4)} 0;
   margin: 0;
   border-bottom: 1px solid ${({theme: {colors}}) => colors.text};
+  &:first-of-type {
+    padding: 0 0 ${ms(4)} 0;
+  }
   &:last-of-type {
     border-bottom: none;
+    padding: ${ms(4)} 0 0 0;
   }
   ${({theme: {mq}}) => mq.desktop} {
     flex-direction: row;
@@ -25,14 +29,17 @@ const ImageContainer = styled.div`
   justify-content: center;
   margin: ${ms(4)};
   > svg {
-    height: 130px;
+    height: 80px;
   }
   ${({theme: {mq}}) => mq.desktop} {
     flex: 1;
+    > svg {
+      height: 130px;
+    }
   }
 `
 
-const TextContainer = styled.ul`
+const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   ${({theme: {mq}}) => mq.desktop} {
@@ -41,6 +48,15 @@ const TextContainer = styled.ul`
 `
 const Description = styled(ParagraphText)`
   font-size: ${ms(1)};
+`
+const ItemsList = styled.ul``
+const Item = styled.li``
+
+const ItemTitle = styled(H3)`
+  text-align: center;
+  ${({theme: {mq}}) => mq.tablet} {
+    text-align: left;
+  }
 `
 
 class FeaturesTable extends React.Component {
@@ -52,15 +68,16 @@ class FeaturesTable extends React.Component {
           <ItemContainer key={`practicalInfo-${item.title}-${itemIndex}`}>
             <ImageContainer>{item.img}</ImageContainer>
             <TextContainer>
-              <H3>{item.title}</H3>
+              <ItemTitle>{item.title}</ItemTitle>
               <Description>{item.description}</Description>
-              <ul>
+              <ItemsList>
                 {map(item.bullets, (bullet, bulletIndex) => (
-                  <li key={`therapy-${item.title}-${itemIndex}-${bulletIndex}`}>
+                  <Item
+                    key={`therapy-${item.title}-${itemIndex}-${bulletIndex}`}>
                     {bullet}
-                  </li>
+                  </Item>
                 ))}
-              </ul>
+              </ItemsList>
             </TextContainer>
           </ItemContainer>
         ))}

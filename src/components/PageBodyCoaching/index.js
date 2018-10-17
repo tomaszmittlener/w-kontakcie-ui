@@ -11,6 +11,8 @@ import {
   SectionContent,
   GraphIcon,
   AppleIcon,
+  FeaturesItems,
+  TwoArrowsIcon,
 } from 'src/components'
 import {withLocales} from 'src/context/locales'
 import map from 'lodash/map'
@@ -26,6 +28,24 @@ const SectionTitle = styled(H2)`
   text-align: left;
 `
 
+const CenteredSectionTitle = SectionTitle.extend`
+  text-align: center;
+`
+
+const ImageContainer = styled.figure`
+  margin: 0;
+  text-align: center;
+  svg {
+    height: 300px;
+  }
+
+  ${({theme: {mq}}) => mq.desktop} {
+    svg {
+      height: 300px;
+    }
+  }
+`
+
 const FormattedTextSectionContent = SectionContent.extend`
   ${StyledFirstLetter};
   display: flex;
@@ -37,24 +57,23 @@ const FormattedTextSectionContent = SectionContent.extend`
   }
 `
 
-const BusinessCoachingImageContainer = styled.figure`
-  margin: ${ms(7)} 0;
-  padding: 0;
-  order: 2;
-
+const CoachingImageContainer = styled.figure`
+  display: none;
   align-items: center;
   > svg {
     height: 150px;
+    opacity: 0.1;
   }
   ${({theme: {mq}}) => mq.desktop} {
-    order: unset;
+    display: block;
     margin: 0 0 0 ${ms(10)};
     > svg {
       height: 200px;
+      opacity: 1;
     }
   }
 `
-const LifeCoachingImageContainer = BusinessCoachingImageContainer.extend`
+const LifeCoachingImageContainer = CoachingImageContainer.extend`
   ${({theme: {mq}}) => mq.desktop} {
     margin: 0 ${ms(10)} 0 0;
   }
@@ -68,6 +87,7 @@ const CoachingTextContainer = styled.div`
 `
 
 const CoachingWrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,6 +99,7 @@ const CoachingWrapper = styled.div`
 const QuoteParagraph = styled(H2)`
   text-align: center;
   font-style: italic;
+  margin: 0;
   font-family: ${({
     theme: {
       typo: {fontFamily},
@@ -90,13 +111,21 @@ const DarkPageSection = styled(PageSection)`
   background-color: ${({theme: {colors}}) => lighten(0.2, colors.third)};
   padding: ${ms(10)} 0;
 `
+const DesctiptionText = styled(H3)`
+  font-size: ${ms(2)};
+  margin: ${ms(5)} 0;
+  font-family: ${({
+    theme: {
+      typo: {fontFamily},
+    },
+  }) => fontFamily.primary};
+`
 
 class PageBodyCoaching extends React.Component {
   render() {
     const {t} = this.props
     return (
       <Fragment>
-
         <PageSection>
           <SectionLayout>
             <FormattedTextSectionContent>
@@ -115,9 +144,9 @@ class PageBodyCoaching extends React.Component {
                     {t('coachingPage.businessCoachingSection.infoText3')}
                   </ParagraphText>
                 </CoachingTextContainer>
-                <BusinessCoachingImageContainer>
+                <CoachingImageContainer>
                   <GraphIcon />
-                </BusinessCoachingImageContainer>
+                </CoachingImageContainer>
               </CoachingWrapper>
             </FormattedTextSectionContent>
           </SectionLayout>
@@ -126,20 +155,21 @@ class PageBodyCoaching extends React.Component {
         <PageSection>
           <SectionLayout>
             <SectionContent>
+              <ImageContainer>
+                <TwoArrowsIcon />
+              </ImageContainer>
+            </SectionContent>
+          </SectionLayout>
+        </PageSection>
+
+        <PageSection>
+          <SectionLayout>
+            <SectionContent>
+              <CenteredSectionTitle>Korzyści</CenteredSectionTitle>
               {map(businessCoachingAdvantages, (entry, entryIndex) => (
                 <Fragment key={`therapy-${entry.title}-${entryIndex}`}>
-                  {entry.title && <H3>{entry.title}</H3>}
-                  <ParagraphText>{entry.description}</ParagraphText>
-                  <ul>
-                    {map(entry.bullets, (bullet, bulletIndex) => (
-                      <li
-                        key={`therapy-${
-                          entry.title
-                        }-${entryIndex}-${bulletIndex}`}>
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
+                  <DesctiptionText>{entry.description}</DesctiptionText>
+                  <FeaturesItems bullets={entry.bullets} />
                 </Fragment>
               ))}
             </SectionContent>
@@ -153,7 +183,6 @@ class PageBodyCoaching extends React.Component {
             </SectionContent>
           </SectionLayout>
         </DarkPageSection>
-
 
         <PageSection>
           <SectionLayout>
@@ -184,26 +213,26 @@ class PageBodyCoaching extends React.Component {
         <PageSection>
           <SectionLayout>
             <SectionContent>
+              <ImageContainer>
+                <TwoArrowsIcon />
+              </ImageContainer>
+            </SectionContent>
+          </SectionLayout>
+        </PageSection>
+
+        <PageSection>
+          <SectionLayout>
+            <SectionContent>
+              <CenteredSectionTitle>Korzyści</CenteredSectionTitle>
               {map(lifeCoachingAdvanatages, (entry, entryIndex) => (
                 <Fragment key={`practicalInfo-${entry.title}-${entryIndex}`}>
-                  {entry.title && <H3>{entry.title}</H3>}
-                  <ParagraphText>{entry.description}</ParagraphText>
-                  <ul>
-                    {map(entry.bullets, (bullet, bulletIndex) => (
-                      <li
-                        key={`therapy-${
-                          entry.title
-                        }-${entryIndex}-${bulletIndex}`}>
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
+                  <DesctiptionText>{entry.description}</DesctiptionText>
+                  <FeaturesItems bullets={entry.bullets} />
                 </Fragment>
               ))}
             </SectionContent>
           </SectionLayout>
         </PageSection>
-
       </Fragment>
     )
   }

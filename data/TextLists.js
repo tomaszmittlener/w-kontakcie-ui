@@ -1,23 +1,38 @@
 import React from 'react'
-import { EarthIcon, HealthIcon, LocationIcon, PhoneIcon, RoadSignIcon } from 'src/components';
+import {
+  EarthIcon,
+  HealthIcon,
+  LocationIcon,
+  PhoneIcon,
+  RoadSignIcon,
+  Educationcon,
+  ExamIcon,
+  CertificateIcon,
+} from 'src/components'
 
 export const competences = [
   {
-    title: 'Kompetencje',
+    title: 'Mgr Psychologii Uniwersytet Gdański',
     description: '',
-    bullets: [
-      'Mgr Psychologii Uniwersytet Gdański',
+    img: <Educationcon />,
+  },
+  {
+    title:
       'Instytut Integralnej Psychoterapii Gestalt w Krakowie Instytut IITG należy do Inernational Federation of Gestalt Training Organization (FORGE) i European Association for Gestalt Therapy (EAGT) międzynarodowych federacji zrzeszających ośrodki szkolące w zakresie terapii Gestalt.',
-      'Certyfikat Coacha ICC – International Coaching Community',
-    ],
+    description: '',
+    img: <ExamIcon />,
+  },
+  {
+    title: 'Certyfikat Coacha ICC – International Coaching Community',
+    description: '',
+    img: <CertificateIcon />,
   },
 ]
 
 export const experience = [
   {
-    title: '',
-    description:
-      'Od 10 lat zajmuję się pracą indywidualną i grupową z osobami o różnym spectrum problemów i wyzwań. Początkowo jako trener i coach a następnie psychoterapeuta miałam okazję współpracować z ponad tysiącem osób zarówno w kontekście ich pracy zawodowej jak też w życiu prywatnym. Mam świadomość jak obie te sfery się przenikają. Problemy, którymi się zajmowałam dotyczą m.in.:',
+    title: 'Problemy, którymi się zajmowałam dotyczą m.in.',
+    description: '',
     bullets: [
       'niemożności osiągania swoich celów',
       'trudności w pracy o różnym źródle i umiejscowieniu',
