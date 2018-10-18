@@ -38,6 +38,7 @@ const ParagraphSectionContent = styled(SectionContent)`
 `
 
 const ItemsContainer = styled.div`
+  padding: ${ms(4)} 0 0 0;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

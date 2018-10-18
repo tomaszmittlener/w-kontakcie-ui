@@ -1,15 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {Link} from 'src/components'
+import {Link} from 'react-router-dom'
 import {ms} from 'src/utils/index'
 
 const StyledButton = styled(Link)`
   background-color: ${({theme: {colors}}) => colors.secondary};
   box-shadow: inset 0 0 0 0.0625rem #${({theme: {colors}}) => colors.secondary};
   color: ${({theme: {colors}}) => colors.canvas};
-  padding: ${ms(-1)} ${ms(2)};
-  margin: 0 ${ms(0)};
+  text-decoration: none;
+  padding: ${ms(0)} ${ms(2)};
+  margin: 0;
   transition: all 0.15s linear;
   cursor: pointer;
   display: inline-block;

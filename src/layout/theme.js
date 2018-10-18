@@ -16,7 +16,7 @@ export default {
   typo: {
     fontFamily: {
       primary: "'Hinda Murai', helvetica, arial, sans-serif;",
-      secondary: "'Fjord One', serif;",
+      secondary: "'Esteban', serif;",
     },
   },
   mq: {

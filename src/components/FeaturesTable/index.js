@@ -61,9 +61,9 @@ const ItemTitle = styled(H3)`
 
 class FeaturesTable extends React.Component {
   render() {
-    const {data} = this.props
+    const {data, className} = this.props
     return (
-      <Fragment>
+      <div className={className}>
         {map(data, (item, itemIndex) => (
           <ItemContainer key={`practicalInfo-${item.title}-${itemIndex}`}>
             <ImageContainer>{item.img}</ImageContainer>
@@ -81,7 +81,7 @@ class FeaturesTable extends React.Component {
             </TextContainer>
           </ItemContainer>
         ))}
-      </Fragment>
+      </div>
     )
   }
 }

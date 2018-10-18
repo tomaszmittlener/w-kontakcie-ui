@@ -112,6 +112,8 @@ const DarkPageSection = styled(PageSection)`
   padding: ${ms(10)} 0;
 `
 const DesctiptionText = styled(H3)`
+  text-align: center;
+  display: inline-block;
   font-size: ${ms(2)};
   margin: ${ms(5)} 0;
   font-family: ${({
@@ -119,6 +121,26 @@ const DesctiptionText = styled(H3)`
       typo: {fontFamily},
     },
   }) => fontFamily.primary};
+`
+
+const BusinessAdvanatagesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  ${({theme: {mq}}) => mq.tablet} {
+    flex: 1;
+    &:nth-of-type(even) {
+      margin: 0 0 0 ${ms(4)};
+    }
+  }
+`
+const BusinessAdvanatagesContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  ${({theme: {mq}}) => mq.tablet} {
+    flex-direction: row;
+  }
 `
 
 class PageBodyCoaching extends React.Component {
@@ -166,12 +188,17 @@ class PageBodyCoaching extends React.Component {
           <SectionLayout>
             <SectionContent>
               <CenteredSectionTitle>Korzyści</CenteredSectionTitle>
-              {map(businessCoachingAdvantages, (entry, entryIndex) => (
-                <Fragment key={`therapy-${entry.title}-${entryIndex}`}>
-                  <DesctiptionText>{entry.description}</DesctiptionText>
-                  <FeaturesItems bullets={entry.bullets} />
-                </Fragment>
-              ))}
+              <BusinessAdvanatagesContainer>
+                {map(businessCoachingAdvantages, (entry, entryIndex) => (
+                  <BusinessAdvanatagesWrapper
+                    key={`therapy-${entry.title}-${entryIndex}`}>
+                    <FeaturesItems
+                      bullets={entry.bullets}
+                      title={entry.description}
+                    />
+                  </BusinessAdvanatagesWrapper>
+                ))}
+              </BusinessAdvanatagesContainer>
             </SectionContent>
           </SectionLayout>
         </PageSection>
@@ -224,12 +251,15 @@ class PageBodyCoaching extends React.Component {
           <SectionLayout>
             <SectionContent>
               <CenteredSectionTitle>Korzyści</CenteredSectionTitle>
-              {map(lifeCoachingAdvanatages, (entry, entryIndex) => (
-                <Fragment key={`practicalInfo-${entry.title}-${entryIndex}`}>
-                  <DesctiptionText>{entry.description}</DesctiptionText>
-                  <FeaturesItems bullets={entry.bullets} />
-                </Fragment>
-              ))}
+              <BusinessAdvanatagesContainer>
+                {map(lifeCoachingAdvanatages, (entry, entryIndex) => (
+                  <BusinessAdvanatagesWrapper
+                    key={`practicalInfo-${entry.title}-${entryIndex}`}>
+                    <DesctiptionText>{entry.description}</DesctiptionText>
+                    <FeaturesItems bullets={entry.bullets} />
+                  </BusinessAdvanatagesWrapper>
+                ))}
+              </BusinessAdvanatagesContainer>
             </SectionContent>
           </SectionLayout>
         </PageSection>

@@ -94,10 +94,11 @@ class Accordeon extends React.Component {
     const {
       data,
       context: {isMobile, isTablet},
+      className,
     } = this.props
     const isMobileView = isMobile || isTablet
     return (
-      <Container>
+      <Container className={className}>
         <Items>
           {map(data, (item, itemIndex) => (
             <ItemContainer key={`practicalInfo-${item.title}-${itemIndex}`}>
@@ -140,6 +141,7 @@ Accordeon.propTypes = {
     }),
   ).isRequired,
   context: contextPropTypesShape.isRequired,
+  className: PropTypes.string,
 }
 
 export default withAppContext(Accordeon)

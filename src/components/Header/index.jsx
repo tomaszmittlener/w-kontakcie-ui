@@ -168,7 +168,10 @@ class Header extends React.Component {
           )}
           <Button to="/contact">Kontakt</Button>
           {isMobileView && (
-            <MenuButton onClick={toggleMenuOpen} isMenuOpen={isMenuOpen} />
+            <MenuButton
+              onClick={toggleMenuOpen}
+              isMenuOpen={isMenuOpen}
+            />
           )}
         </Content>
       </Container>

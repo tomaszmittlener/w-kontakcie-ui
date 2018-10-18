@@ -28,6 +28,7 @@ import {
   WhistleIcon,
   Link,
   PageBodyHome,
+  Button,
 } from 'src/components'
 import {
   articlesExcerptsPropTypesShape,
@@ -67,6 +68,9 @@ const Brain = styled(MazeBrainImage)`
 const Human = styled(HumanImage)`
   position: absolute;
 `
+const StyledButton = styled(Button)`
+  padding: ${ms(2)} ${ms(7)};
+`
 const HeroSectionContent = styled(SectionContent)`
   display: flex;
   align-items: center;
@@ -83,6 +87,10 @@ const HeroIllustration = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
+  margin: ${ms(4)} 0 0 0;
+  ${({theme: {mq}}) => mq.desktop} {
+    margin: 0 0 0 ${ms(4)};
+  }
 `
 
 class Index extends React.Component {
@@ -98,6 +106,7 @@ class Index extends React.Component {
               <HeroText>
                 <H1>{t('company.name')}</H1>
                 <HeroParagraph>{t('company.type')}</HeroParagraph>
+                <StyledButton to="/contact">Kontakt</StyledButton>
               </HeroText>
               <HeroIllustration>
                 <HumanAnimation>

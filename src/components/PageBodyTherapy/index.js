@@ -40,11 +40,22 @@ const HeroAuthorParagraph = styled(ParagraphText)`
 `
 
 const SectionTitle = styled(H2)`
-  text-align: left;
+  text-align: center;
+  ${({theme: {mq}}) => mq.desktop} {
+    text-align: left;
+  }
 `
 const DarkPageSection = styled(PageSection)`
   background-color: ${({theme: {colors}}) => lighten(0.2, colors.third)};
   padding: ${ms(10)} 0;
+`
+
+const StyledAccordeon = styled(Accordeon)`
+  padding: ${ms(4)} 0 0 0;
+`
+
+const StyledFeaturesTable = styled(FeaturesTable)`
+  padding: ${ms(4)} 0 0 0;
 `
 
 const MethodologySectionContent = SectionContent.extend`
@@ -88,7 +99,7 @@ class PageBodyTherapy extends React.Component {
               <SectionTitle>
                 {t('therapyPage.workAreaSection.title')}
               </SectionTitle>
-              <Accordeon data={workAreas} />
+              <StyledAccordeon data={workAreas} />
             </SectionContent>
           </SectionLayout>
         </PageSection>
@@ -98,7 +109,7 @@ class PageBodyTherapy extends React.Component {
               <SectionTitle>
                 {t('therapyPage.practicalInfoSection.title')}
               </SectionTitle>
-              <FeaturesTable data={therapyPracticalInfo} />
+              <StyledFeaturesTable data={therapyPracticalInfo} />
             </SectionContent>
           </SectionLayout>
         </PageSection>

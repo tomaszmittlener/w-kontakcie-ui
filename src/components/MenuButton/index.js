@@ -4,6 +4,7 @@ import styled, {css} from 'styled-components'
 import {ms} from 'src/utils'
 
 const Circle = styled.button`
+  margin: 0 0 0 ${ms(0)};
   transition: 300ms right linear;
   outline: none;
   padding: 0;

@@ -26,14 +26,18 @@ const OptionsContainer = styled.div`
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
+  padding: ${ms(4)} 0 0 0;
 `
 const Option = styled.div`
   text-align: center;
   align-items: center;
   justify-content: center;
   padding: 0 ${ms(3)};
-  margin: 0 0 ${ms(3)} 0;
+  margin: 0 0 ${ms(8)} 0;
   width: 250px;
+  ${({theme}) => theme.mq.desktop} {
+    margin: 0 0 ${ms(3)} 0;
+  }
 `
 
 const OptionFigure = styled.figure`
@@ -60,7 +64,6 @@ class PageBodyHome extends React.Component {
     const {t} = this.props
     return (
       <Fragment>
-
         <PageSection>
           <SectionLayout>
             <SectionContent>
