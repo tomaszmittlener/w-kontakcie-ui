@@ -26,7 +26,7 @@ const ItemsList = styled.ul`
 
 const Item = styled.li`
   display: flex;
-  margin: 0 0 ${ms(2)} 0;
+  margin: ${ms(2)} 0 0 0;
 `
 
 const ItemText = styled.span``
@@ -72,10 +72,6 @@ class FeaturesItems extends React.Component {
     const {isOpen} = this.state
     return (
       <ItemsList>
-        <DesctiptionText onClick={this.handleToggleOpen}>
-          {title}
-        </DesctiptionText>
-        <HidingWarpper isOpen={isOpen}>
           {map(bullets, (bullet, bulletIndex) => (
             <Item key={`therapy-${bullet}-${bulletIndex}`}>
               <ImageContainer>
@@ -84,10 +80,6 @@ class FeaturesItems extends React.Component {
               <ItemText>{bullet}</ItemText>
             </Item>
           ))}
-        </HidingWarpper>
-        <IconContainer isOpen={isOpen} onClick={this.handleToggleOpen}>
-          <ArrowIcon />
-        </IconContainer>
       </ItemsList>
     )
   }

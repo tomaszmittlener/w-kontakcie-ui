@@ -2,10 +2,7 @@ import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {ms, compose} from 'src/utils'
-import {
-  H3,
-  PlusIcon,
-} from 'src/components'
+import {H3, PlusIcon, FeaturesItems} from 'src/components'
 import map from 'lodash/map'
 import {contextPropTypesShape, withAppContext} from 'src/context'
 
@@ -25,6 +22,7 @@ const ItemContainer = styled.figure`
 
 const ExpandedDescription = styled.div`
   display: ${({isOpen}) => (isOpen ? 'block' : 'none')};
+  padding: ${ms(0)} 0 0 ${ms(2)};
 `
 const IconContainer = styled.figure`
   margin: 0 0 0 ${ms(0)};
@@ -53,6 +51,7 @@ const Items = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: row;
+  width: 100%;
 `
 
 class AccordeonTable extends React.Component {
@@ -81,14 +80,7 @@ class AccordeonTable extends React.Component {
                 </IconContainer>
               </ItemTitle>
               <ExpandedDescription isOpen={itemIndex === openItem}>
-                <ul>
-                  {map(item.bullets, (bullet, bulletIndex) => (
-                    <li
-                      key={`therapy-${item.title}-${itemIndex}-${bulletIndex}`}>
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
+                <FeaturesItems bullets={item.bullets} />
               </ExpandedDescription>
             </ItemContainer>
           ))}

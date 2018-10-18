@@ -177,7 +177,7 @@ export const therapyPracticalInfo = [
 
 export const businessCoachingAdvantages = [
   {
-    title: '',
+    title: 'Z pozycji firmy:',
     description: 'Z pozycji firmy:',
     bullets: [
       'oszczędność czasu i środków finansowych. Coaching jest najszybszym sposobem podnoszenia efektywności.',
@@ -192,7 +192,7 @@ export const businessCoachingAdvantages = [
     ],
   },
   {
-    title: '',
+    title: 'Z pozycji uczestnika coachingu:',
     description: 'Z pozycji uczestnika coachingu:',
     bullets: [
       'coaching pomaga odkrywać nie poznane jeszcze i w związku z tym nie wykorzystane do tej pory naturalne zasoby, którymi dysponuje',
@@ -207,7 +207,7 @@ export const businessCoachingAdvantages = [
 
 export const lifeCoachingAdvanatages = [
   {
-    title: '',
+    title: 'Osoba, która decyduje się na coaching będzie mogła:',
     description: 'Osoba, która decyduje się na coaching będzie mogła:',
     bullets: [
       'lepiej określać swoje cele (osobiste, zawodowe) i szybciej je osiągać',

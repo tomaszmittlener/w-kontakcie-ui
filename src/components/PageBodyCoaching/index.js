@@ -13,6 +13,7 @@ import {
   AppleIcon,
   FeaturesItems,
   TwoArrowsIcon,
+  AccordeonTable,
 } from 'src/components'
 import {withLocales} from 'src/context/locales'
 import map from 'lodash/map'
@@ -189,15 +190,7 @@ class PageBodyCoaching extends React.Component {
             <SectionContent>
               <CenteredSectionTitle>Korzyści</CenteredSectionTitle>
               <BusinessAdvanatagesContainer>
-                {map(businessCoachingAdvantages, (entry, entryIndex) => (
-                  <BusinessAdvanatagesWrapper
-                    key={`therapy-${entry.title}-${entryIndex}`}>
-                    <FeaturesItems
-                      bullets={entry.bullets}
-                      title={entry.description}
-                    />
-                  </BusinessAdvanatagesWrapper>
-                ))}
+                <AccordeonTable data={businessCoachingAdvantages} />
               </BusinessAdvanatagesContainer>
             </SectionContent>
           </SectionLayout>
@@ -252,13 +245,7 @@ class PageBodyCoaching extends React.Component {
             <SectionContent>
               <CenteredSectionTitle>Korzyści</CenteredSectionTitle>
               <BusinessAdvanatagesContainer>
-                {map(lifeCoachingAdvanatages, (entry, entryIndex) => (
-                  <BusinessAdvanatagesWrapper
-                    key={`practicalInfo-${entry.title}-${entryIndex}`}>
-                    <DesctiptionText>{entry.description}</DesctiptionText>
-                    <FeaturesItems bullets={entry.bullets} />
-                  </BusinessAdvanatagesWrapper>
-                ))}
+                <AccordeonTable data={lifeCoachingAdvanatages} />
               </BusinessAdvanatagesContainer>
             </SectionContent>
           </SectionLayout>
