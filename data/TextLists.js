@@ -222,3 +222,24 @@ export const lifeCoachingAdvanatages = [
     ],
   },
 ]
+
+export const howCanIHelp = [
+  {
+    title: 'Psychoterapia',
+    link: '/therapy',
+    description: 'Obszary pracy:',
+    bullets: [
+      'Trudności w relacjach',
+      'Depresja',
+      'Kryzysy i trudności osobiste',
+      'Lęki, nerwice',
+      'Trudności w pracy',
+    ],
+  },
+  {
+    title: 'Coaching',
+    link: '/coaching',
+    description: 'Prowadzenie szkoleń w zakresie:',
+    bullets: ['Business Coaching', 'Life Coaching'],
+  },
+]

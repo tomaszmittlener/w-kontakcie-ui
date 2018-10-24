@@ -12,8 +12,13 @@ const ImageContainer = styled.figure`
   justify-content: center;
   margin: 0 ${ms(1)} 0 0;
   > svg {
-    height: 20px;
+    height: ${ms(1)};
   }
+`
+
+const Item = styled.li`
+  display: flex;
+  margin: ${ms(2)} 0 0 0;
 `
 
 const ItemsList = styled.ul`
@@ -22,64 +27,35 @@ const ItemsList = styled.ul`
   margin: 0;
   display: inline-flex;
   flex-direction: column;
-`
+  ${({small}) =>
+    small &&
+    css`
+      ${ImageContainer} {
+        margin: 0 ${ms(0)} 0 0;
+        > svg {
+          height: ${ms(0)};
+        }
+      }
 
-const Item = styled.li`
-  display: flex;
-  margin: ${ms(2)} 0 0 0;
-`
-
-const ItemText = styled.span``
-
-const DesctiptionText = styled(H3)`
-  text-align: center;
-  display: inline-block;
-  font-size: ${ms(2)};
-  margin: ${ms(5)} 0;
-  font-family: ${({
-    theme: {
-      typo: {fontFamily},
-    },
-  }) => fontFamily.primary};
-`
-
-const HidingWarpper = styled.div`
-  height: ${({isOpen}) => (isOpen ? '100%' : ms(14))};
-  overflow: hidden;
-`
-
-const IconContainer = styled.div`
-  transform: ${({isOpen}) => (isOpen ? 'rotateX(180deg)' : 'none')};
-  margin: ${ms(2)} 0 0;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+      ${Item} {
+        margin: ${ms(0)} 0 0 0;
+      }
+    `};
 `
 
 class FeaturesItems extends React.Component {
-  state = {
-    isOpen: false,
-  }
-
-  handleToggleOpen = () => {
-    this.setState(state => ({
-      isOpen: !state.isOpen,
-    }))
-  }
-
   render() {
-    const {bullets, title} = this.props
-    const {isOpen} = this.state
+    const {bullets, small} = this.props
     return (
-      <ItemsList>
-          {map(bullets, (bullet, bulletIndex) => (
-            <Item key={`therapy-${bullet}-${bulletIndex}`}>
-              <ImageContainer>
-                <CheckIcon />
-              </ImageContainer>
-              <ItemText>{bullet}</ItemText>
-            </Item>
-          ))}
+      <ItemsList small={small}>
+        {map(bullets, (bullet, bulletIndex) => (
+          <Item key={`therapy-${bullet}-${bulletIndex}`}>
+            <ImageContainer>
+              <CheckIcon />
+            </ImageContainer>
+            <span>{bullet}</span>
+          </Item>
+        ))}
       </ItemsList>
     )
   }
@@ -87,7 +63,11 @@ class FeaturesItems extends React.Component {
 
 FeaturesItems.propTypes = {
   bullets: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
-  title: PropTypes.string.isRequired,
+  small: PropTypes.bool,
+}
+
+FeaturesItems.defaultProps = {
+  small: false,
 }
 
 export default FeaturesItems
