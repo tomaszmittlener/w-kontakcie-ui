@@ -10,7 +10,7 @@ const OptionsContainer = styled.div`
   flex-flow: row wrap;
   padding: ${ms(4)} 0 0 0;
   justify-content: center;
-  ${({theme: {mq}}) => mq.tablet} {
+  ${({theme: {mq}}) => mq.desktop} {
     flex-flow: row wrap;
   }
 `
@@ -21,15 +21,15 @@ const Col = styled.div`
   flex-flow: column;
   align-items: center;
   margin: 0 0 ${ms(4)} 0;
-  &:last-of-type {
-    margin: 0;
-  }
 
   ${({theme: {mq}}) => mq.tablet} {
-    flex: ${ms(16)} 0;
+    flex: ${ms(17)} 0;
     margin: 0;
     &:nth-of-type(n + 1) {
       margin: 0 ${ms(4)} 0 0;
+    }
+    &:last-of-type {
+      margin: 0;
     }
   }
 `
@@ -41,7 +41,7 @@ const Option = styled.div`
   flex-direction: column;
   width: 100%;
   border: 1px dashed ${({theme: {colors}}) => colors.text};
-  ${({theme}) => theme.mq.desktop} {
+  ${({theme}) => theme.mq.tablet} {
     margin: 0 0 ${ms(3)} 0;
   }
 `

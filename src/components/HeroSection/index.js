@@ -97,7 +97,7 @@ const VerticalTheme = css`
     ${({theme: {mq}}) => mq.desktop} {
       width: 100%;
       &:before {
-        content: unset;  // change to '' to restore
+        content: unset; // change to '' to restore
       }
     }
   }

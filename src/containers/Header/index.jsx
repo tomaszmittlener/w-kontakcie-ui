@@ -9,6 +9,28 @@ import map from 'lodash/map'
 import {isWindowDefined} from 'src/utils'
 import menuItemsList from '../../../data/MenuItems'
 
+const Content = styled.div`
+  z-index: ${({theme: {layers}}) => layers.top};
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end;
+  ${({theme}) => theme.mq.desktop} {
+    justify-content: space-between;
+  }
+
+  transition: opacity 0.15s linear 0.1s;
+  opacity: 1;
+
+  ${({isFullyVisible, isOnTop}) =>
+  !isFullyVisible &&
+  !isOnTop &&
+  css`
+      opacity: 0;
+    `};
+`
+
+
 const Container = styled.header`
   width: 100%;
   position: fixed;
@@ -27,6 +49,9 @@ const Container = styled.header`
 
   &:hover {
     &:before {
+      opacity: 1;
+    }
+    ${Content} {
       opacity: 1;
     }
   }
@@ -63,26 +88,6 @@ const Container = styled.header`
   }
 `
 
-const Content = styled.div`
-  z-index: ${({theme: {layers}}) => layers.top};
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: flex-end;
-  ${({theme}) => theme.mq.desktop} {
-    justify-content: space-between;
-  }
-
-  transition: opacity 0.15s linear 0.1s;
-  opacity: 1;
-  ${({isFullyVisible, isOnTop}) =>
-    !isFullyVisible &&
-    !isOnTop &&
-    css`
-      opacity: 0;
-    `};
-`
-
 const Logo = styled(LogoSVG)`
   z-index: ${({theme: {layers}}) => layers.top};
   height: ${ms(4.3)};
@@ -105,7 +110,6 @@ const MainNavigationLink = styled(Link)`
   &:last-of-type {
     padding: 0;
   }
-  font-size: ${ms(0)};
   color: ${({theme: {colors}}) => colors.text};
   font-family: ${({
     theme: {

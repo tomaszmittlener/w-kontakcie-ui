@@ -15,8 +15,8 @@ export default {
   },
   typo: {
     fontFamily: {
-      primary: "'Hinda Murai', helvetica, arial, sans-serif;",
-      secondary: "'Esteban', serif;",
+      primary: "'Javiera', serif;",
+      secondary: "'Javiera', sans-serif",
     },
     weights: {
       light: 300,

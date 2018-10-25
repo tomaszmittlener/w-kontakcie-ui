@@ -14,7 +14,6 @@ const Container = styled.footer`
 `
 
 const AddressText = styled(H4)`
-  font-size: ${ms(1)};
   font-family: ${({
     theme: {
       typo: {fontFamily},

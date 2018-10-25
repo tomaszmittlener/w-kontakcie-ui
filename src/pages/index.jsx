@@ -9,11 +9,11 @@ import Layout from 'src/layout'
 import {
   SEO,
   H1,
-  ParagraphText,
+  H3,
   Button,
   Pattern,
   HeroSection,
-} from 'src/components'
+} from 'src/components';
 import {HomePageBody} from 'src/containers'
 
 import {
@@ -25,18 +25,9 @@ import {
 
 import config from '../../data/SiteConfig'
 
-const HeroParagraph = styled(ParagraphText)`
-  font-size: ${ms(5)};
-  line-height: ${ms(5)};
-  font-family: ${({
-    theme: {
-      typo: {fontFamily},
-    },
-  }) => fontFamily.secondary};
-`
-
 const StyledButton = styled(Button)`
   padding: ${ms(2)} ${ms(7)};
+  margin: ${ms(1)} 0 0 0;
 `
 
 class Index extends React.Component {
@@ -49,10 +40,10 @@ class Index extends React.Component {
         <SEO />
         <HeroSection image={<Pattern />}>
           <H1>{t('company.name')}</H1>
-          <HeroParagraph>{t('company.type')}</HeroParagraph>
+          <H3>{t('company.type')}</H3>
           <StyledButton to="/contact">Kontakt</StyledButton>
         </HeroSection>
-        <HomePageBody/>
+        <HomePageBody />
       </Layout>
     )
   }

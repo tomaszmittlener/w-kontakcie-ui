@@ -12,7 +12,7 @@ const hoverTransition = css`
     #slice_3,
     #slice_4 {
       fill: ${({theme: {colors}}) => colors.text};
-      transition: fill 300ms linear;
+      transition: fill 0.15s linear 0.1s;
     }
   }
 `

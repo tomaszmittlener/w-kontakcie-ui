@@ -6,7 +6,7 @@ const TextBasicMixin = css`
       typo: {fontFamily},
     },
   }) => fontFamily.primary};
-  font-size: ${({size}) => size || 'inherit'};
+  
   color: ${({color, theme: {colors}}) => (color ? colors[color] : 'inherit')};
   font-weight: ${({
     weight,
