@@ -4,10 +4,15 @@ import styled, {css} from 'styled-components'
 import {SectionContent, SectionLayout} from 'src/components'
 import {ms} from 'src/utils'
 
+//  background-color: ${({theme: {colors}}) => colors.third};
 const Container = styled.header`
   padding: ${ms(13)} 0 0 0;
   margin: 0 0 ${ms(11)} 0;
-  background-color: ${({theme: {colors}}) => colors.third};
+  background-image: linear-gradient(
+    to bottom,
+    ${({theme: {colors}}) => `${colors.third},${colors.canvas}`}
+  );
+
   ${({theme: {mq}}) => mq.desktop} {
     margin: 0;
     padding: ${ms(13)} 0 ${ms(11)};
@@ -52,7 +57,7 @@ const HeroIllustrationSection = styled.div`
   &:before {
     background-color: ${({theme: {colors}}) => colors.canvas};
     bottom: 0;
-    content: '';
+    content: unset; // change to '' to restore
     height: 50%;
     position: absolute;
     width: 100vw;
@@ -92,7 +97,7 @@ const VerticalTheme = css`
     ${({theme: {mq}}) => mq.desktop} {
       width: 100%;
       &:before {
-        content: '';
+        content: unset;  // change to '' to restore
       }
     }
   }

@@ -68,6 +68,31 @@ class PageBodyTherapy extends React.Component {
     const {t} = this.props
     return (
       <Fragment>
+
+        <PageSection>
+          <SectionLayout>
+            <SectionContent>
+              <SectionTitle>
+                {t('therapyPage.workAreaSection.title')}
+              </SectionTitle>
+              <StyledAccordeon data={workAreas} />
+            </SectionContent>
+          </SectionLayout>
+        </PageSection>
+
+
+        <DarkPageSection>
+          <SectionLayout>
+            <SectionContent>
+              <QuoteParagraph>{t('therapyPage.pageQuote')}</QuoteParagraph>
+              <HeroAuthorParagraph>
+                {t('therapyPage.pageQuoteAuthor')}
+              </HeroAuthorParagraph>
+            </SectionContent>
+          </SectionLayout>
+        </DarkPageSection>
+
+
         <PageSection>
           <SectionLayout>
             <MethodologySectionContent>
@@ -83,26 +108,7 @@ class PageBodyTherapy extends React.Component {
             </MethodologySectionContent>
           </SectionLayout>
         </PageSection>
-        <DarkPageSection>
-          <SectionLayout>
-            <SectionContent>
-              <QuoteParagraph>{t('therapyPage.pageQuote')}</QuoteParagraph>
-              <HeroAuthorParagraph>
-                {t('therapyPage.pageQuoteAuthor')}
-              </HeroAuthorParagraph>
-            </SectionContent>
-          </SectionLayout>
-        </DarkPageSection>
-        <PageSection>
-          <SectionLayout>
-            <SectionContent>
-              <SectionTitle>
-                {t('therapyPage.workAreaSection.title')}
-              </SectionTitle>
-              <StyledAccordeon data={workAreas} />
-            </SectionContent>
-          </SectionLayout>
-        </PageSection>
+
         <PageSection>
           <SectionLayout>
             <SectionContent>
