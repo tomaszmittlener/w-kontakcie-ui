@@ -6,6 +6,7 @@ import {graphql, StaticQuery, Link} from 'gatsby'
 import {MenuButton, Button} from 'src/components/index'
 import LogoSVG from 'src/components/Logo/index'
 import map from 'lodash/map'
+import {isWindowDefined} from 'src/utils'
 import menuItemsList from '../../../data/MenuItems'
 
 const Container = styled.header`
@@ -132,16 +133,21 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
-    window.onscroll = () => {
-      const previousPosition = this.state.scrollPosition
-      const currentPosition = window.scrollY
-      if (previousPosition > currentPosition) {
-        this.setState({scrollDirection: 'up', scrollPosition: currentPosition})
-      } else {
-        this.setState({
-          scrollDirection: 'down',
-          scrollPosition: currentPosition,
-        })
+    if (isWindowDefined) {
+      window.onscroll = () => {
+        const previousPosition = this.state.scrollPosition
+        const currentPosition = window.scrollY
+        if (previousPosition > currentPosition) {
+          this.setState({
+            scrollDirection: 'up',
+            scrollPosition: currentPosition,
+          })
+        } else {
+          this.setState({
+            scrollDirection: 'down',
+            scrollPosition: currentPosition,
+          })
+        }
       }
     }
   }

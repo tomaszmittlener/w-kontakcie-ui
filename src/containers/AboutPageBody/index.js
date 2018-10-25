@@ -2,7 +2,6 @@ import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {ms, compose} from 'src/utils/index'
-import sal from 'sal.js/dist/sal'
 import {
   H2,
   H4,
@@ -76,7 +75,6 @@ const ItemTitle = styled(props => <ParagraphText weight="bold" {...props} />)`
 class AboutPageBody extends React.Component {
   render() {
     const {t} = this.props
-    sal()
     return (
       <Fragment>
         <PageSection>
