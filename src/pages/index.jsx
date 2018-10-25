@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
-import sal from 'sal.js'
 import {compose, ms} from 'src/utils'
 import {withLocales, withLocalesContextProvider} from 'src/context'
 import styled from 'styled-components'
@@ -40,18 +39,19 @@ const StyledButton = styled(Button)`
 `
 
 class Index extends React.Component {
+
   render() {
     const {t, location} = this.props
     return (
       <Layout location={location} withTopPadding hideLogo>
         <Helmet title={config.siteTitle} />
         <SEO />
-        <HeroSection image={<Pattern />} verticalLayout>
+        <HeroSection image={<Pattern />}>
           <H1>{t('company.name')}</H1>
           <HeroParagraph>{t('company.type')}</HeroParagraph>
           <StyledButton to="/contact">Kontakt</StyledButton>
         </HeroSection>
-        <PageBodyHome />
+        <PageBodyHome/>
       </Layout>
     )
   }

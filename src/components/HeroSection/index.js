@@ -33,11 +33,18 @@ const HeroTitleSection = styled.div`
 
 const HeroIllustrationSection = styled.div`
   width: 100%;
+  height: 100%;
   max-width: ${ms(17)};
   display: flex;
   justify-content: center;
   margin: ${ms(8)} 0 0 0;
   position: relative;
+
+  .gatsbyImageWrapper {
+    width: 100%;
+    height: 100%;
+  }
+
   > svg {
     z-index: ${({theme: {layers}}) => layers.topBottom};
   }
@@ -81,9 +88,9 @@ const VerticalTheme = css`
   }
 
   ${HeroIllustrationSection} {
+    margin: 0;
     ${({theme: {mq}}) => mq.desktop} {
       width: 100%;
-      margin: ${ms(8)} 0 0 0;
       &:before {
         content: '';
       }

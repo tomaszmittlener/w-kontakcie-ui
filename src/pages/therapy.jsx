@@ -6,50 +6,11 @@ import {locationPropTypesShape} from 'src/utils/PropTypes'
 import {compose, ms} from 'src/utils'
 import styled from 'styled-components'
 import {withLocales, withLocalesContextProvider} from 'src/context'
-import Theme from 'src/layout/theme'
-import {
-  H1,
-  HumanImage,
-  ParagraphText,
-  SectionContent,
-  SectionLayout,
-  PageBodyTherapy,
-  PlantBrainImage,
-  TherapyImage,
-} from 'src/components'
+import {H1, PageBodyTherapy, HeroSection, Pattern} from 'src/components'
 import config from '../../data/SiteConfig'
 
-const HeroSection = styled.header`
-  padding: ${ms(13)} 0 0;
-  background-color: ${({theme: {colors}}) => colors.third};
-`
-
-const HumanAnimation = styled.div`
-  position: relative;
-`
-
-const HeroSectionContent = styled(SectionContent)`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-  &:before {
-    background-color: ${({theme: {colors}}) => colors.canvas};
-    bottom: 0;
-    content: '';
-    height: 30%;
-    position: absolute;
-    width: 100vw;
-  }
-`
-const HeroText = styled.div`
-  flex: 1;
-`
-
-const HeroIllustration = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
+const PageTitle = styled(H1)`
+  text-align: center;
 `
 
 class TherapyPage extends Component {
@@ -58,19 +19,8 @@ class TherapyPage extends Component {
     return (
       <Layout location={this.props.location} withTopPadding>
         <Helmet title={`Psychoterapia | ${config.siteTitle}`} />
-        <HeroSection>
-          <SectionLayout>
-            <HeroSectionContent>
-              <HeroText>
-                <H1>{t('therapyPage.pageTitle')}</H1>
-              </HeroText>
-              <HeroIllustration>
-                <HumanAnimation>
-                  <TherapyImage />
-                </HumanAnimation>
-              </HeroIllustration>
-            </HeroSectionContent>
-          </SectionLayout>
+        <HeroSection image={<Pattern />} verticalLayout>
+          <PageTitle>{t('therapyPage.pageTitle')}</PageTitle>
         </HeroSection>
         <PageBodyTherapy />
       </Layout>

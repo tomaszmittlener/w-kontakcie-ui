@@ -1,63 +1,12 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Layout from 'src/layout'
 import styled from 'styled-components'
 import {compose, ms} from 'src/utils'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
-import {
-  H1,
-  PageBodyContact,
-  SectionLayout,
-  HumanImage,
-  MazeBrainImage,
-  ParagraphText,
-  SectionContent,
-  PlaneIcon,
-  PhoneIcon,
-  ContactImage,
-  Link,
-} from 'src/components'
-import {
-  withAppContext,
-  withAppContextProvider,
-  withLocales,
-  withLocalesContextProvider,
-} from 'src/context'
-
-const HeroSection = styled.header`
-  padding: ${ms(13)} 0 0;
-  background-color: ${({theme: {colors}}) => colors.third};
-  ${({theme: {mq}}) => mq.desktop} {
-    padding: ${ms(13)} 0 ${ms(11)};
-  }
-`
-
-const HumanAnimation = styled.div`
-  position: relative;
-`
-
-const HeroSectionContent = styled(SectionContent)`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  ${({theme: {mq}}) => mq.desktop} {
-    flex-direction: row;
-  }
-`
-const HeroText = styled.div`
-  flex: 1;
-`
-
-const HeroIllustration = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  margin: ${ms(10)} 0 0 0;
-  ${({theme: {mq}}) => mq.desktop} {
-    margin: 0 0 0 ${ms(4)};
-  }
-`
+import {H1, PageBodyContact, Link, HeroSection, Pattern} from 'src/components'
+import {withLocales, withLocalesContextProvider} from 'src/context'
 
 const HeroQuoteParagraph = styled.p`
   font-size: ${ms(3)};
@@ -76,29 +25,15 @@ class ContactPage extends Component {
     return (
       <Layout location={this.props.location} withTopPadding>
         <Helmet title={`Kontakt | ${config.siteTitle}`} />
-        <HeroSection>
-          <SectionLayout>
-            <HeroSectionContent>
-              <HeroText>
-                <H1>Kontakt</H1>
-                <HeroQuoteParagraph>
-                  tel:{' '}
-                  <Link to={`tel:${t('owner.phone')}`}>{t('owner.phone')}</Link>
-                </HeroQuoteParagraph>
-                <HeroQuoteParagraph>
-                  email:{' '}
-                  <Link to={`mailto:${t('owner.email')}`}>
-                    {t('owner.email')}
-                  </Link>
-                </HeroQuoteParagraph>
-              </HeroText>
-              <HeroIllustration>
-                <HumanAnimation>
-                  <ContactImage />
-                </HumanAnimation>
-              </HeroIllustration>
-            </HeroSectionContent>
-          </SectionLayout>
+        <HeroSection image={<Pattern />}>
+          <H1>Kontakt</H1>
+          <HeroQuoteParagraph>
+            tel: <Link to={`tel:${t('owner.phone')}`}>{t('owner.phone')}</Link>
+          </HeroQuoteParagraph>
+          <HeroQuoteParagraph>
+            email:{' '}
+            <Link to={`mailto:${t('owner.email')}`}>{t('owner.email')}</Link>
+          </HeroQuoteParagraph>
         </HeroSection>
         <PageBodyContact />
       </Layout>

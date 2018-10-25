@@ -2,9 +2,9 @@ import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {ms, compose} from 'src/utils'
+import sal from 'sal.js'
 import {
   H2,
-  H3,
   H4,
   PageSection,
   ParagraphText,
@@ -70,6 +70,7 @@ const ItemTitle = styled(ParagraphText)`
 class AboutPageBody extends React.Component {
   render() {
     const {t} = this.props
+    sal()
     return (
       <Fragment>
         <PageSection>
@@ -95,7 +96,8 @@ class AboutPageBody extends React.Component {
               </SectionTitle>
               <ItemsContainer>
                 {map(competences, (competence, competenceIndex) => (
-                  <Item key={competenceIndex}>
+                  <Item
+                    key={competenceIndex}>
                     <ItemFigure>{competence.img}</ItemFigure>
                     <ItemTitle>{competence.title}</ItemTitle>
                   </Item>
