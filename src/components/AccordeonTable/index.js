@@ -43,6 +43,7 @@ const Items = styled.div`
   width: 100%;
   justify-content: center;
   border: 1px solid black;
+  padding: ${ms(1)};
   ${({theme: {mq}}) => mq.desktop} {
     flex: 1;
   }

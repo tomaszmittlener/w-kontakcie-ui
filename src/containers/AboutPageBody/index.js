@@ -47,20 +47,30 @@ const ItemsContainer = styled.div`
 `
 const Item = styled.div`
   display: flex;
-  margin: 0 0 ${ms(6)} 0;
+  flex-direction: column;
+  margin: 0 0 ${ms(9)} 0;
   width: 100%;
   align-items: center;
+  ${({theme: {mq}}) => mq.tablet} {
+    margin: 0 0 ${ms(6)} 0;
+    flex-direction: row;
+  }
 `
 
 const ItemFigure = styled.figure`
-  margin: 0 ${ms(7)} 0 0;
+  margin: 0 0 ${ms(3)} 0;
+  ${({theme: {mq}}) => mq.tablet} {
+    margin: 0 ${ms(7)} 0 0;
+  }
 `
 
 const ItemTitle = styled(props => <ParagraphText weight="bold" {...props} />)`
   margin: 0;
   display: block;
   font-size: ms(0.5);
-  flex: 6;
+  ${({theme: {mq}}) => mq.tablet} {
+    flex: 6;
+  }
 `
 
 class AboutPageBody extends React.Component {
