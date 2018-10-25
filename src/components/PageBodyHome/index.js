@@ -101,8 +101,8 @@ class PageBodyHome extends React.Component {
                 <SectionTitle>Jak mogę pomóc?</SectionTitle>
               </SectionContent>
               <OptionsContainer>
-                {howCanIHelp.map(option => (
-                  <Col>
+                {howCanIHelp.map((option, index) => (
+                  <Col key={`home-col-${index}`}>
                     <Option>
                       <NavLink to={option.link}>
                         <OptionFigure>

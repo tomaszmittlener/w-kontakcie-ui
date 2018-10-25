@@ -62,7 +62,7 @@ class FeaturesItems extends React.Component {
 }
 
 FeaturesItems.propTypes = {
-  bullets: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
+  bullets: PropTypes.arrayOf(PropTypes.string).isRequired,
   small: PropTypes.bool,
 }
 

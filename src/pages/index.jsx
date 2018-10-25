@@ -10,25 +10,14 @@ import Layout from 'src/layout'
 import {NavLink} from 'react-router-dom'
 import {
   SEO,
-  AboutMeSection,
-  ArticlesExcerpts,
-  PageSectionTitle,
-  PageSection,
-  OfferSection,
   SectionLayout,
   SectionContent,
   H1,
-  H2,
-  H3,
-  H4,
   ParagraphText,
-  HumanImage,
-  MazeBrainImage,
-  HealthIcon,
-  WhistleIcon,
-  Link,
   PageBodyHome,
   Button,
+  Pattern,
+  HeroSection
 } from 'src/components'
 import {
   articlesExcerptsPropTypesShape,
@@ -38,11 +27,6 @@ import {
 } from 'src/utils/PropTypes'
 
 import config from '../../data/SiteConfig'
-
-const HeroSection = styled.header`
-  padding: ${ms(13)} 0 ${ms(11)};
-  background-color: ${({theme: {colors}}) => colors.third};
-`
 
 const HeroParagraph = styled(ParagraphText)`
   font-size: ${ms(5)};
@@ -54,20 +38,6 @@ const HeroParagraph = styled(ParagraphText)`
   }) => fontFamily.secondary};
 `
 
-const HumanAnimation = styled.div`
-  position: relative;
-  height: 457px;
-  width: 312px;
-`
-
-const Brain = styled(MazeBrainImage)`
-  position: absolute;
-  left: 70px;
-  top: 40px;
-`
-const Human = styled(HumanImage)`
-  position: absolute;
-`
 const StyledButton = styled(Button)`
   padding: ${ms(2)} ${ms(7)};
 `
@@ -79,18 +49,43 @@ const HeroSectionContent = styled(SectionContent)`
     flex-direction: row;
   }
 `
-const HeroText = styled.div`
-  flex: 1;
+
+const HeroTextSection = styled.div`
+  width: 100%;
+  ${({theme: {mq}}) => mq.desktop} {
+    width: 66%;
+  }
 `
 
-const HeroIllustration = styled.div`
-  flex: 1;
+const HeroIllustrationSection = styled.div`
+  width: 100%;
+  max-width: ${ms(17)};
   display: flex;
   justify-content: center;
-  margin: ${ms(4)} 0 0 0;
-  ${({theme: {mq}}) => mq.desktop} {
-    margin: 0 0 0 ${ms(4)};
+  margin: ${ms(8)} 0 0 0;
+  position: relative;
+  > svg {
+    z-index: ${({theme: {layers}}) => layers.topBottom};  
   }
+  
+  &:before {
+    background-color: ${({theme: {colors}}) => colors.canvas};
+    bottom: 0;
+    content: '';
+    height: 50%;
+    position: absolute;
+    width: 100vw;
+  }
+
+  ${({theme: {mq}}) => mq.desktop} {
+    flex-direction: row;
+    width: 33%;
+    margin: 0 0 0 ${ms(4)};
+
+    &:before {
+      content: unset;
+    }
+
 `
 
 class Index extends React.Component {
@@ -100,22 +95,10 @@ class Index extends React.Component {
       <Layout location={location} withTopPadding hideLogo>
         <Helmet title={config.siteTitle} />
         <SEO />
-        <HeroSection>
-          <SectionLayout>
-            <HeroSectionContent>
-              <HeroText>
-                <H1>{t('company.name')}</H1>
-                <HeroParagraph>{t('company.type')}</HeroParagraph>
-                <StyledButton to="/contact">Kontakt</StyledButton>
-              </HeroText>
-              <HeroIllustration>
-                <HumanAnimation>
-                  <Human />
-                  <Brain />
-                </HumanAnimation>
-              </HeroIllustration>
-            </HeroSectionContent>
-          </SectionLayout>
+        <HeroSection image={<Pattern />}>
+          <H1>{t('company.name')}</H1>
+          <HeroParagraph>{t('company.type')}</HeroParagraph>
+          <StyledButton to="/contact">Kontakt</StyledButton>
         </HeroSection>
         <PageBodyHome />
       </Layout>

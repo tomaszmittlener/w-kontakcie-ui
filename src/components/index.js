@@ -28,6 +28,7 @@ export {default as Accordeon} from './Accordeon'
 export {default as AccordeonTable} from './AccordeonTable'
 export {default as FeaturesTable} from './FeaturesTable'
 export {default as FeaturesItems} from './FeaturesItems'
+export {default as HeroSection} from './HeroSection'
 
 // Images
 export {default as HumanImage} from './HumanImage'
@@ -56,6 +57,7 @@ export {
   Educationcon,
   ExamIcon,
   CertificateIcon,
+  Pattern,
 } from './Icons'
 
 // index page components

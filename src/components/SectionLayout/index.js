@@ -12,14 +12,12 @@ const Layout = styled.div`
 `
 
 const SectionLayout = ({className, children}) => (
-  <Layout className={className} >
-    {children}
-  </Layout>
+  <Layout className={className}>{children}</Layout>
 )
 
 SectionLayout.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 }
 
 SectionLayout.defaultProps = {
