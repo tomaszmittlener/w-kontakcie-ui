@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {ms, compose} from 'src/utils'
+import {ms, compose} from 'src/utils/index'
 import {
   H2,
   H3,
@@ -14,7 +14,7 @@ import {
   FeaturesItems,
   TwoArrowsIcon,
   AccordeonTable,
-} from 'src/components'
+} from 'src/components/index'
 import {withLocales} from 'src/context/locales'
 import map from 'lodash/map'
 import {MaxWidthText, StyledFirstLetter} from 'src/layout/mixins'

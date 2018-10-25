@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
-import {H4} from 'src/components/Headings'
+import {H4} from 'src/components/Headings/index'
 import {ms} from 'src/utils/index'
 import config from '../../../data/SiteConfig'
 

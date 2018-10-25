@@ -15,7 +15,7 @@ const Container = styled.header`
   ${({verticalLayout}) => verticalLayout && VerticalTheme};
 `
 
-const HeroSectionContent = styled(SectionContent)`
+const HeroSectionContent = styled(props => <SectionContent {...props} />)`
   display: flex;
   align-items: center;
   flex-direction: column;

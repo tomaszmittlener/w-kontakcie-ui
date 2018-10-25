@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import {Transition as ReactTransition} from 'react-transition-group'
-import getTransitionStyle from 'src/utils/getTransitinStyle'
+import getTransitionStyle from 'src/utils/getTransitionStyle'
 import {historyExitingEventType, timeout} from '../../../gatsby-browser'
 
 class Transition extends React.Component {

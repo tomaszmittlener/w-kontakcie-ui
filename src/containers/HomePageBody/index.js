@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {ms, compose} from 'src/utils'
+import {ms, compose} from 'src/utils/index'
 import {NavLink} from 'react-router-dom'
 import {
   H2,
@@ -12,7 +12,7 @@ import {
   HealthIcon,
   Link,
   FeaturesItems,
-} from 'src/components'
+} from 'src/components/index'
 import {withLocales} from 'src/context/locales'
 import {howCanIHelp} from '../../../data/TextLists'
 
@@ -106,7 +106,7 @@ class PageBodyHome extends React.Component {
                     <Option>
                       <NavLink to={option.link}>
                         <OptionFigure>
-                          <HealthIcon />
+                          {option.img}
                         </OptionFigure>
                       </NavLink>
                       <OptionTitle>{option.title}</OptionTitle>

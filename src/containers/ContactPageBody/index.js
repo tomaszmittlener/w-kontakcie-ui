@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {ms, compose} from 'src/utils'
+import {ms, compose} from 'src/utils/index'
 import {NavLink} from 'react-router-dom'
 import {
   H2,
@@ -18,7 +18,7 @@ import {
   EarthIcon,
   LocationIcon,
   RoadSignIcon,
-} from 'src/components'
+} from 'src/components/index'
 import {withLocales} from 'src/context/locales'
 
 const SectionTitle = styled(H2)`

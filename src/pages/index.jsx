@@ -10,11 +10,12 @@ import {
   SEO,
   H1,
   ParagraphText,
-  PageBodyHome,
   Button,
   Pattern,
   HeroSection,
 } from 'src/components'
+import {HomePageBody} from 'src/containers'
+
 import {
   articlesExcerptsPropTypesShape,
   articlesImagesPropTypesShape,
@@ -51,7 +52,7 @@ class Index extends React.Component {
           <HeroParagraph>{t('company.type')}</HeroParagraph>
           <StyledButton to="/contact">Kontakt</StyledButton>
         </HeroSection>
-        <PageBodyHome/>
+        <HomePageBody/>
       </Layout>
     )
   }

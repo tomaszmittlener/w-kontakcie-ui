@@ -9,7 +9,8 @@ import {
   imageFluidPropTypesShape,
   locationPropTypesShape,
 } from 'src/utils/PropTypes'
-import {H1, PageBodyAboutMe, HeroSection} from 'src/components'
+import {H1, HeroSection} from 'src/components'
+import {AboutPageBody} from 'src/containers'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
@@ -43,7 +44,7 @@ class AboutPage extends Component {
           }>
           <PageTitle>{t('aboutMePage.pageTitle')}</PageTitle>
         </HeroSection>
-        <PageBodyAboutMe />
+        <AboutPageBody />
       </Layout>
     )
   }

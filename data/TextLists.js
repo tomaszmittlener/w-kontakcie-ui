@@ -8,6 +8,7 @@ import {
   Educationcon,
   ExamIcon,
   CertificateIcon,
+  WhistleIcon,
 } from 'src/components'
 
 export const competences = [
@@ -227,6 +228,7 @@ export const howCanIHelp = [
   {
     title: 'Psychoterapia',
     link: '/therapy',
+    img: <HealthIcon />,
     description: 'Obszary pracy:',
     bullets: [
       'Trudności w relacjach',
@@ -239,6 +241,7 @@ export const howCanIHelp = [
   {
     title: 'Coaching',
     link: '/coaching',
+    img: <WhistleIcon />,
     description: 'Prowadzenie szkoleń w zakresie:',
     bullets: ['Business Coaching', 'Life Coaching'],
   },

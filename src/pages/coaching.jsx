@@ -5,7 +5,8 @@ import Layout from 'src/layout'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
 import {compose, ms} from 'src/utils'
 import {withLocalesContextProvider, withLocales} from 'src/context'
-import {H1, PageBodyCoaching, HeroSection, Pattern} from 'src/components'
+import {H1, HeroSection, Pattern} from 'src/components'
+import {CoachingPageBody} from 'src/containers'
 
 class CoachingPage extends Component {
   render() {
@@ -16,7 +17,7 @@ class CoachingPage extends Component {
         <HeroSection image={<Pattern />}>
           <H1>{t('coachingPage.pageTitle')}</H1>
         </HeroSection>
-        <PageBodyCoaching />
+        <CoachingPageBody />
       </Layout>
     )
   }

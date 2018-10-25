@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
-import {contextPropTypesShape, withAppContext} from 'src/context'
+import {contextPropTypesShape, withAppContext} from 'src/context/index'
 import map from 'lodash/map'
-import {ms} from 'src/utils'
+import {ms} from 'src/utils/index'
 import menuItemsList from '../../../data/MenuItems'
 
 const MenuContainer = styled.nav`

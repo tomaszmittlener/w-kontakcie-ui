@@ -6,7 +6,8 @@ import {locationPropTypesShape} from 'src/utils/PropTypes'
 import {compose, ms} from 'src/utils'
 import styled from 'styled-components'
 import {withLocales, withLocalesContextProvider} from 'src/context'
-import {H1, PageBodyTherapy, HeroSection, Pattern} from 'src/components'
+import {H1, HeroSection, Pattern} from 'src/components'
+import {TherapyPageBody} from 'src/containers'
 import config from '../../data/SiteConfig'
 
 const PageTitle = styled(H1)`
@@ -22,7 +23,7 @@ class TherapyPage extends Component {
         <HeroSection image={<Pattern />} verticalLayout>
           <PageTitle>{t('therapyPage.pageTitle')}</PageTitle>
         </HeroSection>
-        <PageBodyTherapy />
+        <TherapyPageBody />
       </Layout>
     )
   }

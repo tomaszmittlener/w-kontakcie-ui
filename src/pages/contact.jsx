@@ -5,8 +5,9 @@ import Layout from 'src/layout'
 import styled from 'styled-components'
 import {compose, ms} from 'src/utils'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
-import {H1, PageBodyContact, Link, HeroSection, Pattern} from 'src/components'
+import {H1, Link, HeroSection, Pattern} from 'src/components'
 import {withLocales, withLocalesContextProvider} from 'src/context'
+import {ContactPageBody} from 'src/containers'
 
 const HeroQuoteParagraph = styled.p`
   font-size: ${ms(3)};
@@ -35,7 +36,7 @@ class ContactPage extends Component {
             <Link to={`mailto:${t('owner.email')}`}>{t('owner.email')}</Link>
           </HeroQuoteParagraph>
         </HeroSection>
-        <PageBodyContact />
+        <ContactPageBody />
       </Layout>
     )
   }

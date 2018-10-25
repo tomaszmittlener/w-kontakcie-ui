@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import styled, {ThemeProvider, css} from 'styled-components'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
 import {getLocalTitle, compose} from 'src/utils'
-import {Helmet, MobileMenu, Header, Footer, Transition} from 'src/components'
+import {Helmet, Transition} from 'src/components'
+import {Header, Footer, MobileMenu} from 'src/containers'
 import {
   contextPropTypesShape,
   withAppContext,
