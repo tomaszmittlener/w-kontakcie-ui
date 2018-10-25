@@ -6,7 +6,7 @@ import {H3, PlusIcon, FeaturesItems} from 'src/components'
 import map from 'lodash/map'
 import {contextPropTypesShape, withAppContext} from 'src/context'
 
-const ItemContainer = styled.figure`
+const ItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: ${ms(1.5)};

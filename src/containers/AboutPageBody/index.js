@@ -53,18 +53,14 @@ const Item = styled.div`
 `
 
 const ItemFigure = styled.figure`
-  margin: 0 ${ms(3)} 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
+  margin: 0 ${ms(7)} 0 0;
 `
 
-const ItemTitle = styled(ParagraphText)`
+const ItemTitle = styled(props => <ParagraphText weight="bold" {...props} />)`
   margin: 0;
   display: block;
   font-size: ms(0.5);
-  flex: 5;
+  flex: 6;
 `
 
 class AboutPageBody extends React.Component {
@@ -81,7 +77,7 @@ class AboutPageBody extends React.Component {
               <ParagraphText size={ms(0.5)}>
                 {t('owner.description.main')}
               </ParagraphText>
-              <ParagraphText size={ms(0.5)}>
+              <ParagraphText size={ms(0.5)} weight="bold">
                 {t('owner.description.accented')}
               </ParagraphText>
             </ParagraphSectionContent>
@@ -96,8 +92,7 @@ class AboutPageBody extends React.Component {
               </SectionTitle>
               <ItemsContainer>
                 {map(competences, (competence, competenceIndex) => (
-                  <Item
-                    key={competenceIndex}>
+                  <Item key={competenceIndex}>
                     <ItemFigure>{competence.img}</ItemFigure>
                     <ItemTitle>{competence.title}</ItemTitle>
                   </Item>

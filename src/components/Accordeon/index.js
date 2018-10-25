@@ -35,9 +35,8 @@ const ItemContainer = styled.figure`
 const ExpandedDescription = styled.div`
   display: ${({isOpen}) => (isOpen ? 'block' : 'none')};
 `
-const IconContainer = styled.div`
+const IconContainer = styled.figure`
   transform: ${({isOpen}) => (isOpen ? 'rotateX(180deg)' : 'none')};
-  transition: transform 300ms ease-in-out;
   margin: 0 ${ms(0)} 0;
 `
 const ItemTitle = styled.div`

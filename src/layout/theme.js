@@ -18,6 +18,11 @@ export default {
       primary: "'Hinda Murai', helvetica, arial, sans-serif;",
       secondary: "'Esteban', serif;",
     },
+    weights: {
+      light: 300,
+      normal: 400,
+      bold: 700,
+    },
   },
   mq: {
     tablet: `@media ${TABLET_MEDIA_QUERY}`,

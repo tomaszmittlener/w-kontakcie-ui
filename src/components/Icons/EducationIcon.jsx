@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const EducationIcon = ({className}) => (
-  <svg height="70px" viewBox="0 0 117 70" version="1.1" className={className}>
+  <svg width="100px" viewBox="0 0 117 70" version="1.1" className={className}>
     <defs />
     <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <path

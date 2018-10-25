@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const ExamIcon = ({className}) => (
-  <svg height="89px" viewBox="0 0 102 89" version="1.1" className={className}>
+  <svg width="100px" viewBox="0 0 102 89" version="1.1" className={className}>
     <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g id="exam">
         <path

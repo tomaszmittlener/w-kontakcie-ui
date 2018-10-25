@@ -23,6 +23,7 @@ export {default as Accordeon} from './Accordeon'
 export {default as AccordeonTable} from './AccordeonTable'
 export {default as FeaturesTable} from './FeaturesTable'
 export {default as FeaturesItems} from './FeaturesItems'
+export {default as OptionsCards} from './OptionsCards'
 
 // Images
 export {default as Logo} from './Logo'
