@@ -1,11 +1,10 @@
 import React, {Fragment} from 'react'
 import styled, {css} from 'styled-components'
-import {compose} from 'src/utils/index'
+import {compose, ms} from 'src/utils/index'
 import {contextPropTypesShape, withAppContext} from 'src/context/index'
 import {graphql, StaticQuery, Link} from 'gatsby'
 import {MenuButton, Button} from 'src/components/index'
 import LogoSVG from 'src/components/Logo/index'
-import {ms} from 'src/utils/index'
 import map from 'lodash/map'
 import menuItemsList from '../../../data/MenuItems'
 
@@ -45,8 +44,8 @@ const Container = styled.header`
     z-index: 0;
   }
 
-  ${({isOnTop}) =>
-    isOnTop &&
+  ${({isFullyVisible}) =>
+    !isFullyVisible &&
     css`
       &:before {
         opacity: 0;
@@ -72,6 +71,15 @@ const Content = styled.div`
   ${({theme}) => theme.mq.desktop} {
     justify-content: space-between;
   }
+
+  transition: opacity 0.15s linear 0.1s;
+  opacity: 1;
+  ${({isFullyVisible, isOnTop}) =>
+    !isFullyVisible &&
+    !isOnTop &&
+    css`
+      opacity: 0;
+    `};
 `
 
 const Logo = styled(LogoSVG)`
@@ -119,14 +127,21 @@ const MainNavigationLink = styled(Link)`
 
 class Header extends React.Component {
   state = {
+    scrollDirection: 'up',
     scrollPosition: 0,
   }
 
   componentDidMount() {
     window.onscroll = () => {
-      const newScrollHeight = Math.ceil(window.scrollY / 50) * 50
-      if (this.state.scrollPosition !== newScrollHeight) {
-        this.setState({scrollPosition: newScrollHeight})
+      const previousPosition = this.state.scrollPosition
+      const currentPosition = window.scrollY
+      if (previousPosition > currentPosition) {
+        this.setState({scrollDirection: 'up', scrollPosition: currentPosition})
+      } else {
+        this.setState({
+          scrollDirection: 'down',
+          scrollPosition: currentPosition,
+        })
       }
     }
   }
@@ -135,20 +150,35 @@ class Header extends React.Component {
     const {
       context: {toggleMenuOpen, isMobile, isTablet, isMenuOpen},
     } = this.props
-    const opacity = 1 - Math.min(100 / this.state.scrollPosition, 1)
-    const isOnTop = this.state.scrollPosition === 0
+    const isBelowStartingPoint = this.state.scrollPosition >= 50
     const isMobileView = isMobile || isTablet
+
+    const isFullyVisible = () => {
+      if (isMobileView && isBelowStartingPoint) {
+        return true
+      }
+      if (!isBelowStartingPoint) {
+        return false
+      }
+      if (this.state.scrollDirection === 'up' && isBelowStartingPoint) {
+        return true
+      }
+
+      return false
+    }
 
     return (
       <Container
         isMobile={isTablet || isMobile}
-        isOnTop={isOnTop}
-        opacity={Number(opacity.toFixed(1))}>
+        isOnTop={!isBelowStartingPoint}
+        isFullyVisible={isFullyVisible()}>
         <LogoContainer to="/" aria-label="got to Home page">
           <Logo />
         </LogoContainer>
 
-        <Content>
+        <Content
+          isFullyVisible={isFullyVisible()}
+          isOnTop={!isBelowStartingPoint}>
           {!isMobileView && (
             <Fragment>
               <MenuItems aria-hidden={isMobileView}>
@@ -168,10 +198,7 @@ class Header extends React.Component {
           )}
           <Button to="/contact">Kontakt</Button>
           {isMobileView && (
-            <MenuButton
-              onClick={toggleMenuOpen}
-              isMenuOpen={isMenuOpen}
-            />
+            <MenuButton onClick={toggleMenuOpen} isMenuOpen={isMenuOpen} />
           )}
         </Content>
       </Container>
