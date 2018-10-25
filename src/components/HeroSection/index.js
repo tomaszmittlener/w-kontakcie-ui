@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import {SectionContent, SectionLayout} from 'src/components'
 import {ms} from 'src/utils'
 
@@ -12,7 +12,9 @@ const Container = styled.header`
     margin: 0;
     padding: ${ms(13)} 0 ${ms(11)};
   }
+  ${({verticalLayout}) => verticalLayout && VerticalTheme};
 `
+
 const HeroSectionContent = styled(SectionContent)`
   display: flex;
   align-items: center;
@@ -37,9 +39,9 @@ const HeroIllustrationSection = styled.div`
   margin: ${ms(8)} 0 0 0;
   position: relative;
   > svg {
-    z-index: ${({theme: {layers}}) => layers.topBottom};  
+    z-index: ${({theme: {layers}}) => layers.topBottom};
   }
-  
+
   &:before {
     background-color: ${({theme: {colors}}) => colors.canvas};
     bottom: 0;
@@ -57,11 +59,40 @@ const HeroIllustrationSection = styled.div`
     &:before {
       content: unset;
     }
-
+  }
 `
 
-const HeroSection = ({children, image}) => (
-  <Container>
+const VerticalTheme = css`
+  ${({theme: {mq}}) => mq.desktop} {
+    padding: ${ms(13)} 0 0 0;
+    margin: 0 0 ${ms(11)} 0;
+  }
+
+  ${HeroSectionContent} {
+    ${({theme: {mq}}) => mq.desktop} {
+      flex-direction: column;
+    }
+  }
+
+  ${HeroTitleSection} {
+    ${({theme: {mq}}) => mq.desktop} {
+      width: 100%;
+    }
+  }
+
+  ${HeroIllustrationSection} {
+    ${({theme: {mq}}) => mq.desktop} {
+      width: 100%;
+      margin: ${ms(8)} 0 0 0;
+      &:before {
+        content: '';
+      }
+    }
+  }
+`
+
+const HeroSection = ({children, image, verticalLayout}) => (
+  <Container verticalLayout={verticalLayout}>
     <SectionLayout>
       <HeroSectionContent>
         <HeroTitleSection>{children}</HeroTitleSection>
@@ -74,6 +105,11 @@ const HeroSection = ({children, image}) => (
 HeroSection.propTypes = {
   children: PropTypes.node.isRequired,
   image: PropTypes.node.isRequired,
+  verticalLayout: PropTypes.bool,
+}
+
+HeroSection.defaultProps = {
+  verticalLayout: false,
 }
 
 export default HeroSection

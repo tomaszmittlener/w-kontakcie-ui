@@ -7,17 +7,14 @@ import {compose, ms} from 'src/utils'
 import {withLocales, withLocalesContextProvider} from 'src/context'
 import styled from 'styled-components'
 import Layout from 'src/layout'
-import {NavLink} from 'react-router-dom'
 import {
   SEO,
-  SectionLayout,
-  SectionContent,
   H1,
   ParagraphText,
   PageBodyHome,
   Button,
   Pattern,
-  HeroSection
+  HeroSection,
 } from 'src/components'
 import {
   articlesExcerptsPropTypesShape,
@@ -41,52 +38,6 @@ const HeroParagraph = styled(ParagraphText)`
 const StyledButton = styled(Button)`
   padding: ${ms(2)} ${ms(7)};
 `
-const HeroSectionContent = styled(SectionContent)`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  ${({theme: {mq}}) => mq.desktop} {
-    flex-direction: row;
-  }
-`
-
-const HeroTextSection = styled.div`
-  width: 100%;
-  ${({theme: {mq}}) => mq.desktop} {
-    width: 66%;
-  }
-`
-
-const HeroIllustrationSection = styled.div`
-  width: 100%;
-  max-width: ${ms(17)};
-  display: flex;
-  justify-content: center;
-  margin: ${ms(8)} 0 0 0;
-  position: relative;
-  > svg {
-    z-index: ${({theme: {layers}}) => layers.topBottom};  
-  }
-  
-  &:before {
-    background-color: ${({theme: {colors}}) => colors.canvas};
-    bottom: 0;
-    content: '';
-    height: 50%;
-    position: absolute;
-    width: 100vw;
-  }
-
-  ${({theme: {mq}}) => mq.desktop} {
-    flex-direction: row;
-    width: 33%;
-    margin: 0 0 0 ${ms(4)};
-
-    &:before {
-      content: unset;
-    }
-
-`
 
 class Index extends React.Component {
   render() {
@@ -95,7 +46,7 @@ class Index extends React.Component {
       <Layout location={location} withTopPadding hideLogo>
         <Helmet title={config.siteTitle} />
         <SEO />
-        <HeroSection image={<Pattern />}>
+        <HeroSection image={<Pattern />} verticalLayout>
           <H1>{t('company.name')}</H1>
           <HeroParagraph>{t('company.type')}</HeroParagraph>
           <StyledButton to="/contact">Kontakt</StyledButton>
