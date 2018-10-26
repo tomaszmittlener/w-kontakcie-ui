@@ -33,9 +33,11 @@ const Svg = styled.svg`
   ${({withoutHover}) => !withoutHover && hoverTransition};
 `
 
-const Logo = ({withText, className, withoutHover}) => (
+const Logo = ({withText, className, withoutHover, black}) => (
   <Svg
     withoutHover={withoutHover}
+    black={black}
+    height="100%"
     viewBox={withText ? '0 0 89 81' : '0 0 92 53'}
     version="1.1"
     role="img"

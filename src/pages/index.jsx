@@ -12,7 +12,7 @@ import {
   H3,
   Button,
   Pattern,
-  HeroSection,
+  HeroSection, Logo
 } from 'src/components';
 import {HomePageBody} from 'src/containers'
 
@@ -29,6 +29,9 @@ const StyledButton = styled(Button)`
   padding: ${ms(2)} ${ms(7)};
   margin: ${ms(1)} 0 0 0;
 `
+const StyledLogo = styled(props => <Logo {...props} />)`
+  width: 100%;
+`
 
 class Index extends React.Component {
 
@@ -38,7 +41,7 @@ class Index extends React.Component {
       <Layout location={location} withTopPadding hideLogo>
         <Helmet title={config.siteTitle} />
         <SEO />
-        <HeroSection image={<Pattern />}>
+        <HeroSection image={<StyledLogo withoutHover />}>
           <H1>{t('company.name')}</H1>
           <H3>{t('company.type')}</H3>
           <StyledButton to="/contact">Kontakt</StyledButton>

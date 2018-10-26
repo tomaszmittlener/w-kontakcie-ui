@@ -84,11 +84,12 @@ class PageBodyContact extends React.Component {
           <SectionLayout>
             <SectionContent>
               <SectionTitle>Znajdz Gabinet</SectionTitle>
+
             </SectionContent>
           </SectionLayout>
         </PageSection>
 
-        <PageSection>
+        <PageSection >
           <SectionLayout>
             <SectionContent>
               <WayContainer>
@@ -117,7 +118,7 @@ class PageBodyContact extends React.Component {
           </SectionLayout>
         </PageSection>
 
-        <PageSection>
+        <PageSection dark>
           <SectionLayout>
             <SectionContent>
               <MapContainer>

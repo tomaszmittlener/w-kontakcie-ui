@@ -50,9 +50,15 @@ const Item = styled.div`
   margin: 0 0 ${ms(9)} 0;
   width: 100%;
   align-items: center;
+  &:last-of-type {
+    margin: 0;
+  }
   ${({theme: {mq}}) => mq.tablet} {
     margin: 0 0 ${ms(6)} 0;
     flex-direction: row;
+    &:last-of-type {
+      margin: 0;
+    }
   }
 `
 
@@ -77,7 +83,7 @@ class AboutPageBody extends React.Component {
     const {t} = this.props
     return (
       <Fragment>
-        <PageSection>
+        <PageSection noPadding>
           <SectionLayout>
             <ParagraphSectionContent>
               <NameText>{t('owner.name')}</NameText>

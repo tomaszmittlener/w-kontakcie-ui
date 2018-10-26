@@ -11,14 +11,11 @@ import {
   SectionContent,
   GraphIcon,
   AppleIcon,
-  FeaturesItems,
   TwoArrowsIcon,
   AccordeonTable,
 } from 'src/components/index'
 import {withLocales} from 'src/context/locales'
-import map from 'lodash/map'
-import {MaxWidthText, StyledFirstLetter} from 'src/layout/mixins'
-import {lighten} from 'polished'
+import {StyledFirstLetter} from 'src/layout/mixins'
 
 import {
   businessCoachingAdvantages,
@@ -52,10 +49,6 @@ const FormattedTextSectionContent = SectionContent.extend`
   display: flex;
   flex-direction: column;
   align-items: center;
-  p {
-    ${MaxWidthText};
-    max-width: 60ch;
-  }
 `
 
 const CoachingImageContainer = styled.figure`
@@ -65,7 +58,7 @@ const CoachingImageContainer = styled.figure`
     height: 150px;
     opacity: 0.1;
   }
-  ${({theme: {mq}}) => mq.desktop} {
+  ${({theme: {mq}}) => mq.desktopL} {
     display: block;
     margin: 0 0 0 ${ms(10)};
     > svg {
@@ -86,6 +79,18 @@ const CoachingTextContainer = styled.div`
     order: unset;
   }
 `
+const CoachingArticle = styled.article`
+  ${({theme: {mq}}) => mq.desktop} {
+    column-count: 2;
+  }
+  p {
+    &:first-of-type {
+      font-style: italic;
+      margin: 0 0 ${ms(3)};
+    }
+    margin: 0 0 ${ms(1)};
+  }
+`
 
 const CoachingWrapper = styled.div`
   position: relative;
@@ -97,10 +102,11 @@ const CoachingWrapper = styled.div`
   }
 `
 
-const QuoteParagraph = styled(H2)`
+const QuoteParagraph = styled(H3)`
   text-align: center;
   font-style: italic;
-  margin: 0;
+  max-width: ${ms(22)};
+  margin: 0 auto;
   font-family: ${({
     theme: {
       typo: {fontFamily},
@@ -108,33 +114,6 @@ const QuoteParagraph = styled(H2)`
   }) => fontFamily.secondary};
 `
 
-const DarkPageSection = styled(PageSection)`
-  background-color: ${({theme: {colors}}) => lighten(0.2, colors.third)};
-  padding: ${ms(10)} 0;
-`
-const DesctiptionText = styled(H3)`
-  text-align: center;
-  display: inline-block;
-  font-size: ${ms(2)};
-  margin: ${ms(5)} 0;
-  font-family: ${({
-    theme: {
-      typo: {fontFamily},
-    },
-  }) => fontFamily.primary};
-`
-
-const BusinessAdvanatagesWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  ${({theme: {mq}}) => mq.tablet} {
-    flex: 1;
-    &:nth-of-type(even) {
-      margin: 0 0 0 ${ms(4)};
-    }
-  }
-`
 const BusinessAdvanatagesContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -151,21 +130,31 @@ class PageBodyCoaching extends React.Component {
       <Fragment>
         <PageSection>
           <SectionLayout>
+            <SectionContent>
+              <QuoteParagraph> {t('coachingPage.pageQuote')}</QuoteParagraph>
+            </SectionContent>
+          </SectionLayout>
+        </PageSection>
+
+        <PageSection>
+          <SectionLayout>
             <FormattedTextSectionContent>
               <CoachingWrapper>
                 <CoachingTextContainer>
                   <SectionTitle>
                     {t('coachingPage.businessCoachingSection.title')}
                   </SectionTitle>
-                  <ParagraphText>
-                    {t('coachingPage.businessCoachingSection.infoText')}
-                  </ParagraphText>
-                  <ParagraphText>
-                    {t('coachingPage.businessCoachingSection.infoText2')}
-                  </ParagraphText>
-                  <ParagraphText>
-                    {t('coachingPage.businessCoachingSection.infoText3')}
-                  </ParagraphText>
+                  <CoachingArticle>
+                    <ParagraphText>
+                      {t('coachingPage.businessCoachingSection.infoText')}
+                    </ParagraphText>
+                    <ParagraphText>
+                      {t('coachingPage.businessCoachingSection.infoText2')}
+                    </ParagraphText>
+                    <ParagraphText>
+                      {t('coachingPage.businessCoachingSection.infoText3')}
+                    </ParagraphText>
+                  </CoachingArticle>
                 </CoachingTextContainer>
                 <CoachingImageContainer>
                   <GraphIcon />
@@ -175,7 +164,7 @@ class PageBodyCoaching extends React.Component {
           </SectionLayout>
         </PageSection>
 
-        <PageSection>
+        <PageSection noPadding>
           <SectionLayout>
             <SectionContent>
               <ImageContainer>
@@ -196,15 +185,8 @@ class PageBodyCoaching extends React.Component {
           </SectionLayout>
         </PageSection>
 
-        <DarkPageSection>
-          <SectionLayout>
-            <SectionContent>
-              <QuoteParagraph> {t('coachingPage.pageQuote')}</QuoteParagraph>
-            </SectionContent>
-          </SectionLayout>
-        </DarkPageSection>
 
-        <PageSection>
+        <PageSection dark>
           <SectionLayout>
             <FormattedTextSectionContent>
               <CoachingWrapper>
@@ -215,22 +197,24 @@ class PageBodyCoaching extends React.Component {
                   <SectionTitle>
                     {t('coachingPage.lifeCoachingSection.title')}
                   </SectionTitle>
-                  <ParagraphText>
-                    {t('coachingPage.lifeCoachingSection.infoText')}
-                  </ParagraphText>
-                  <ParagraphText>
-                    {t('coachingPage.lifeCoachingSection.infoText2')}
-                  </ParagraphText>
-                  <ParagraphText>
-                    {t('coachingPage.lifeCoachingSection.infoText3')}
-                  </ParagraphText>
+                  <CoachingArticle>
+                    <ParagraphText>
+                      {t('coachingPage.lifeCoachingSection.infoText')}
+                    </ParagraphText>
+                    <ParagraphText>
+                      {t('coachingPage.lifeCoachingSection.infoText2')}
+                    </ParagraphText>
+                    <ParagraphText>
+                      {t('coachingPage.lifeCoachingSection.infoText3')}
+                    </ParagraphText>
+                  </CoachingArticle>
                 </CoachingTextContainer>
               </CoachingWrapper>
             </FormattedTextSectionContent>
           </SectionLayout>
         </PageSection>
 
-        <PageSection>
+        <PageSection dark noPadding>
           <SectionLayout>
             <SectionContent>
               <ImageContainer>
@@ -240,7 +224,7 @@ class PageBodyCoaching extends React.Component {
           </SectionLayout>
         </PageSection>
 
-        <PageSection>
+        <PageSection dark>
           <SectionLayout>
             <SectionContent>
               <CenteredSectionTitle>Korzyści</CenteredSectionTitle>

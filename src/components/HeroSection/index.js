@@ -15,7 +15,7 @@ const Container = styled.header`
 
   ${({theme: {mq}}) => mq.desktop} {
     margin: 0;
-    padding: ${ms(13)} 0 ${ms(11)};
+    padding: ${ms(14)} 0 ${ms(11)};
   }
   ${({verticalLayout}) => verticalLayout && VerticalTheme};
 `
@@ -32,7 +32,7 @@ const HeroSectionContent = styled(props => <SectionContent {...props} />)`
 const HeroTitleSection = styled.div`
   width: 100%;
   ${({theme: {mq}}) => mq.desktop} {
-    width: 66%;
+    width: 60%;
   }
 `
 
@@ -65,7 +65,7 @@ const HeroIllustrationSection = styled.div`
 
   ${({theme: {mq}}) => mq.desktop} {
     flex-direction: row;
-    width: 33%;
+    width: 40%;
     margin: 0 0 0 ${ms(4)};
 
     &:before {
