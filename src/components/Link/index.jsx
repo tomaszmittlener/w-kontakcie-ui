@@ -19,7 +19,7 @@ const LinkMixin = css`
   display: inline-block;
 
   &:hover {
-    background-size: 2px 50px;
+    background-size: 5px 100%;
     color: ${({theme: {colors}}) => colors.third};
   }
 `

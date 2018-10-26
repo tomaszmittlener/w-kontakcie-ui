@@ -23,6 +23,7 @@ import {withLocales} from 'src/context/locales'
 
 const SectionTitle = styled(H2)`
   text-align: center;
+  margin: 0 0 ${ms(8)} 0;
 `
 
 const Option = styled.div`
@@ -53,26 +54,35 @@ const OptionsWrapper = styled.div`
 const IconContainer = styled.figure`
   display: flex;
   justify-content: flex-end;
-  padding: 0 ${ms(8)} 0 0;
+  padding: 0;
   flex: 1;
-  margin: 0;
-
+  margin: 0 0 ${ms(6)};
   > svg {
-    height: 200px;
+    height: 100px;
+  }
+
+  ${({theme: {mq}}) => mq.desktop} {
+    padding: 0 ${ms(8)} 0 0;
+    margin: 0;
+    > svg {
+      height: 200px;
+    }
   }
 `
 const WayContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  ${({theme: {mq}}) => mq.desktop} {
+    flex-direction: row;
+    align-items: unset;
+  }
 `
 
 const MapContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin: 0 auto;
-`
-const MapPageSection = styled(PageSection)`
-  width: 100%;
 `
 
 class PageBodyContact extends React.Component {
@@ -85,13 +95,6 @@ class PageBodyContact extends React.Component {
             <SectionContent>
               <SectionTitle>Znajdz Gabinet</SectionTitle>
 
-            </SectionContent>
-          </SectionLayout>
-        </PageSection>
-
-        <PageSection >
-          <SectionLayout>
-            <SectionContent>
               <WayContainer>
                 <IconContainer>
                   <LocationIcon />
