@@ -16,6 +16,10 @@ import {
 } from 'src/components/index'
 import {withLocales} from 'src/context/locales'
 import {StyledFirstLetter} from 'src/layout/mixins'
+import {
+  COACHING_BUSINESS_SECTION,
+  COACHING_LIFE_SECTION, THERAPY_METHODOLOGY_SECTION
+} from 'src/constants/SectionNames';
 
 import {
   businessCoachingAdvantages,
@@ -136,7 +140,7 @@ class PageBodyCoaching extends React.Component {
           </SectionLayout>
         </PageSection>
 
-        <PageSection topBottomPadding>
+        <PageSection topBottomPadding name={COACHING_BUSINESS_SECTION}>
           <SectionLayout>
             <FormattedTextSectionContent>
               <CoachingWrapper>
@@ -174,7 +178,7 @@ class PageBodyCoaching extends React.Component {
           {/*</SectionLayout>*/}
         {/*</PageSection>*/}
 
-        <PageSection bottomPadding>
+        <PageSection bottomPadding name="target2">
           <SectionLayout>
             <SectionContent>
               <CenteredSectionTitle>Korzyści</CenteredSectionTitle>
@@ -186,7 +190,7 @@ class PageBodyCoaching extends React.Component {
         </PageSection>
 
 
-        <PageSection dark topBottomPadding>
+        <PageSection dark topBottomPadding name={COACHING_LIFE_SECTION}>
           <SectionLayout>
             <FormattedTextSectionContent>
               <CoachingWrapper>
@@ -224,7 +228,10 @@ class PageBodyCoaching extends React.Component {
           {/*</SectionLayout>*/}
         {/*</PageSection>*/}
 
-        <PageSection dark bottomPadding>
+        <PageSection
+          dark
+          finalSectionPadding
+          name={THERAPY_METHODOLOGY_SECTION}>
           <SectionLayout>
             <SectionContent>
               <CenteredSectionTitle>Korzyści</CenteredSectionTitle>

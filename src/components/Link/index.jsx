@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Link} from 'gatsby'
+import {Link as ScrollLink} from 'react-scroll'
 import styled, {css} from 'styled-components'
 
 import {textPropTypes, textDefaultProps} from '../../constants/PropTypes'
@@ -17,6 +18,7 @@ const LinkMixin = css`
   text-decoration: none;
   transition: all 0.3s;
   display: inline-block;
+  cursor: pointer;
 
   &:hover {
     background-size: 5px 100%;
@@ -24,14 +26,29 @@ const LinkMixin = css`
   }
 `
 
+const scrollAnimation = {
+  duration: 1500,
+  smooth: 'easeInOutQuint',
+}
+
 const WrappedLink = styled(
-  ({size, color, children, to, exact, ...otherProps}) => {
+  ({size, color, children, to, exact, scroll, ...otherProps}) => {
     const href = /(http|https|tel|mailto)(.+)/.exec(to)
-    return href ? (
-      <a href={href[0]} target="_blank" {...otherProps}>
-        {children}
-      </a>
-    ) : (
+    if (href) {
+      return (
+        <a href={href[0].replace(/\s/g, '')} target="_blank" {...otherProps}>
+          {children}
+        </a>
+      )
+    }
+    if (scroll) {
+      return (
+        <ScrollLink to={to} {...scrollAnimation} {...otherProps}>
+          {children}
+        </ScrollLink>
+      )
+    }
+    return (
       <Link to={to} exact={exact} {...otherProps}>
         {children}
       </Link>
@@ -41,9 +58,15 @@ const WrappedLink = styled(
   ${LinkMixin};
 `
 
-function CusotmLink({className, size, color, children, to}) {
+function CusotmLink({className, size, color, children, to, scroll}) {
   return (
-    <WrappedLink size={size} color={color} className={className} to={to}>
+    <WrappedLink
+      size={size}
+      color={color}
+      className={className}
+      to={to}
+      scroll={scroll}
+    >
       {children}
     </WrappedLink>
   )
@@ -52,10 +75,12 @@ function CusotmLink({className, size, color, children, to}) {
 CusotmLink.propTypes = {
   ...textPropTypes,
   to: PropTypes.string.isRequired,
+  scroll: PropTypes.bool,
 }
 
 CusotmLink.defaultProps = {
   ...textDefaultProps,
+  scroll: false,
 }
 
 export default CusotmLink

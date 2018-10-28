@@ -5,6 +5,8 @@ export {default as Image} from './Image'
 export {ParagraphText, SpanText} from './Text'
 export {default as Button} from './Button'
 export {default as Map} from './Map'
+export {default as HeroQuote} from './HeroQuote'
+export {default as PageNavigation} from './PageNavigation'
 
 // Page layout components
 export {default as HeroSection} from './HeroSection'

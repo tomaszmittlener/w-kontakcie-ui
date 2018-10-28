@@ -11,7 +11,7 @@ const ItemContainer = styled.div`
   flex-direction: column;
   padding: ${ms(1.5)};
   margin: 0;
-  border-bottom: 1px dotted black;
+  border-bottom: 1px dotted ${({theme: {colors}}) => colors.text};
   ${H3} {
     margin: 0;
   }
@@ -43,7 +43,7 @@ const Items = styled.div`
   flex-direction: column;
   width: 100%;
   justify-content: center;
-  border: 1px dotted black;
+  border: 1px dotted ${({theme: {colors}}) => colors.text};
   padding: ${ms(1)};
   ${({theme: {mq}}) => mq.desktop} {
     flex: 1;

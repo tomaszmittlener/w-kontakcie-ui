@@ -27,35 +27,49 @@ const SectionTitle = styled(H2)`
 `
 
 const Option = styled.div`
-  text-align: left;
   justify-content: flex-start;
   flex-direction: column;
   display: flex;
 `
 
 const DescriptionList = styled.ul`
-  text-align: left;
   list-style: none;
   padding: 0;
   text-indent: 0;
   margin: 0 0 ${ms(3)} 0;
+  text-align: center;
+  ${({theme: {mq}}) => mq.desktop} {
+    text-align: left;
+  }
 `
 
 const OptionTitle = styled(H4)`
   margin: 0 0 ${ms(-4)} 0;
   display: block;
+      text-align: center;
+  ${({theme: {mq}}) => mq.desktop} {
+    text-align: left;
+  }
+
 `
 const OptionsWrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
   flex: 1;
+        margin: ${ms(6)} 0 0 0;
+
+    ${({theme: {mq}}) => mq.desktop} {
+  margin: 0 0 0 ${ms(6)};
+
+}
 `
 const IconContainer = styled.figure`
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   padding: 0;
-  flex: 1;
+  flex: 3;
   margin: 0 0 ${ms(6)};
   > svg {
     height: 100px;
@@ -65,7 +79,7 @@ const IconContainer = styled.figure`
     padding: 0 ${ms(8)} 0 0;
     margin: 0;
     > svg {
-      height: 200px;
+      height: 150px;
     }
   }
 `
@@ -82,7 +96,11 @@ const WayContainer = styled.div`
 const MapContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 0 auto;
+  width: 100%;
+  //justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+  flex: 3;
 `
 
 class PageBodyContact extends React.Component {
@@ -90,15 +108,16 @@ class PageBodyContact extends React.Component {
     const {t} = this.props
     return (
       <Fragment>
-        <PageSection>
+
+        <PageSection topBottomPadding>
           <SectionLayout>
             <SectionContent>
               <SectionTitle>Znajdz Gabinet</SectionTitle>
 
               <WayContainer>
-                <IconContainer>
-                  <LocationIcon />
-                </IconContainer>
+                  <MapContainer>
+                    <Map />
+                  </MapContainer>
                 <OptionsWrapper>
                   <Option>
                     <OptionTitle>Adres</OptionTitle>
@@ -121,15 +140,6 @@ class PageBodyContact extends React.Component {
           </SectionLayout>
         </PageSection>
 
-        <PageSection dark>
-          <SectionLayout>
-            <SectionContent>
-              <MapContainer>
-                <Map />
-              </MapContainer>
-            </SectionContent>
-          </SectionLayout>
-        </PageSection>
       </Fragment>
     )
   }

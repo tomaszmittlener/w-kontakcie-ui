@@ -7,7 +7,7 @@ import ConstellationImage from 'src/components/Images/Constellation.png'
 
 //  background-color: ${({theme: {colors}}) => colors.third};
 const Container = styled.header`
-  padding: ${ms(13)} 0 0;
+  padding: ${ms(13)} 0 ${ms(4)};
   position: relative;
   z-index: 0;
   background-image: linear-gradient(
@@ -16,6 +16,7 @@ const Container = styled.header`
   );
 
   ${({verticalLayout}) => verticalLayout && VerticalTheme};
+  ${({singleSection}) => singleSection && SingleSectionTheme};
 
   &:after {
     content: '';
@@ -50,7 +51,6 @@ const HeroTitleSection = styled.div`
 const HeroIllustrationSection = styled.div`
   width: 100%;
   height: 100%;
-  max-width: ${ms(17)};
   display: flex;
   justify-content: center;
   margin: ${ms(8)} 0 0 0;
@@ -81,6 +81,15 @@ const HeroIllustrationSection = styled.div`
 
     &:before {
       content: unset;
+    }
+  }
+`
+
+const SingleSectionTheme = css`
+  ${HeroTitleSection} {
+    width: 100%;
+    ${({theme: {mq}}) => mq.desktop} {
+      width: 100%;
     }
   }
 `
@@ -116,7 +125,7 @@ const VerticalTheme = css`
 `
 
 const HeroSection = ({children, image, verticalLayout}) => (
-  <Container verticalLayout={verticalLayout}>
+  <Container verticalLayout={verticalLayout} singleSection={!image}>
     <SectionLayout>
       <HeroSectionContent>
         <HeroTitleSection>{children}</HeroTitleSection>

@@ -21,7 +21,7 @@ const ItemContainer = styled.figure`
   flex-direction: column;
   padding: 0 0 ${ms(1.5)} 0;
   margin: 0 0 ${ms(1.5)} 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px dotted ${({theme: {colors}}) => colors.text};
   ${H3} {
     margin: 0;
   }

@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 import styled, {ThemeProvider, css} from 'styled-components'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
 import {getLocalTitle, compose} from 'src/utils'
-import {Helmet, Transition} from 'src/components'
+import { Helmet, HeroSection, Transition } from 'src/components';
+import ConstellationImage from 'src/components/Images/Constellation.png'
+import {ms} from 'src/utils'
 import {Header, Footer, MobileMenu} from 'src/containers'
 import {
   contextPropTypesShape,
@@ -12,7 +14,6 @@ import {
 } from 'src/context'
 import config from '../../data/SiteConfig'
 import './global-styles'
-import ConstellationImage from 'src/components/Images/Constellation.png'
 
 const ViewContainer = styled.div`
   height: 100%;
@@ -37,8 +38,7 @@ const ViewContainer = styled.div`
 const ContentContainer = styled.main`
   position: relative;
   background-color: ${({theme: {colors}}) => colors.canvas};
-  z-index: ${({theme: {layers}}) => layers.middle};
-    
+  z-index: ${({theme: {layers}}) => layers.middle};    
     &:after {
     content: '';
     background-image: url(${ConstellationImage});
@@ -52,6 +52,7 @@ const ContentContainer = styled.main`
     z-index: -1;
   }
 `
+
 
 class Layout extends React.Component {
   render() {
@@ -69,14 +70,18 @@ class Layout extends React.Component {
           <Helmet
             description={config.siteDescription}
             title={`${config.siteTitle} |  ${getLocalTitle(pathname)}`}
-          />
+          >
+          </Helmet>
           {isMobileView && <MobileMenu />}
           <Header />
           <ViewContainer
             isMenuOpen={isMenuOpen}
             onClick={() => isMenuOpen && toggleMenuOpen()}>
             <Transition>
-              <ContentContainer>{children}</ContentContainer>
+              <ContentContainer>
+
+
+                {children}</ContentContainer>
             </Transition>
             <Footer />
           </ViewContainer>

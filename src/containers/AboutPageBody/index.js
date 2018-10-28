@@ -2,6 +2,9 @@ import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {ms, compose} from 'src/utils/index'
+
+import Img from 'gatsby-image'
+
 import {
   H2,
   H4,
@@ -10,30 +13,16 @@ import {
   SectionLayout,
   SectionContent,
   AccordeonTable,
-} from 'src/components/index'
+  HeroSection,
+} from 'src/components'
 import {withLocales} from 'src/context/locales'
 import map from 'lodash/map'
 import {MaxWidthText, StyledFirstLetter} from 'src/layout/mixins'
 import {experience, competences} from '../../../data/TextLists'
-
-const NameText = styled(H2)`
-  font-weight: bold;
-  text-align: center;
-  margin: 0 0 ${ms(0)} 0;
-`
+import { ABOUT_COMPETENCES_SECTION, ABOUT_EXPERIENCE_SECTION, ABOUT_ME_SECTION } from 'src/constants/SectionNames';
 
 const SectionTitle = styled(H2)`
   text-align: left;
-`
-const ProfessionText = styled(H4)`
-  font-size: ${ms(1)};
-  text-align: center;
-  font-weight: bold;
-  margin: 0 0 ${ms(5)} 0;
-`
-
-const ParagraphSectionContent = styled(SectionContent)`
-  ${StyledFirstLetter} ${MaxWidthText};
 `
 
 const ItemsContainer = styled.div`
@@ -78,27 +67,86 @@ const ItemTitle = styled(props => <ParagraphText weight="bold" {...props} />)`
   }
 `
 
+const Avatar = styled(Img)`
+  width: 300px;
+  height: 100%;
+`
+const NameText = styled(H2)`
+  font-weight: bold;
+  //text-align: center;
+  margin: ${ms(0)} 0 ${ms(0)} 0;
+  text-align: center;
+  ${({theme: {mq}}) => mq.desktop} {
+    text-align: left;
+  }
+`
+const ParagraphSectionContent = styled.article`
+  ${StyledFirstLetter};
+
+  ${({theme: {mq}}) => mq.desktop} {
+    margin: 0 0 0 ${ms(8)};
+  }
+`
+const ProfessionText = styled(H4)`
+  font-size: ${ms(1)};
+  text-align: center;
+  font-weight: bold;
+
+  margin: 0 0 ${ms(5)} 0;
+  ${({theme: {mq}}) => mq.desktop} {
+    text-align: left;
+  }
+`
+
+const ImageSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  ${({theme: {mq}}) => mq.desktop} {
+    flex-direction: row;
+  }
+`
+
 class AboutPageBody extends React.Component {
   render() {
-    const {t} = this.props
+    const {t, meImage} = this.props
     return (
       <Fragment>
-        <PageSection topBottomPadding>
+        <PageSection topPadding name={ABOUT_ME_SECTION}>
           <SectionLayout>
-            <ParagraphSectionContent>
-              <NameText>{t('owner.name')}</NameText>
-              <ProfessionText>{t('owner.profession')}</ProfessionText>
-              <ParagraphText size={ms(0.5)}>
-                {t('owner.description.main')}
-              </ParagraphText>
-              <ParagraphText size={ms(0.5)} weight="bold">
-                {t('owner.description.accented')}
-              </ParagraphText>
-            </ParagraphSectionContent>
+            <SectionContent>
+              <Container>
+                <ImageSection>
+                  <Avatar
+                    outerWrapperClassName="gatsbyImageWrapper"
+                    title="avatar"
+                    alt="Anna Dejewska's photo"
+                    sizes={meImage.childImageSharp.fluid}
+                  />
+                </ImageSection>
+
+                <ParagraphSectionContent>
+                  <NameText>{t('owner.name')}</NameText>
+                  <ProfessionText>{t('owner.profession')}</ProfessionText>
+                  <ParagraphText size={ms(0.5)}>
+                    {t('owner.description.main')}
+                  </ParagraphText>
+                  <ParagraphText size={ms(0.5)} weight="bold">
+                    {t('owner.description.accented')}
+                  </ParagraphText>
+                </ParagraphSectionContent>
+              </Container>
+            </SectionContent>
           </SectionLayout>
         </PageSection>
 
-        <PageSection bottomPadding>
+        <PageSection topPadding name={ABOUT_COMPETENCES_SECTION}>
           <SectionLayout>
             <SectionContent>
               <SectionTitle>
@@ -115,7 +163,8 @@ class AboutPageBody extends React.Component {
             </SectionContent>
           </SectionLayout>
         </PageSection>
-        <PageSection bottomPadding>
+
+        <PageSection topPadding finalSectionPadding name={ABOUT_EXPERIENCE_SECTION}>
           <SectionLayout>
             <SectionContent>
               <SectionTitle>

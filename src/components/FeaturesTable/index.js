@@ -10,7 +10,7 @@ const ItemContainer = styled.figure`
   flex-direction: column;
   padding: ${ms(4)} 0;
   margin: 0;
-  border-bottom: 1px solid ${({theme: {colors}}) => colors.text};
+  border-bottom: 1px dotted ${({theme: {colors}}) => colors.text};
   &:first-of-type {
     padding: 0 0 ${ms(4)} 0;
   }
