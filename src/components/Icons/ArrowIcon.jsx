@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const ArrowIcon = ({className}) => (
   <svg
     className={className}
-    height="11.1213207"
+    height="17"
     viewBox="0 0 19.4142132 11.1213207">
     <path
       fill="#25516C"

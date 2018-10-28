@@ -75,7 +75,7 @@ class PageBodyTherapy extends React.Component {
     const {t} = this.props
     return (
       <Fragment>
-        <PageSection noPadding>
+        <PageSection topBottomPadding>
           <SectionLayout>
             <SectionContent>
               <QuoteParagraph>{t('therapyPage.pageQuote')}
@@ -88,7 +88,7 @@ class PageBodyTherapy extends React.Component {
           </SectionLayout>
         </PageSection>
 
-        <PageSection>
+        <PageSection bottomPadding>
           <SectionLayout>
             <SectionContent>
               <SectionTitle>
@@ -99,7 +99,7 @@ class PageBodyTherapy extends React.Component {
           </SectionLayout>
         </PageSection>
 
-        <PageSection dark>
+        <PageSection dark topBottomPadding>
           <SectionLayout>
             <SectionContent>
               <SectionTitle>
@@ -110,7 +110,7 @@ class PageBodyTherapy extends React.Component {
           </SectionLayout>
         </PageSection>
 
-        <PageSection>
+        <PageSection topBottomPadding>
           <SectionLayout>
             <MethodologySectionContent>
               <SectionTitle right>

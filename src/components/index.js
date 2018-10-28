@@ -59,3 +59,5 @@ export {default as PostListing} from './PostListing'
 export {default as PostTags} from './PostTags'
 export {default as SocialLinks} from './SocialLinks'
 export {default as UserInfo} from './UserInfo'
+
+export {ConstellationImage} from './Images'

@@ -48,8 +48,11 @@ const TextContainer = styled.div`
 `
 const Description = styled(ParagraphText)`
   font-size: ${ms(1)};
+  margin: 0 0 ${ms(-4)} 0;
 `
-const ItemsList = styled.ul``
+const ItemsList = styled.ul`
+  margin: 0;
+`
 const Item = styled.li``
 
 const ItemTitle = styled(H3)`

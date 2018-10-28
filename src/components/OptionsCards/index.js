@@ -10,8 +10,8 @@ const OptionsContainer = styled.div`
   flex-flow: row wrap;
   padding: ${ms(4)} 0 0 0;
   justify-content: center;
-  ${({theme: {mq}}) => mq.desktop} {
-    flex-flow: row wrap;
+  ${({theme: {mq}}) => mq.tablet} {
+    flex-flow: row nowrap;
   }
 `
 

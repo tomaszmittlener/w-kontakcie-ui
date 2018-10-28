@@ -128,7 +128,7 @@ class PageBodyCoaching extends React.Component {
     const {t} = this.props
     return (
       <Fragment>
-        <PageSection>
+        <PageSection topBottomPadding>
           <SectionLayout>
             <SectionContent>
               <QuoteParagraph> {t('coachingPage.pageQuote')}</QuoteParagraph>
@@ -136,7 +136,7 @@ class PageBodyCoaching extends React.Component {
           </SectionLayout>
         </PageSection>
 
-        <PageSection>
+        <PageSection topBottomPadding>
           <SectionLayout>
             <FormattedTextSectionContent>
               <CoachingWrapper>
@@ -164,17 +164,17 @@ class PageBodyCoaching extends React.Component {
           </SectionLayout>
         </PageSection>
 
-        <PageSection noPadding>
-          <SectionLayout>
-            <SectionContent>
-              <ImageContainer>
-                <TwoArrowsIcon />
-              </ImageContainer>
-            </SectionContent>
-          </SectionLayout>
-        </PageSection>
+        {/*<PageSection bottomPadding>*/}
+          {/*<SectionLayout>*/}
+            {/*<SectionContent>*/}
+              {/*<ImageContainer>*/}
+                {/*<TwoArrowsIcon />*/}
+              {/*</ImageContainer>*/}
+            {/*</SectionContent>*/}
+          {/*</SectionLayout>*/}
+        {/*</PageSection>*/}
 
-        <PageSection>
+        <PageSection bottomPadding>
           <SectionLayout>
             <SectionContent>
               <CenteredSectionTitle>Korzyści</CenteredSectionTitle>
@@ -186,7 +186,7 @@ class PageBodyCoaching extends React.Component {
         </PageSection>
 
 
-        <PageSection dark>
+        <PageSection dark topBottomPadding>
           <SectionLayout>
             <FormattedTextSectionContent>
               <CoachingWrapper>
@@ -214,17 +214,17 @@ class PageBodyCoaching extends React.Component {
           </SectionLayout>
         </PageSection>
 
-        <PageSection dark noPadding>
-          <SectionLayout>
-            <SectionContent>
-              <ImageContainer>
-                <TwoArrowsIcon />
-              </ImageContainer>
-            </SectionContent>
-          </SectionLayout>
-        </PageSection>
+        {/*<PageSection dark bottomPadding>*/}
+          {/*<SectionLayout>*/}
+            {/*<SectionContent>*/}
+              {/*<ImageContainer>*/}
+                {/*<TwoArrowsIcon />*/}
+              {/*</ImageContainer>*/}
+            {/*</SectionContent>*/}
+          {/*</SectionLayout>*/}
+        {/*</PageSection>*/}
 
-        <PageSection dark>
+        <PageSection dark bottomPadding>
           <SectionLayout>
             <SectionContent>
               <CenteredSectionTitle>Korzyści</CenteredSectionTitle>

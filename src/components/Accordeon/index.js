@@ -37,7 +37,7 @@ const ExpandedDescription = styled.div`
 `
 const IconContainer = styled.figure`
   transform: ${({isOpen}) => (isOpen ? 'rotateX(180deg)' : 'none')};
-  margin: 0 ${ms(0)} 0;
+  margin: 0 ${ms(1)} 0;
 `
 const ItemTitle = styled.div`
   display: flex;
@@ -48,13 +48,17 @@ const ItemTitle = styled.div`
     color: ${({theme: {colors}}) => colors.primary};
   }
 `
+
+const ItemTitleText = styled(H3)`
+  margin: 0;
+`
 const Items = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   justify-content: center;
   ${({theme: {mq}}) => mq.desktop} {
-    flex: 1;
+    flex: 3;
   }
 `
 const DesktopImage = styled.div`
@@ -62,8 +66,9 @@ const DesktopImage = styled.div`
   justify-content: center;
   flex: 1;
   align-items: center;
+  margin: 0 0 0 ${ms(6)};
   > svg {
-    height: 300px;
+    height: 200px;
   }
 `
 const MobileImage = styled.div`
@@ -105,7 +110,7 @@ class Accordeon extends React.Component {
                 <IconContainer isOpen={itemIndex === this.state.openItem}>
                   <ArrowIcon />
                 </IconContainer>
-                <H3>{item.title}</H3>
+                <ItemTitleText>{item.title}</ItemTitleText>
               </ItemTitle>
               <ExpandedDescription isOpen={itemIndex === this.state.openItem}>
                 {isMobileView && (

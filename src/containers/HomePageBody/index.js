@@ -21,7 +21,7 @@ class PageBodyHome extends React.Component {
     const {t} = this.props
     return (
       <Fragment>
-        <PageSection>
+        <PageSection topBottomPadding>
           <SectionLayout>
             <SectionContent>
               <SectionContent>

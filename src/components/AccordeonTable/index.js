@@ -2,7 +2,7 @@ import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {ms, compose} from 'src/utils'
-import {H3, PlusIcon, FeaturesItems} from 'src/components'
+import {H3, PlusIcon, FeaturesItems, ArrowIcon} from 'src/components'
 import map from 'lodash/map'
 import {contextPropTypesShape, withAppContext} from 'src/context'
 
@@ -11,7 +11,7 @@ const ItemContainer = styled.div`
   flex-direction: column;
   padding: ${ms(1.5)};
   margin: 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px dotted black;
   ${H3} {
     margin: 0;
   }
@@ -25,6 +25,7 @@ const ExpandedDescription = styled.div`
   padding: ${ms(0)} 0 0 ${ms(2)};
 `
 const IconContainer = styled.figure`
+  transform: ${({isOpen}) => (isOpen ? 'rotateX(180deg)' : 'none')};
   margin: 0 0 0 ${ms(0)};
 `
 const ItemTitle = styled.div`
@@ -42,7 +43,7 @@ const Items = styled.div`
   flex-direction: column;
   width: 100%;
   justify-content: center;
-  border: 1px solid black;
+  border: 1px dotted black;
   padding: ${ms(1)};
   ${({theme: {mq}}) => mq.desktop} {
     flex: 1;
@@ -57,7 +58,7 @@ const Container = styled.div`
 
 class AccordeonTable extends React.Component {
   state = {
-    openItem: 0,
+    openItem: undefined,
   }
 
   handleItemClick = index => {
@@ -76,8 +77,8 @@ class AccordeonTable extends React.Component {
             <ItemContainer key={`practicalInfo-${item.title}-${itemIndex}`}>
               <ItemTitle onClick={() => this.handleItemClick(itemIndex)}>
                 <H3>{item.title}</H3>
-                <IconContainer>
-                  <PlusIcon isOpen={itemIndex === openItem} />
+                <IconContainer isOpen={itemIndex === openItem}>
+                  <ArrowIcon />
                 </IconContainer>
               </ItemTitle>
               <ExpandedDescription isOpen={itemIndex === openItem}>

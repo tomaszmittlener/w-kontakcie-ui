@@ -83,7 +83,7 @@ class AboutPageBody extends React.Component {
     const {t} = this.props
     return (
       <Fragment>
-        <PageSection noPadding>
+        <PageSection topBottomPadding>
           <SectionLayout>
             <ParagraphSectionContent>
               <NameText>{t('owner.name')}</NameText>
@@ -98,7 +98,7 @@ class AboutPageBody extends React.Component {
           </SectionLayout>
         </PageSection>
 
-        <PageSection>
+        <PageSection bottomPadding>
           <SectionLayout>
             <SectionContent>
               <SectionTitle>
@@ -115,7 +115,7 @@ class AboutPageBody extends React.Component {
             </SectionContent>
           </SectionLayout>
         </PageSection>
-        <PageSection>
+        <PageSection bottomPadding>
           <SectionLayout>
             <SectionContent>
               <SectionTitle>

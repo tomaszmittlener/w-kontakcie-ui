@@ -3,21 +3,32 @@ import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
 import {SectionContent, SectionLayout} from 'src/components'
 import {ms} from 'src/utils'
+import ConstellationImage from 'src/components/Images/Constellation.png'
 
 //  background-color: ${({theme: {colors}}) => colors.third};
 const Container = styled.header`
-  padding: ${ms(13)} 0 0 0;
-  margin: 0 0 ${ms(11)} 0;
+  padding: ${ms(13)} 0 0;
+  position: relative;
+  z-index: 0;
   background-image: linear-gradient(
     to bottom,
     ${({theme: {colors}}) => `${colors.third},${colors.canvas}`}
   );
 
-  ${({theme: {mq}}) => mq.desktop} {
-    margin: 0;
-    padding: ${ms(14)} 0 ${ms(11)};
-  }
   ${({verticalLayout}) => verticalLayout && VerticalTheme};
+
+  &:after {
+    content: '';
+    background-image: url(${ConstellationImage});
+    background-size: 400px;
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
 `
 
 const HeroSectionContent = styled(props => <SectionContent {...props} />)`
@@ -77,7 +88,7 @@ const HeroIllustrationSection = styled.div`
 const VerticalTheme = css`
   ${({theme: {mq}}) => mq.desktop} {
     padding: ${ms(13)} 0 0 0;
-    margin: 0 0 ${ms(11)} 0;
+    margin: 0;
   }
 
   ${HeroSectionContent} {
@@ -87,6 +98,7 @@ const VerticalTheme = css`
   }
 
   ${HeroTitleSection} {
+    margin: 0 0 ${ms(5)} 0;
     ${({theme: {mq}}) => mq.desktop} {
       width: 100%;
     }
