@@ -132,7 +132,7 @@ class PageBodyCoaching extends React.Component {
     const {t} = this.props
     return (
       <Fragment>
-        <PageSection topBottomPadding>
+        <PageSection topPadding>
           <SectionLayout>
             <SectionContent>
               <QuoteParagraph> {t('coachingPage.pageQuote')}</QuoteParagraph>
@@ -140,7 +140,7 @@ class PageBodyCoaching extends React.Component {
           </SectionLayout>
         </PageSection>
 
-        <PageSection topBottomPadding name={COACHING_BUSINESS_SECTION}>
+        <PageSection topPadding name={COACHING_BUSINESS_SECTION}>
           <SectionLayout>
             <FormattedTextSectionContent>
               <CoachingWrapper>
@@ -178,7 +178,7 @@ class PageBodyCoaching extends React.Component {
           {/*</SectionLayout>*/}
         {/*</PageSection>*/}
 
-        <PageSection bottomPadding name="target2">
+        <PageSection topBottomPadding name="target2">
           <SectionLayout>
             <SectionContent>
               <CenteredSectionTitle>Korzyści</CenteredSectionTitle>
