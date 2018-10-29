@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
 import {SectionContent, SectionLayout} from 'src/components'
 import {ms} from 'src/utils'
-import ConstellationImage from 'src/components/Images/Constellation.png'
 import {lighten} from 'polished'
 
 //  background-color: ${({theme: {colors}}) => colors.third};
@@ -59,15 +58,10 @@ const HeroTitleSection = styled.div`
 const HeroIllustrationSection = styled.div`
   width: 100%;
   height: 300px;
-  //display: flex;
-  //justify-content: center;
   margin: ${ms(8)} 0 0 0;
-  //position: relative;
-
-  //.gatsbyImageWrapper {
-  //  width: 100%;
-  //  height: 100%;
-  //}
+  ${({theme: {mq}}) => mq.desktop} {
+    margin: 0 0 0 ${ms(8)};
+  }
 `
 
 const SingleSectionTheme = css`
