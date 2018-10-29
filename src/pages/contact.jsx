@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {graphql} from 'gatsby'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Layout from 'src/layout'
@@ -8,7 +9,6 @@ import {locationPropTypesShape} from 'src/utils/PropTypes'
 import {H1, Link, HeroSection, HeroImage} from 'src/components'
 import {withLocales, withLocalesContextProvider} from 'src/context'
 import {ContactPageBody} from 'src/containers'
-import Img from 'gatsby-image'
 
 const HeroQuoteParagraph = styled.p`
   font-size: ${ms(3)};
