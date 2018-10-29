@@ -8,14 +8,32 @@ import {lighten} from 'polished'
 
 //  background-color: ${({theme: {colors}}) => colors.third};
 const Container = styled.header`
-  padding: ${ms(13)} 0 ${ms(8)};
+  padding: ${ms(13)} 0 0 0;
   position: relative;
   z-index: 0;
-  background-color: ${({theme: {colors}}) => lighten(0, colors.third)};
   ${({verticalLayout}) => verticalLayout && VerticalTheme};
   ${({singleSection}) => singleSection && SingleSectionTheme};
   ${({theme: {mq}}) => mq.desktop} {
     padding: ${ms(14)} 0 ${ms(8)};
+  }
+
+  &:before {
+    background-color: ${({theme: {colors}}) => lighten(0, colors.third)};
+    top: 0;
+    content: '';
+    height: 75%;
+    position: absolute;
+    width: 100vw;
+    background-size: 400px;
+    z-index: -1;
+  }
+
+  ${({theme: {mq}}) => mq.desktop} {
+    flex-direction: row;
+
+    &:before {
+      height: 100%;
+    }
   }
 `
 
@@ -39,7 +57,7 @@ const HeroTitleSection = styled.div`
 `
 
 const HeroIllustrationSection = styled.div`
-  //width: 100%;
+  width: 100%;
   height: 300px;
   //display: flex;
   //justify-content: center;
@@ -50,12 +68,6 @@ const HeroIllustrationSection = styled.div`
   //  width: 100%;
   //  height: 100%;
   //}
-
-  ${({theme: {mq}}) => mq.desktop} {
-    flex-direction: row;
-    width: 40%;
-    margin: 0 0 0 ${ms(8)};
-  }
 `
 
 const SingleSectionTheme = css`
