@@ -8,15 +8,15 @@ import {lighten} from 'polished'
 
 //  background-color: ${({theme: {colors}}) => colors.third};
 const Container = styled.header`
-  padding: ${ms(14)} 0 ${ms(8)};
+  padding: ${ms(13)} 0 ${ms(8)};
   position: relative;
   z-index: 0;
   background-color: ${({theme: {colors}}) => lighten(0, colors.third)};
-
-
   ${({verticalLayout}) => verticalLayout && VerticalTheme};
   ${({singleSection}) => singleSection && SingleSectionTheme};
-
+  ${({theme: {mq}}) => mq.desktop} {
+    padding: ${ms(14)} 0 ${ms(8)};
+  }
 `
 
 const HeroSectionContent = styled(props => <SectionContent {...props} />)`
@@ -51,12 +51,10 @@ const HeroIllustrationSection = styled.div`
   //  height: 100%;
   //}
 
-
   ${({theme: {mq}}) => mq.desktop} {
     flex-direction: row;
     width: 40%;
     margin: 0 0 0 ${ms(8)};
-
   }
 `
 

@@ -7,11 +7,13 @@ import {ms} from 'src/utils'
 const LinksList = styled.ul`
   list-style-type: none;
   width: 100%;
-  padding: 0 0 0 ${ms(5)};
+  padding: 0;
+  ${({theme: {mq}}) => mq.desktop} {
+    padding: 0 0 0 ${ms(5)};
+  }
 `
 
 const NavContainer = styled.nav`
-  //border: 1px dotted black;
   display: flex;
 `
 

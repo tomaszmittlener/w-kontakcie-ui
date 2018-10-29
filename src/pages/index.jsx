@@ -30,6 +30,10 @@ import config from '../../data/SiteConfig'
 const StyledButton = styled(Button)`
   padding: ${ms(2)} ${ms(7)};
   margin: ${ms(1)} 0 0 0;
+  display: none;
+  ${({theme: {mq}}) => mq.desktop} {
+    display: inline-block;
+  }
 `
 const StyledLogo = styled(props => <Logo {...props} />)`
   width: 100%;

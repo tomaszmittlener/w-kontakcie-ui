@@ -22,8 +22,7 @@ export default styled(
     dark &&
     css`
       background-color: ${({theme: {colors}}) => lighten(0.08, colors.third)};
-    `} ${({theme: {mq}}) => mq.desktop} {
-  }
+    `}
 
   ${({topPadding}) =>
     topPadding &&
