@@ -4,7 +4,7 @@ import styled, {css} from 'styled-components'
 // const gradientColors = ['#174677', '#2B768A', '#2FBB92'] // picked from img
 const gradientColors = ['#25516C', '#2B768A', '#2FBB92']
 
-const hoverTransition = css`
+const colorChange = css`
   cursor: pointer;
   &:hover {
     #slice_1,
@@ -14,6 +14,14 @@ const hoverTransition = css`
       fill: ${({theme: {colors}}) => colors.text};
       transition: fill 0.15s linear 0.1s;
     }
+  }
+`
+
+const hoverTransition = css`
+  cursor: pointer;
+  transition: transform 0.25s ease-in-out 0.1s;
+  &:hover {
+    transform: rotate(-10deg);
   }
 `
 

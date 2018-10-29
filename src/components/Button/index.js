@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import {ms} from 'src/utils/index'
+import {lighten} from 'polished'
 
 const StyledButton = styled(Link)`
   background-color: ${({theme: {colors}}) => colors.primary};
@@ -18,7 +19,7 @@ const StyledButton = styled(Link)`
   line-height: ${ms(0)};
   &:hover {
     color: ${({theme: {colors}}) => colors.canvas};
-    background-color: ${({theme: {colors}}) => colors.secondary};
+    background-color: ${({theme: {colors}}) => lighten(0.07, colors.secondary)};
   }
 `
 
