@@ -22,9 +22,7 @@ export default styled(
     dark &&
     css`
       background-color: ${({theme: {colors}}) => lighten(0.08, colors.third)};
-    `}
-
-  ${({topPadding}) =>
+    `} ${({topPadding}) =>
     topPadding &&
     css`
       padding: ${PADDING} 0 0 0;

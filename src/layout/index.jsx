@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 import styled, {ThemeProvider, css} from 'styled-components'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
 import {getLocalTitle, compose} from 'src/utils'
-import { Helmet, HeroSection, Transition } from 'src/components';
+import {Helmet, Transition} from 'src/components'
 import ConstellationImage from 'src/components/Images/Constellation.png'
-import {ms} from 'src/utils'
 import {Header, Footer, MobileMenu} from 'src/containers'
+import {Element} from 'react-scroll'
+import {TOP_SECTION} from 'src/constants/SectionNames'
 import {
   contextPropTypesShape,
   withAppContext,
@@ -15,7 +16,7 @@ import {
 import config from '../../data/SiteConfig'
 import './global-styles'
 
-const ViewContainer = styled.div`
+const ViewContainer = styled(Element)`
   height: 100%;
   min-height: 100vh;
   display: flex;
@@ -30,16 +31,13 @@ const ViewContainer = styled.div`
     css`
       transform: translateX(-200px);
     `};
-
-  
-  
 `
 
 const ContentContainer = styled.main`
   position: relative;
   background-color: ${({theme: {colors}}) => colors.canvas};
-  z-index: ${({theme: {layers}}) => layers.middle};    
-    &:after {
+  z-index: ${({theme: {layers}}) => layers.middle};
+  &:after {
     content: '';
     background-image: url(${ConstellationImage});
     background-size: 400px;
@@ -52,7 +50,6 @@ const ContentContainer = styled.main`
     z-index: -1;
   }
 `
-
 
 class Layout extends React.Component {
   render() {
@@ -70,18 +67,15 @@ class Layout extends React.Component {
           <Helmet
             description={config.siteDescription}
             title={`${config.siteTitle} |  ${getLocalTitle(pathname)}`}
-          >
-          </Helmet>
+          />
           {isMobileView && <MobileMenu />}
           <Header />
           <ViewContainer
+            name={TOP_SECTION}
             isMenuOpen={isMenuOpen}
             onClick={() => isMenuOpen && toggleMenuOpen()}>
             <Transition>
-              <ContentContainer>
-
-
-                {children}</ContentContainer>
+              <ContentContainer>{children}</ContentContainer>
             </Transition>
             <Footer />
           </ViewContainer>

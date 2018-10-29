@@ -2,11 +2,12 @@ import React, {Fragment} from 'react'
 import styled, {css} from 'styled-components'
 import {compose, ms} from 'src/utils/index'
 import {contextPropTypesShape, withAppContext} from 'src/context/index'
-import {graphql, StaticQuery, Link} from 'gatsby'
-import {MenuButton, Button} from 'src/components/index'
+import {graphql, StaticQuery, Link as GatsbyLInk} from 'gatsby'
+import { MenuButton, Button, Link, ArrowIcon } from 'src/components';
 import LogoSVG from 'src/components/Logo/index'
 import map from 'lodash/map'
 import {isWindowDefined} from 'src/utils'
+import {TOP_SECTION} from 'src/constants/SectionNames'
 import menuItemsList from '../../../data/MenuItems'
 
 const Content = styled.div`
@@ -23,13 +24,12 @@ const Content = styled.div`
   opacity: 1;
 
   ${({isFullyVisible, isOnTop}) =>
-  !isFullyVisible &&
-  !isOnTop &&
-  css`
+    !isFullyVisible &&
+    !isOnTop &&
+    css`
       opacity: 0;
     `};
 `
-
 
 const Container = styled.header`
   width: 100%;
@@ -93,7 +93,7 @@ const Logo = styled(LogoSVG)`
   height: ${ms(4.3)};
 `
 
-const LogoContainer = styled(Link)`
+const LogoContainer = styled(GatsbyLInk)`
   margin: 0;
   display: flex;
 `
@@ -105,7 +105,7 @@ const MenuItems = styled.nav`
   margin: 0 0 0 ${ms(5)};
 `
 
-const MainNavigationLink = styled(Link)`
+const MainNavigationLink = styled(GatsbyLInk)`
   padding: 0 ${ms(5)} 0 0;
   &:last-of-type {
     padding: 0;
@@ -128,6 +128,20 @@ const MainNavigationLink = styled(Link)`
   &:hover {
     opacity: 0.7;
   }
+`
+
+const UpButton = styled( props => <Link noHoover {...props}/>)`
+  opacity: ${({isVisible}) => (isVisible ? '1' : '0')};
+  transition: opacity 0.15s linear 0.1s;
+  position: fixed;
+  z-index: ${({theme: {layers}}) => layers.top};
+  bottom: ${ms(3)};
+  right: ${ms(3)};
+  transform: rotate(180deg);
+  background-color: ${({theme: {colors}}) => colors.canvas};
+  padding: ${ms(0)};
+  border-radius: 100%;
+  box-shadow: 1px -3px 41px -13px ${({theme: {colors}}) => colors.text};
 `
 
 class Header extends React.Component {
@@ -178,40 +192,44 @@ class Header extends React.Component {
     }
 
     return (
-      <Container
-        isMobile={isTablet || isMobile}
-        isOnTop={!isBelowStartingPoint}
-        isFullyVisible={isFullyVisible()}>
-        <LogoContainer to="/" aria-label="got to Home page">
-          <Logo />
-        </LogoContainer>
-
-        <Content
-          isFullyVisible={isFullyVisible()}
-          isOnTop={!isBelowStartingPoint}>
-          {!isMobileView && (
-            <Fragment>
-              <MenuItems aria-hidden={isMobileView}>
-                {map(menuItemsList, (item, i) => (
-                  <MainNavigationLink
-                    key={`${item.link}-${i}`}
-                    aria-label={`go to "${item.title}" page`}
-                    exact
-                    activeClassName="active"
-                    to={item.link}
-                    onClick={toggleMenuOpen}>
-                    {item.title}
-                  </MainNavigationLink>
-                ))}
-              </MenuItems>
-            </Fragment>
-          )}
-          <Button to="/contact">Kontakt</Button>
-          {isMobileView && (
-            <MenuButton onClick={toggleMenuOpen} isMenuOpen={isMenuOpen} />
-          )}
-        </Content>
-      </Container>
+      <Fragment>
+        <Container
+          isMobile={isTablet || isMobile}
+          isOnTop={!isBelowStartingPoint}
+          isFullyVisible={isFullyVisible()}>
+          <LogoContainer to="/" aria-label="got to Home page">
+            <Logo />
+          </LogoContainer>
+          <Content
+            isFullyVisible={isFullyVisible()}
+            isOnTop={!isBelowStartingPoint}>
+            {!isMobileView && (
+              <Fragment>
+                <MenuItems aria-hidden={isMobileView}>
+                  {map(menuItemsList, (item, i) => (
+                    <MainNavigationLink
+                      key={`${item.link}-${i}`}
+                      aria-label={`go to "${item.title}" page`}
+                      exact
+                      activeClassName="active"
+                      to={item.link}
+                      onClick={toggleMenuOpen}>
+                      {item.title}
+                    </MainNavigationLink>
+                  ))}
+                </MenuItems>
+              </Fragment>
+            )}
+            <Button to="/contact">Kontakt</Button>
+            {isMobileView && (
+              <MenuButton onClick={toggleMenuOpen} isMenuOpen={isMenuOpen} />
+            )}
+          </Content>
+        </Container>
+        <UpButton scroll to={TOP_SECTION} isVisible={isBelowStartingPoint}>
+          <ArrowIcon />
+        </UpButton>
+      </Fragment>
     )
   }
 }
