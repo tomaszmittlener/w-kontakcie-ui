@@ -11,15 +11,15 @@ import {
   SectionContent,
   GraphIcon,
   AppleIcon,
-  TwoArrowsIcon,
   AccordeonTable,
 } from 'src/components/index'
 import {withLocales} from 'src/context/locales'
 import {StyledFirstLetter} from 'src/layout/mixins'
 import {
   COACHING_BUSINESS_SECTION,
-  COACHING_LIFE_SECTION, THERAPY_METHODOLOGY_SECTION
-} from 'src/constants/SectionNames';
+  COACHING_LIFE_SECTION,
+  THERAPY_METHODOLOGY_SECTION,
+} from 'src/constants/SectionNames'
 
 import {
   businessCoachingAdvantages,
@@ -34,19 +34,6 @@ const CenteredSectionTitle = SectionTitle.extend`
   text-align: center;
 `
 
-const ImageContainer = styled.figure`
-  margin: 0;
-  text-align: center;
-  svg {
-    height: 300px;
-  }
-
-  ${({theme: {mq}}) => mq.desktop} {
-    svg {
-      height: 300px;
-    }
-  }
-`
 
 const FormattedTextSectionContent = SectionContent.extend`
   ${StyledFirstLetter};
@@ -84,15 +71,15 @@ const CoachingTextContainer = styled.div`
   }
 `
 const CoachingArticle = styled.article`
+max-height: ${ms(21)};
   p {
     &:first-of-type {
-      font-style: italic;
       margin: 0 0 ${ms(3)};
     }
     margin: 0 0 ${ms(1)};
   }
   ${({theme: {mq}}) => mq.desktop} {
-    column-count: 3;
+    column-count: 2;
   }
 `
 
@@ -168,15 +155,15 @@ class PageBodyCoaching extends React.Component {
           </SectionLayout>
         </PageSection>
 
-        {/*<PageSection bottomPadding>*/}
-          {/*<SectionLayout>*/}
-            {/*<SectionContent>*/}
-              {/*<ImageContainer>*/}
-                {/*<TwoArrowsIcon />*/}
-              {/*</ImageContainer>*/}
-            {/*</SectionContent>*/}
-          {/*</SectionLayout>*/}
-        {/*</PageSection>*/}
+        {/* <PageSection bottomPadding> */}
+        {/* <SectionLayout> */}
+        {/* <SectionContent> */}
+        {/* <ImageContainer> */}
+        {/* <TwoArrowsIcon /> */}
+        {/* </ImageContainer> */}
+        {/* </SectionContent> */}
+        {/* </SectionLayout> */}
+        {/* </PageSection> */}
 
         <PageSection topBottomPadding name="target2">
           <SectionLayout>
@@ -188,7 +175,6 @@ class PageBodyCoaching extends React.Component {
             </SectionContent>
           </SectionLayout>
         </PageSection>
-
 
         <PageSection dark topBottomPadding name={COACHING_LIFE_SECTION}>
           <SectionLayout>
@@ -218,15 +204,15 @@ class PageBodyCoaching extends React.Component {
           </SectionLayout>
         </PageSection>
 
-        {/*<PageSection dark bottomPadding>*/}
-          {/*<SectionLayout>*/}
-            {/*<SectionContent>*/}
-              {/*<ImageContainer>*/}
-                {/*<TwoArrowsIcon />*/}
-              {/*</ImageContainer>*/}
-            {/*</SectionContent>*/}
-          {/*</SectionLayout>*/}
-        {/*</PageSection>*/}
+        {/* <PageSection dark bottomPadding> */}
+        {/* <SectionLayout> */}
+        {/* <SectionContent> */}
+        {/* <ImageContainer> */}
+        {/* <TwoArrowsIcon /> */}
+        {/* </ImageContainer> */}
+        {/* </SectionContent> */}
+        {/* </SectionLayout> */}
+        {/* </PageSection> */}
 
         <PageSection
           dark

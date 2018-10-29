@@ -139,9 +139,16 @@ const UpButton = styled( props => <Link noHoover {...props}/>)`
   right: ${ms(3)};
   transform: rotate(180deg);
   background-color: ${({theme: {colors}}) => colors.canvas};
-  padding: ${ms(0)};
+  height: ${ms(7)};
+  width: ${ms(7)};
   border-radius: 100%;
   box-shadow: 1px -3px 41px -13px ${({theme: {colors}}) => colors.text};
+  svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 `
 
 class Header extends React.Component {
