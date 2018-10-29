@@ -31,7 +31,7 @@ class ContactPage extends Component {
     } = this.props
     return (
       <Layout location={this.props.location} withTopPadding>
-        <Helmet title={`Kontakt | ${config.siteTitle}`} />
+        <Helmet title={`Kontakt | ${config('siteTitle')}`} />
         <HeroSection
           image={
             <HeroImage
