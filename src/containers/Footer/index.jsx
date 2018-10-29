@@ -11,7 +11,7 @@ const Container = styled.footer`
   height: 300px;
   padding: ${ms(8)} ${ms(4)} ${ms(1)};
   width: 100%;
-  background-color: ${({theme: {colors}}) => colors.primary};
+  background-color: ${({theme: {colors}}) => colors.secondary};
   color: ${({theme: {colors}}) => colors.canvas};
   text-align: center;
   display: flex;
@@ -33,6 +33,10 @@ const AddressLink = styled(Link)`
       typo: {fontFamily},
     },
   }) => fontFamily.secondary};
+  background-size: 0;
+  &:hover {
+    background-size: 0;
+  }
 `
 
 class Footer extends Component {

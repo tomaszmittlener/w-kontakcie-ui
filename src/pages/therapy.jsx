@@ -14,6 +14,7 @@ import {
   HeroQuote,
   PageNavigation,
   Pattern,
+  HeroImage,
 } from 'src/components'
 import {TherapyPageBody} from 'src/containers'
 import {
@@ -38,13 +39,6 @@ const linksData = [
     name: 'Metodologia',
   },
 ]
-
-const HeroImage = styled(Img)`
-  height: 100%;
-  width: 300px;
-  margin: 0 auto;
-  opacity: 0.4;
-`
 
 class TherapyPage extends Component {
   render() {
@@ -89,7 +83,7 @@ export default compose(
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query TherapyPageQuery {
-    heroImage: file(relativePath: {eq: "health.png"}) {
+    heroImage: file(relativePath: {eq: "puzzle_people.png"}) {
       childImageSharp {
         fluid(maxWidth: 400) {
           ...GatsbyImageSharpFluid

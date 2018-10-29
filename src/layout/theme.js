@@ -8,9 +8,10 @@ import {
 export default {
   colors: {
     text: '#242021',
-    primary: '#77797E',
-    secondary: '#225A7C',
+    primary: '#25516C',
+    secondary: '#25516C',
     // third: '#9fbbc0',
+    // primary: '#77797E',
     third: '#D9E1E1',
     canvas: '#FBFBFB',
   },

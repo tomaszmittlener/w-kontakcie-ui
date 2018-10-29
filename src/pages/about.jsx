@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Layout from 'src/layout'
-import {compose, ms} from 'src/utils'
+import {compose} from 'src/utils'
 import {withLocalesContextProvider, withLocales} from 'src/context'
 import {graphql} from 'gatsby'
 import {
@@ -11,18 +11,12 @@ import {
 } from 'src/utils/PropTypes'
 import {
   H1,
-  H2,
-  H4,
   HeroSection,
   PageNavigation,
-  ParagraphText,
-  SectionContent,
-  SectionLayout,
+  HeroImage,
 } from 'src/components'
 import {AboutPageBody} from 'src/containers'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
-import {MaxWidthText, StyledFirstLetter} from 'src/layout/mixins'
 import {
   ABOUT_ME_SECTION,
   ABOUT_COMPETENCES_SECTION,
@@ -31,51 +25,6 @@ import {
 
 const PageTitle = styled(H1)`
   //text-align: center;
-`
-const Avatar = styled(Img)`
-  width: 300px;
-  height: 100%;
-`
-const NameText = styled(H2)`
-  font-weight: bold;
-  //text-align: center;
-  margin: ${ms(0)} 0 ${ms(0)} 0;
-  text-align: center;
-  ${({theme: {mq}}) => mq.desktop} {
-    text-align: left;
-  }
-`
-const ParagraphSectionContent = styled.article`
-  ${StyledFirstLetter};
-
-  ${({theme: {mq}}) => mq.desktop} {
-    margin: 0 0 0 ${ms(8)};
-  }
-`
-const ProfessionText = styled(H4)`
-  font-size: ${ms(1)};
-  text-align: center;
-  font-weight: bold;
-
-  margin: 0 0 ${ms(5)} 0;
-  ${({theme: {mq}}) => mq.desktop} {
-    text-align: left;
-  }
-`
-
-const ImageSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  ${({theme: {mq}}) => mq.desktop} {
-    flex-direction: row;
-  }
 `
 
 const linksData = [
@@ -93,16 +42,9 @@ const linksData = [
   },
 ]
 
-const HeroImage = styled(Img)`
-  height: 100%;
-  width: 300px;
-  margin: 0 auto;
-  opacity: 0.4;
-`
 
 class AboutPage extends Component {
   render() {
-    console.log(this.props)
     const {
       data: {meImage, heroImage},
       config,
@@ -146,7 +88,7 @@ export default compose(
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query AboutPageQuery {
-    heroImage: file(relativePath: {eq: "book.png"}) {
+    heroImage: file(relativePath: {eq: "woman.png"}) {
       childImageSharp {
         fluid(maxWidth: 400) {
           ...GatsbyImageSharpFluid

@@ -5,8 +5,8 @@ import {Link} from 'react-router-dom'
 import {ms} from 'src/utils/index'
 
 const StyledButton = styled(Link)`
-  background-color: ${({theme: {colors}}) => colors.secondary};
-  box-shadow: inset 0 0 0 0.0625rem #${({theme: {colors}}) => colors.secondary};
+  background-color: ${({theme: {colors}}) => colors.primary};
+  box-shadow: inset 0 0 0 0.0625rem #${({theme: {colors}}) => colors.primary};
   color: ${({theme: {colors}}) => colors.canvas};
   text-decoration: none;
   padding: ${ms(0)} ${ms(2)};
@@ -18,7 +18,7 @@ const StyledButton = styled(Link)`
   line-height: ${ms(0)};
   &:hover {
     color: ${({theme: {colors}}) => colors.canvas};
-    background-color: ${({theme: {colors}}) => colors.primary};
+    background-color: ${({theme: {colors}}) => colors.secondary};
   }
 `
 

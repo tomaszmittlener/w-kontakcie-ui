@@ -109,7 +109,7 @@ class PageBodyContact extends React.Component {
     return (
       <Fragment>
 
-        <PageSection topBottomPadding>
+        <PageSection topBottomPadding finalSectionPadding>
           <SectionLayout>
             <SectionContent>
               <SectionTitle>Znajdz Gabinet</SectionTitle>

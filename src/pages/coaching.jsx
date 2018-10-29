@@ -12,7 +12,7 @@ import {
   COACHING_BUSINESS_SECTION,
   COACHING_LIFE_SECTION,
 } from 'src/constants/SectionNames'
-import {H1, HeroQuote, HeroSection, PageNavigation} from 'src/components'
+import {H1, HeroQuote, HeroSection, PageNavigation, HeroImage} from 'src/components'
 
 import {CoachingPageBody} from 'src/containers'
 
@@ -27,12 +27,7 @@ const linksData = [
   },
 ]
 
-const HeroImage = styled(Img)`
-  height: 100%;
-  width: 300px;
-  margin: 0 auto;
-  opacity: 0.4;
-`
+
 
 class CoachingPage extends Component {
   render() {
@@ -77,9 +72,9 @@ export default compose(
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query CoachingPageQuery {
-    heroImage: file(relativePath: {eq: "puzzle.png"}) {
+    heroImage: file(relativePath: {eq: "coaching.png"}) {
       childImageSharp {
-        fluid(maxWidth: 400) {
+        fluid(maxHeight: 400, maxWidth: 400) {
           ...GatsbyImageSharpFluid
         }
       }

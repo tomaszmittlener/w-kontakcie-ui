@@ -83,7 +83,7 @@ const Container = styled.header`
     ${({isOnTop}) =>
       isOnTop &&
       css`
-        transform: translateY(${ms(3)});
+        padding: ${ms(6)} ${ms(8)};
       `};
   }
 `

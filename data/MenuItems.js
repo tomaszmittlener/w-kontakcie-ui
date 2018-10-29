@@ -11,4 +11,8 @@ export default [
     link: 'about',
     title: 'O mnie',
   },
+  // {
+  //   link: 'contact',
+  //   title: 'Kontakt',
+  // },
 ]

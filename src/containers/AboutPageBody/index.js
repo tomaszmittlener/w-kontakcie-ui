@@ -68,7 +68,7 @@ const ItemTitle = styled(props => <ParagraphText weight="bold" {...props} />)`
 `
 
 const Avatar = styled(Img)`
-  width: 300px;
+  width: 250px;
   height: 100%;
 `
 const NameText = styled(H2)`
@@ -84,7 +84,7 @@ const ParagraphSectionContent = styled.article`
   ${StyledFirstLetter};
 
   ${({theme: {mq}}) => mq.desktop} {
-    margin: 0 0 0 ${ms(8)};
+    margin: 0 0 0 ${ms(10)};
   }
 `
 const ProfessionText = styled(H4)`

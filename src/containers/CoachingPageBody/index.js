@@ -84,15 +84,15 @@ const CoachingTextContainer = styled.div`
   }
 `
 const CoachingArticle = styled.article`
-  ${({theme: {mq}}) => mq.desktop} {
-    column-count: 2;
-  }
   p {
     &:first-of-type {
       font-style: italic;
       margin: 0 0 ${ms(3)};
     }
     margin: 0 0 ${ms(1)};
+  }
+  ${({theme: {mq}}) => mq.desktop} {
+    column-count: 3;
   }
 `
 

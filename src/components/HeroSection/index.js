@@ -4,32 +4,19 @@ import styled, {css} from 'styled-components'
 import {SectionContent, SectionLayout} from 'src/components'
 import {ms} from 'src/utils'
 import ConstellationImage from 'src/components/Images/Constellation.png'
+import {lighten} from 'polished'
 
 //  background-color: ${({theme: {colors}}) => colors.third};
 const Container = styled.header`
-  padding: ${ms(13)} 0 ${ms(4)};
+  padding: ${ms(14)} 0 ${ms(8)};
   position: relative;
   z-index: 0;
-  background-image: linear-gradient(
-    to bottom,
-    ${({theme: {colors}}) => `${colors.third},${colors.canvas}`}
-  );
+  background-color: ${({theme: {colors}}) => lighten(0, colors.third)};
+
 
   ${({verticalLayout}) => verticalLayout && VerticalTheme};
   ${({singleSection}) => singleSection && SingleSectionTheme};
 
-  &:after {
-    content: '';
-    background-image: url(${ConstellationImage});
-    background-size: 400px;
-    opacity: 0.1;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
-  }
 `
 
 const HeroSectionContent = styled(props => <SectionContent {...props} />)`
@@ -38,50 +25,38 @@ const HeroSectionContent = styled(props => <SectionContent {...props} />)`
   flex-direction: column;
   ${({theme: {mq}}) => mq.desktop} {
     flex-direction: row;
+    align-items: flex-start;
   }
 `
 
 const HeroTitleSection = styled.div`
   width: 100%;
+  text-align: center;
   ${({theme: {mq}}) => mq.desktop} {
+    text-align: left;
     width: 60%;
   }
 `
 
 const HeroIllustrationSection = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
+  //width: 100%;
+  height: 300px;
+  //display: flex;
+  //justify-content: center;
   margin: ${ms(8)} 0 0 0;
-  position: relative;
+  //position: relative;
 
-  .gatsbyImageWrapper {
-    width: 100%;
-    height: 100%;
-  }
+  //.gatsbyImageWrapper {
+  //  width: 100%;
+  //  height: 100%;
+  //}
 
-  > svg {
-    z-index: ${({theme: {layers}}) => layers.topBottom};
-  }
-
-  &:before {
-    background-color: ${({theme: {colors}}) => colors.canvas};
-    bottom: 0;
-    content: unset; // change to '' to restore
-    height: 50%;
-    position: absolute;
-    width: 100vw;
-  }
 
   ${({theme: {mq}}) => mq.desktop} {
     flex-direction: row;
     width: 40%;
-    margin: 0 0 0 ${ms(4)};
+    margin: 0 0 0 ${ms(8)};
 
-    &:before {
-      content: unset;
-    }
   }
 `
 

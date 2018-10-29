@@ -5,7 +5,7 @@ import Layout from 'src/layout'
 import styled from 'styled-components'
 import {compose, ms} from 'src/utils'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
-import {H1, Link, HeroSection, Pattern, HeroQuote} from 'src/components'
+import {H1, Link, HeroSection, HeroImage} from 'src/components'
 import {withLocales, withLocalesContextProvider} from 'src/context'
 import {ContactPageBody} from 'src/containers'
 import Img from 'gatsby-image'
@@ -21,12 +21,6 @@ const HeroQuoteParagraph = styled.p`
   }) => fontFamily.primary};
 `
 
-const HeroImage = styled(Img)`
-  height: 100%;
-  width: 300px;
-  margin: 0 auto;
-  opacity: 0.4;
-`
 
 class ContactPage extends Component {
   render() {
@@ -76,7 +70,7 @@ export default compose(
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query ContactPageQuery {
-    heroImage: file(relativePath: {eq: "book.png"}) {
+    heroImage: file(relativePath: {eq: "people_meet.png"}) {
       childImageSharp {
         fluid(maxWidth: 400) {
           ...GatsbyImageSharpFluid

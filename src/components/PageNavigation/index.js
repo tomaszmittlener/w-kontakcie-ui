@@ -6,6 +6,7 @@ import {ms} from 'src/utils'
 
 const LinksList = styled.ul`
   list-style-type: none;
+  width: 100%;
   padding: 0 0 0 ${ms(5)};
 `
 
