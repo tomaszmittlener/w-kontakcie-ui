@@ -3,7 +3,6 @@ import styled, {css} from 'styled-components'
 import {ms} from 'src/utils'
 import {lighten} from 'polished'
 import {Element} from 'react-scroll'
-
 const PADDING = ms(9)
 
 export default styled(

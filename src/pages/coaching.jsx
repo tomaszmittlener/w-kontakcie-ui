@@ -12,10 +12,11 @@ import {
   COACHING_BUSINESS_SECTION,
   COACHING_LIFE_SECTION,
 } from 'src/constants/SectionNames'
-import {H1, HeroQuote, HeroSection, PageNavigation, HeroImage} from 'src/components'
+import {H1, HeroSection, PageNavigation, HeroImage} from 'src/components'
 
 import {CoachingPageBody} from 'src/containers'
 
+const IMAGE_WIDTH = 400
 const linksData = [
   {
     to: COACHING_BUSINESS_SECTION,
@@ -43,9 +44,11 @@ class CoachingPage extends Component {
         <HeroSection
           image={
             <HeroImage
-              outerWrapperClassName="gatsbyImageWrapper"
+              maxWidth={IMAGE_WIDTH}
+              outerWrapperClassName="__image-outer-wrapper"
+              innerWrapperClassName="__image-inner-wrapper"
               title="hand image"
-              alt="hand image"
+              alt="Home "
               sizes={heroImage.childImageSharp.fluid}
             />
           }>
@@ -72,10 +75,10 @@ export default compose(
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query CoachingPageQuery {
-    heroImage: file(relativePath: {eq: "coaching.png"}) {
+    heroImage: file(relativePath: {eq: "coaching_hero.png"}) {
       childImageSharp {
-        fluid(maxHeight: 400, maxWidth: 400) {
-          ...GatsbyImageSharpFluid
+        fluid(maxWidth: 400) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }

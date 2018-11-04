@@ -49,7 +49,7 @@ const Container = styled.header`
 
   &:hover {
     &:before {
-      opacity: 1;
+      opacity: ${({isOnTop}) => !isOnTop && 1};
     }
     ${Content} {
       opacity: 1;
@@ -251,7 +251,7 @@ export default props => (
   <StaticQuery
     query={graphql`
       query HeaderQuery {
-        logo: file(relativePath: {eq: "logo.png"}) {
+        logo: file(relativePath: {eq: "logo-48.png"}) {
           childImageSharp {
             fluid(maxWidth: 200) {
               ...GatsbyImageSharpFluid

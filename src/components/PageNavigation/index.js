@@ -22,12 +22,13 @@ const ArrowContainer = styled.figure`
   display: inline-block;
   svg {
     display: inline-block;
-    height: ${ms(-2)};
+    height: ${ms(-4)};
     transform: rotate(-90deg);
   }
 `
 const LinkItem = styled.li`
-  display: inline-flex;
+  //display: inline-flex;
+  font-size: ${ms(1)};
   margin: 0 ${ms(0)} ${ms(0)} 0;
 
 `

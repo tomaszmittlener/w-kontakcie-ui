@@ -4,7 +4,7 @@ import styled, {ThemeProvider, css} from 'styled-components'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
 import {getLocalTitle, compose} from 'src/utils'
 import {Helmet, Transition} from 'src/components'
-import ConstellationImage from 'src/components/Images/Constellation.png'
+import background from 'src/components/Images/Constellation.png'
 import {Header, Footer, MobileMenu} from 'src/containers'
 import {Element} from 'react-scroll'
 import {TOP_SECTION} from 'src/constants/SectionNames'
@@ -15,6 +15,7 @@ import {
 } from 'src/context'
 import config from '../../data/SiteConfig'
 import './global-styles'
+// import background from '../../static/background_pattern_reversed.png'
 
 const ViewContainer = styled(Element)`
   height: 100%;
@@ -39,7 +40,7 @@ const ContentContainer = styled.main`
   z-index: ${({theme: {layers}}) => layers.middle};
   &:after {
     content: '';
-    background-image: url(${ConstellationImage});
+    background-image: url(${background});
     background-size: 400px;
     opacity: 0.07;
     top: 0;

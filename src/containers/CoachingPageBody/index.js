@@ -34,7 +34,6 @@ const CenteredSectionTitle = SectionTitle.extend`
   text-align: center;
 `
 
-
 const FormattedTextSectionContent = SectionContent.extend`
   ${StyledFirstLetter};
   display: flex;
@@ -71,7 +70,7 @@ const CoachingTextContainer = styled.div`
   }
 `
 const CoachingArticle = styled.article`
-max-height: ${ms(21)};
+  max-height: ${ms(21)};
   p {
     &:first-of-type {
       margin: 0 0 ${ms(3)};

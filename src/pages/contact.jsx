@@ -10,6 +10,7 @@ import {H1, Link, HeroSection, HeroImage} from 'src/components'
 import {withLocales, withLocalesContextProvider} from 'src/context'
 import {ContactPageBody} from 'src/containers'
 
+const IMAGE_WIDTH = 400
 const HeroQuoteParagraph = styled.p`
   font-size: ${ms(3)};
   line-height: ${ms(3.5)};
@@ -35,9 +36,11 @@ class ContactPage extends Component {
         <HeroSection
           image={
             <HeroImage
-              outerWrapperClassName="gatsbyImageWrapper"
+              maxWidth={IMAGE_WIDTH}
+              outerWrapperClassName="__image-outer-wrapper"
+              innerWrapperClassName="__image-inner-wrapper"
               title="hand image"
-              alt="hand image"
+              alt="Home "
               sizes={heroImage.childImageSharp.fluid}
             />
           }>
@@ -70,10 +73,10 @@ export default compose(
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query ContactPageQuery {
-    heroImage: file(relativePath: {eq: "people_meet.png"}) {
+    heroImage: file(relativePath: {eq: "contact_hero.png"}) {
       childImageSharp {
         fluid(maxWidth: 400) {
-          ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }

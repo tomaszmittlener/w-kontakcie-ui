@@ -23,9 +23,23 @@ export const fluidPropTypesShape = PropTypes.shape({
   srcWebp: PropTypes.string,
 })
 
+export const fixedPropTypesShape = PropTypes.shape({
+  src: PropTypes.string.isRequired,
+  srcSet: PropTypes.string.isRequired,
+  base64: PropTypes.string,
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
+})
+
 export const imageFluidPropTypesShape = PropTypes.shape({
   childImageSharp: PropTypes.shape({
     fluid: fluidPropTypesShape.isRequired,
+  }).isRequired,
+})
+
+export const imageFixedPropTypesShape = PropTypes.shape({
+  childImageSharp: PropTypes.shape({
+    fixed: fixedPropTypesShape.isRequired,
   }).isRequired,
 })
 

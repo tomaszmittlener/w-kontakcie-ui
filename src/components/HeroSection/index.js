@@ -3,9 +3,15 @@ import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
 import {SectionContent, SectionLayout} from 'src/components'
 import {ms} from 'src/utils'
-import {lighten} from 'polished'
+import {darken} from 'polished'
+import background from '../../../static/background.png'
+// import background from 'src/components/Images/Constellation.png'
 
 //  background-color: ${({theme: {colors}}) => colors.third};
+
+// background-image: url(${background});
+// //background-size: 1000px;
+// background-size: cover;
 const Container = styled.header`
   padding: ${ms(13)} 0 0 0;
   position: relative;
@@ -17,13 +23,21 @@ const Container = styled.header`
   }
 
   &:before {
-    background-color: ${({theme: {colors}}) => lighten(0, colors.third)};
+    opacity: 1;
+
+    //background-size: 800px;
+    background-image: linear-gradient(
+      to bottom,
+      ${({theme: {colors}}) => darken(0, colors.third)},
+      ${({theme: {colors}}) => colors.canvas}
+    );
+
     top: 0;
     content: '';
-    height: 75%;
+    height: 85%;
     position: absolute;
-    width: 100vw;
-    background-size: 400px;
+    width: 100%;
+    overflow: hidden;
     z-index: -1;
   }
 
@@ -42,7 +56,7 @@ const HeroSectionContent = styled(props => <SectionContent {...props} />)`
   flex-direction: column;
   ${({theme: {mq}}) => mq.desktop} {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
   }
 `
 
@@ -56,9 +70,12 @@ const HeroTitleSection = styled.div`
 `
 
 const HeroIllustrationSection = styled.div`
+  height: 100%;
   width: 100%;
-  height: 300px;
-  margin: ${ms(8)} 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
   ${({theme: {mq}}) => mq.desktop} {
     margin: 0 0 0 ${ms(8)};
   }

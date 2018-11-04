@@ -12,7 +12,8 @@ export default {
     secondary: '#25516C',
     // third: '#9fbbc0',
     // primary: '#77797E',
-    third: '#D9E1E1',
+    // third: '#61a1c9',
+    third: '#d9e1e1',
     canvas: '#FBFBFB',
   },
   typo: {

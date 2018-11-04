@@ -23,9 +23,7 @@ import {
   ABOUT_EXPERIENCE_SECTION,
 } from 'src/constants/SectionNames'
 
-const PageTitle = styled(H1)`
-  //text-align: center;
-`
+const IMAGE_WIDTH = 400
 
 const linksData = [
   {
@@ -56,13 +54,15 @@ class AboutPage extends Component {
         <HeroSection
           image={
             <HeroImage
-              outerWrapperClassName="gatsbyImageWrapper"
+              maxWidth={IMAGE_WIDTH}
+              outerWrapperClassName="__image-outer-wrapper"
+              innerWrapperClassName="__image-inner-wrapper"
               title="hand image"
-              alt="hand image"
+              alt="Home "
               sizes={heroImage.childImageSharp.fluid}
             />
           }>
-          <PageTitle>{t('aboutMePage.pageTitle')}</PageTitle>
+          <H1>{t('aboutMePage.pageTitle')}</H1>
           <PageNavigation linksData={linksData} />
         </HeroSection>
         <AboutPageBody meImage={meImage} />
@@ -88,7 +88,7 @@ export default compose(
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query AboutPageQuery {
-    heroImage: file(relativePath: {eq: "woman.png"}) {
+    heroImage: file(relativePath: {eq: "about_hero.png"}) {
       childImageSharp {
         fluid(maxWidth: 400) {
           ...GatsbyImageSharpFluid
@@ -97,8 +97,8 @@ export const pageQuery = graphql`
     }
     meImage: file(relativePath: {eq: "me.jpg"}) {
       childImageSharp {
-        fluid(maxWidth: 200) {
-          ...GatsbyImageSharpFluid
+        fluid(maxWidth: 400) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }

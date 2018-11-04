@@ -22,7 +22,7 @@ const LinkMixin = css`
           ${({theme: {colors}}) => colors.primary} 100%
         )
         repeat-x 0 100%;
-      background-size: 2px 2px;
+      background-size: 1px 1px;
 
       &:hover {
         background-size: 5px 100%;

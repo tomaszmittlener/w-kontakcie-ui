@@ -1,21 +1,21 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import Layout from 'src/layout'
-import {ArticlesExcerpts, PageSectionTitle, PageSection} from 'src/components'
-import {compose} from 'src/utils'
-import {withLocales, withLocalesContextProvider} from 'src/context'
+import Layout from '../../../src/layout'
+import {ArticlesExcerpts, PageSectionTitle, PageSection} from '../../../src/components'
+import {compose} from '../../../src/utils'
+import {withLocales, withLocalesContextProvider} from '../../../src/context'
 import {rgba} from 'polished'
 import {
   articlesExcerptsPropTypesShape,
   locationPropTypesShape,
   imageFluidPropTypesShape,
-} from 'src/utils/PropTypes'
+} from '../../../src/utils/PropTypes'
 
 import {graphql} from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import config from '../../data/SiteConfig'
+import config from '../../../data/SiteConfig'
 
 const ImageContainer = styled(Img)`
   height: 475px;
