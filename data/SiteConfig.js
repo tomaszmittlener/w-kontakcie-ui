@@ -4,7 +4,7 @@ module.exports = {
   siteTitleAlt: 'W Kontakcie', // Alternative site title for Index.
   siteLogo: 'logo.png', // Logo used for Index and manifest.
   siteUrl: 'https:/', // Domain of your website without pathPrefix.
-  pathPrefix: '/reverent-goldberg-099d94.netlify.com', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
+  pathPrefix: '/wrelacji.com.pl', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription: "Gabinet terapeutyczny 'W relacji'", // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml', // Path to the RSS file.
   siteFBAppID: 'psychoterapiaAnnaDejewska', // FB Application ID for using app insights
