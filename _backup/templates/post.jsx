@@ -1,20 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {compose, ms} from 'src/utils'
+import {compose, ms} from '../../src/utils'
 import {
   withAppContextProvider,
   withAppContext,
   withLocalesContextProvider,
-} from 'src/context'
+} from '../../src/context'
 import {
   locationPropTypesShape,
   pageContextPropTypesShape,
   articleMarkdownPropTypesShape,
   imageFluidPropTypesShape,
-} from 'src/utils/PropTypes'
+} from '../../src/utils/PropTypes'
 import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
-import Layout from 'src/layout'
+import Layout from '../../src/layout'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import {rgba} from 'polished'
@@ -24,7 +24,7 @@ import {
   MarkdownAST,
   PageSection,
   PageMainTitle,
-} from 'src/components'
+} from '../../src/components'
 import config from '../../data/SiteConfig'
 
 const StyledImg = styled(Img)`
