@@ -23,8 +23,8 @@ const MenuContainer = styled.nav`
 `
 
 const MainNavigationLink = styled(Link)`
+  font-size: ${ms(1)} !important;
   padding: ${ms(0)};
-  font-size: ${ms(0)};
   color: ${({theme: {colors}}) => colors.canvas};
   font-family: ${({
     theme: {

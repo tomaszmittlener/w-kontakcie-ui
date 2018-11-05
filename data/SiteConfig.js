@@ -1,7 +1,7 @@
 module.exports = {
-  siteTitle: 'W Kontakcie', // Site title.
-  siteTitleShort: 'W Kontakcie', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
-  siteTitleAlt: 'W Kontakcie', // Alternative site title for Index.
+  siteTitle: 'W relacji', // Site title.
+  siteTitleShort: 'W relacji', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
+  siteTitleAlt: 'W relacji', // Alternative site title for Index.
   siteLogo: 'logo.png', // Logo used for Index and manifest.
   siteUrl: 'https:/', // Domain of your website without pathPrefix.
   pathPrefix: '/wrelacji.com.pl', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
@@ -18,7 +18,7 @@ module.exports = {
   userLocation: 'ul. Waryńskiego 40c/1, 80-433 Gdańsk-Wrzeszcz', // User location to display in the author segment.
   userAvatar: 'https://api.adorable.io/avatars/150/test.png', // User avatar to display in the author segment.
   userDescription: 'Anna Dejewska - psycholog, psychoterapeuta, coach',
-  copyright: 'Copyright © 2018. W kontakcie', // Copyright string for the footer of the website and RSS feed.
-  themeColor: '#FBFBFB', // Used for setting manifest and progress theme colors.
+  copyright: 'Copyright © 2018. W relacji', // Copyright string for the footer of the website and RSS feed.
+  themeColor: '#25516C', // Used for setting manifest and progress theme colors.
   backgroundColor: '#25516C', // Used for setting manifest background color.
 }

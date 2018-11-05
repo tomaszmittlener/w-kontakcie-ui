@@ -51,7 +51,7 @@ const Logo = ({withText, className, withoutHover, black}) => (
     role="img"
     aria-label={`Logo "W relacji"`}
     className={className}>
-    <title>Logo "W kontakcie"</title>
+    <title>Logo "W relacji"</title>
     <desc>Logo gabinetu terapeutycznego "W kontakcie"</desc>
     <defs>
       <path

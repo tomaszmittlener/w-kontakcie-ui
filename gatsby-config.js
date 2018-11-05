@@ -15,7 +15,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-image',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-offline',
+    // 'gatsby-plugin-offline',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
