@@ -27,10 +27,8 @@ const ArrowContainer = styled.figure`
   }
 `
 const LinkItem = styled.li`
-  //display: inline-flex;
-  font-size: ${ms(1)};
+  font-size: ${ms(1.5)};
   margin: 0 ${ms(0)} ${ms(0)} 0;
-
 `
 
 class PageNavigation extends Component {

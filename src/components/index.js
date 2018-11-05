@@ -8,6 +8,7 @@ export {default as Map} from './Map'
 export {default as HeroQuote} from './HeroQuote'
 export {default as PageNavigation} from './PageNavigation'
 export {default as HeroImage} from './HeroImage'
+export {default as Quote} from './Quote'
 
 // Page layout components
 export {default as HeroSection} from './HeroSection'

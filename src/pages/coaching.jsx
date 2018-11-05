@@ -1,20 +1,17 @@
-import React, {Component, Fragment} from 'react'
-import Img from 'gatsby-image'
+import React, {Component} from 'react'
 import {graphql} from 'gatsby'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Layout from 'src/layout'
-import styled from 'styled-components'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
-import {compose, ms} from 'src/utils'
+import {compose} from 'src/utils'
 import {withLocalesContextProvider, withLocales} from 'src/context'
+import {H1, HeroSection, PageNavigation, HeroImage} from 'src/components'
+import {CoachingPageBody} from 'src/containers'
 import {
   COACHING_BUSINESS_SECTION,
   COACHING_LIFE_SECTION,
 } from 'src/constants/SectionNames'
-import {H1, HeroSection, PageNavigation, HeroImage} from 'src/components'
-
-import {CoachingPageBody} from 'src/containers'
 
 const IMAGE_WIDTH = 400
 const linksData = [
@@ -27,8 +24,6 @@ const linksData = [
     name: 'Life Coaching',
   },
 ]
-
-
 
 class CoachingPage extends Component {
   render() {
@@ -47,8 +42,8 @@ class CoachingPage extends Component {
               maxWidth={IMAGE_WIDTH}
               outerWrapperClassName="__image-outer-wrapper"
               innerWrapperClassName="__image-inner-wrapper"
-              title="hand image"
-              alt="Home "
+              title="coaching hero"
+              alt="coaching hero"
               sizes={heroImage.childImageSharp.fluid}
             />
           }>
@@ -78,7 +73,7 @@ export const pageQuery = graphql`
     heroImage: file(relativePath: {eq: "coaching_hero.png"}) {
       childImageSharp {
         fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
+          ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }

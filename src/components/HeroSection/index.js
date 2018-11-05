@@ -4,14 +4,7 @@ import styled, {css} from 'styled-components'
 import {SectionContent, SectionLayout} from 'src/components'
 import {ms} from 'src/utils'
 import {darken} from 'polished'
-import background from '../../../static/background.png'
-// import background from 'src/components/Images/Constellation.png'
 
-//  background-color: ${({theme: {colors}}) => colors.third};
-
-// background-image: url(${background});
-// //background-size: 1000px;
-// background-size: cover;
 const Container = styled.header`
   padding: ${ms(13)} 0 0 0;
   position: relative;
@@ -24,8 +17,6 @@ const Container = styled.header`
 
   &:before {
     opacity: 1;
-
-    //background-size: 800px;
     background-image: linear-gradient(
       to bottom,
       ${({theme: {colors}}) => darken(0, colors.third)},
@@ -75,10 +66,6 @@ const HeroIllustrationSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
-  ${({theme: {mq}}) => mq.desktop} {
-    margin: 0 0 0 ${ms(8)};
-  }
 `
 
 const SingleSectionTheme = css`

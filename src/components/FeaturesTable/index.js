@@ -29,7 +29,7 @@ const ImageContainer = styled.div`
   justify-content: center;
   margin: ${ms(4)};
   > svg {
-    height: 80px;
+    height: 90px;
   }
   ${({theme: {mq}}) => mq.desktop} {
     flex: 1;

@@ -1,18 +1,8 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {ms, compose} from 'src/utils'
-import {
-  H2,
-  H3,
-  H4,
-  ParagraphText,
-  PageSection,
-  SectionContent,
-  SectionLayout,
-  ArrowIcon,
-  EarthIcon,
-} from 'src/components'
+import {ms} from 'src/utils'
+import {H3, ArrowIcon} from 'src/components'
 import map from 'lodash/map'
 import {contextPropTypesShape, withAppContext} from 'src/context'
 
@@ -57,6 +47,8 @@ const Items = styled.div`
   flex-direction: column;
   width: 100%;
   justify-content: center;
+  max-width: ${ms(19)};
+  margin: 0 auto;
   ${({theme: {mq}}) => mq.desktop} {
     flex: 3;
   }
@@ -66,7 +58,7 @@ const DesktopImage = styled.div`
   justify-content: center;
   flex: 1;
   align-items: center;
-  margin: 0 0 0 ${ms(6)};
+  margin: 0 0 0 ${ms(9)};
   > svg {
     height: 200px;
   }
@@ -77,7 +69,7 @@ const MobileImage = styled.div`
   justify-content: center;
   margin: ${ms(4)} 0;
   > svg {
-    height: 80px;
+    height: 90px;
   }
 `
 const Container = styled.div`

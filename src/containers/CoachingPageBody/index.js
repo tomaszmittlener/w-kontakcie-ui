@@ -11,8 +11,8 @@ import {
   SectionContent,
   GraphIcon,
   AppleIcon,
-  AccordeonTable,
-} from 'src/components/index'
+  AccordeonTable, Quote
+} from 'src/components/index';
 import {withLocales} from 'src/context/locales'
 import {StyledFirstLetter} from 'src/layout/mixins'
 import {
@@ -57,7 +57,7 @@ const CoachingImageContainer = styled.figure`
     }
   }
 `
-const LifeCoachingImageContainer = CoachingImageContainer.extend`
+const LifeCoachingImageContainer = styled(CoachingImageContainer)`
   ${({theme: {mq}}) => mq.desktop} {
     margin: 0 ${ms(10)} 0 0;
   }
@@ -92,18 +92,6 @@ const CoachingWrapper = styled.div`
   }
 `
 
-const QuoteParagraph = styled(H3)`
-  text-align: center;
-  font-style: italic;
-  max-width: ${ms(22)};
-  margin: 0 auto;
-  font-family: ${({
-    theme: {
-      typo: {fontFamily},
-    },
-  }) => fontFamily.secondary};
-`
-
 const BusinessAdvanatagesContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -121,7 +109,7 @@ class PageBodyCoaching extends React.Component {
         <PageSection topPadding>
           <SectionLayout>
             <SectionContent>
-              <QuoteParagraph> {t('coachingPage.pageQuote')}</QuoteParagraph>
+              <Quote text={t('coachingPage.pageQuote')} />
             </SectionContent>
           </SectionLayout>
         </PageSection>
@@ -153,16 +141,6 @@ class PageBodyCoaching extends React.Component {
             </FormattedTextSectionContent>
           </SectionLayout>
         </PageSection>
-
-        {/* <PageSection bottomPadding> */}
-        {/* <SectionLayout> */}
-        {/* <SectionContent> */}
-        {/* <ImageContainer> */}
-        {/* <TwoArrowsIcon /> */}
-        {/* </ImageContainer> */}
-        {/* </SectionContent> */}
-        {/* </SectionLayout> */}
-        {/* </PageSection> */}
 
         <PageSection topBottomPadding name="target2">
           <SectionLayout>
@@ -202,16 +180,6 @@ class PageBodyCoaching extends React.Component {
             </FormattedTextSectionContent>
           </SectionLayout>
         </PageSection>
-
-        {/* <PageSection dark bottomPadding> */}
-        {/* <SectionLayout> */}
-        {/* <SectionContent> */}
-        {/* <ImageContainer> */}
-        {/* <TwoArrowsIcon /> */}
-        {/* </ImageContainer> */}
-        {/* </SectionContent> */}
-        {/* </SectionLayout> */}
-        {/* </PageSection> */}
 
         <PageSection
           dark
