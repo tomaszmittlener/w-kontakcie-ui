@@ -1,10 +1,8 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {ms, compose} from 'src/utils'
-import {H3, PlusIcon, FeaturesItems, ArrowIcon} from 'src/components'
-import map from 'lodash/map'
-import {contextPropTypesShape, withAppContext} from 'src/context'
+import {ms} from 'src/utils'
+import {H3, FeaturesItems, ArrowIcon} from 'src/components'
 
 const ItemContainer = styled.div`
   display: flex;
@@ -73,7 +71,7 @@ class AccordeonTable extends React.Component {
     return (
       <Container>
         <Items>
-          {map(data, (item, itemIndex) => (
+          {data.map((item, itemIndex) => (
             <ItemContainer key={`practicalInfo-${item.title}-${itemIndex}`}>
               <ItemTitle onClick={() => this.handleItemClick(itemIndex)}>
                 <H3>{item.title}</H3>
@@ -100,7 +98,6 @@ AccordeonTable.propTypes = {
       bullets: PropTypes.arrayOf(PropTypes.string).isRequired,
     }),
   ).isRequired,
-  context: contextPropTypesShape.isRequired,
 }
 
-export default withAppContext(AccordeonTable)
+export default AccordeonTable

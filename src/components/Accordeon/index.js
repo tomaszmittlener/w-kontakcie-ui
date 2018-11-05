@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {withBreakpoints} from 'react-match-breakpoints'
 import styled from 'styled-components'
+
 import {ms} from 'src/utils'
 import {H3, ArrowIcon} from 'src/components'
-import map from 'lodash/map'
-import {contextPropTypesShape, withAppContext} from 'src/context'
+import {breakpointsPropTypesShape} from 'src/utils/PropTypes'
 
 const ItemContainer = styled.figure`
   display: flex;
@@ -89,14 +90,14 @@ class Accordeon extends React.Component {
   render() {
     const {
       data,
-      context: {isMobile, isTablet},
+      breakpoints: {isTablet, isMobile},
       className,
     } = this.props
     const isMobileView = isMobile || isTablet
     return (
       <Container className={className}>
         <Items>
-          {map(data, (item, itemIndex) => (
+          {data.map((item, itemIndex) => (
             <ItemContainer key={`practicalInfo-${item.title}-${itemIndex}`}>
               <ItemTitle onClick={() => this.handleItemClick(itemIndex)}>
                 <IconContainer isOpen={itemIndex === this.state.openItem}>
@@ -109,7 +110,7 @@ class Accordeon extends React.Component {
                   <MobileImage>{data[this.state.openItem].img}</MobileImage>
                 )}
                 <ul>
-                  {map(item.bullets, (bullet, bulletIndex) => (
+                  {item.bullets.map((bullet, bulletIndex) => (
                     <li
                       key={`therapy-${item.title}-${itemIndex}-${bulletIndex}`}>
                       {bullet}
@@ -136,8 +137,11 @@ Accordeon.propTypes = {
       bullets: PropTypes.arrayOf(PropTypes.string).isRequired,
     }),
   ).isRequired,
-  context: contextPropTypesShape.isRequired,
+  breakpoints: breakpointsPropTypesShape.isRequired,
   className: PropTypes.string,
 }
+Accordeon.defaultProps = {
+  className: '',
+}
 
-export default withAppContext(Accordeon)
+export default withBreakpoints(Accordeon)

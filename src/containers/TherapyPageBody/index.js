@@ -2,7 +2,6 @@ import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {ms, compose} from 'src/utils/index'
-import map from 'lodash/map'
 import {StyledFirstLetter} from 'src/layout/mixins'
 import {withLocales} from 'src/context/locales'
 import {
@@ -105,7 +104,7 @@ class PageBodyTherapy extends React.Component {
                 {t('therapyPage.methodologySection.title')}
               </SectionTitle>
               <MethodologyText>
-                {map(therapy, (section, sectionIndex) => (
+                {therapy.map((section, sectionIndex) => (
                   <Fragment key={`therapy-${section.title}-${sectionIndex}`}>
                     {section.title && <H3>{section.title}</H3>}
                     <ParagraphText>{section.description}</ParagraphText>

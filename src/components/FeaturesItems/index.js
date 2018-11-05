@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
 import {ms} from 'src/utils'
 import {CheckIcon} from 'src/components'
-import map from 'lodash/map'
 
 const ImageContainer = styled.figure`
   display: flex;
@@ -50,7 +49,7 @@ class FeaturesItems extends React.PureComponent {
     const {bullets, small} = this.props
     return (
       <ItemsList small={small}>
-        {map(bullets, (bullet, bulletIndex) => (
+        {bullets.map((bullet, bulletIndex) => (
           <Item key={`therapy-${bullet}-${bulletIndex}`}>
             <ImageContainer>
               <CheckIcon />

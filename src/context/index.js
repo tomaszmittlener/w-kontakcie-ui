@@ -1,8 +1,8 @@
 export {
+  default as AppContextProvider,
   contextPropTypesShape,
   AppContext,
   withAppContext,
-  AppContextProvider,
   withAppContextProvider,
 } from './appContext'
 

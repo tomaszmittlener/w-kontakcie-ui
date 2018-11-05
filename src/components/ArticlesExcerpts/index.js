@@ -8,7 +8,6 @@ import {
   articlesImagesPropTypesShape,
 } from 'src/utils/PropTypes'
 import {Link, H2, ParagraphText} from 'src/components'
-import map from 'lodash/map'
 import Img from 'gatsby-image'
 import filter from 'lodash/filter'
 
@@ -72,7 +71,7 @@ const ArticlesExcerpts = ({
   small,
 }) => (
   <Fragment>
-    {map(articles, ({node: {id, excerpt, fields, frontmatter}}) => (
+    {articles.map(({node: {id, excerpt, fields, frontmatter}}) => (
       <ArticleContainer key={id} small={small}>
         <Link to={fields.slug}>
           <StyledImage

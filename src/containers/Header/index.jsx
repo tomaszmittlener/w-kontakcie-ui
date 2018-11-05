@@ -1,13 +1,15 @@
 import React, {Fragment} from 'react'
 import styled, {css} from 'styled-components'
+import {withBreakpoints} from 'react-match-breakpoints'
+import {Link as GatsbyLInk} from 'gatsby'
+
 import {compose, ms} from 'src/utils/index'
 import {contextPropTypesShape, withAppContext} from 'src/context/index'
-import {graphql, StaticQuery, Link as GatsbyLInk} from 'gatsby'
-import { MenuButton, Button, Link, ArrowIcon } from 'src/components';
+import {MenuButton, Button, Link, ArrowIcon} from 'src/components'
 import LogoSVG from 'src/components/Logo/index'
-import map from 'lodash/map'
 import {isWindowDefined} from 'src/utils'
 import {TOP_SECTION} from 'src/constants/SectionNames'
+import {breakpointsPropTypesShape} from 'src/utils/PropTypes'
 import menuItemsList from '../../../data/MenuItems'
 
 const Content = styled.div`
@@ -130,7 +132,7 @@ const MainNavigationLink = styled(GatsbyLInk)`
   }
 `
 
-const UpButton = styled( props => <Link noHoover {...props}/>)`
+const UpButton = styled(Link)`
   opacity: ${({isVisible}) => (isVisible ? '1' : '0')};
   transition: opacity 0.15s linear 0.1s;
   position: fixed;
@@ -179,7 +181,8 @@ class Header extends React.Component {
 
   render() {
     const {
-      context: {toggleMenuOpen, isMobile, isTablet, isMenuOpen},
+      context: {toggleMenuOpen, isMenuOpen},
+      breakpoints: {isTablet, isMobile},
     } = this.props
     const isBelowStartingPoint = this.state.scrollPosition >= 50
     const isMobileView = isMobile || isTablet
@@ -191,11 +194,9 @@ class Header extends React.Component {
       if (!isBelowStartingPoint) {
         return false
       }
-      if (this.state.scrollDirection === 'up' && isBelowStartingPoint) {
-        return true
-      }
+      return this.state.scrollDirection === 'up' && isBelowStartingPoint;
 
-      return false
+
     }
 
     return (
@@ -213,7 +214,7 @@ class Header extends React.Component {
             {!isMobileView && (
               <Fragment>
                 <MenuItems aria-hidden={isMobileView}>
-                  {map(menuItemsList, (item, i) => (
+                  {menuItemsList.map((item, i) => (
                     <MainNavigationLink
                       key={`${item.link}-${i}`}
                       aria-label={`go to "${item.title}" page`}
@@ -233,7 +234,11 @@ class Header extends React.Component {
             )}
           </Content>
         </Container>
-        <UpButton scroll to={TOP_SECTION} isVisible={isBelowStartingPoint}>
+        <UpButton
+          scroll
+          to={TOP_SECTION}
+          isVisible={isBelowStartingPoint}
+          noHoover>
           <ArrowIcon />
         </UpButton>
       </Fragment>
@@ -243,23 +248,10 @@ class Header extends React.Component {
 
 Header.propTypes = {
   context: contextPropTypesShape.isRequired,
+  breakpoints: breakpointsPropTypesShape.isRequired,
 }
 
-const HeaderToExport = compose(withAppContext)(Header)
-
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query HeaderQuery {
-        logo: file(relativePath: {eq: "logo-48.png"}) {
-          childImageSharp {
-            fluid(maxWidth: 200) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `}
-    render={data => <HeaderToExport {...props} data={data} />}
-  />
-)
+export default compose(
+  withAppContext,
+  withBreakpoints,
+)(Header)

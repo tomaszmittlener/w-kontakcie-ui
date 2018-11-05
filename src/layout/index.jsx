@@ -1,91 +1,63 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import styled, {ThemeProvider, css} from 'styled-components'
-import {locationPropTypesShape} from 'src/utils/PropTypes'
-import {getLocalTitle, compose} from 'src/utils'
-import {AppHelmet, Transition} from 'src/components'
-import {Header, Footer, MobileMenu} from 'src/containers'
-import {Element} from 'react-scroll'
-import {TOP_SECTION} from 'src/constants/SectionNames'
 import {
-  contextPropTypesShape,
-  withAppContext,
-  withAppContextProvider,
-} from 'src/context'
-import config from '../../data/SiteConfig'
+  Provider as BreakpointsProvider,
+  createBreakpoints,
+} from 'react-match-breakpoints'
+import {ThemeProvider} from 'styled-components'
+
+import {locationPropTypesShape} from 'src/utils/PropTypes'
+import {getLocalTitle} from 'src/utils'
+import {AppContextProvider} from 'src/context'
+import {App} from 'src/containers'
+import {AppHelmet} from 'src/components'
+import {
+  TABLET_MEDIA_QUERY_MIN_WIDTH,
+  TABLET_MEDIA_QUERY,
+  DESKTOP_L_MEDIA_QUERY,
+  DESKTOP_L_MEDIA_QUERY_MIN_WIDTH,
+  DESKTOP_MEDIA_QUERY,
+  DESKTOP_MEDIA_QUERY_MIN_WIDTH,
+} from 'src/constants/MediaQueries'
+import THEME from 'src/layout/theme'
+import CONFIG from '../../data/SiteConfig'
 import './global-styles'
-import background from '../../static/constellation_background.png'
 
-const ViewContainer = styled(Element)`
-  height: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: ${({theme: {colors}}) => colors.canvas};
-  transition: 0.5s transform linear;
-  z-index: ${({theme: {layers}}) => layers.middle};
-  position: relative;
-  ${({isMenuOpen}) =>
-    isMenuOpen &&
-    css`
-      transform: translateX(-200px);
-    `};
-`
+const BREAKPOINTS = createBreakpoints({
+  isMobile: `screen and (max-width: ${TABLET_MEDIA_QUERY_MIN_WIDTH - 1}px)`,
+  isTablet: `screen and ${TABLET_MEDIA_QUERY} and (max-width: ${DESKTOP_MEDIA_QUERY_MIN_WIDTH -
+    1}px)`,
+  isDesktop: `screen and ${DESKTOP_MEDIA_QUERY} and (max-width: ${DESKTOP_L_MEDIA_QUERY_MIN_WIDTH -
+    1}px)`,
+  isDesktopL: `screen and ${DESKTOP_L_MEDIA_QUERY}`,
+})
 
-const ContentContainer = styled.main`
-  position: relative;
-  background-color: ${({theme: {colors}}) => colors.canvas};
-  z-index: ${({theme: {layers}}) => layers.middle};
-  &:after {
-    content: '';
-    background-image: url(${background});
-    background-size: 400px;
-    opacity: 0.2;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
-  }
-`
+const APP_META = [
+  {
+    name: 'google-site-verification',
+    content: CONFIG.googleSiteVerificationId,
+  },
+]
 
 class Layout extends React.Component {
   render() {
     const {
       children,
       location: {pathname},
-      context: {toggleMenuOpen, isMenuOpen, theme, isTablet, isMobile},
     } = this.props
 
-    const isMobileView = isMobile || isTablet
-
     return (
-      <ThemeProvider theme={theme}>
-        <Fragment>
-          <AppHelmet
-            description={config.siteDescription}
-            title={`${config.siteTitle} |  ${getLocalTitle(pathname)}`}
-            meta={[
-              {
-                name: 'google-site-verification',
-                content: config.googleSiteVerificationId,
-              },
-            ]}
-          />
-          {isMobileView && <MobileMenu />}
-          <Header />
-          <ViewContainer
-            name={TOP_SECTION}
-            isMenuOpen={isMenuOpen}
-            onClick={() => isMenuOpen && toggleMenuOpen()}>
-            <Transition>
-              <ContentContainer>{children}</ContentContainer>
-            </Transition>
-            <Footer />
-          </ViewContainer>
-        </Fragment>
+      <ThemeProvider theme={THEME}>
+        <BreakpointsProvider breakpoints={BREAKPOINTS}>
+          <AppContextProvider>
+            <AppHelmet
+              description={CONFIG.siteDescription}
+              title={`${CONFIG.siteTitle} |  ${getLocalTitle(pathname)}`}
+              meta={APP_META}
+            />
+            <App>{children}</App>
+          </AppContextProvider>
+        </BreakpointsProvider>
       </ThemeProvider>
     )
   }
@@ -93,10 +65,6 @@ class Layout extends React.Component {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   location: locationPropTypesShape.isRequired,
-  context: contextPropTypesShape.isRequired,
 }
 
-export default compose(
-  withAppContextProvider,
-  withAppContext,
-)(Layout)
+export default Layout

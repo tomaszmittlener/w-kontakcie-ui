@@ -1,9 +1,8 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {ms} from 'src/utils'
 import {H3, ParagraphText} from 'src/components'
-import map from 'lodash/map'
 
 const ItemContainer = styled.figure`
   display: flex;
@@ -67,14 +66,14 @@ class FeaturesTable extends React.Component {
     const {data, className} = this.props
     return (
       <div className={className}>
-        {map(data, (item, itemIndex) => (
+        {data.map((item, itemIndex) => (
           <ItemContainer key={`practicalInfo-${item.title}-${itemIndex}`}>
             <ImageContainer>{item.img}</ImageContainer>
             <TextContainer>
               <ItemTitle>{item.title}</ItemTitle>
               <Description>{item.description}</Description>
               <ItemsList>
-                {map(item.bullets, (bullet, bulletIndex) => (
+                {item.bullets.map((bullet, bulletIndex) => (
                   <Item
                     key={`therapy-${item.title}-${itemIndex}-${bulletIndex}`}>
                     {bullet}
@@ -97,6 +96,11 @@ FeaturesTable.propTypes = {
       bullets: PropTypes.arrayOf(PropTypes.string).isRequired,
     }),
   ).isRequired,
+  className: PropTypes.string,
+}
+
+FeaturesTable.defaultProps = {
+  className: '',
 }
 
 export default FeaturesTable

@@ -12,23 +12,21 @@ const LinkMixin = css`
   transition: all 0.3s;
   display: inline-block;
   cursor: pointer;
+`
 
-  ${({noHoover}) =>
-    !noHoover &&
-    css`
-      background: linear-gradient(
-          to bottom,
-          ${({theme: {colors}}) => colors.primary} 0%,
-          ${({theme: {colors}}) => colors.primary} 100%
-        )
-        repeat-x 0 100%;
-      background-size: 1px 1px;
+const NoHooverMixin = css`
+  background: linear-gradient(
+      to bottom,
+      ${({theme: {colors}}) => colors.primary} 0%,
+      ${({theme: {colors}}) => colors.primary} 100%
+    )
+    repeat-x 0 100%;
+  background-size: 1px 1px;
 
-      &:hover {
-        background-size: 5px 100%;
-        color: ${({theme: {colors}}) => colors.secondary};
-      }
-    `};
+  &:hover {
+    background-size: 5px 100%;
+    color: ${({theme: {colors}}) => colors.secondary};
+  }
 `
 
 const scrollAnimation = {
@@ -37,7 +35,7 @@ const scrollAnimation = {
 }
 
 const WrappedLink = styled(
-  ({size, color, children, to, exact, scroll, ...otherProps}) => {
+  ({size, color, children, to, exact, scroll, noHoover, ...otherProps}) => {
     const href = /(http|https|tel|mailto)(.+)/.exec(to)
     if (href) {
       return (
@@ -61,9 +59,10 @@ const WrappedLink = styled(
   },
 )`
   ${LinkMixin};
+  ${({noHoover}) => !noHoover && NoHooverMixin};
 `
 
-function CusotmLink({className, size, color, children, to, scroll, noHoover}) {
+function CustomLink({className, size, color, children, to, scroll, noHoover}) {
   return (
     <WrappedLink
       size={size}
@@ -77,17 +76,17 @@ function CusotmLink({className, size, color, children, to, scroll, noHoover}) {
   )
 }
 
-CusotmLink.propTypes = {
+CustomLink.propTypes = {
   ...textPropTypes,
   to: PropTypes.string.isRequired,
   scroll: PropTypes.bool,
   noHoover: PropTypes.bool,
 }
 
-CusotmLink.defaultProps = {
+CustomLink.defaultProps = {
   ...textDefaultProps,
   scroll: false,
   noHoover: false,
 }
 
-export default CusotmLink
+export default CustomLink

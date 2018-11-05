@@ -1,5 +1,12 @@
 import PropTypes from 'prop-types'
 
+export const breakpointsPropTypesShape = PropTypes.shape({
+  isDesktop: PropTypes.bool.isRequired,
+  isDesktopL: PropTypes.bool.isRequired,
+  isMobile: PropTypes.bool.isRequired,
+  isTablet: PropTypes.bool.isRequired,
+})
+
 export const locationPropTypesShape = PropTypes.shape({
   hash: PropTypes.string,
   key: PropTypes.string,

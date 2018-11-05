@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
 import {contextPropTypesShape, withAppContext} from 'src/context/index'
-import map from 'lodash/map'
 import {ms} from 'src/utils/index'
 import menuItemsList from '../../../data/MenuItems'
 
@@ -23,7 +22,6 @@ const MenuContainer = styled.nav`
 `
 
 const MainNavigationLink = styled(Link)`
-  font-size: ${ms(1)} !important;
   padding: ${ms(0)};
   color: ${({theme: {colors}}) => colors.canvas};
   font-family: ${({
@@ -56,7 +54,7 @@ class MobileMenu extends React.PureComponent {
         aria-expanded={isMenuOpen}
         open={isMenuOpen}
         className={className}>
-        {map(menuItemsList, (item, i) => (
+        {menuItemsList.map((item, i) => (
           <MainNavigationLink
             key={`${item.link}-${i}`}
             aria-label={`go to "${item.title}" page`}
