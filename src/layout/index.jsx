@@ -67,6 +67,12 @@ class Layout extends React.Component {
           <Helmet
             description={config.siteDescription}
             title={`${config.siteTitle} |  ${getLocalTitle(pathname)}`}
+            meta={[
+              {
+                name: 'google-site-verification',
+                content: config.googleSiteVerificationId,
+              },
+            ]}
           />
           {isMobileView && <MobileMenu />}
           <Header />
