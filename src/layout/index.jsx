@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, {ThemeProvider, css} from 'styled-components'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
 import {getLocalTitle, compose} from 'src/utils'
-import {Helmet, Transition} from 'src/components'
+import {AppHelmet, Transition} from 'src/components'
 import {Header, Footer, MobileMenu} from 'src/containers'
 import {Element} from 'react-scroll'
 import {TOP_SECTION} from 'src/constants/SectionNames'
@@ -64,7 +64,7 @@ class Layout extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <Fragment>
-          <Helmet
+          <AppHelmet
             description={config.siteDescription}
             title={`${config.siteTitle} |  ${getLocalTitle(pathname)}`}
             meta={[
