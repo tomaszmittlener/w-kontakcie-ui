@@ -15,7 +15,6 @@ const Container = styled.blockquote`
     bottom: -15px;
     left: 0;
     right: 0;
-
     border-bottom: 1px solid ${({theme: {colors}}) => colors.primary};
     opacity: 0.2;
   }

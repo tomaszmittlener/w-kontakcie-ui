@@ -20,7 +20,7 @@ export default styled(
   ${({dark}) =>
     dark &&
     css`
-      background-color: ${({theme: {colors}}) => lighten(0.08, colors.third)};
+      background-color: ${({theme: {colors}}) => lighten(0.08, colors.secondary)};
     `} ${({topPadding}) =>
     topPadding &&
     css`

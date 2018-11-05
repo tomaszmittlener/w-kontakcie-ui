@@ -19,7 +19,7 @@ const Container = styled.header`
     opacity: 1;
     background-image: linear-gradient(
       to bottom,
-      ${({theme: {colors}}) => darken(0, colors.third)},
+      ${({theme: {colors}}) => darken(0, colors.secondary)},
       ${({theme: {colors}}) => colors.canvas}
     );
 

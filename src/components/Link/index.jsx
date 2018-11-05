@@ -26,7 +26,7 @@ const LinkMixin = css`
 
       &:hover {
         background-size: 5px 100%;
-        color: ${({theme: {colors}}) => colors.third};
+        color: ${({theme: {colors}}) => colors.secondary};
       }
     `};
 `

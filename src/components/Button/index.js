@@ -19,7 +19,7 @@ const StyledButton = styled(Link)`
   line-height: ${ms(0)};
   &:hover {
     color: ${({theme: {colors}}) => colors.canvas};
-    background-color: ${({theme: {colors}}) => lighten(0.07, colors.secondary)};
+    background-color: ${({theme: {colors}}) => lighten(0.07, colors.primary)};
   }
 `
 

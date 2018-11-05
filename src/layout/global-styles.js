@@ -1,13 +1,20 @@
 import {injectGlobal} from 'styled-components'
 import {normalize} from 'polished'
-import 'sal.js/dist/sal.css'
+import {ms} from 'src/utils'
+import javieraLight from './fonts/Javiera-Light.woff'
 import Theme from './theme'
-import './fonts'
-import { ms } from 'src/utils';
 
 injectGlobal`
 
 ${normalize()}
+
+@font-face {
+  font-family: 'Javiera';
+  src: url(${javieraLight}) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
   html {
     box-sizing: border-box;
     line-height: 1.618;

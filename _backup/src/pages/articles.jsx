@@ -27,11 +27,11 @@ const ArticlesContainer = PageSection.extend`
   display: flex;
   flex-wrap: wrap;
   figure:nth-of-type(odd) {
-    background: ${({theme: {colors}}) => rgba(colors.third, 0.2)};
+    background: ${({theme: {colors}}) => rgba(colors.secondary, 0.2)};
   }
   ${({theme: {mq}}) => mq.desktop} {
     figure:nth-of-type(even) {
-      border: 2px solid ${({theme: {colors}}) => rgba(colors.third, 0.2)};
+      border: 2px solid ${({theme: {colors}}) => rgba(colors.secondary, 0.2)};
     }
   }
 `

@@ -20,7 +20,7 @@ const TagItem = styled.li`
   cursor: pointer;
   padding: ${ms(-9)} ${ms(-4)};
   border-radius: ${ms(0)};
-  background-color: ${({theme: {colors}}) => rgba(colors.third, 0.3)};
+  background-color: ${({theme: {colors}}) => rgba(colors.secondary, 0.3)};
   border: 1px solid ${({theme: {colors}}) => rgba(colors.primary, 0.2)};
   transition: background-color 300ms linear;
   color: ${({theme: {colors}}) => rgba(colors.text, 0.8)};
@@ -31,7 +31,7 @@ const TagItem = styled.li`
     margin: ${ms(-8)} 0 ${ms(-8)} ${ms(-8)};
   }
   &:hover {
-    background-color: ${({theme: {colors}}) => rgba(colors.third, 0.6)};
+    background-color: ${({theme: {colors}}) => rgba(colors.secondary, 0.6)};
   }
 `
 

@@ -34,7 +34,7 @@ const QuoteText = styled(H4)`
   font-weight: bold;
   margin: 0 auto;
   opacity: 0.7;
-  color: ${({theme: {colors}}) => colors.secondary};
+  color: ${({theme: {colors}}) => colors.primary};
   font-family: ${({
     theme: {
       typo: {fontFamily},

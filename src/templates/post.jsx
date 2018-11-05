@@ -59,7 +59,7 @@ const Article = styled.article`
       line-height: 0.73em;
       font-size: 5.5em;
       font-weight: 800;
-      color: ${({theme: {colors}}) => colors.secondary};
+      color: ${({theme: {colors}}) => colors.primary};
       font-family: ${({
         theme: {
           typo: {fontFamily},

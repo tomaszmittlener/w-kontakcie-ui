@@ -4,7 +4,6 @@ import styled, {ThemeProvider, css} from 'styled-components'
 import {locationPropTypesShape} from 'src/utils/PropTypes'
 import {getLocalTitle, compose} from 'src/utils'
 import {Helmet, Transition} from 'src/components'
-import background from 'src/components/Images/Constellation.png'
 import {Header, Footer, MobileMenu} from 'src/containers'
 import {Element} from 'react-scroll'
 import {TOP_SECTION} from 'src/constants/SectionNames'
@@ -15,7 +14,7 @@ import {
 } from 'src/context'
 import config from '../../data/SiteConfig'
 import './global-styles'
-// import background from '../../static/background_pattern_reversed.png'
+import background from '../../static/constellation_background.png'
 
 const ViewContainer = styled(Element)`
   height: 100%;
@@ -42,7 +41,7 @@ const ContentContainer = styled.main`
     content: '';
     background-image: url(${background});
     background-size: 400px;
-    opacity: 0.07;
+    opacity: 0.2;
     top: 0;
     left: 0;
     bottom: 0;

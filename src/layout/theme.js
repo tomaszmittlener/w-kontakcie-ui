@@ -9,11 +9,7 @@ export default {
   colors: {
     text: '#242021',
     primary: '#25516C',
-    secondary: '#25516C',
-    // third: '#9fbbc0',
-    // primary: '#77797E',
-    // third: '#61a1c9',
-    third: '#d9e1e1',
+    secondary: '#d9e1e1',
     canvas: '#FBFBFB',
   },
   typo: {

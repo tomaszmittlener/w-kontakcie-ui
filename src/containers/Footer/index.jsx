@@ -11,7 +11,7 @@ const Container = styled.footer`
   height: 300px;
   padding: ${ms(8)} ${ms(4)} ${ms(1)};
   width: 100%;
-  background-color: ${({theme: {colors}}) => colors.secondary};
+  background-color: ${({theme: {colors}}) => colors.primary};
   color: ${({theme: {colors}}) => colors.canvas};
   text-align: center;
   display: flex;

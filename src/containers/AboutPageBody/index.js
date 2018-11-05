@@ -13,13 +13,12 @@ import {
   SectionLayout,
   SectionContent,
   AccordeonTable,
-  HeroSection,
 } from 'src/components'
 import {withLocales} from 'src/context/locales'
 import map from 'lodash/map'
-import {MaxWidthText, StyledFirstLetter} from 'src/layout/mixins'
-import {experience, competences} from '../../../data/TextLists'
+import {StyledFirstLetter} from 'src/layout/mixins'
 import { ABOUT_COMPETENCES_SECTION, ABOUT_EXPERIENCE_SECTION, ABOUT_ME_SECTION } from 'src/constants/SectionNames';
+import {experience, competences} from '../../../data/TextLists'
 
 const SectionTitle = styled(H2)`
   text-align: left;
