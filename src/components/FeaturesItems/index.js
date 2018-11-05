@@ -18,6 +18,7 @@ const ImageContainer = styled.figure`
 
 const Item = styled.li`
   display: flex;
+  align-items: center;
   margin: ${ms(2)} 0 0 0;
 `
 
@@ -31,6 +32,7 @@ const ItemsList = styled.ul`
     small &&
     css`
       ${ImageContainer} {
+        align-self: center;
         margin: 0 ${ms(0)} 0 0;
         > svg {
           height: ${ms(0)};

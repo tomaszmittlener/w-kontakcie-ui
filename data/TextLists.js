@@ -5,17 +5,18 @@ import {
   LocationIcon,
   PhoneIcon,
   RoadSignIcon,
-  Educationcon,
+  EducationIcon,
   ExamIcon,
   CertificateIcon,
   WhistleIcon,
-} from 'src/components'
+  HealthBrokenIcon, UmbrelaIcon, LightningIcon, WorkIcon, TalkIcon, ProcessIcon
+} from 'src/components';
 
 export const competences = [
   {
     title: 'Mgr Psychologii Uniwersytet Gdański',
     description: '',
-    img: <Educationcon />,
+    img: <EducationIcon />,
   },
   {
     title:
@@ -87,7 +88,7 @@ export const workAreas = [
   {
     title: 'Trudności w relacjach',
     description: '',
-    img: <EarthIcon />,
+    img: <HealthBrokenIcon />,
     bullets: [
       'brak porozumienia w związku',
       'samotność i niemożność wejścia w relację/związek',
@@ -101,7 +102,7 @@ export const workAreas = [
   {
     title: 'Depresja',
     description: '',
-    img: <PhoneIcon />,
+    img: <UmbrelaIcon />,
     bullets: [
       'przeżywanie długotrwałego smutku, żalu',
       'niechęć do działania, apatia',
@@ -113,7 +114,7 @@ export const workAreas = [
   {
     title: 'Kryzysy i trudności osobiste',
     description: '',
-    img: <HealthIcon />,
+    img: <RoadSignIcon />,
     bullets: [
       'nieradzenie sobie z emocjami',
       'doświadczenie poczucia braku sensu życia lub trudności w znalezieniu celu w życiu',
@@ -125,7 +126,7 @@ export const workAreas = [
   {
     title: 'Lęki, nerwice',
     description: '',
-    img: <LocationIcon />,
+    img: <LightningIcon />,
     bullets: [
       'niepokój, ataki paniki',
       'rozdrażnienie',
@@ -136,7 +137,7 @@ export const workAreas = [
   {
     title: 'Trudności w pracy',
     description: '',
-    img: <RoadSignIcon />,
+    img: <WorkIcon />,
     bullets: [
       'problemy w relacjach: przełożony/podwładny/współpracownik',
       'odczuwanie nadmiernego stresu w pracy',
@@ -152,7 +153,7 @@ export const therapyPracticalInfo = [
   {
     title: 'Konsultacje',
     description: 'Pracę zaczynam od konsultacji (1-3)',
-    img: <PhoneIcon />,
+    img: <TalkIcon />,
     bullets: [
       'konsultacje umożliwiają mi zapoznanie się z problemem oraz pozwalają ustalić cel i obszar wspólnej pracy, czyli ustalić kontrakt',
       'dla klienta konsultacja to czas na decyzję, czy jestem terapeutą, z którym chce pracować',
@@ -161,7 +162,7 @@ export const therapyPracticalInfo = [
   },
   {
     title: 'Proces terapeutyczny',
-    img: <EarthIcon />,
+    img: <ProcessIcon />,
     description:
       'Po konsultacjach i ustaleniu kontraktu rozpoczyna się proces terapeutyczny.',
     bullets: [

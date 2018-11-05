@@ -44,7 +44,7 @@ export {
   CheckIcon,
   TwoArrowsIcon,
   PlusIcon,
-  Educationcon,
+  EducationIcon,
   ExamIcon,
   CertificateIcon,
   Pattern,
@@ -52,6 +52,12 @@ export {
   EmailIcon,
   LinkedInIcon,
   MapIcon,
+  HealthBrokenIcon,
+  UmbrelaIcon,
+  LightningIcon,
+  WorkIcon,
+  TalkIcon,
+  ProcessIcon,
 } from './Icons'
 
 // Depreciated
