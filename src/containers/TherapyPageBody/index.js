@@ -29,10 +29,6 @@ const SectionTitle = styled(H2)`
   }
 `
 
-const StyledAccordeon = styled(Accordeon)`
-  padding: ${ms(4)} 0 0 0;
-`
-
 const StyledFeaturesTable = styled(FeaturesTable)`
   ${({theme: {mq}}) => mq.desktop} {
     padding: ${ms(4)} 0 0 0;
@@ -75,7 +71,7 @@ class PageBodyTherapy extends React.Component {
               <SectionTitle>
                 {t('therapyPage.workAreaSection.title')}
               </SectionTitle>
-              <StyledAccordeon data={workAreas} />
+              <Accordeon data={workAreas} />
             </SectionContent>
           </SectionLayout>
         </PageSection>

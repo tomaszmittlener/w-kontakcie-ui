@@ -2,7 +2,7 @@ import React from 'react'
 import theme from 'src/layout/theme'
 import PropTypes from 'prop-types'
 import {breakpointsPropTypesShape} from 'src/utils/PropTypes'
-import {withBreakpoints} from 'react-match-breakpoints'
+import withBreakpoints from 'src/utils'
 
 export const AppContext = React.createContext()
 
@@ -10,6 +10,12 @@ class AppContextProvider extends React.Component {
   state = {
     theme,
     isMenuOpen: false,
+  }
+
+  componentWillReceiveProps(nextProps, nextContext) {
+    const isMobile =
+      !nextProps.breakpoints.isMobile || !nextProps.breakpoints.isTablet
+    isMobile && this.state.isMenuOpen && this.setState({isMenuOpen: false})
   }
 
   toggleMenuOpen = () => {
@@ -57,16 +63,6 @@ export function withAppContext(Component) {
       <AppContext.Consumer>
         {context => <Component {...props} context={context} />}
       </AppContext.Consumer>
-    )
-  }
-}
-
-export function withAppContextProvider(Component) {
-  return function ThemedComponent(props) {
-    return (
-      <AppContextProvider>
-        <Component {...props} />
-      </AppContextProvider>
     )
   }
 }

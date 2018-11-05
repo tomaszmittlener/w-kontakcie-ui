@@ -3,7 +3,6 @@ export {
   contextPropTypesShape,
   AppContext,
   withAppContext,
-  withAppContextProvider,
 } from './appContext'
 
 export {

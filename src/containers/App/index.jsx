@@ -1,10 +1,9 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
-import {withBreakpoints} from 'react-match-breakpoints'
+import withBreakpoints, {compose} from 'src/utils'
 import styled, {css} from 'styled-components'
 import {Element} from 'react-scroll'
 
-import {compose} from 'src/utils'
 import {breakpointsPropTypesShape} from 'src/utils/PropTypes'
 import {Transition} from 'src/components'
 import {Header, Footer, MobileMenu} from 'src/containers'

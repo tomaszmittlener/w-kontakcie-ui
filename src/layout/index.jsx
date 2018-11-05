@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import {
   Provider as BreakpointsProvider,
@@ -7,7 +7,7 @@ import {
 import {ThemeProvider} from 'styled-components'
 
 import {locationPropTypesShape} from 'src/utils/PropTypes'
-import {getLocalTitle} from 'src/utils'
+import {getLocalTitle, isWindowDefined} from 'src/utils'
 import {AppContextProvider} from 'src/context'
 import {App} from 'src/containers'
 import {AppHelmet} from 'src/components'
@@ -23,14 +23,16 @@ import THEME from 'src/layout/theme'
 import CONFIG from '../../data/SiteConfig'
 import './global-styles'
 
-const BREAKPOINTS = createBreakpoints({
-  isMobile: `screen and (max-width: ${TABLET_MEDIA_QUERY_MIN_WIDTH - 1}px)`,
-  isTablet: `screen and ${TABLET_MEDIA_QUERY} and (max-width: ${DESKTOP_MEDIA_QUERY_MIN_WIDTH -
-    1}px)`,
-  isDesktop: `screen and ${DESKTOP_MEDIA_QUERY} and (max-width: ${DESKTOP_L_MEDIA_QUERY_MIN_WIDTH -
-    1}px)`,
-  isDesktopL: `screen and ${DESKTOP_L_MEDIA_QUERY}`,
-})
+const BREAKPOINTS =
+  isWindowDefined &&
+  createBreakpoints({
+    isMobile: `screen and (max-width: ${TABLET_MEDIA_QUERY_MIN_WIDTH - 1}px)`,
+    isTablet: `screen and ${TABLET_MEDIA_QUERY} and (max-width: ${DESKTOP_MEDIA_QUERY_MIN_WIDTH -
+      1}px)`,
+    isDesktop: `screen and ${DESKTOP_MEDIA_QUERY} and (max-width: ${DESKTOP_L_MEDIA_QUERY_MIN_WIDTH -
+      1}px)`,
+    isDesktopL: `screen and ${DESKTOP_L_MEDIA_QUERY}`,
+  })
 
 const APP_META = [
   {
@@ -38,6 +40,9 @@ const APP_META = [
     content: CONFIG.googleSiteVerificationId,
   },
 ]
+
+const BreakPointsProviderFix = props =>
+  isWindowDefined ? <BreakpointsProvider {...props} /> : <Fragment />
 
 class Layout extends React.Component {
   render() {
@@ -48,7 +53,7 @@ class Layout extends React.Component {
 
     return (
       <ThemeProvider theme={THEME}>
-        <BreakpointsProvider breakpoints={BREAKPOINTS}>
+        <BreakPointsProviderFix breakpoints={BREAKPOINTS}>
           <AppContextProvider>
             <AppHelmet
               description={CONFIG.siteDescription}
@@ -57,7 +62,7 @@ class Layout extends React.Component {
             />
             <App>{children}</App>
           </AppContextProvider>
-        </BreakpointsProvider>
+        </BreakPointsProviderFix>
       </ThemeProvider>
     )
   }

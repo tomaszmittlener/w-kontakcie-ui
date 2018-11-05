@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {withBreakpoints} from 'react-match-breakpoints'
+import withBreakpoints, {ms} from 'src/utils'
 import styled from 'styled-components'
 
-import {ms} from 'src/utils'
 import {H3, ArrowIcon} from 'src/components'
 import {breakpointsPropTypesShape} from 'src/utils/PropTypes'
 

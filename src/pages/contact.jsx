@@ -22,7 +22,6 @@ const HeroQuoteParagraph = styled.p`
   }) => fontFamily.primary};
 `
 
-
 class ContactPage extends Component {
   render() {
     const {
@@ -76,7 +75,7 @@ export const pageQuery = graphql`
     heroImage: file(relativePath: {eq: "contact_hero.png"}) {
       childImageSharp {
         fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
+          ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }

@@ -9,12 +9,7 @@ import {
   imageFluidPropTypesShape,
   locationPropTypesShape,
 } from 'src/utils/PropTypes'
-import {
-  H1,
-  HeroSection,
-  PageNavigation,
-  HeroImage,
-} from 'src/components'
+import {H1, HeroSection, PageNavigation, HeroImage} from 'src/components'
 import {AboutPageBody} from 'src/containers'
 import styled from 'styled-components'
 import {
@@ -39,7 +34,6 @@ const linksData = [
     name: 'Doświadczenie',
   },
 ]
-
 
 class AboutPage extends Component {
   render() {
@@ -98,7 +92,7 @@ export const pageQuery = graphql`
     meImage: file(relativePath: {eq: "me.jpg"}) {
       childImageSharp {
         fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
+          ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }

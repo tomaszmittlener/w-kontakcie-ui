@@ -1,4 +1,6 @@
+import React from 'react'
 import reduceRight from 'lodash/reduceRight'
+import {withBreakpoints} from 'react-match-breakpoints'
 import modularScale from 'polished/lib/helpers/modularScale'
 import config from '../../data/SiteConfig'
 
@@ -52,3 +54,19 @@ export function ms(step) {
 
 export const formatDate = date =>
   new Date(date).toString().replace(/\S+\s(\S+)\s(\d+)\s(\d+)\s.*/, '$2-$1-$3')
+
+// TODO: fixes problem with gatsby build (react-match-breakpoints uses window object)
+const mockWithBreakpointsProps = {
+  breakpoints: {
+    isDesktop: true,
+    isDesktopL: false,
+    isMobile: false,
+    isTablet: false,
+  },
+}
+
+const mockWithBreakpoints = Component => (
+  <Component {...mockWithBreakpointsProps} />
+)
+
+export default (isWindowDefined ? withBreakpoints : mockWithBreakpoints)

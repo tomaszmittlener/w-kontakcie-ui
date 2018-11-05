@@ -2,8 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {compose, ms} from '../../src/utils'
 import {
-  withAppContextProvider,
-  withAppContext,
   withLocalesContextProvider,
 } from '../../src/context'
 import {
