@@ -8,7 +8,7 @@ module.exports = {
   siteDescription: "Gabinet terapeutyczny 'W relacji'", // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml', // Path to the RSS file.
   siteFBAppID: 'psychoterapiaAnnaDejewska', // FB Application ID for using app insights
-  googleAnalyticsID: '', // GA tracking ID.
+  googleAnalyticsID: 'UA-117896675-2', // GA tracking ID.
   googleSiteVerificationId: 'vEV_qwBzrrOTzza3oAZ_-cL6NyS-H3yaww6fIylo8Lg', // GA tracking ID.
   postDefaultCategoryID: 'psychologia', // Default category for posts.
   dateFromFormat: 'YYYY-MM-DD', // Date format used in the frontmatter.
