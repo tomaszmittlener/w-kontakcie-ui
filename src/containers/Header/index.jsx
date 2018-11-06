@@ -177,6 +177,7 @@ class Header extends React.Component {
       context: {toggleMenuOpen, isMenuOpen},
       breakpoints: {isTablet, isMobile},
     } = this.props
+
     const isMobileView = isMobile || isTablet
     const isScrollingUp = this.state.scrollDirection === 'up'
     const isOnTop = this.state.scrollPosition <= 50
@@ -186,7 +187,7 @@ class Header extends React.Component {
     let hideBGonHoover = false
 
     if (isMobileView) {
-      showBG = !isOnTop
+      showBG = isMenuOpen ? false : !isOnTop
       showNav = true
       hideBGonHoover = isMenuOpen
     } else {
