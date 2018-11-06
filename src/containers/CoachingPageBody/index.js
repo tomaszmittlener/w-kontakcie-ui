@@ -19,7 +19,8 @@ import {StyledFirstLetter} from 'src/layout/mixins'
 import {
   COACHING_BUSINESS_SECTION,
   COACHING_LIFE_SECTION,
-  THERAPY_METHODOLOGY_SECTION,
+  COACHING_LIFE_ADVANTAGES_SECTION,
+  COACHING_BUSINESS_ADVANTAGES_SECTION,
 } from 'src/constants/SectionNames'
 
 import {
@@ -71,7 +72,6 @@ const CoachingTextContainer = styled.div`
   }
 `
 const CoachingArticle = styled.article`
-  max-height: ${ms(21)};
   p {
     &:first-of-type {
       margin: 0 0 ${ms(3)};
@@ -80,6 +80,7 @@ const CoachingArticle = styled.article`
   }
   ${({theme: {mq}}) => mq.desktop} {
     column-count: 2;
+    max-height: ${ms(21)};
   }
 `
 
@@ -143,12 +144,17 @@ class PageBodyCoaching extends React.Component {
           </SectionLayout>
         </PageSection>
 
-        <PageSection topBottomPadding name="target2">
+        <PageSection
+          topBottomPadding
+          name={COACHING_BUSINESS_ADVANTAGES_SECTION}>
           <SectionLayout>
             <SectionContent>
               <CenteredSectionTitle>Korzyści</CenteredSectionTitle>
               <BusinessAdvanatagesContainer>
-                <AccordeonTable data={businessCoachingAdvantages} />
+                <AccordeonTable
+                  data={businessCoachingAdvantages}
+                  scrollTo={COACHING_BUSINESS_ADVANTAGES_SECTION}
+                />
               </BusinessAdvanatagesContainer>
             </SectionContent>
           </SectionLayout>
@@ -185,12 +191,15 @@ class PageBodyCoaching extends React.Component {
         <PageSection
           dark
           finalSectionPadding
-          name={THERAPY_METHODOLOGY_SECTION}>
+          name={COACHING_LIFE_ADVANTAGES_SECTION}>
           <SectionLayout>
             <SectionContent>
               <CenteredSectionTitle>Korzyści</CenteredSectionTitle>
               <BusinessAdvanatagesContainer>
-                <AccordeonTable data={lifeCoachingAdvanatages} />
+                <AccordeonTable
+                  data={lifeCoachingAdvanatages}
+                  scrollTo={COACHING_LIFE_ADVANTAGES_SECTION}
+                />
               </BusinessAdvanatagesContainer>
             </SectionContent>
           </SectionLayout>

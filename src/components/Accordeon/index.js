@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import withBreakpoints, {ms} from 'src/utils'
 import styled from 'styled-components'
+import {Link as ScrollLink} from 'react-scroll'
 
 import {H3, ArrowIcon} from 'src/components'
 import {breakpointsPropTypesShape} from 'src/utils/PropTypes'
@@ -29,7 +30,7 @@ const IconContainer = styled.figure`
   transform: ${({isOpen}) => (isOpen ? 'rotateX(180deg)' : 'none')};
   margin: 0 ${ms(1)} 0;
 `
-const ItemTitle = styled.div`
+const ItemTitle = styled(ScrollLink)`
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -91,14 +92,17 @@ class Accordeon extends React.Component {
       data,
       breakpoints: {isTablet, isMobile},
       className,
+      scrollTo,
     } = this.props
     const isMobileView = isMobile || isTablet
     return (
-      <Container className={className}>
+      <Container className={className} >
         <Items>
           {data.map((item, itemIndex) => (
             <ItemContainer key={`practicalInfo-${item.title}-${itemIndex}`}>
-              <ItemTitle onClick={() => this.handleItemClick(itemIndex)}>
+              <ItemTitle
+                to={scrollTo}
+                onClick={() => this.handleItemClick(itemIndex)}>
                 <IconContainer isOpen={itemIndex === this.state.openItem}>
                   <ArrowIcon />
                 </IconContainer>
@@ -138,9 +142,11 @@ Accordeon.propTypes = {
   ).isRequired,
   breakpoints: breakpointsPropTypesShape.isRequired,
   className: PropTypes.string,
+  scrollTo: PropTypes.string,
 }
 Accordeon.defaultProps = {
   className: '',
+  scrollTo: '',
 }
 
 export default withBreakpoints(Accordeon)

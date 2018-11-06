@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import {Link as ScrollLink} from 'react-scroll'
+
 import {ms} from 'src/utils'
 import {H3, FeaturesItems, ArrowIcon} from 'src/components'
 
@@ -26,7 +28,7 @@ const IconContainer = styled.figure`
   transform: ${({isOpen}) => (isOpen ? 'rotateX(180deg)' : 'none')};
   margin: 0 0 0 ${ms(0)};
 `
-const ItemTitle = styled.div`
+const ItemTitle = styled(ScrollLink)`
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -66,14 +68,16 @@ class AccordeonTable extends React.Component {
   }
 
   render() {
-    const {data} = this.props
+    const {data, scrollTo} = this.props
     const {openItem} = this.state
     return (
       <Container>
         <Items>
           {data.map((item, itemIndex) => (
             <ItemContainer key={`practicalInfo-${item.title}-${itemIndex}`}>
-              <ItemTitle onClick={() => this.handleItemClick(itemIndex)}>
+              <ItemTitle
+                to={scrollTo}
+                onClick={() => this.handleItemClick(itemIndex)}>
                 <H3>{item.title}</H3>
                 <IconContainer isOpen={itemIndex === openItem}>
                   <ArrowIcon />
@@ -98,6 +102,11 @@ AccordeonTable.propTypes = {
       bullets: PropTypes.arrayOf(PropTypes.string).isRequired,
     }),
   ).isRequired,
+  scrollTo: PropTypes.string,
+}
+
+AccordeonTable.defaultProps = {
+  scrollTo: '',
 }
 
 export default AccordeonTable

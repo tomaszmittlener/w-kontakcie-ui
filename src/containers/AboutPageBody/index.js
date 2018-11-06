@@ -178,7 +178,10 @@ class AboutPageBody extends React.Component {
                 też w życiu prywatnym. Mam świadomość jak obie te sfery się
                 przenikają.
               </ParagraphText>
-              <AccordeonTable data={experience} />
+              <AccordeonTable
+                data={experience}
+                scrollTo={ABOUT_EXPERIENCE_SECTION}
+              />
             </SectionContent>
           </SectionLayout>
         </PageSection>

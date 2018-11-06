@@ -71,7 +71,10 @@ class PageBodyTherapy extends React.Component {
               <SectionTitle>
                 {t('therapyPage.workAreaSection.title')}
               </SectionTitle>
-              <Accordeon data={workAreas} />
+              <Accordeon
+                data={workAreas}
+                scrollTo={THERAPY_WORK_AREA_SECTION}
+              />
             </SectionContent>
           </SectionLayout>
         </PageSection>

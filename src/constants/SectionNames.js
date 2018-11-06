@@ -1,5 +1,9 @@
 export const COACHING_BUSINESS_SECTION = 'coaching_business_section'
 export const COACHING_LIFE_SECTION = 'coaching_life_section'
+export const COACHING_LIFE_ADVANTAGES_SECTION =
+  'coaching_life_advantages_section'
+export const COACHING_BUSINESS_ADVANTAGES_SECTION =
+  'coaching_business_advantages_section'
 
 export const THERAPY_PRACTICAL_INFO_SECTION = 'therapy_practical_info_section'
 export const THERAPY_WORK_AREA_SECTION = 'therapy_work_area_section'
