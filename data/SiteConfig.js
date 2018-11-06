@@ -10,11 +10,12 @@ module.exports = {
   siteFBAppID: 'psychoterapiaAnnaDejewska', // FB Application ID for using app insights
   googleAnalyticsID: 'UA-117896675-2', // GA tracking ID.
   googleSiteVerificationId: 'vEV_qwBzrrOTzza3oAZ_-cL6NyS-H3yaww6fIylo8Lg', // GA tracking ID.
+  bingSiteVerificationId: 'A9947AA1BFA3D207E2553A0C1A38BEFE', // GA tracking ID.
   postDefaultCategoryID: 'psychologia', // Default category for posts.
   dateFromFormat: 'YYYY-MM-DD', // Date format used in the frontmatter.
   dateFormat: 'DD/MM/YYYY', // Date format for display.
   userName: 'Anna Dejewska', // Username to display in the author segment.
-  phone: '530 521 218',
+  phone: '+48 530 521 218',
   userEmail: 'anna.dejewska1@gmail.com',
   userLocation: 'ul. Waryńskiego 40c/1, 80-433 Gdańsk-Wrzeszcz', // User location to display in the author segment.
   userAvatar: 'https://api.adorable.io/avatars/150/test.png', // User avatar to display in the author segment.
