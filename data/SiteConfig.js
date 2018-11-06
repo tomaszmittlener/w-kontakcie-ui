@@ -14,6 +14,7 @@ module.exports = {
   dateFromFormat: 'YYYY-MM-DD', // Date format used in the frontmatter.
   dateFormat: 'DD/MM/YYYY', // Date format for display.
   userName: 'Anna Dejewska', // Username to display in the author segment.
+  phone: '530 521 218',
   userEmail: 'anna.dejewska1@gmail.com',
   userLocation: 'ul. Waryńskiego 40c/1, 80-433 Gdańsk-Wrzeszcz', // User location to display in the author segment.
   userAvatar: 'https://api.adorable.io/avatars/150/test.png', // User avatar to display in the author segment.
@@ -21,4 +22,15 @@ module.exports = {
   copyright: 'Copyright © 2018. W relacji', // Copyright string for the footer of the website and RSS feed.
   themeColor: '#25516C', // Used for setting manifest and progress theme colors.
   backgroundColor: '#25516C', // Used for setting manifest background color.
+  socialMedia: [
+    {
+      name: 'Facebook',
+      link: 'https://www.facebook.com/psychoterapiaAnnaDejewska',
+    },
+    {
+      name: 'LinkedIn',
+      link: 'https://www.linkedin.com/in/anna-dejewska-130b3668',
+    },
+  ]
+
 }
