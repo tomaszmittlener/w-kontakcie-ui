@@ -1,5 +1,11 @@
 <div align="center">
-    <img src="static/logos/logo-1024.png" alt="Logo" width='200px' height='125px'/>
+    <img src="static/logos/logo-1024.png" alt="Logo" height='125px'/>
 </div>
 
-## Strona gabinetu [W relacji](https//wrelacji.com.pl)
+## W relacji
+
+install: `yarn install`
+
+development: `gatsby develop` (will run on localhost:8000)
+
+build: `gatsby build`
