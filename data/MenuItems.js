@@ -1,14 +1,14 @@
 export default [
   {
-    link: 'therapy/',
+    link: '/therapy/',
     title: 'Psychoterapia',
   },
   {
-    link: 'coaching/',
+    link: '/coaching/',
     title: 'Coaching',
   },
   {
-    link: 'about/',
+    link: '/about/',
     title: 'O mnie',
   },
   // {
