@@ -149,7 +149,7 @@ const UpButton = styled(Link)`
 class Header extends React.Component {
   state = {
     isScrollingUp: false,
-    scrollPosition: 0,
+    isOnTop: true,
   }
 
   componentDidMount() {
@@ -158,7 +158,7 @@ class Header extends React.Component {
         const previousPosition = this.state.scrollPosition
         const currentPosition = window.scrollY
         this.setState({
-          scrollPosition: currentPosition,
+          isOnTop: currentPosition <= 50,
         })
         this.setState({
           isScrollingUp: previousPosition > currentPosition,
@@ -172,9 +172,8 @@ class Header extends React.Component {
       context: {toggleMenuOpen, isMenuOpen},
       breakpoints: {isTablet, isMobile},
     } = this.props
-    const isOnTop = this.state.scrollPosition <= 50
     const isMobileView = isMobile || isTablet
-    const {isScrollingUp} = this.state
+    const {isScrollingUp, isOnTop} = this.state
 
     let showBG = true
     let showNav = true
