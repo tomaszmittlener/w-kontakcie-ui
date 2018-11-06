@@ -102,9 +102,12 @@ class SEO extends Component {
       },
     ]
 
+    const META_TAGS = [...VALIDATION_META, ...OPEN_GRAPH_META, ...TWITTER_META]
+
     return (
-      <Helmet meta={[...VALIDATION_META, ...OPEN_GRAPH_META, ...TWITTER_META]}>
+      <Helmet meta={META_TAGS}>
         <script type="application/ld+json">
+
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
       </Helmet>
