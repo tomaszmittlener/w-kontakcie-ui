@@ -228,7 +228,7 @@ export const lifeCoachingAdvanatages = [
 export const howCanIHelp = [
   {
     title: 'Psychoterapia',
-    link: '/therapy',
+    link: '/therapy/',
     img: <HealthIcon />,
     description: 'Obszary pracy:',
     bullets: [
@@ -241,7 +241,7 @@ export const howCanIHelp = [
   },
   {
     title: 'Coaching',
-    link: '/coaching',
+    link: '/coaching/',
     img: <WhistleIcon />,
     description: 'Prowadzenie szkoleń w zakresie:',
     bullets: ['Business Coaching', 'Life Coaching'],
