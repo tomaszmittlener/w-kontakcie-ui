@@ -12,7 +12,7 @@ module.exports = {
     'gatsby-plugin-root-import',
     'gatsby-plugin-sharp',
     'gatsby-image',
-    'gatsby-plugin-sitemap',
+    // 'gatsby-plugin-sitemap',
     'gatsby-plugin-pointer-events',
     // 'gatsby-plugin-offline',
     {
