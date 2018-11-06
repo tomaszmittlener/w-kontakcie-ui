@@ -1,10 +1,8 @@
 const config = require('./data/SiteConfig')
-const urljoin = require('url-join')
 
 module.exports = {
-  pathPrefix: config.pathPrefix,
   siteMetadata: {
-    siteUrl: urljoin(config.siteUrl, config.pathPrefix),
+    siteUrl: config.siteUrl,
   },
   plugins: [
     'gatsby-transformer-sharp',

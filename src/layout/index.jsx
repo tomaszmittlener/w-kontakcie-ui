@@ -5,12 +5,13 @@ import {
   createBreakpoints,
 } from 'react-match-breakpoints'
 import {ThemeProvider} from 'styled-components'
+import Helmet from 'react-helmet'
 
 import {locationPropTypesShape} from 'src/utils/PropTypes'
-import {getLocalTitle, isWindowDefined} from 'src/utils'
+import {getLocalTitle, getSiteDescription, isWindowDefined} from 'src/utils'
 import {AppContextProvider} from 'src/context'
 import {App} from 'src/containers'
-import {AppHelmet} from 'src/components'
+import { AppHelmet, SEO } from 'src/components';
 import {
   TABLET_MEDIA_QUERY_MIN_WIDTH,
   TABLET_MEDIA_QUERY,
@@ -34,16 +35,6 @@ const BREAKPOINTS =
     isDesktopL: `screen and ${DESKTOP_L_MEDIA_QUERY}`,
   })
 
-const APP_META = [
-  {
-    name: 'google-site-verification',
-    content: CONFIG.googleSiteVerificationId,
-  },
-  {
-    name: 'msvalidate.01',
-    content: CONFIG.bingSiteVerificationId,
-  },
-]
 const BreakPointsProviderFix = props =>
   isWindowDefined ? <BreakpointsProvider {...props} /> : <Fragment />
 
@@ -54,15 +45,16 @@ class Layout extends React.Component {
       location: {pathname},
     } = this.props
 
+    const appendSEO = pathname === '/'
     return (
       <ThemeProvider theme={THEME}>
         <BreakPointsProviderFix breakpoints={BREAKPOINTS}>
           <AppContextProvider>
             <AppHelmet
-              description={CONFIG.siteDescription}
+              description={getSiteDescription(pathname)}
               title={`${CONFIG.siteTitle} |  ${getLocalTitle(pathname)}`}
-              meta={APP_META}
             />
+            {appendSEO && <SEO pathname={pathname} />}
             <App>{children}</App>
           </AppContextProvider>
         </BreakPointsProviderFix>

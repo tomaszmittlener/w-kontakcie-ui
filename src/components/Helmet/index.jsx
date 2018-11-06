@@ -2,19 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-const AppHelmet = ({title, description, meta}) => (
-  <Helmet
-    title={title}
-    meta={[
-      {
-        name: 'description',
-        content: description,
-      },
-      ...meta,
-    ]}>
-    <html lang="pl-PL" />
-  </Helmet>
-)
+const AppHelmet = ({title, description, meta, ...props}) => {
+  return (
+    <Helmet title={title} description={description} meta={meta} {...props}>
+      <meta name="description" content={description} />
+      <html lang="pl-PL" />
+    </Helmet>
+  )
+}
 
 AppHelmet.propTypes = {
   title: PropTypes.string.isRequired,

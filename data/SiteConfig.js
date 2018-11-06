@@ -1,13 +1,18 @@
 module.exports = {
   siteTitle: 'W relacji', // Site title.
+  streetAddress: 'Waryńskiego 40c/1',
+  addressLocality: 'Gdańsk',
+  postalCode: '80-433',
   siteTitleShort: 'W relacji', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: 'W relacji', // Alternative site title for Index.
   siteLogo: 'logo.png', // Logo used for Index and manifest.
-  siteUrl: 'https:/', // Domain of your website without pathPrefix.
-  pathPrefix: '/wrelacji.com.pl', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
-  siteDescription: "Gabinet terapeutyczny 'W relacji'", // Website description used for RSS feeds/meta description tag.
+  siteUrl: 'https://wrelacji.com.pl', // Domain of your website without pathPrefix.
+  pathPrefix: '', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
+  siteDescription:
+    "Anna Dejewska, Gabinet terapeutyczny 'W relacji'. Psychoterapia, Coaching, Rozwój osobisty", // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml', // Path to the RSS file.
   siteFBAppID: 'psychoterapiaAnnaDejewska', // FB Application ID for using app insights
+  userTwitter: 'psychoterapiaAnnaDejewska',
   googleAnalyticsID: 'UA-117896675-2', // GA tracking ID.
   googleSiteVerificationId: 'vEV_qwBzrrOTzza3oAZ_-cL6NyS-H3yaww6fIylo8Lg', // GA tracking ID.
   bingSiteVerificationId: 'A9947AA1BFA3D207E2553A0C1A38BEFE', // GA tracking ID.

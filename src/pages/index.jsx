@@ -13,7 +13,7 @@ import {withLocales, withLocalesContextProvider} from 'src/context'
 
 import Helmet from 'react-helmet'
 import Layout from 'src/layout'
-import {SEO, H1, H3, Button, HeroSection, HeroImage} from 'src/components'
+import {H1, H3, Button, HeroSection, HeroImage} from 'src/components'
 import {HomePageBody} from 'src/containers'
 import config from '../../data/SiteConfig'
 
@@ -38,7 +38,6 @@ class Index extends React.Component {
     return (
       <Layout location={location} withTopPadding hideLogo>
         <Helmet title={config.siteTitle} />
-        <SEO />
         <HeroSection
           image={
             <HeroImage

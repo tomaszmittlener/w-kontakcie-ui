@@ -2,41 +2,52 @@ import React from 'react'
 import reduceRight from 'lodash/reduceRight'
 import {withBreakpoints} from 'react-match-breakpoints'
 import modularScale from 'polished/lib/helpers/modularScale'
-import config from '../../data/SiteConfig'
+import CONFIG from '../../data/SiteConfig'
 
 export const getLocalTitle = pathname => {
-  function capitalize(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1)
-  }
-  const pathPrefix = config.pathPrefix ? config.pathPrefix : '/'
-  const currentPath = pathname.replace(pathPrefix, '').replace('/', '')
   let title = ''
-  if (currentPath === '') {
-    title = 'Home'
-  } else if (currentPath === 'tags/') {
-    title = 'Tags'
-  } else if (currentPath === 'categories/') {
-    title = 'Categories'
-  } else if (currentPath === 'about/') {
-    title = 'About'
-  } else if (currentPath === 'colors') {
-    title = 'Colors'
-  } else if (currentPath.indexOf('posts')) {
-    title = 'Article'
-  } else if (currentPath.indexOf('tags/')) {
-    const tag = currentPath
-      .replace('tags/', '')
-      .replace('/', '')
-      .replace('-', ' ')
-    title = `Tagged in ${capitalize(tag)}`
-  } else if (currentPath.indexOf('categories/')) {
-    const category = currentPath
-      .replace('categories/', '')
-      .replace('/', '')
-      .replace('-', ' ')
-    title = `${capitalize(category)}`
+  switch (pathname) {
+    case '/about':
+      title = 'O mnie'
+      break
+    case '/therapy':
+      title = 'Terapia'
+      break
+    case '/coaching':
+      title = 'Coaching'
+      break
+    case '/contact':
+      title = 'Kontakt'
+      break
+    default:
+      title = 'W relacji'
+      break
   }
   return title
+}
+export const getSiteDescription = pathname => {
+  let description = ''
+  switch (pathname) {
+    case '/about':
+      description =
+        'Nazywam się Anna Dejewska. Prowadzę terapię indywidualną osób dorosłych i młodzieży oraz life i business coaching.'
+      break
+    case '/therapy':
+      description =
+        'Trudności w relacjach, Depresja, Kryzysy i trudności osobiste, Lęki, nerwice, Trudności w pracy'
+      break
+    case '/coaching':
+      description =
+        'Prowadzę coaching w dla firm oraz osób indywidualnych. Coaching jest dla mnie procesem doskonalenia kompetencji w obszarze, który chce rozwijać Klient. Jest oparty na partnerskiej relacji i wzajemnym zaufaniu.'
+      break
+    case '/contact':
+      description = `Skontaktuj się ze mną. tel: ${CONFIG.userEmail}, adres gabinetu: ${CONFIG.streetAddress}, ${CONFIG.addressLocality}, ${CONFIG.postalCode}`
+      break
+    default:
+      description = CONFIG.siteDescription
+      break
+  }
+  return description
 }
 
 export const isWindowDefined = typeof window !== `undefined`
