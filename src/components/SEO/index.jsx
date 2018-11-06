@@ -29,10 +29,11 @@ class Index extends Component {
     const schemaOrgJSONLD = [
       {
         '@context': 'http://schema.org',
-        '@type': 'WebSite',
+        '@type': 'Organization',
         url: blogURL,
         name: title,
         alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
+        logo: image,
       },
     ]
     if (postSEO) {
