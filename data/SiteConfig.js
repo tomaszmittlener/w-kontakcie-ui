@@ -9,7 +9,7 @@ module.exports = {
   siteUrl: 'https://wrelacji.com.pl', // Domain of your website without pathPrefix.
   pathPrefix: '', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription:
-    "Anna Dejewska, Gabinet terapeutyczny 'W relacji'. Psychoterapia, Coaching, Rozwój osobisty", // Website description used for RSS feeds/meta description tag.
+    "Anna Dejewska, W relacji - Gabinet Psychoterapii i Rozwoju Osobistego 'W relacji'", // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml', // Path to the RSS file.
   siteFBAppID: 'psychoterapiaAnnaDejewska', // FB Application ID for using app insights
   userTwitter: 'psychoterapiaAnnaDejewska',
