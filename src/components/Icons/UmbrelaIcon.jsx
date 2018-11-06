@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const UmbrelaIcon = ({className}) => (
-  <svg className={className} height="55px" viewBox="0 0 61 109" version="1.1">
+  <svg className={className} height="55px" width="100%" viewBox="0 0 61 109" version="1.1">
     <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g id="umbrela">
         <path
