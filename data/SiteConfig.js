@@ -32,6 +32,5 @@ module.exports = {
       name: 'LinkedIn',
       link: 'https://www.linkedin.com/in/anna-dejewska-130b3668',
     },
-  ]
-
+  ],
 }
