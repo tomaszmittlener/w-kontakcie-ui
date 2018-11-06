@@ -21,17 +21,10 @@ const Content = styled.div`
   }
 
   transition: opacity 0.15s linear 0.1s;
-  opacity: 1;
+  opacity: 0;
 
-  ${({isFullyVisible, isOnTop}) =>
-    !isFullyVisible &&
-    !isOnTop &&
-    css`
-      opacity: 0;
-    `};
-
-  ${({isMenuOpen}) =>
-    !isMenuOpen &&
+  ${({showNav}) =>
+    showNav &&
     css`
       opacity: 1;
     `};
@@ -50,23 +43,10 @@ const Container = styled.header`
   background-color: transparent;
   border: none;
   &:before {
-    opacity: 1;
-  }
-
-  &:hover {
-    &:before {
-      opacity: ${({isOnTop, isMobile}) => !isMobile && !isOnTop && 1};
-    }
-    ${Content} {
-      opacity: 1;
-    }
-  }
-
-  &:before {
     transition: opacity 0.15s linear 0.1s;
     content: '';
     left: 0;
-    opacity: 1;
+    opacity: 0;
     position: absolute;
     top: -${ms(3)};
     width: 100%;
@@ -76,13 +56,22 @@ const Container = styled.header`
     z-index: 0;
   }
 
-  ${({isFullyVisible}) =>
-    !isFullyVisible &&
+  ${({showBG}) =>
+    showBG &&
     css`
       &:before {
-        opacity: 0;
+        opacity: 1;
       }
     `};
+
+  &:hover {
+    &:before {
+      opacity: ${({hideBGonHoover}) => (hideBGonHoover ? 0 : 1)};
+    }
+    ${Content} {
+      opacity: 1;
+    }
+  }
 
   ${({theme}) => theme.mq.desktop} {
     padding: ${ms(0)} ${ms(8)};
@@ -159,7 +148,7 @@ const UpButton = styled(Link)`
 
 class Header extends React.Component {
   state = {
-    scrollDirection: 'up',
+    isScrollingUp: false,
     scrollPosition: 0,
   }
 
@@ -168,17 +157,12 @@ class Header extends React.Component {
       window.onscroll = () => {
         const previousPosition = this.state.scrollPosition
         const currentPosition = window.scrollY
-        if (previousPosition > currentPosition) {
-          this.setState({
-            scrollDirection: 'up',
-            scrollPosition: currentPosition,
-          })
-        } else {
-          this.setState({
-            scrollDirection: 'down',
-            scrollPosition: currentPosition,
-          })
-        }
+        this.setState({
+          scrollPosition: currentPosition,
+        })
+        this.setState({
+          isScrollingUp: previousPosition > currentPosition,
+        })
       }
     }
   }
@@ -188,35 +172,34 @@ class Header extends React.Component {
       context: {toggleMenuOpen, isMenuOpen},
       breakpoints: {isTablet, isMobile},
     } = this.props
-    const isBelowStartingPoint = this.state.scrollPosition >= 50
+    const isOnTop = this.state.scrollPosition <= 50
     const isMobileView = isMobile || isTablet
+    const {isScrollingUp} = this.state
 
-    const isFullyVisible = () => {
-      if (isMenuOpen) {
-        return false
-      }
-      if (isMobileView && isBelowStartingPoint) {
-        return true
-      }
-      if (!isBelowStartingPoint) {
-        return false
-      }
-      return this.state.scrollDirection === 'up' && isBelowStartingPoint
+    let showBG = true
+    let showNav = true
+    let hideBGonHoover = false
+
+    if (isMobileView) {
+      showBG = !isOnTop
+      showNav = true
+      hideBGonHoover = isMenuOpen
+    } else {
+      showBG = isOnTop ? false : isScrollingUp
+      showNav = isScrollingUp || isOnTop
+      hideBGonHoover = isOnTop
     }
 
     return (
       <Fragment>
         <Container
-          isMobile={isMobileView}
-          isOnTop={!isBelowStartingPoint}
-          isFullyVisible={isFullyVisible()}>
+          showBG={showBG}
+          isOnTop={isOnTop}
+          hideBGonHoover={hideBGonHoover}>
           <LogoContainer to="/" aria-label="got to Home page">
             <Logo />
           </LogoContainer>
-          <Content
-            isMobile={isMobileView}
-            isFullyVisible={isFullyVisible()}
-            isOnTop={!isBelowStartingPoint}>
+          <Content showNav={showNav}>
             {!isMobileView && (
               <Fragment>
                 <MenuItems aria-hidden={isMobileView}>
@@ -240,11 +223,7 @@ class Header extends React.Component {
             )}
           </Content>
         </Container>
-        <UpButton
-          scroll
-          to={TOP_SECTION}
-          isVisible={isBelowStartingPoint}
-          noHoover>
+        <UpButton scroll to={TOP_SECTION} isVisible={!isOnTop} noHoover>
           <ArrowIcon />
         </UpButton>
       </Fragment>
