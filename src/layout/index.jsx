@@ -58,6 +58,11 @@ class Layout extends React.Component {
       <ThemeProvider theme={THEME}>
         <BreakPointsProviderFix breakpoints={BREAKPOINTS}>
           <AppContextProvider>
+            <div
+              key={`head`}
+              id="___gatsby"
+              dangerouslySetInnerHTML={{ __html: '<meta name="msvalidate.01" content="A9947AA1BFA3D207E2553A0C1A38BEFE" />' }}
+            />
             <AppHelmet
               description={CONFIG.siteDescription}
               title={`${CONFIG.siteTitle} |  ${getLocalTitle(pathname)}`}
