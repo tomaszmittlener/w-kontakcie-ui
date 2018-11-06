@@ -51,7 +51,7 @@ class Index extends React.Component {
           }>
           <H1>{t('company.name')}</H1>
           <H3>{t('company.type')}</H3>
-          <StyledButton to="/contact">Kontakt</StyledButton>
+          <StyledButton to="/contact/">Kontakt</StyledButton>
         </HeroSection>
         <HomePageBody />
       </Layout>

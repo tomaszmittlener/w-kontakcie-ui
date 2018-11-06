@@ -234,7 +234,7 @@ class Header extends React.Component {
                 </MenuItems>
               </Fragment>
             )}
-            <Button to="/contact">Kontakt</Button>
+            <Button to="/contact/">Kontakt</Button>
             {isMobileView && (
               <MenuButton onClick={toggleMenuOpen} isMenuOpen={isMenuOpen} />
             )}
