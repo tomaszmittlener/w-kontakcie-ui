@@ -13,6 +13,7 @@ const AppHelmet = ({title, description, meta}) => (
       ...meta,
     ]}>
     <html lang="pl-PL" />
+    <meta name="msvalidate.01" content="A9947AA1BFA3D207E2553A0C1A38BEFE" />
   </Helmet>
 )
 

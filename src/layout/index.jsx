@@ -39,10 +39,10 @@ const APP_META = [
     name: 'google-site-verification',
     content: CONFIG.googleSiteVerificationId,
   },
-  {
-    name: 'msvalidate.01',
-    content: CONFIG.bingSiteVerificationId,
-  },
+  // {
+  //   name: 'msvalidate.01',
+  //   content: CONFIG.bingSiteVerificationId,
+  // },
 ]
 const BreakPointsProviderFix = props =>
   isWindowDefined ? <BreakpointsProvider {...props} /> : <Fragment />
