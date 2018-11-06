@@ -9,6 +9,7 @@
     "gatsby-image": "next",
     "gatsby-plugin-favicon": "^3.1.4",
     "gatsby-plugin-google-analytics": "next",
+    "gatsby-plugin-google-tagmanager": "^2.0.6",
     "gatsby-plugin-manifest": "next",
     "gatsby-plugin-offline": "next",
     "gatsby-plugin-pointer-events": "^1.0.2",

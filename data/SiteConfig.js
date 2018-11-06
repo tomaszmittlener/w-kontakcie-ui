@@ -14,6 +14,7 @@ module.exports = {
   siteFBAppID: 'psychoterapiaAnnaDejewska', // FB Application ID for using app insights
   userTwitter: 'psychoterapiaAnnaDejewska',
   googleAnalyticsID: 'UA-117896675-2', // GA tracking ID.
+  googleTagID: 'GTM-NQRSSHJ', // GA tag manager ID.
   googleSiteVerificationId: 'vEV_qwBzrrOTzza3oAZ_-cL6NyS-H3yaww6fIylo8Lg', // GA tracking ID.
   bingSiteVerificationId: 'A9947AA1BFA3D207E2553A0C1A38BEFE', // GA tracking ID.
   postDefaultCategoryID: 'psychologia', // Default category for posts.

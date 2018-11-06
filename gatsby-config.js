@@ -22,10 +22,19 @@ module.exports = {
         path: `${__dirname}/static/`,
       },
     },
+    // {
+    //   resolve: 'gatsby-plugin-google-analytics',
+    //   options: {
+    //     trackingId: config.googleAnalyticsID,
+    //   },
+    // },
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: `gatsby-plugin-google-tagmanager`,
       options: {
-        trackingId: config.googleAnalyticsID,
+        id: config.googleTagID,
+        // Include GTM in development.
+        // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: true,
       },
     },
     {
