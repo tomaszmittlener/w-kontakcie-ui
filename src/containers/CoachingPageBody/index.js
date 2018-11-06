@@ -11,8 +11,9 @@ import {
   SectionContent,
   GraphIcon,
   AppleIcon,
-  AccordeonTable, Quote
-} from 'src/components/index';
+  AccordeonTable,
+  Quote,
+} from 'src/components/index'
 import {withLocales} from 'src/context/locales'
 import {StyledFirstLetter} from 'src/layout/mixins'
 import {
@@ -30,7 +31,7 @@ const SectionTitle = styled(H2)`
   text-align: left;
 `
 
-const CenteredSectionTitle = SectionTitle.extend`
+const CenteredSectionTitle = styled(H2)`
   text-align: center;
 `
 

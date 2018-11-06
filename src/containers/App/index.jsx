@@ -19,13 +19,13 @@ const ViewContainer = styled(({isMenuOpen, ...rest}) => <Element {...rest} />)`
   flex-direction: column;
   justify-content: space-between;
   background-color: ${({theme: {colors}}) => colors.canvas};
-  transition: 0.5s transform linear;
+  transition: 0.25s transform ease-in-out;
   z-index: ${({theme: {layers}}) => layers.middle};
   position: relative;
   ${({isMenuOpen}) =>
     isMenuOpen &&
     css`
-      transform: translateX(-200px);
+      transform: translateX(-300px);
     `};
 `
 
@@ -44,6 +44,19 @@ const ContentContainer = styled.main`
     right: 0;
     position: absolute;
     z-index: -1;
+  }
+  &:before {
+    content: '';
+    visibility: ${({isMenuOpen}) => isMenuOpen ? 'visible' : 'hidden'};
+    transition: 0.5s opacity ease-in-out;
+    background-color: ${({theme: {colors}}) => colors.primary};
+    opacity: ${({isMenuOpen}) => isMenuOpen ? '0.4' : '0'};
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: ${({theme: {layers}}) => layers.top};
   }
 `
 
@@ -66,7 +79,7 @@ class Layout extends React.Component {
           isMenuOpen={isMenuOpen}
           onClick={() => isMenuOpen && toggleMenuOpen()}>
           <Transition>
-            <ContentContainer>{children}</ContentContainer>
+            <ContentContainer isMenuOpen={isMenuOpen}>{children}</ContentContainer>
           </Transition>
           <Footer />
         </ViewContainer>

@@ -3,6 +3,7 @@ import styled, {css} from 'styled-components'
 import {ms} from 'src/utils'
 import {lighten} from 'polished'
 import {Element} from 'react-scroll'
+
 const PADDING = ms(9)
 
 export default styled(
@@ -16,11 +17,11 @@ export default styled(
     ...otherProps
   }) => <Element {...otherProps} />,
 )`
-  height: 100%;
   ${({dark}) =>
     dark &&
     css`
-      background-color: ${({theme: {colors}}) => lighten(0.08, colors.secondary)};
+      background-color: ${({theme: {colors}}) =>
+        lighten(0.08, colors.secondary)};
     `} ${({topPadding}) =>
     topPadding &&
     css`

@@ -6,23 +6,20 @@ import {ms} from 'src/utils'
 import {darken} from 'polished'
 
 const Container = styled.header`
-  padding: ${ms(13)} 0 0 0;
+  padding: ${ms(12)} 0 0 0;
   position: relative;
   z-index: 0;
-  ${({verticalLayout}) => verticalLayout && VerticalTheme};
   ${({singleSection}) => singleSection && SingleSectionTheme};
   ${({theme: {mq}}) => mq.desktop} {
-    padding: ${ms(14)} 0 ${ms(8)};
+    padding: ${ms(12)} 0 ${ms(8)};
+  }
+  ${({theme: {mq}}) => mq.desktopL} {
+    padding: ${ms(13)} 0 ${ms(8)};
   }
 
   &:before {
     opacity: 1;
-    background-image: linear-gradient(
-      to bottom,
-      ${({theme: {colors}}) => darken(0, colors.secondary)},
-      ${({theme: {colors}}) => colors.canvas}
-    );
-
+    background-color: ${({theme: {colors}}) => darken(0.1, colors.secondary)};
     top: 0;
     content: '';
     height: 85%;
@@ -64,8 +61,15 @@ const HeroIllustrationSection = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  margin: ${ms(4)} 0 0 0;
+  ${({theme: {mq}}) => mq.desktop} {
+    justify-content: flex-end;
+  }
+  ${({theme: {mq}}) => mq.desktopL} {
+    justify-content: center;
+  }
 `
 
 const SingleSectionTheme = css`
@@ -77,38 +81,8 @@ const SingleSectionTheme = css`
   }
 `
 
-const VerticalTheme = css`
-  ${({theme: {mq}}) => mq.desktop} {
-    padding: ${ms(13)} 0 0 0;
-    margin: 0;
-  }
-
-  ${HeroSectionContent} {
-    ${({theme: {mq}}) => mq.desktop} {
-      flex-direction: column;
-    }
-  }
-
-  ${HeroTitleSection} {
-    margin: 0 0 ${ms(5)} 0;
-    ${({theme: {mq}}) => mq.desktop} {
-      width: 100%;
-    }
-  }
-
-  ${HeroIllustrationSection} {
-    margin: 0;
-    ${({theme: {mq}}) => mq.desktop} {
-      width: 100%;
-      &:before {
-        content: unset; // change to '' to restore
-      }
-    }
-  }
-`
-
-const HeroSection = ({children, image, verticalLayout}) => (
-  <Container verticalLayout={verticalLayout} singleSection={!image}>
+const HeroSection = ({children, image}) => (
+  <Container singleSection={!image}>
     <SectionLayout>
       <HeroSectionContent>
         <HeroTitleSection>{children}</HeroTitleSection>
@@ -121,11 +95,6 @@ const HeroSection = ({children, image, verticalLayout}) => (
 HeroSection.propTypes = {
   children: PropTypes.node.isRequired,
   image: PropTypes.node.isRequired,
-  verticalLayout: PropTypes.bool,
-}
-
-HeroSection.defaultProps = {
-  verticalLayout: false,
 }
 
 export default HeroSection

@@ -11,7 +11,7 @@ const MenuContainer = styled.nav`
   height: 100vh;
   overflow-y: auto;
   box-sizing: border-box;
-  width: 200px;
+  width: 300px;
   display: block;
   background: ${({theme: {colors}}) => colors.primary};
   top: 0;

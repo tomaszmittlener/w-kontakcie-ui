@@ -29,6 +29,12 @@ const Content = styled.div`
     css`
       opacity: 0;
     `};
+
+  ${({isMenuOpen}) =>
+    !isMenuOpen &&
+    css`
+      opacity: 1;
+    `};
 `
 
 const Container = styled.header`
@@ -49,7 +55,7 @@ const Container = styled.header`
 
   &:hover {
     &:before {
-      opacity: ${({isOnTop}) => !isOnTop && 1};
+      opacity: ${({isOnTop, isMobile}) => !isMobile && !isOnTop && 1};
     }
     ${Content} {
       opacity: 1;
@@ -186,6 +192,9 @@ class Header extends React.Component {
     const isMobileView = isMobile || isTablet
 
     const isFullyVisible = () => {
+      if (isMenuOpen) {
+        return false
+      }
       if (isMobileView && isBelowStartingPoint) {
         return true
       }
@@ -198,13 +207,14 @@ class Header extends React.Component {
     return (
       <Fragment>
         <Container
-          isMobile={isTablet || isMobile}
+          isMobile={isMobileView}
           isOnTop={!isBelowStartingPoint}
           isFullyVisible={isFullyVisible()}>
           <LogoContainer to="/" aria-label="got to Home page">
             <Logo />
           </LogoContainer>
           <Content
+            isMobile={isMobileView}
             isFullyVisible={isFullyVisible()}
             isOnTop={!isBelowStartingPoint}>
             {!isMobileView && (

@@ -11,6 +11,7 @@
     "gatsby-plugin-google-analytics": "next",
     "gatsby-plugin-manifest": "next",
     "gatsby-plugin-offline": "next",
+    "gatsby-plugin-pointer-events": "^1.0.2",
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-sharp": "^2.0.0-beta.7",
     "gatsby-plugin-sitemap": "next",
