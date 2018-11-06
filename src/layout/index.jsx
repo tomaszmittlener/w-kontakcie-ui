@@ -53,6 +53,7 @@ class Layout extends React.Component {
             <AppHelmet
               description={getSiteDescription(pathname)}
               title={`${CONFIG.siteTitle} |  ${getLocalTitle(pathname)}`}
+              currentPath={pathname}
             />
             {appendSEO && <SEO pathname={pathname} />}
             <App>{children}</App>
