@@ -26,12 +26,14 @@ const PAGE_META = {
     path: 'coaching',
     title: 'Coaching',
     description:
-      'Prowadzę coaching w dla firm oraz osób indywidualnych. Coaching jest dla mnie procesem doskonalenia kompetencji w obszarze, który chce rozwijać Klient. Jest oparty na partnerskiej relacji i wzajemnym zaufaniu.',
+      'Coaching w dla firm oraz osób indywidualnych. Coaching jest procesem doskonalenia kompetencji w obszarze, który chce rozwijać Klient. Jest oparty na partnerskiej relacji i wzajemnym zaufaniu.',
   },
   contact: {
     path: 'contact',
     title: 'Kontakt',
     description: `Skontaktuj się ze mną. tel: ${
+      CONFIG.phone
+    }, e-mail: ${
       CONFIG.userEmail
     }, adres gabinetu: ${CONFIG.streetAddress}, ${CONFIG.addressLocality}, ${
       CONFIG.postalCode
