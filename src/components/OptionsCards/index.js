@@ -81,7 +81,7 @@ class OptionsCards extends React.PureComponent {
         {data.map((option, index) => (
           <Col key={`home-col-${option.title}-${index}`}>
             <Option>
-              <Link to={option.link}>
+              <Link to={option.link} noHoover>
                 <OptionFigure>{option.img}</OptionFigure>
               </Link>
               <OptionTitle>{option.title}</OptionTitle>

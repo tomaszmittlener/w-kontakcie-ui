@@ -49,8 +49,8 @@ class AboutPage extends Component {
               maxWidth={IMAGE_WIDTH}
               outerWrapperClassName="__image-outer-wrapper"
               innerWrapperClassName="__image-inner-wrapper"
-              title="hand image"
-              alt="Home "
+              title="hero"
+              alt="Ilustracja tytułowa strony wrelacji/o mnie"
               sizes={heroImage.childImageSharp.fluid}
             />
           }>

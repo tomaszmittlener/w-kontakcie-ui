@@ -19,7 +19,7 @@ export {default as PageSection} from './PageSection'
 // Tools
 export {default as MarkdownAST} from './MarkdownAST'
 export {default as SEO} from './SEO'
-export {default as AppHelmet} from './Helmet'
+export {default as AppHelmet} from './AppHelmet'
 
 // Text presentation
 export {default as Accordeon} from './Accordeon'

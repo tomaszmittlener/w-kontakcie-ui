@@ -45,19 +45,20 @@ class TherapyPage extends Component {
   render() {
     const {
       data: {heroImage},
+      location,
       t,
     } = this.props
 
     return (
-      <Layout location={this.props.location} withTopPadding>
+      <Layout location={location} withTopPadding>
         <HeroSection
           image={
             <HeroImage
               maxWidth={IMAGE_WIDTH}
               outerWrapperClassName="__image-outer-wrapper"
               innerWrapperClassName="__image-inner-wrapper"
-              title="hand image"
-              alt="Home "
+              title="Hero"
+              alt="Ilustracja tytułowa strony wrelacji/terapia"
               sizes={heroImage.childImageSharp.fluid}
             />
           }>

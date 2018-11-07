@@ -42,8 +42,8 @@ class Index extends React.Component {
               maxWidth={IMAGE_WIDTH}
               outerWrapperClassName="__image-outer-wrapper"
               innerWrapperClassName="__image-inner-wrapper"
-              title="hand image"
-              alt="Home "
+              title="hero"
+              alt="Ilustracja tytułowa strony głównej"
               sizes={heroImage.childImageSharp.fluid}
             />
           }>

@@ -126,7 +126,7 @@ class AboutPageBody extends React.Component {
                   <Avatar
                     outerWrapperClassName="gatsbyImageWrapper"
                     title="avatar"
-                    alt="Anna Dejewska's photo"
+                    alt="zdjęcie Anny Dejewskiej"
                     sizes={meImage.childImageSharp.fluid}
                   />
                 </ImageSection>

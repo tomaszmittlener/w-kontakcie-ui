@@ -7,7 +7,7 @@ import {
 import {ThemeProvider} from 'styled-components'
 
 import {locationPropTypesShape} from 'src/utils/PropTypes'
-import {getLocalTitle, getSiteDescription, isWindowDefined} from 'src/utils'
+import {isWindowDefined} from 'src/utils'
 import {AppContextProvider} from 'src/context'
 import {App} from 'src/containers'
 import {AppHelmet} from 'src/components'
@@ -20,7 +20,6 @@ import {
   DESKTOP_MEDIA_QUERY_MIN_WIDTH,
 } from 'src/constants/MediaQueries'
 import THEME from 'src/layout/theme'
-import CONFIG from '../../data/SiteConfig'
 import GlobalStyles from './global-styles'
 
 const BREAKPOINTS =
@@ -50,11 +49,7 @@ class Layout extends React.Component {
         <ThemeProvider theme={THEME}>
           <BreakPointsProviderFix breakpoints={BREAKPOINTS}>
             <AppContextProvider>
-              <AppHelmet
-                description={getSiteDescription(pathname)}
-                title={`${CONFIG.siteTitleShort} |  ${getLocalTitle(pathname)}`}
-                currentPath={pathname}
-              />
+              <AppHelmet pathname={pathname} />
               <App>{children}</App>
             </AppContextProvider>
           </BreakPointsProviderFix>
