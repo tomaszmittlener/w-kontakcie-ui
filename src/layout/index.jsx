@@ -45,14 +45,16 @@ class Layout extends React.Component {
 
     return (
       <Fragment>
-        <GlobalStyles />
         <ThemeProvider theme={THEME}>
-          <BreakPointsProviderFix breakpoints={BREAKPOINTS}>
-            <AppContextProvider>
-              <AppHelmet pathname={pathname} />
-              <App>{children}</App>
-            </AppContextProvider>
-          </BreakPointsProviderFix>
+          <Fragment>
+            <GlobalStyles />
+            <BreakPointsProviderFix breakpoints={BREAKPOINTS}>
+              <AppContextProvider>
+                <AppHelmet pathname={pathname} />
+                <App>{children}</App>
+              </AppContextProvider>
+            </BreakPointsProviderFix>
+          </Fragment>
         </ThemeProvider>
       </Fragment>
     )

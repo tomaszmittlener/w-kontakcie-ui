@@ -1,8 +1,7 @@
-import { createGlobalStyle } from 'styled-components'
+import {createGlobalStyle} from 'styled-components'
 import {normalize} from 'polished'
 import {ms} from 'src/utils'
 import javieraLight from './fonts/Javiera-Light.woff'
-import Theme from './theme'
 
 const GlobalStyles = createGlobalStyle`
 
@@ -26,6 +25,7 @@ ${normalize()}
   html,
   body {
     width: 100%;
+    background-color: ${({theme: {colors}}) => colors.secondary};
 
   }
 
@@ -33,10 +33,13 @@ ${normalize()}
     min-height: 100%;
     margin: 0;
     padding: 0;
-    font-family: ${Theme.typo.fontFamily.primary};
+    font-family: ${({
+      theme: {
+        typo: {fontFamily},
+      },
+    }) => fontFamily.primary};
     font-size: ${ms(1.5)};
-    color: ${Theme.colors.text};
+    color: ${({theme: {colors}}) => colors.text};
   }
 `
 export default GlobalStyles
-

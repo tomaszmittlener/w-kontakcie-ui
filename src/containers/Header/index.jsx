@@ -20,7 +20,7 @@ const Content = styled.div`
     justify-content: space-between;
   }
 
-  transition: opacity 0.15s linear 0.1s;
+  transition: opacity 0.35s linear 0.1s;
   opacity: 0;
 
   ${({showNav}) =>
@@ -31,6 +31,7 @@ const Content = styled.div`
 `
 
 const Container = styled.header`
+  opacity: ${({showHeader}) => showHeader ? 1: 0};
   width: 100%;
   position: fixed;
   display: flex;
@@ -38,12 +39,12 @@ const Container = styled.header`
   padding: ${ms(-2)} ${ms(2)};
   align-items: center;
   z-index: ${({theme: {layers}}) => layers.middleTom};
-  transition: all 250ms ease-in-out;
+  transition: opacity 900ms ease-in-out;
   padding: ${ms(-2)} ${ms(2)};
   background-color: transparent;
   border: none;
   &:before {
-    transition: opacity 0.15s linear 0.1s;
+    transition: opacity 0.25s linear 0.1s;
     content: '';
     left: 0;
     opacity: 0;
@@ -176,6 +177,7 @@ class Header extends React.Component {
     const {
       context: {toggleMenuOpen, isMenuOpen},
       breakpoints: {isTablet, isMobile},
+      showHeader,
     } = this.props
 
     const isMobileView = isMobile || isTablet
@@ -199,6 +201,7 @@ class Header extends React.Component {
     return (
       <Fragment>
         <Container
+          showHeader={showHeader}
           showBG={showBG}
           isOnTop={isOnTop}
           hideBGonHoover={hideBGonHoover}>
