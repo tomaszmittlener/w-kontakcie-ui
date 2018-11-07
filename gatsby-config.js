@@ -1,6 +1,9 @@
-const config = require('./data/SiteConfig')
+const CONFIG = require('./data/SiteConfig')
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: CONFIG.siteUrl,
+  },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
@@ -26,7 +29,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {
-        id: config.googleTagID,
+        id: CONFIG.googleTagID,
         // Include GTM in development.
         // Defaults to false meaning GTM will only be loaded in production.
         includeInDevelopment: true,
@@ -47,14 +50,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-favicon`,
       options: {
-        appName: config.siteTitle,
-        appDescription: config.siteDescription,
+        appName: CONFIG.siteTitle,
+        appDescription: CONFIG.siteDescription,
         developerName: null,
         developerURL: null,
         dir: 'auto',
         lang: 'pl-PL',
-        background: config.backgroundColor,
-        theme_color: config.themeColor,
+        background: CONFIG.backgroundColor,
+        theme_color: CONFIG.themeColor,
         display: 'standalone',
         orientation: 'any',
         version: '1.0',
