@@ -50,8 +50,6 @@ class TherapyPage extends Component {
 
     return (
       <Layout location={this.props.location} withTopPadding>
-        <Helmet title={`Psychoterapia | ${config.siteTitle}`} />
-
         <HeroSection
           image={
             <HeroImage

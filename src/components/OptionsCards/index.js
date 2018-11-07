@@ -1,5 +1,4 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {ms} from 'src/utils'
@@ -77,19 +76,20 @@ const OptionTitle = styled(H3)`
 class OptionsCards extends React.PureComponent {
   render() {
     const {data} = this.props
+    console.log(data);
     return (
       <OptionsContainer>
         {data.map((option, index) => (
-          <Col key={`home-col-${index}`}>
+          <Col key={`home-col-${option.title}-${index}`}>
             <Option>
-              <NavLink to={option.link}>
+              <Link to={option.link}>
                 <OptionFigure>{option.img}</OptionFigure>
-              </NavLink>
+              </Link>
               <OptionTitle>{option.title}</OptionTitle>
               <DescriptionList>
                 <FeaturesItems bullets={option.bullets} small />
               </DescriptionList>
-              <ReadMoreLink to="/therapy">Czytaj wiecej</ReadMoreLink>
+              <ReadMoreLink to={option.link}>Czytaj wiecej</ReadMoreLink>
             </Option>
           </Col>
         ))}

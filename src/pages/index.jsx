@@ -11,11 +11,9 @@ import {
 import {compose, ms} from 'src/utils'
 import {withLocales, withLocalesContextProvider} from 'src/context'
 
-import Helmet from 'react-helmet'
 import Layout from 'src/layout'
-import {H1, H3, Button, HeroSection, HeroImage} from 'src/components'
+import { H1, H3, Button, HeroSection, HeroImage, SEO } from 'src/components';
 import {HomePageBody} from 'src/containers'
-import config from '../../data/SiteConfig'
 
 const IMAGE_WIDTH = 400
 
@@ -37,7 +35,7 @@ class Index extends React.Component {
     } = this.props
     return (
       <Layout location={location} withTopPadding hideLogo>
-        <Helmet title={config.siteTitle} />
+        <SEO />
         <HeroSection
           image={
             <HeroImage

@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import urljoin from 'url-join'
 import CONFIG from '../../../data/SiteConfig'
@@ -113,10 +112,6 @@ class SEO extends Component {
       </Helmet>
     )
   }
-}
-
-SEO.propTypes = {
-  pathname: PropTypes.string.isRequired,
 }
 
 export default SEO

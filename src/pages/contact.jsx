@@ -26,12 +26,10 @@ class ContactPage extends Component {
   render() {
     const {
       t,
-      config,
       data: {heroImage},
     } = this.props
     return (
       <Layout location={this.props.location} withTopPadding>
-        <Helmet title={`Kontakt | ${config('siteTitle')}`} />
         <HeroSection
           image={
             <HeroImage
@@ -60,7 +58,6 @@ class ContactPage extends Component {
 
 ContactPage.propTypes = {
   location: locationPropTypesShape.isRequired,
-  config: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
 }
 

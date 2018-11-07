@@ -39,12 +39,10 @@ class AboutPage extends Component {
   render() {
     const {
       data: {meImage, heroImage},
-      config,
       t,
     } = this.props
     return (
       <Layout location={this.props.location} withTopPadding>
-        <Helmet title={`O mnie | ${config('siteTitle')}`} />
         <HeroSection
           image={
             <HeroImage
@@ -67,7 +65,6 @@ class AboutPage extends Component {
 
 AboutPage.propTypes = {
   location: locationPropTypesShape.isRequired,
-  config: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
   data: PropTypes.shape({
     meImage: imageFluidPropTypesShape.isRequired,

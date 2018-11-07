@@ -29,13 +29,11 @@ class CoachingPage extends Component {
   render() {
     const {
       t,
-      config,
       location,
       data: {heroImage},
     } = this.props
     return (
       <Layout location={location} withTopPadding>
-        <Helmet title={`Coaching | ${config('siteTitle')}`} />
         <HeroSection
           image={
             <HeroImage
@@ -58,7 +56,6 @@ class CoachingPage extends Component {
 
 CoachingPage.propTypes = {
   location: locationPropTypesShape.isRequired,
-  config: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
 }
 

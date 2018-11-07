@@ -5,42 +5,55 @@ import modularScale from 'polished/lib/helpers/modularScale'
 import CONFIG from '../../data/SiteConfig'
 
 export const getLocalTitle = pathname => {
+  const pathPrefix = CONFIG.pathPrefix ? CONFIG.pathPrefix : '/'
+  const currentPath = pathname.replace(pathPrefix, '').replace('/', '')
+  console.log(currentPath);
+
   let title = ''
-  switch (pathname) {
-    case '/about':
+  switch (currentPath) {
+    case '':
+      title = 'Gabinet Psychoterapii i Rozwoju Osobistego'
+      break
+    case 'about':
       title = 'O mnie'
       break
-    case '/therapy':
+    case 'therapy':
       title = 'Terapia'
       break
-    case '/coaching':
+    case 'coaching':
       title = 'Coaching'
       break
-    case '/contact':
+    case 'contact':
       title = 'Kontakt'
       break
     default:
-      title = 'W relacji'
+      title = 'Gabinet Psychoterapii i Rozwoju Osobistego'
       break
   }
   return title
 }
 export const getSiteDescription = pathname => {
+  const pathPrefix = CONFIG.pathPrefix ? CONFIG.pathPrefix : '/'
+  const currentPath = pathname.replace(pathPrefix, '').replace('/', '')
+
   let description = ''
-  switch (pathname) {
-    case '/about':
+  switch (currentPath) {
+    case '':
+      description = CONFIG.siteDescription
+      break
+    case 'about':
       description =
         'Nazywam się Anna Dejewska. Prowadzę terapię indywidualną osób dorosłych i młodzieży oraz life i business coaching.'
       break
-    case '/therapy':
+    case 'therapy':
       description =
         'Trudności w relacjach, Depresja, Kryzysy i trudności osobiste, Lęki, nerwice, Trudności w pracy'
       break
-    case '/coaching':
+    case 'coaching':
       description =
         'Prowadzę coaching w dla firm oraz osób indywidualnych. Coaching jest dla mnie procesem doskonalenia kompetencji w obszarze, który chce rozwijać Klient. Jest oparty na partnerskiej relacji i wzajemnym zaufaniu.'
       break
-    case '/contact':
+    case 'contact':
       description = `Skontaktuj się ze mną. tel: ${CONFIG.userEmail}, adres gabinetu: ${CONFIG.streetAddress}, ${CONFIG.addressLocality}, ${CONFIG.postalCode}`
       break
     default:

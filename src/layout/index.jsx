@@ -45,7 +45,6 @@ class Layout extends React.Component {
       location: {pathname},
     } = this.props
 
-    const appendSEO = pathname === '/'
     return (
       <ThemeProvider theme={THEME}>
         <BreakPointsProviderFix breakpoints={BREAKPOINTS}>
@@ -55,7 +54,6 @@ class Layout extends React.Component {
               title={`${CONFIG.siteTitle} |  ${getLocalTitle(pathname)}`}
               currentPath={pathname}
             />
-            {appendSEO && <SEO pathname={pathname} />}
             <App>{children}</App>
           </AppContextProvider>
         </BreakPointsProviderFix>

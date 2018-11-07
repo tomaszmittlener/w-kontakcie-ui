@@ -5,7 +5,7 @@ import CONFIG from '../../../data/SiteConfig'
 
 const AppHelmet = ({title, description, meta, currentPath, ...props}) => {
   return (
-    <Helmet title={title} description={description} meta={meta} {...props}>
+    <Helmet title={title} meta={meta} {...props}>
       <meta name="description" content={description} />
       <link rel="canonical" href={`${CONFIG.siteUrl}${currentPath}`} />
       <html lang="pl-PL" />
