@@ -58,7 +58,6 @@ class MobileMenu extends React.PureComponent {
           <MainNavigationLink
             key={`${item.link}-${i}`}
             aria-label={`go to "${item.title}" page`}
-            exact
             activeClassName="active"
             to={item.link}
             onClick={toggleMenuOpen}>

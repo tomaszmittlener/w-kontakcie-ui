@@ -15,12 +15,6 @@ module.exports = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-pointer-events',
     {
-      resolve: 'gatsby-plugin-page-transitions',
-      options: {
-        transitionTime: 500,
-      },
-    },
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'assets',

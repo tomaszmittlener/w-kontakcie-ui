@@ -5,13 +5,12 @@ import {
   createBreakpoints,
 } from 'react-match-breakpoints'
 import {ThemeProvider} from 'styled-components'
-import Helmet from 'react-helmet'
 
 import {locationPropTypesShape} from 'src/utils/PropTypes'
 import {getLocalTitle, getSiteDescription, isWindowDefined} from 'src/utils'
 import {AppContextProvider} from 'src/context'
 import {App} from 'src/containers'
-import {AppHelmet, SEO} from 'src/components'
+import {AppHelmet} from 'src/components'
 import {
   TABLET_MEDIA_QUERY_MIN_WIDTH,
   TABLET_MEDIA_QUERY,

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import withBreakpoints, {compose} from 'src/utils'
 import styled, {css} from 'styled-components'
 import {Element} from 'react-scroll'
-import PageTransition from 'gatsby-plugin-page-transitions'
 
 import {breakpointsPropTypesShape} from 'src/utils/PropTypes'
 import {Header, Footer, MobileMenu} from 'src/containers'
@@ -78,12 +77,10 @@ class Layout extends React.Component {
           name={TOP_SECTION}
           isMenuOpen={isMenuOpen}
           onClick={() => isMenuOpen && toggleMenuOpen()}>
-          <PageTransition>
-            <ContentContainer isMenuOpen={isMenuOpen}>
-              {children}
-            </ContentContainer>
+          <ContentContainer isMenuOpen={isMenuOpen}>
+            {children}
             <Footer />
-          </PageTransition>
+          </ContentContainer>
         </ViewContainer>
       </Fragment>
     )
