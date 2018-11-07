@@ -20,7 +20,7 @@ const Content = styled.div`
     justify-content: space-between;
   }
 
-  transition: opacity 0.35s linear 0.1s;
+  transition: opacity 0.15s linear 0.1s;
   opacity: 0;
 
   ${({showNav}) =>
@@ -44,7 +44,7 @@ const Container = styled.header`
   background-color: transparent;
   border: none;
   &:before {
-    transition: opacity 0.25s linear 0.1s;
+    transition: opacity 0.15s linear 0.1s;
     content: '';
     left: 0;
     opacity: 0;
