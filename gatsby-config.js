@@ -14,7 +14,7 @@ module.exports = {
     'gatsby-image',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-pointer-events',
-    // 'gatsby-plugin-offline',
+    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
