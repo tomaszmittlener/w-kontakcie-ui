@@ -27,7 +27,7 @@ module.exports = {
   userAvatar: 'https://api.adorable.io/avatars/150/test.png', // User avatar to display in the author segment.
   userDescription: 'Anna Dejewska - psycholog, psychoterapeuta, coach',
   copyright: 'Copyright © 2018. W relacji', // Copyright string for the footer of the website and RSS feed.
-  themeColor: '#25516C', // Used for setting manifest and progress theme colors.
+  themeColor: '#FBFBFB', // Used for setting manifest and progress theme colors.
   backgroundColor: '#25516C', // Used for setting manifest background color.
   socialMedia: [
     {

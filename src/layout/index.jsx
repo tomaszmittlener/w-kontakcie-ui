@@ -11,7 +11,7 @@ import {locationPropTypesShape} from 'src/utils/PropTypes'
 import {getLocalTitle, getSiteDescription, isWindowDefined} from 'src/utils'
 import {AppContextProvider} from 'src/context'
 import {App} from 'src/containers'
-import { AppHelmet, SEO } from 'src/components';
+import {AppHelmet, SEO} from 'src/components'
 import {
   TABLET_MEDIA_QUERY_MIN_WIDTH,
   TABLET_MEDIA_QUERY,
@@ -46,21 +46,21 @@ class Layout extends React.Component {
     } = this.props
 
     return (
-      <ThemeProvider theme={THEME}>
-        <Fragment>
+      <Fragment>
         <GlobalStyles />
-        <BreakPointsProviderFix breakpoints={BREAKPOINTS}>
-          <AppContextProvider>
-            <AppHelmet
-              description={getSiteDescription(pathname)}
-              title={`${CONFIG.siteTitleShort} |  ${getLocalTitle(pathname)}`}
-              currentPath={pathname}
-            />
-            <App>{children}</App>
-          </AppContextProvider>
-        </BreakPointsProviderFix>
-          </Fragment>
-      </ThemeProvider>
+        <ThemeProvider theme={THEME}>
+          <BreakPointsProviderFix breakpoints={BREAKPOINTS}>
+            <AppContextProvider>
+              <AppHelmet
+                description={getSiteDescription(pathname)}
+                title={`${CONFIG.siteTitleShort} |  ${getLocalTitle(pathname)}`}
+                currentPath={pathname}
+              />
+              <App>{children}</App>
+            </AppContextProvider>
+          </BreakPointsProviderFix>
+        </ThemeProvider>
+      </Fragment>
     )
   }
 }
