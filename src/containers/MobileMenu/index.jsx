@@ -7,6 +7,8 @@ import {ms} from 'src/utils/index'
 import menuItemsList from '../../../data/MenuItems'
 
 const MenuContainer = styled.nav`
+  opacity: ${({open}) => open ? 1 : 0};
+  transition: 0.25s opacity ease-in-out;
   position: fixed;
   height: 100vh;
   overflow-y: auto;

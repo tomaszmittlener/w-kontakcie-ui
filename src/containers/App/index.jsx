@@ -11,14 +11,17 @@ import {contextPropTypesShape, withAppContext} from 'src/context'
 import 'src/layout/global-styles'
 import background from '../../../static/constellation_background.png'
 
-const ViewContainer = styled(({isMenuOpen, ...rest}) => <Element {...rest} />)`
+const ViewContainer = styled(({isMenuOpen, showContent, ...rest}) => (
+  <Element {...rest} />
+))`
+  opacity: ${({showContent}) => (showContent ? 1 : 0)};
   height: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: ${({theme: {colors}}) => colors.canvas};
-  transition: 0.25s transform ease-in-out;
+  transition: 0.2s transform ease-in-out, 0.2s opacity ease-in-out;
   z-index: ${({theme: {layers}}) => layers.middle};
   position: relative;
   ${({isMenuOpen}) =>
@@ -60,20 +63,40 @@ const ContentContainer = styled.main`
 `
 
 class Layout extends React.Component {
+  state = {
+    showContent: false,
+  }
+
+  componentDidMount() {
+    this.mounted = true
+    this.timeout = this.timer()
+  }
+
+  componentWillUnmount = () => {
+    this.mounted = true
+    clearTimeout(this.timeout)
+  }
+
+  timer = () =>
+    setTimeout(() => {
+      this.setState({showContent: true}) || null
+    }, 300)
+
   render() {
     const {
       children,
       context: {toggleMenuOpen, isMenuOpen},
       breakpoints: {isTablet, isMobile},
     } = this.props
-
+    const {showContent} = this.state
     const isMobileView = isMobile || isTablet
 
     return (
       <Fragment>
-        {isMobileView && <MobileMenu />}
-        <Header />
+        {isMobileView && showContent && <MobileMenu />}
+        <Header showHeader={showContent}/>
         <ViewContainer
+          showContent={showContent}
           name={TOP_SECTION}
           isMenuOpen={isMenuOpen}
           onClick={() => isMenuOpen && toggleMenuOpen()}>

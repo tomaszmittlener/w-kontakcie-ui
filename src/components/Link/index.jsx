@@ -30,7 +30,7 @@ const NoHooverMixin = css`
 `
 
 const scrollAnimation = {
-  duration: 1500,
+  duration: 850,
   smooth: 'easeInOutQuint',
 }
 
