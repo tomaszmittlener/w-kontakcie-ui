@@ -35,7 +35,7 @@ class Index extends React.Component {
     } = this.props
     return (
       <Layout location={location} withTopPadding hideLogo>
-        <SEO />
+        {/*<SEO />*/}
         <HeroSection
           image={
             <HeroImage
