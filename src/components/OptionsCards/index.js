@@ -76,13 +76,12 @@ const OptionTitle = styled(H3)`
 class OptionsCards extends React.PureComponent {
   render() {
     const {data} = this.props
-    console.log(data);
     return (
       <OptionsContainer>
         {data.map((option, index) => (
           <Col key={`home-col-${option.title}-${index}`}>
             <Option>
-              <Link to={option.link}>
+              <Link to={option.link} noHoover>
                 <OptionFigure>{option.img}</OptionFigure>
               </Link>
               <OptionTitle>{option.title}</OptionTitle>

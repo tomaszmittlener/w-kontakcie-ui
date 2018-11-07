@@ -5,7 +5,6 @@ import styled, {css} from 'styled-components'
 import {Element} from 'react-scroll'
 
 import {breakpointsPropTypesShape} from 'src/utils/PropTypes'
-import {Transition} from 'src/components'
 import {Header, Footer, MobileMenu} from 'src/containers'
 import {TOP_SECTION} from 'src/constants/SectionNames'
 import {contextPropTypesShape, withAppContext} from 'src/context'
@@ -47,10 +46,10 @@ const ContentContainer = styled.main`
   }
   &:before {
     content: '';
-    visibility: ${({isMenuOpen}) => isMenuOpen ? 'visible' : 'hidden'};
+    visibility: ${({isMenuOpen}) => (isMenuOpen ? 'visible' : 'hidden')};
     transition: 0.5s opacity ease-in-out;
     background-color: ${({theme: {colors}}) => colors.primary};
-    opacity: ${({isMenuOpen}) => isMenuOpen ? '0.4' : '0'};
+    opacity: ${({isMenuOpen}) => (isMenuOpen ? '0.4' : '0')};
     top: 0;
     left: 0;
     bottom: 0;
@@ -78,10 +77,10 @@ class Layout extends React.Component {
           name={TOP_SECTION}
           isMenuOpen={isMenuOpen}
           onClick={() => isMenuOpen && toggleMenuOpen()}>
-          <Transition>
-            <ContentContainer isMenuOpen={isMenuOpen}>{children}</ContentContainer>
-          </Transition>
-          <Footer />
+          <ContentContainer isMenuOpen={isMenuOpen}>
+            {children}
+            <Footer />
+          </ContentContainer>
         </ViewContainer>
       </Fragment>
     )

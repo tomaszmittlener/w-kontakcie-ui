@@ -2,7 +2,6 @@ import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {ms, compose} from 'src/utils/index'
-import {NavLink} from 'react-router-dom'
 import {
   H2,
   H3,

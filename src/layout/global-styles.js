@@ -1,10 +1,10 @@
-import {injectGlobal} from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 import {normalize} from 'polished'
 import {ms} from 'src/utils'
 import javieraLight from './fonts/Javiera-Light.woff'
 import Theme from './theme'
 
-injectGlobal`
+const GlobalStyles = createGlobalStyle`
 
 ${normalize()}
 
@@ -37,11 +37,6 @@ ${normalize()}
     font-size: ${ms(1.5)};
     color: ${Theme.colors.text};
   }
-
-
-
-
-
-
-
 `
+export default GlobalStyles
+

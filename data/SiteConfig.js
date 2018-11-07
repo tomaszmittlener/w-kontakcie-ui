@@ -1,5 +1,5 @@
 module.exports = {
-  siteTitle: 'W relacji', // Site title.
+  siteTitle: 'W Relacji - Gabinet Psychoterapii i Rozwoju Osobistego', // Site title.
   streetAddress: 'Waryńskiego 40c/1',
   addressLocality: 'Gdańsk',
   postalCode: '80-433',
@@ -7,6 +7,9 @@ module.exports = {
   siteTitleAlt: 'W relacji', // Alternative site title for Index.
   siteLogo: 'logo.png', // Logo used for Index and manifest.
   siteUrl: 'https://wrelacji.com.pl', // Domain of your website without pathPrefix.
+  mapUrl:
+    'https://www.google.com/maps/place/Ludwika+Wary%C5%84skiego+40c,+80-980+Gda%C5%84sk,+Polska/@54.3789796,18.6109153,18z/data=!3m1!4b1!4m5!3m4!1s0x46fd749674506061:0x8465d06b7b224b1e!8m2!3d54.3789796!4d18.6120096?hl=pl-PL',
+  // Domain of your website without pathPrefix.
   pathPrefix: '', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription:
     "Gabinet Psychoterapii i Rozwoju Osobistego 'W relacji'. Psycholog Anne Dejewska - psychoterapia, life coaching, business coaching, rozwój osobisty", // Website description used for RSS feeds/meta description tag.
@@ -27,7 +30,7 @@ module.exports = {
   userAvatar: 'https://api.adorable.io/avatars/150/test.png', // User avatar to display in the author segment.
   userDescription: 'Anna Dejewska - psycholog, psychoterapeuta, coach',
   copyright: 'Copyright © 2018. W relacji', // Copyright string for the footer of the website and RSS feed.
-  themeColor: '#25516C', // Used for setting manifest and progress theme colors.
+  themeColor: '#FBFBFB', // Used for setting manifest and progress theme colors.
   backgroundColor: '#25516C', // Used for setting manifest background color.
   socialMedia: [
     {

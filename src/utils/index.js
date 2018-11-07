@@ -7,12 +7,11 @@ import CONFIG from '../../data/SiteConfig'
 export const getLocalTitle = pathname => {
   const pathPrefix = CONFIG.pathPrefix ? CONFIG.pathPrefix : '/'
   const currentPath = pathname.replace(pathPrefix, '').replace('/', '')
-  console.log(currentPath);
 
   let title = ''
   switch (currentPath) {
     case '':
-      title = 'Gabinet Psychoterapii i Rozwoju Osobistego'
+      title = 'Strona Główna'
       break
     case 'about':
       title = 'O mnie'

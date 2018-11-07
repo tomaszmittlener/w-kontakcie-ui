@@ -9,37 +9,35 @@ class SEO extends Component {
 
     const schemaOrgJSONLD = [
       {
-        '@context': 'http://schema.org',
-        '@type': 'Organization',
+        '@context': 'http://www.schema.org',
+        '@type': 'LocalBusiness',
+        name: 'W Relacji',
         url: CONFIG.siteUrl,
-        name: CONFIG.siteTitle,
-        alternateName: CONFIG.siteTitleAlt ? CONFIG.siteTitleAlt : '',
         logo: image,
+        image,
+        telephone: CONFIG.phone,
+        description: CONFIG.siteDescription,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: CONFIG.addressLocality,
+          addressLocality: CONFIG.addressLocality,
+          addressRegion: 'Pomorskie',
+          postalCode: CONFIG.postalCode,
+          addressCountry: 'Polska',
+        },
         sameAs: CONFIG.socialMedia.map(media => media.link),
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: '54.379154',
+          longitude: '18.6115159',
+        },
+        hasMap: CONFIG.mapUrl,
+        openingHours: 'Mo, Tu, We, Th, Fr 08:00-20:00',
         contactPoint: {
           '@type': 'ContactPoint',
           telephone: CONFIG.phone,
-          contactType: 'Kontakt',
+          contactType: 'customer support',
         },
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: 'Waryńskiego 40c/1',
-          addressLocality: 'Gdańsk',
-          addressRegion: 'GDA',
-          postalCode: '80-433',
-          addressCountry: 'PL',
-        },
-        geo: {
-          '@type': 'GeoCoordinates',
-          latitude: 54.379154,
-          longitude: 18.6115159,
-        },
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '08:00',
-        closes: '20:00',
       },
     ]
     const VALIDATION_META = [
@@ -106,7 +104,6 @@ class SEO extends Component {
     return (
       <Helmet meta={META_TAGS}>
         <script type="application/ld+json">
-
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
       </Helmet>

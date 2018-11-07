@@ -35,7 +35,7 @@ const scrollAnimation = {
 }
 
 const WrappedLink = styled(
-  ({size, color, children, to, exact, scroll, noHoover, ...otherProps}) => {
+  ({size, color, children, to, scroll, noHoover, ...otherProps}) => {
     const href = /(http|https|tel|mailto)(.+)/.exec(to)
     if (href) {
       return (
@@ -52,7 +52,7 @@ const WrappedLink = styled(
       )
     }
     return (
-      <Link to={to} exact={exact} {...otherProps}>
+      <Link to={to} {...otherProps}>
         {children}
       </Link>
     )

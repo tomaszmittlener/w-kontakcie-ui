@@ -5,13 +5,12 @@ import {
   createBreakpoints,
 } from 'react-match-breakpoints'
 import {ThemeProvider} from 'styled-components'
-import Helmet from 'react-helmet'
 
 import {locationPropTypesShape} from 'src/utils/PropTypes'
-import {getLocalTitle, getSiteDescription, isWindowDefined} from 'src/utils'
+import {isWindowDefined} from 'src/utils'
 import {AppContextProvider} from 'src/context'
 import {App} from 'src/containers'
-import { AppHelmet, SEO } from 'src/components';
+import {AppHelmet} from 'src/components'
 import {
   TABLET_MEDIA_QUERY_MIN_WIDTH,
   TABLET_MEDIA_QUERY,
@@ -21,8 +20,7 @@ import {
   DESKTOP_MEDIA_QUERY_MIN_WIDTH,
 } from 'src/constants/MediaQueries'
 import THEME from 'src/layout/theme'
-import CONFIG from '../../data/SiteConfig'
-import './global-styles'
+import GlobalStyles from './global-styles'
 
 const BREAKPOINTS =
   isWindowDefined &&
@@ -46,18 +44,17 @@ class Layout extends React.Component {
     } = this.props
 
     return (
-      <ThemeProvider theme={THEME}>
-        <BreakPointsProviderFix breakpoints={BREAKPOINTS}>
-          <AppContextProvider>
-            <AppHelmet
-              description={getSiteDescription(pathname)}
-              title={`${CONFIG.siteTitle} |  ${getLocalTitle(pathname)}`}
-              currentPath={pathname}
-            />
-            <App>{children}</App>
-          </AppContextProvider>
-        </BreakPointsProviderFix>
-      </ThemeProvider>
+      <Fragment>
+        <GlobalStyles />
+        <ThemeProvider theme={THEME}>
+          <BreakPointsProviderFix breakpoints={BREAKPOINTS}>
+            <AppContextProvider>
+              <AppHelmet pathname={pathname} />
+              <App>{children}</App>
+            </AppContextProvider>
+          </BreakPointsProviderFix>
+        </ThemeProvider>
+      </Fragment>
     )
   }
 }

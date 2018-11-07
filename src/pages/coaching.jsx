@@ -40,8 +40,8 @@ class CoachingPage extends Component {
               maxWidth={IMAGE_WIDTH}
               outerWrapperClassName="__image-outer-wrapper"
               innerWrapperClassName="__image-inner-wrapper"
-              title="coaching hero"
-              alt="coaching hero"
+              title="hero"
+              alt="Ilustracja tytułowa strony wrelacji/coaching"
               sizes={heroImage.childImageSharp.fluid}
             />
           }>
