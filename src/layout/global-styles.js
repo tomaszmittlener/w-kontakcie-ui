@@ -2,6 +2,7 @@ import {createGlobalStyle} from 'styled-components'
 import {normalize} from 'polished'
 import {ms} from 'src/utils'
 import javieraLight from './fonts/Javiera-Light.woff'
+import background from '../../static/constellation_background.png'
 
 const GlobalStyles = createGlobalStyle`
 
@@ -30,6 +31,7 @@ ${normalize()}
   }
 
   body {
+
     min-height: 100%;
     margin: 0;
     padding: 0;

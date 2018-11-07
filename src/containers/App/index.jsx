@@ -80,7 +80,7 @@ class Layout extends React.Component {
   timer = () =>
     setTimeout(() => {
       this.setState({showContent: true}) || null
-    }, 500)
+    }, 300)
 
   render() {
     const {
