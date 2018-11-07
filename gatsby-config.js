@@ -13,7 +13,6 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-image',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-pointer-events',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
