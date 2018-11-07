@@ -7,6 +7,9 @@ module.exports = {
   siteTitleAlt: 'W relacji', // Alternative site title for Index.
   siteLogo: 'logo.png', // Logo used for Index and manifest.
   siteUrl: 'https://wrelacji.com.pl', // Domain of your website without pathPrefix.
+  mapUrl:
+    'https://www.google.com/maps/place/Ludwika+Wary%C5%84skiego+40c,+80-980+Gda%C5%84sk,+Polska/@54.3789796,18.6109153,18z/data=!3m1!4b1!4m5!3m4!1s0x46fd749674506061:0x8465d06b7b224b1e!8m2!3d54.3789796!4d18.6120096?hl=pl-PL',
+  // Domain of your website without pathPrefix.
   pathPrefix: '', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription:
     "Gabinet Psychoterapii i Rozwoju Osobistego 'W relacji'. Psycholog Anne Dejewska - psychoterapia, life coaching, business coaching, rozwój osobisty", // Website description used for RSS feeds/meta description tag.

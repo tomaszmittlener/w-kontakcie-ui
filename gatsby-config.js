@@ -1,13 +1,10 @@
 const config = require('./data/SiteConfig')
 
 module.exports = {
-  siteMetadata: {
-    siteUrl: config.siteUrl,
-  },
   plugins: [
+    'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-root-import',
     'gatsby-plugin-sharp',

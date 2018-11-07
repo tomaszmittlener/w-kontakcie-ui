@@ -6186,6 +6186,15 @@ gatsby-plugin-google-tagmanager@^2.0.6:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
+gatsby-plugin-manifest@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.0.7.tgz#3b74503d368c5b830c2dbf745c7073fe0f4aa737"
+  integrity sha512-vVSyGv5vU6jyARbI54DIVWVh+zkd23ItGb040iuS5uQS96gvz3UB7n3B5z4HBt/xV084eMoT7tuSOGncahoVbQ==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    bluebird "^3.5.0"
+    sharp "^0.21.0"
+
 gatsby-plugin-offline@2.0.12:
   version "2.0.12"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-2.0.12.tgz#76557b2672eca5590f31ba240c255979cdd00876"
