@@ -5,7 +5,6 @@ import styled, {css} from 'styled-components'
 import {Element} from 'react-scroll'
 
 import {breakpointsPropTypesShape} from 'src/utils/PropTypes'
-import {Transition} from 'src/components'
 import {Header, Footer, MobileMenu} from 'src/containers'
 import {TOP_SECTION} from 'src/constants/SectionNames'
 import {contextPropTypesShape, withAppContext} from 'src/context'
@@ -78,9 +77,9 @@ class Layout extends React.Component {
           name={TOP_SECTION}
           isMenuOpen={isMenuOpen}
           onClick={() => isMenuOpen && toggleMenuOpen()}>
-          <Transition>
+          <Fragment>
             <ContentContainer isMenuOpen={isMenuOpen}>{children}</ContentContainer>
-          </Transition>
+          </Fragment>
           <Footer />
         </ViewContainer>
       </Fragment>

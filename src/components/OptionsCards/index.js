@@ -76,7 +76,6 @@ const OptionTitle = styled(H3)`
 class OptionsCards extends React.PureComponent {
   render() {
     const {data} = this.props
-    console.log(data);
     return (
       <OptionsContainer>
         {data.map((option, index) => (

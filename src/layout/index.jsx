@@ -22,7 +22,7 @@ import {
 } from 'src/constants/MediaQueries'
 import THEME from 'src/layout/theme'
 import CONFIG from '../../data/SiteConfig'
-import './global-styles'
+import GlobalStyles from './global-styles'
 
 const BREAKPOINTS =
   isWindowDefined &&
@@ -47,16 +47,19 @@ class Layout extends React.Component {
 
     return (
       <ThemeProvider theme={THEME}>
+        <Fragment>
+        <GlobalStyles />
         <BreakPointsProviderFix breakpoints={BREAKPOINTS}>
           <AppContextProvider>
             <AppHelmet
               description={getSiteDescription(pathname)}
-              title={`${CONFIG.siteTitle} |  ${getLocalTitle(pathname)}`}
+              title={`${CONFIG.siteTitleShort} |  ${getLocalTitle(pathname)}`}
               currentPath={pathname}
             />
             <App>{children}</App>
           </AppContextProvider>
         </BreakPointsProviderFix>
+          </Fragment>
       </ThemeProvider>
     )
   }

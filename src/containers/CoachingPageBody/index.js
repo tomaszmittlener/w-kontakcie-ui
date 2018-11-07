@@ -36,7 +36,7 @@ const CenteredSectionTitle = styled(H2)`
   text-align: center;
 `
 
-const FormattedTextSectionContent = SectionContent.extend`
+const FormattedTextSectionContent = styled(SectionContent)`
   ${StyledFirstLetter};
   display: flex;
   flex-direction: column;

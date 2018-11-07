@@ -45,7 +45,7 @@ const MethodologyText = styled.article`
   }
 `
 
-const MethodologySectionContent = SectionContent.extend`
+const MethodologySectionContent = styled(SectionContent)`
   ${StyledFirstLetter};
 `
 

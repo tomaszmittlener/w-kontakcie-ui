@@ -1,5 +1,5 @@
 module.exports = {
-  siteTitle: 'W relacji', // Site title.
+  siteTitle: 'W Relacji - Gabinet Psychoterapii i Rozwoju Osobistego', // Site title.
   streetAddress: 'Waryńskiego 40c/1',
   addressLocality: 'Gdańsk',
   postalCode: '80-433',
