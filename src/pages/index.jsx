@@ -28,7 +28,7 @@ const StyledButton = styled(Button)`
 
 const StyledHeroImage = styled(props => <HeroImage {...props} />)`
   .gatsby-image-wrapper {
-    border-radius: 8px;
+    //border-radius: 8px;
   }
 `
 
