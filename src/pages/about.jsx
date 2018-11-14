@@ -86,7 +86,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    meImage: file(relativePath: {eq: "me.jpg"}) {
+    meImage: file(relativePath: {eq: "me_2.jpg"}) {
       childImageSharp {
         fluid(maxWidth: 400) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
