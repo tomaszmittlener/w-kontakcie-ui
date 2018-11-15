@@ -13,7 +13,7 @@ import {
   ABOUT_EXPERIENCE_SECTION,
 } from 'constants/SectionNames'
 
-const IMAGE_WIDTH = 330
+const IMAGE_WIDTH = 250
 
 const linksData = [
   {
@@ -83,7 +83,7 @@ export const pageQuery = graphql`
     }
     meImage: file(relativePath: {eq: "me_2.jpg"}) {
       childImageSharp {
-        fluid(maxWidth: 400) {
+        fluid(maxWidth: 300) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }

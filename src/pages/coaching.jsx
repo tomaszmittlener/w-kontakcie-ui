@@ -12,7 +12,7 @@ import {
   COACHING_LIFE_SECTION,
 } from 'constants/SectionNames'
 
-const IMAGE_WIDTH = 330
+const IMAGE_WIDTH = 250
 
 const linksData = [
   {
@@ -69,7 +69,7 @@ export const pageQuery = graphql`
   query CoachingPageQuery {
     heroImage: file(relativePath: {eq: "coaching_hero.png"}) {
       childImageSharp {
-        fluid(maxWidth: 400, quality: 100) {
+        fluid(maxWidth: 300, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
