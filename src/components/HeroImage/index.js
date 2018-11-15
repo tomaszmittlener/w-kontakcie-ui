@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import Img from 'gatsby-image'
 import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import Img from 'gatsby-image'
 
 const Wrapper = styled.figure`
   width: 100%;

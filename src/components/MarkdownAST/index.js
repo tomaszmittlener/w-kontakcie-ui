@@ -1,10 +1,9 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {H1, H2, H3, Link, ParagraphText} from 'src/components/index'
-import {ms} from 'src/utils'
+import {H1, H2, H3, Link, ParagraphText} from 'components/index'
+import {ms} from 'utils'
 import RehypeReact from 'rehype-react'
-import isEmpty from 'lodash/isEmpty'
 
 const EmphasisText = styled.em`
   font-style: italic;

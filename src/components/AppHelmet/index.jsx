@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
-import CONFIG from '../../../data/SiteConfig'
+import CONFIG from 'constants/SiteConfig'
 
 const PAGE_META = {
   '': {

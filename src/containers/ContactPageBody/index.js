@@ -1,24 +1,17 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {ms, compose} from 'src/utils/index'
+import {ms, compose} from 'utils'
 import {
   H2,
-  H3,
   H4,
   PageSection,
-  ParagraphText,
   SectionLayout,
   SectionContent,
-  HealthIcon,
-  WhistleIcon,
   Link,
   Map,
-  EarthIcon,
-  LocationIcon,
-  RoadSignIcon,
-} from 'src/components/index'
-import {withLocales} from 'src/context/locales'
+} from 'components'
+import {withLocales} from 'context/locales'
 
 const SectionTitle = styled(H2)`
   text-align: center;
@@ -45,43 +38,23 @@ const DescriptionList = styled.ul`
 const OptionTitle = styled(H4)`
   margin: 0 0 ${ms(-4)} 0;
   display: block;
-      text-align: center;
+  text-align: center;
   ${({theme: {mq}}) => mq.desktop} {
     text-align: left;
   }
-
 `
 const OptionsWrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
   flex: 1;
-        margin: ${ms(6)} 0 0 0;
-
-    ${({theme: {mq}}) => mq.desktop} {
-  margin: 0 0 0 ${ms(6)};
-
-}
-`
-const IconContainer = styled.figure`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0;
-  flex: 3;
-  margin: 0 0 ${ms(6)};
-  > svg {
-    height: 100px;
-  }
+  margin: ${ms(6)} 0 0 0;
 
   ${({theme: {mq}}) => mq.desktop} {
-    padding: 0 ${ms(8)} 0 0;
-    margin: 0;
-    > svg {
-      height: 150px;
-    }
+    margin: 0 0 0 ${ms(6)};
   }
 `
+
 const WayContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -96,7 +69,6 @@ const MapContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  //justify-content: flex-end;
   align-items: center;
   padding: 0;
   flex: 3;
@@ -107,16 +79,15 @@ class PageBodyContact extends React.Component {
     const {t} = this.props
     return (
       <Fragment>
-
         <PageSection topBottomPadding finalSectionPadding>
           <SectionLayout>
             <SectionContent>
               <SectionTitle>Znajdz Gabinet</SectionTitle>
 
               <WayContainer>
-                  <MapContainer>
-                    <Map />
-                  </MapContainer>
+                <MapContainer>
+                  <Map />
+                </MapContainer>
                 <OptionsWrapper>
                   <Option>
                     <OptionTitle>Adres</OptionTitle>
@@ -138,7 +109,6 @@ class PageBodyContact extends React.Component {
             </SectionContent>
           </SectionLayout>
         </PageSection>
-
       </Fragment>
     )
   }

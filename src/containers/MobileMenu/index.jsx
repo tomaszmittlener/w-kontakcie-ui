@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
-import {contextPropTypesShape, withAppContext} from 'src/context/index'
-import {ms} from 'src/utils/index'
-import menuItemsList from '../../../data/MenuItems'
+import {contextPropTypesShape, withAppContext} from 'context'
+import {ms} from 'utils/index'
+import menuItemsList from 'constants/MenuItems'
 
 const MenuContainer = styled.nav`
   opacity: ${({open}) => open ? 1 : 0};

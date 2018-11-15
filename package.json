@@ -41,7 +41,7 @@
     "eslint-plugin-prettier": "3.0.0",
     "eslint-plugin-react": "7.11.1",
     "gatsby-plugin-eslint": "2.0.1",
-    "gatsby-plugin-root-import": "2.0.4",
+    "gatsby-plugin-root-import": "^2.0.4",
     "gh-pages": "2.0.1",
     "prettier": "1.15.0",
     "remark-cli": "6.0.0",

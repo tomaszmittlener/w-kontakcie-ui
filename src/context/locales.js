@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import get from 'lodash/get'
-import Locales from '../../data/SiteLocales'
-import Config from '../../data/SiteConfig'
+import Locales from '../constants/SiteLocales'
+import Config from '../constants/SiteConfig'
 
 export const LocalesContext = React.createContext()
 

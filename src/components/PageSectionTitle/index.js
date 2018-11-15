@@ -1,7 +1,8 @@
 import styled from 'styled-components'
-import {H2} from 'src/components'
 import rgba from 'polished/lib/color/rgba'
-import {ms} from 'src/utils'
+
+import {H2} from 'components'
+import {ms} from 'utils'
 
 export default styled(H2)`
   text-transform: uppercase;

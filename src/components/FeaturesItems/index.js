@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
-import {ms} from 'src/utils'
-import {CheckIcon} from 'src/components'
+
+import {ms} from 'utils'
+import {CheckIcon} from 'components'
 
 const ImageContainer = styled.figure`
   display: flex;

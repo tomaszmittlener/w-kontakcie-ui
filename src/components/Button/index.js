@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
-import {ms} from 'src/utils/index'
 import {lighten} from 'polished'
+
+import {ms} from 'utils/index'
 
 const StyledButton = styled(Link)`
   background-color: ${({theme: {colors}}) => colors.primary};

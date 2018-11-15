@@ -2,13 +2,13 @@ import React, {Fragment} from 'react'
 import styled, {css} from 'styled-components'
 import {Link as GatsbyLInk} from 'gatsby'
 
-import withBreakpoints, {isWindowDefined, compose, ms} from 'src/utils/index'
-import {contextPropTypesShape, withAppContext} from 'src/context/index'
-import {MenuButton, Button, Link, ArrowIcon} from 'src/components'
-import LogoSVG from 'src/components/Logo/index'
-import {TOP_SECTION} from 'src/constants/SectionNames'
-import {breakpointsPropTypesShape} from 'src/utils/PropTypes'
-import menuItemsList from '../../../data/MenuItems'
+import withBreakpoints, {isWindowDefined, compose, ms} from 'utils/index'
+import {contextPropTypesShape, withAppContext} from 'context/index'
+import {MenuButton, Button, Link, ArrowIcon} from 'components'
+import LogoSVG from 'components/Logo/index'
+import {TOP_SECTION} from 'constants/SectionNames'
+import {breakpointsPropTypesShape} from 'utils/PropTypes'
+import menuItemsList from 'constants/MenuItems'
 
 const Content = styled.div`
   z-index: ${({theme: {layers}}) => layers.top};

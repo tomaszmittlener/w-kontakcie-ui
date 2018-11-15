@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Helmet from 'react-helmet'
 import urljoin from 'url-join'
-import CONFIG from '../../../data/SiteConfig'
+import CONFIG from 'constants/SiteConfig'
 
 class SEO extends Component {
   render() {

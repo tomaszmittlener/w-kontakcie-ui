@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {ms} from '../../utils/index'
+import {ms} from 'utils'
 
 export const H1 = styled.h1`
   display: block;

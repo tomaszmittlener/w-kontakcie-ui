@@ -1,6 +1,6 @@
 import {createGlobalStyle} from 'styled-components'
 import {normalize} from 'polished'
-import {ms} from 'src/utils'
+import {ms} from 'utils'
 import javieraLight from './fonts/Javiera-Light.woff'
 import background from '../../static/constellation_background.png'
 

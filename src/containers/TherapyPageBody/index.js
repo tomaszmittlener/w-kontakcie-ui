@@ -1,9 +1,9 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {ms, compose} from 'src/utils/index'
-import {StyledFirstLetter} from 'src/layout/mixins'
-import {withLocales} from 'src/context/locales'
+import {ms, compose} from 'utils/index'
+import {StyledFirstLetter} from 'layout/mixins'
+import {withLocales} from 'context/locales'
 import {
   H2,
   H3,
@@ -14,13 +14,13 @@ import {
   Accordeon,
   FeaturesTable,
   Quote,
-} from 'src/components/index'
+} from 'components/index'
 import {
   THERAPY_WORK_AREA_SECTION,
   THERAPY_PRACTICAL_INFO_SECTION,
   THERAPY_METHODOLOGY_SECTION,
-} from 'src/constants/SectionNames'
-import {therapy, workAreas, therapyPracticalInfo} from '../../../data/TextLists'
+} from 'constants/SectionNames'
+import {therapy, workAreas, therapyPracticalInfo} from 'constants/TextLists'
 
 const SectionTitle = styled(H2)`
   text-align: center;

@@ -1,15 +1,17 @@
 import React, {Fragment} from 'react'
 import styled, {css} from 'styled-components'
-import {withLocales} from 'src/context/locales'
-import {ms, formatDate, compose} from 'src/utils'
+import Img from 'gatsby-image'
+import filter from 'lodash/filter'
+
+import {withLocales} from 'context/locales'
+import {ms, formatDate, compose} from 'utils'
 import {
   localesPropTypesShape,
   articlesExcerptsPropTypesShape,
   articlesImagesPropTypesShape,
-} from 'src/utils/PropTypes'
-import {Link, H2, ParagraphText} from 'src/components'
-import Img from 'gatsby-image'
-import filter from 'lodash/filter'
+} from 'utils/PropTypes'
+
+import {Link, H2, ParagraphText} from 'components'
 
 const ArticleContainer = styled.figure`
   margin: 0 0 ${ms(2)} 0;

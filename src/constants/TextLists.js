@@ -10,7 +10,7 @@ import {
   CertificateIcon,
   WhistleIcon,
   HealthBrokenIcon, UmbrelaIcon, LightningIcon, WorkIcon, TalkIcon, ProcessIcon
-} from 'src/components';
+} from '../components';
 
 export const competences = [
   {

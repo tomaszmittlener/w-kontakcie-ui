@@ -1,8 +1,9 @@
 import React from 'react'
 import reduceRight from 'lodash/reduceRight'
 import {withBreakpoints} from 'react-match-breakpoints'
-import modularScale from 'polished/lib/helpers/modularScale'
-import CONFIG from '../../data/SiteConfig'
+import {modularScale} from 'polished'
+
+import CONFIG from 'constants/SiteConfig'
 
 export const getLocalTitle = pathname => {
   const pathPrefix = CONFIG.pathPrefix ? CONFIG.pathPrefix : '/'

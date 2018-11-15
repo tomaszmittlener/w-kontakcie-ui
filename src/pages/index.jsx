@@ -6,14 +6,14 @@ import {graphql} from 'gatsby'
 import {
   imageFluidPropTypesShape,
   locationPropTypesShape,
-} from 'src/utils/PropTypes'
+} from 'utils/PropTypes'
 
-import {compose, ms} from 'src/utils'
-import {withLocales, withLocalesContextProvider} from 'src/context'
+import {compose, ms} from 'utils'
+import {withLocales, withLocalesContextProvider} from 'context'
 
-import Layout from 'src/layout'
-import {H1, H3, Button, HeroSection, HeroImage, SEO} from 'src/components'
-import {HomePageBody} from 'src/containers'
+import Layout from 'layout'
+import {H1, H3, Button, HeroSection, HeroImage, SEO} from 'components'
+import {HomePageBody} from 'containers'
 
 const IMAGE_WIDTH = 400
 

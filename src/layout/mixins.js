@@ -1,5 +1,5 @@
 import {css} from 'styled-components'
-import {ms} from 'src/utils'
+import {ms} from 'utils'
 
 export const StyledFirstLetter = css`
   p:first-of-type {

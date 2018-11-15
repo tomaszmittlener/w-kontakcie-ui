@@ -1,22 +1,17 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import Layout from 'src/layout'
-import {compose} from 'src/utils'
-import {withLocalesContextProvider, withLocales} from 'src/context'
+import Layout from 'layout'
+import {compose} from 'utils'
+import {withLocalesContextProvider, withLocales} from 'context'
 import {graphql} from 'gatsby'
-import {
-  imageFluidPropTypesShape,
-  locationPropTypesShape,
-} from 'src/utils/PropTypes'
-import {H1, HeroSection, PageNavigation, HeroImage} from 'src/components'
-import {AboutPageBody} from 'src/containers'
-import styled from 'styled-components'
+import {imageFluidPropTypesShape, locationPropTypesShape} from 'utils/PropTypes'
+import {H1, HeroSection, PageNavigation, HeroImage} from 'components'
+import {AboutPageBody} from 'containers'
 import {
   ABOUT_ME_SECTION,
   ABOUT_COMPETENCES_SECTION,
   ABOUT_EXPERIENCE_SECTION,
-} from 'src/constants/SectionNames'
+} from 'constants/SectionNames'
 
 const IMAGE_WIDTH = 400
 

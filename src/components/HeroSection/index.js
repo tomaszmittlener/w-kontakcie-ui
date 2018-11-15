@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
-import {SectionContent, SectionLayout} from 'src/components'
-import {ms} from 'src/utils'
 import {darken} from 'polished'
 import Particles from 'react-particles-js'
-import THEME from 'src/layout/theme'
+
+import {ms} from 'utils'
+import THEME from 'layout/theme'
+import {SectionContent, SectionLayout} from 'components'
 
 const Container = styled.header`
   padding: ${ms(12)} 0 0 0;

@@ -2,27 +2,22 @@ import React, {Component} from 'react'
 import Img from 'gatsby-image'
 import {graphql} from 'gatsby'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import Layout from 'src/layout'
-import {locationPropTypesShape} from 'src/utils/PropTypes'
-import {compose} from 'src/utils'
-import styled from 'styled-components'
-import {withLocales, withLocalesContextProvider} from 'src/context'
+import Layout from 'layout'
+import {locationPropTypesShape} from 'utils/PropTypes'
+import {compose} from 'utils'
+import {withLocales, withLocalesContextProvider} from 'context'
 import {
   H1,
   HeroSection,
-  HeroQuote,
   PageNavigation,
-  Pattern,
   HeroImage,
-} from 'src/components'
-import {TherapyPageBody} from 'src/containers'
+} from 'components'
+import {TherapyPageBody} from 'containers'
 import {
   THERAPY_METHODOLOGY_SECTION,
   THERAPY_PRACTICAL_INFO_SECTION,
   THERAPY_WORK_AREA_SECTION,
-} from 'src/constants/SectionNames'
-import config from '../../data/SiteConfig'
+} from 'constants/SectionNames'
 
 const IMAGE_WIDTH = 400
 

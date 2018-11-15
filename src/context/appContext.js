@@ -1,8 +1,8 @@
 import React from 'react'
-import theme from 'src/layout/theme'
+import theme from 'layout/theme'
 import PropTypes from 'prop-types'
-import {breakpointsPropTypesShape} from 'src/utils/PropTypes'
-import withBreakpoints from 'src/utils'
+import {breakpointsPropTypesShape} from 'utils/PropTypes'
+import withBreakpoints from 'utils'
 
 export const AppContext = React.createContext()
 

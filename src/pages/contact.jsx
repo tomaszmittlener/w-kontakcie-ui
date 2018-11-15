@@ -1,14 +1,13 @@
 import React, {Component} from 'react'
 import {graphql} from 'gatsby'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import Layout from 'src/layout'
+import Layout from 'layout'
 import styled from 'styled-components'
-import {compose, ms} from 'src/utils'
-import {locationPropTypesShape} from 'src/utils/PropTypes'
-import {H1, Link, HeroSection, HeroImage} from 'src/components'
-import {withLocales, withLocalesContextProvider} from 'src/context'
-import {ContactPageBody} from 'src/containers'
+import {compose, ms} from 'utils'
+import {locationPropTypesShape} from 'utils/PropTypes'
+import {H1, Link, HeroSection, HeroImage} from 'components'
+import {withLocales, withLocalesContextProvider} from 'context'
+import {ContactPageBody} from 'containers'
 
 const IMAGE_WIDTH = 400
 const HeroQuoteParagraph = styled.p`
@@ -27,9 +26,10 @@ class ContactPage extends Component {
     const {
       t,
       data: {heroImage},
+      location,
     } = this.props
     return (
-      <Layout location={this.props.location} withTopPadding>
+      <Layout location={location} withTopPadding>
         <HeroSection
           image={
             <HeroImage
@@ -59,6 +59,7 @@ class ContactPage extends Component {
 ContactPage.propTypes = {
   location: locationPropTypesShape.isRequired,
   t: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired,
 }
 
 export default compose(

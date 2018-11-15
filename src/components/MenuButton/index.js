@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
-import {ms} from 'src/utils'
+import {ms} from 'utils'
 
 const Circle = styled.button`
   margin: 0 0 0 ${ms(4)};

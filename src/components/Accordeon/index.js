@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import withBreakpoints, {ms} from 'src/utils'
+import withBreakpoints, {ms} from 'utils'
 import styled from 'styled-components'
 import {Link as ScrollLink} from 'react-scroll'
 
-import {H3, ArrowIcon} from 'src/components'
-import {breakpointsPropTypesShape} from 'src/utils/PropTypes'
+import {H3, ArrowIcon} from 'components'
+import {breakpointsPropTypesShape} from 'utils/PropTypes'
 
 const ItemContainer = styled.figure`
   display: flex;

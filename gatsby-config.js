@@ -1,4 +1,5 @@
-const CONFIG = require('./data/SiteConfig')
+const CONFIG = require('./src/constants/SiteConfig')
+const path = require('path')
 
 module.exports = {
   siteMetadata: {
@@ -9,10 +10,22 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-styled-components',
-    'gatsby-plugin-root-import',
     'gatsby-plugin-sharp',
     'gatsby-image',
     'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: path.join(__dirname, 'src'),
+        pages: path.join(__dirname, 'src/pages'),
+        layout: path.join(__dirname, 'src/layout'),
+        constants: path.join(__dirname, 'src/constants'),
+        components: path.join(__dirname, 'src/components'),
+        containers: path.join(__dirname, 'src/containers'),
+        context: path.join(__dirname, 'src/context'),
+        utils: path.join(__dirname, 'src/utils'),
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
