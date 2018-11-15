@@ -15,7 +15,7 @@ import Layout from 'layout'
 import {H1, H3, Button, HeroSection, HeroImage, SEO} from 'components'
 import {HomePageBody} from 'containers'
 
-const IMAGE_WIDTH = 400
+const IMAGE_WIDTH = 350
 
 const StyledButton = styled(Button)`
   padding: ${ms(2)} ${ms(7)};
