@@ -19,7 +19,7 @@ import {
   THERAPY_WORK_AREA_SECTION,
 } from 'constants/SectionNames'
 
-const IMAGE_WIDTH = 400
+const IMAGE_WIDTH = 330
 
 const linksData = [
   {
@@ -82,7 +82,7 @@ export const pageQuery = graphql`
   query TherapyPageQuery {
     heroImage: file(relativePath: {eq: "therapy_hero.png"}) {
       childImageSharp {
-        fluid(maxWidth: 400) {
+        fluid(maxWidth: 400, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
