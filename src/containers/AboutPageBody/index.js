@@ -70,6 +70,7 @@ const ItemTitle = styled(props => <ParagraphText weight="bold" {...props} />)`
 const Avatar = styled(Img)`
   width: 250px;
   height: 100%;
+  border-radius: 8px;
 `
 const NameText = styled(H2)`
   font-weight: bold;

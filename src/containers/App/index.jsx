@@ -35,18 +35,6 @@ const ContentContainer = styled.main`
   position: relative;
   background-color: ${({theme: {colors}}) => colors.canvas};
   z-index: ${({theme: {layers}}) => layers.middle};
-  &:after {
-    content: '';
-    background-image: url(${background});
-    background-size: 400px;
-    opacity: 0.2;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
-  }
   &:before {
     content: '';
     visibility: ${({isMenuOpen}) => (isMenuOpen ? 'visible' : 'hidden')};

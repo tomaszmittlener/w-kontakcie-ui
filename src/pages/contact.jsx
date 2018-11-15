@@ -9,7 +9,7 @@ import {H1, Link, HeroSection, HeroImage} from 'components'
 import {withLocales, withLocalesContextProvider} from 'context'
 import {ContactPageBody} from 'containers'
 
-const IMAGE_WIDTH = 400
+const IMAGE_WIDTH = 250
 const HeroQuoteParagraph = styled.p`
   font-size: ${ms(3)};
   line-height: ${ms(3.5)};
@@ -72,7 +72,7 @@ export const pageQuery = graphql`
   query ContactPageQuery {
     heroImage: file(relativePath: {eq: "contact_hero.png"}) {
       childImageSharp {
-        fluid(maxWidth: 400) {
+        fluid(maxWidth: 300, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
