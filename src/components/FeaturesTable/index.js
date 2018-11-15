@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {ms} from 'src/utils'
-import {H3, ParagraphText} from 'src/components'
+
+import {ms} from 'utils'
+import {H3, ParagraphText} from 'components'
 
 const ItemContainer = styled.figure`
   display: flex;

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 import GoogleMapReact from 'google-map-react'
-import Logo from 'src/components/Logo'
+import Logo from 'components/Logo'
 
 const StyledLogo = styled(Logo)`
   height: 30px;

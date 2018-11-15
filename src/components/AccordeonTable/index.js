@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {Link as ScrollLink} from 'react-scroll'
 
-import {ms} from 'src/utils'
-import {H3, FeaturesItems, ArrowIcon} from 'src/components'
+import {ms} from 'utils'
+import {H3, FeaturesItems, ArrowIcon} from 'components'
 
 const ItemContainer = styled.div`
   display: flex;

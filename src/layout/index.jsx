@@ -6,11 +6,11 @@ import {
 } from 'react-match-breakpoints'
 import {ThemeProvider} from 'styled-components'
 
-import {locationPropTypesShape} from 'src/utils/PropTypes'
-import {isWindowDefined} from 'src/utils'
-import {AppContextProvider} from 'src/context'
-import {App} from 'src/containers'
-import {AppHelmet} from 'src/components'
+import {locationPropTypesShape} from 'utils/PropTypes'
+import {isWindowDefined} from 'utils'
+import {AppContextProvider} from 'context'
+import {App} from 'containers'
+import {AppHelmet} from 'components'
 import {
   TABLET_MEDIA_QUERY_MIN_WIDTH,
   TABLET_MEDIA_QUERY,
@@ -18,8 +18,8 @@ import {
   DESKTOP_L_MEDIA_QUERY_MIN_WIDTH,
   DESKTOP_MEDIA_QUERY,
   DESKTOP_MEDIA_QUERY_MIN_WIDTH,
-} from 'src/constants/MediaQueries'
-import THEME from 'src/layout/theme'
+} from 'constants/MediaQueries'
+import THEME from 'layout/theme'
 import GlobalStyles from './global-styles'
 
 const BREAKPOINTS =

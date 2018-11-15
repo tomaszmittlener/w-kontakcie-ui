@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {ms, compose} from 'src/utils/index'
+import {ms, compose} from 'utils'
 import Img from 'gatsby-image'
 import {
   H2,
@@ -11,15 +11,15 @@ import {
   SectionLayout,
   SectionContent,
   AccordeonTable,
-} from 'src/components'
-import {withLocales} from 'src/context/locales'
-import {StyledFirstLetter} from 'src/layout/mixins'
+} from 'components'
+import {withLocales} from 'context/locales'
+import {StyledFirstLetter} from 'layout/mixins'
 import {
   ABOUT_COMPETENCES_SECTION,
   ABOUT_EXPERIENCE_SECTION,
   ABOUT_ME_SECTION,
-} from 'src/constants/SectionNames'
-import {experience, competences} from '../../../data/TextLists'
+} from 'constants/SectionNames'
+import {experience, competences} from 'constants/TextLists'
 
 const SectionTitle = styled(H2)`
   text-align: left;

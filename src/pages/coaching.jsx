@@ -1,17 +1,16 @@
 import React, {Component} from 'react'
 import {graphql} from 'gatsby'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import Layout from 'src/layout'
-import {locationPropTypesShape} from 'src/utils/PropTypes'
-import {compose} from 'src/utils'
-import {withLocalesContextProvider, withLocales} from 'src/context'
-import {H1, HeroSection, PageNavigation, HeroImage} from 'src/components'
-import {CoachingPageBody} from 'src/containers'
+import Layout from 'layout'
+import {locationPropTypesShape} from 'utils/PropTypes'
+import {compose} from 'utils'
+import {withLocalesContextProvider, withLocales} from 'context'
+import {H1, HeroSection, PageNavigation, HeroImage} from 'components'
+import {CoachingPageBody} from 'containers'
 import {
   COACHING_BUSINESS_SECTION,
   COACHING_LIFE_SECTION,
-} from 'src/constants/SectionNames'
+} from 'constants/SectionNames'
 
 const IMAGE_WIDTH = 400
 const linksData = [

@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
-import {H4} from 'src/components/Headings/index'
-import {compose, ms} from 'src/utils/index'
-import {withLocales, withLocalesContextProvider} from 'src/context'
-import {Link} from 'src/components'
-import config from '../../../data/SiteConfig'
+import {H4} from 'components/Headings/index'
+import {compose, ms} from 'utils/index'
+import {withLocales, withLocalesContextProvider} from 'context'
+import {Link} from 'components'
+import config from '../../constants/SiteConfig'
 
 const Container = styled.footer`
   list-style: none;

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import {H1} from 'src/components/index'
-import {ms} from 'src/utils'
+import {H1} from 'components'
+import {ms} from 'utils'
 import {rgba} from 'polished'
 
 const PageMainTitle = styled(H1)`

@@ -1,13 +1,13 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
-import withBreakpoints, {compose} from 'src/utils'
+import withBreakpoints, {compose} from 'utils'
 import styled, {css} from 'styled-components'
 import {Element} from 'react-scroll'
 
-import {breakpointsPropTypesShape} from 'src/utils/PropTypes'
-import {Header, Footer, MobileMenu} from 'src/containers'
-import {TOP_SECTION} from 'src/constants/SectionNames'
-import {contextPropTypesShape, withAppContext} from 'src/context'
+import {breakpointsPropTypesShape} from 'utils/PropTypes'
+import {Header, Footer, MobileMenu} from 'containers'
+import {TOP_SECTION} from 'constants/SectionNames'
+import {contextPropTypesShape, withAppContext} from 'context'
 import 'src/layout/global-styles'
 import background from '../../../static/constellation_background.png'
 

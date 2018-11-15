@@ -6,14 +6,14 @@ import {graphql} from 'gatsby'
 import {
   imageFluidPropTypesShape,
   locationPropTypesShape,
-} from 'src/utils/PropTypes'
+} from 'utils/PropTypes'
 
-import {compose, ms} from 'src/utils'
-import {withLocales, withLocalesContextProvider} from 'src/context'
+import {compose, ms} from 'utils'
+import {withLocales, withLocalesContextProvider} from 'context'
 
-import Layout from 'src/layout'
-import { H1, H3, Button, HeroSection, HeroImage, SEO } from 'src/components';
-import {HomePageBody} from 'src/containers'
+import Layout from 'layout'
+import {H1, H3, Button, HeroSection, HeroImage, SEO} from 'components'
+import {HomePageBody} from 'containers'
 
 const IMAGE_WIDTH = 400
 
@@ -26,6 +26,12 @@ const StyledButton = styled(Button)`
   }
 `
 
+const StyledHeroImage = styled(props => <HeroImage {...props} />)`
+  .gatsby-image-wrapper {
+    border-radius: 8px;
+  }
+`
+
 class Index extends React.Component {
   render() {
     const {
@@ -35,10 +41,10 @@ class Index extends React.Component {
     } = this.props
     return (
       <Layout location={location} withTopPadding hideLogo>
-        {/*<SEO />*/}
+        {/* <SEO /> */}
         <HeroSection
           image={
-            <HeroImage
+            <StyledHeroImage
               maxWidth={IMAGE_WIDTH}
               outerWrapperClassName="__image-outer-wrapper"
               innerWrapperClassName="__image-inner-wrapper"
@@ -72,9 +78,9 @@ export default compose(
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query IndexQuery {
-    heroImage: file(relativePath: {eq: "main_hero.png"}) {
+    heroImage: file(relativePath: {eq: "me.jpg"}) {
       childImageSharp {
-        fluid(maxWidth: 400) {
+        fluid(maxWidth: 400, maxHeight: 500) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }

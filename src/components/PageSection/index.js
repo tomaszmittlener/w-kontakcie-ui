@@ -1,8 +1,9 @@
 import React from 'react'
 import styled, {css} from 'styled-components'
-import {ms} from 'src/utils'
 import {lighten} from 'polished'
 import {Element} from 'react-scroll'
+
+import {ms} from 'utils'
 
 const PADDING = ms(9)
 

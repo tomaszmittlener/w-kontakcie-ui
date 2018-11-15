@@ -1,16 +1,16 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {compose} from 'src/utils/index'
+import {compose} from 'utils/index'
 import {
   H2,
   PageSection,
   SectionLayout,
   SectionContent,
   OptionsCards,
-} from 'src/components/index'
-import {withLocales} from 'src/context/locales'
-import {howCanIHelp} from '../../../data/TextLists'
+} from 'components/index'
+import {withLocales} from 'context/locales'
+import {howCanIHelp} from '../../constants/TextLists'
 
 const SectionTitle = styled(H2)`
   text-align: center;

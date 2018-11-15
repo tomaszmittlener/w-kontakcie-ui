@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {ms} from 'src/utils'
-import {FeaturesItems, H3, Link} from 'src/components/index'
+import {ms} from 'utils'
+import {FeaturesItems, H3, Link} from 'components'
 
 const OptionsContainer = styled.div`
   display: flex;

@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {ArrowIcon, Link} from 'src/components'
-import {ms} from 'src/utils'
+import {ArrowIcon, Link} from 'components'
+import {ms} from 'utils'
 
 const LinksList = styled.ul`
   list-style-type: none;

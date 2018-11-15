@@ -1,10 +1,9 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {ms, compose} from 'src/utils/index'
+import {ms, compose} from 'utils/index'
 import {
   H2,
-  H3,
   ParagraphText,
   PageSection,
   SectionLayout,
@@ -13,20 +12,20 @@ import {
   AppleIcon,
   AccordeonTable,
   Quote,
-} from 'src/components/index'
-import {withLocales} from 'src/context/locales'
-import {StyledFirstLetter} from 'src/layout/mixins'
+} from 'components/index'
+import {withLocales} from 'context/locales'
+import {StyledFirstLetter} from 'layout/mixins'
 import {
   COACHING_BUSINESS_SECTION,
   COACHING_LIFE_SECTION,
   COACHING_LIFE_ADVANTAGES_SECTION,
   COACHING_BUSINESS_ADVANTAGES_SECTION,
-} from 'src/constants/SectionNames'
+} from 'constants/SectionNames'
 
 import {
   businessCoachingAdvantages,
   lifeCoachingAdvanatages,
-} from '../../../data/TextLists'
+} from 'constants/TextLists'
 
 const SectionTitle = styled(H2)`
   text-align: left;

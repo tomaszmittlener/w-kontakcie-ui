@@ -1,14 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
-import {SectionContent, SectionLayout} from 'src/components'
-import {ms} from 'src/utils'
 import {darken} from 'polished'
+import Particles from 'react-particles-js'
+
+import withBreakpoints, {ms} from 'utils'
+import getParticlesConfig from 'constants/ParticlesConfig'
+import {SectionContent, SectionLayout} from 'components'
+import { breakpointsPropTypesShape } from 'utils/PropTypes';
 
 const Container = styled.header`
   padding: ${ms(12)} 0 0 0;
   position: relative;
-  z-index: 0;
   ${({singleSection}) => singleSection && SingleSectionTheme};
   ${({theme: {mq}}) => mq.desktop} {
     padding: ${ms(12)} 0 ${ms(8)};
@@ -20,13 +23,13 @@ const Container = styled.header`
   &:before {
     opacity: 1;
     background-color: ${({theme: {colors}}) => darken(0.1, colors.secondary)};
+    z-index: ${({theme: {layers}}) => layers.bottom};
     top: 0;
     content: '';
     height: 85%;
     position: absolute;
     width: 100%;
     overflow: hidden;
-    z-index: -1;
   }
 
   ${({theme: {mq}}) => mq.desktop} {
@@ -51,6 +54,7 @@ const HeroSectionContent = styled(props => <SectionContent {...props} />)`
 const HeroTitleSection = styled.div`
   width: 100%;
   text-align: center;
+  z-index: ${({theme: {layers}}) => layers.topBottom};
   ${({theme: {mq}}) => mq.desktop} {
     text-align: left;
     width: 60%;
@@ -58,6 +62,7 @@ const HeroTitleSection = styled.div`
 `
 
 const HeroIllustrationSection = styled.div`
+  z-index: ${({theme: {layers}}) => layers.topBottom};
   height: 100%;
   width: 100%;
   display: flex;
@@ -81,8 +86,18 @@ const SingleSectionTheme = css`
   }
 `
 
-const HeroSection = ({children, image}) => (
+const StyledParticles = styled(Particles)`
+  position: absolute;
+  z-index: ${({theme: {layers}}) => layers.middleBottom};
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+`
+
+const HeroSection = ({children, image, breakpoints: {isTablet, isMobile}}) => (
   <Container singleSection={!image}>
+    <StyledParticles params={getParticlesConfig(isTablet || isMobile)} />
     <SectionLayout>
       <HeroSectionContent>
         <HeroTitleSection>{children}</HeroTitleSection>
@@ -95,6 +110,7 @@ const HeroSection = ({children, image}) => (
 HeroSection.propTypes = {
   children: PropTypes.node.isRequired,
   image: PropTypes.node.isRequired,
+  breakpoints: breakpointsPropTypesShape.isRequired,
 }
 
-export default HeroSection
+export default withBreakpoints(HeroSection)
