@@ -4,9 +4,10 @@ import styled, {css} from 'styled-components'
 import {darken} from 'polished'
 import Particles from 'react-particles-js'
 
-import {ms} from 'utils'
-import PARTICLES_CONFIG from 'constants/ParticlesConfig'
+import withBreakpoints, {ms} from 'utils'
+import getParticlesConfig from 'constants/ParticlesConfig'
 import {SectionContent, SectionLayout} from 'components'
+import { breakpointsPropTypesShape } from 'utils/PropTypes';
 
 const Container = styled.header`
   padding: ${ms(12)} 0 0 0;
@@ -94,9 +95,9 @@ const StyledParticles = styled(Particles)`
   right: 0;
 `
 
-const HeroSection = ({children, image}) => (
+const HeroSection = ({children, image, breakpoints: {isTablet, isMobile}}) => (
   <Container singleSection={!image}>
-    <StyledParticles params={PARTICLES_CONFIG} />
+    <StyledParticles params={getParticlesConfig(isTablet || isMobile)} />
     <SectionLayout>
       <HeroSectionContent>
         <HeroTitleSection>{children}</HeroTitleSection>
@@ -109,6 +110,7 @@ const HeroSection = ({children, image}) => (
 HeroSection.propTypes = {
   children: PropTypes.node.isRequired,
   image: PropTypes.node.isRequired,
+  breakpoints: breakpointsPropTypesShape.isRequired,
 }
 
-export default HeroSection
+export default withBreakpoints(HeroSection)

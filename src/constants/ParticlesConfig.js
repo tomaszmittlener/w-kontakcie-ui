@@ -1,10 +1,10 @@
 import darken from 'polished/lib/color/darken'
 import THEME from 'layout/theme'
 
-export default {
+export default isMobile => ({
   particles: {
     number: {
-      value: 60,
+      value: isMobile ? 20 : 60,
       density: {
         enable: false,
         value_area: 800,
@@ -95,4 +95,4 @@ export default {
     },
   },
   retina_detect: true,
-}
+})
