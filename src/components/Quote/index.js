@@ -7,8 +7,9 @@ import {H3, ParagraphText} from 'components'
 
 const Container = styled.blockquote`
   position: relative;
+  margin: 0;
   &:after {
-    content: '';
+    //content: '';
     width: 100%;
     height: 1px;
     position: absolute;
@@ -21,12 +22,12 @@ const Container = styled.blockquote`
   }
 
   &:before {
-    content: '';
+    //content: '';
     width: 100%;
     height: 1px;
     position: absolute;
     margin: auto;
-    top: -15px;
+    top: -20px;
     left: 0;
     right: 0;
 
@@ -45,13 +46,16 @@ const QuoteParagraph = styled(H3)`
       typo: {fontFamily},
     },
   }) => fontFamily.secondary};
+    ${({theme: {mq}}) => mq.tablet} {
+      margin: 0 auto;
+  }
 `
 
 const HeroAuthorParagraph = styled(ParagraphText)`
   text-align: center;
   font-size: ${ms(1)};
 
-  margin: ${ms(0)} 0 0 0;
+  margin: ${ms(0)} 0 0 auto;
   font-family: ${({
     theme: {
       typo: {fontFamily},

@@ -12,7 +12,7 @@ import {
   AppleIcon,
   AccordeonTable,
   Quote,
-} from 'components/index'
+} from 'components'
 import {withLocales} from 'context/locales'
 import {StyledFirstLetter} from 'layout/mixins'
 import {

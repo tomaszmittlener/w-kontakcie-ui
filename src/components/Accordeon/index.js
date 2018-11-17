@@ -29,6 +29,8 @@ const ExpandedDescription = styled.div`
 const IconContainer = styled.figure`
   transform: ${({isOpen}) => (isOpen ? 'rotateX(180deg)' : 'none')};
   margin: 0 ${ms(1)} 0;
+  display: flex;
+  align-items: center;
 `
 const ItemTitle = styled(ScrollLink)`
   display: flex;
@@ -42,6 +44,9 @@ const ItemTitle = styled(ScrollLink)`
 
 const ItemTitleText = styled(H3)`
   margin: 0;
+  ${({theme: {mq}}) => mq.tablet} {
+    margin: 0;
+  }
 `
 const Items = styled.div`
   display: flex;
@@ -70,10 +75,11 @@ const MobileImage = styled.div`
   justify-content: center;
   margin: ${ms(4)} 0;
   > svg {
-    height: 90px;
+    height: 120px;
   }
 `
 const Container = styled.div`
+  padding: ${ms(4)} 0 0 0;
   display: flex;
   flex-direction: row;
 `
@@ -96,7 +102,7 @@ class Accordeon extends React.Component {
     } = this.props
     const isMobileView = isMobile || isTablet
     return (
-      <Container className={className} >
+      <Container className={className}>
         <Items>
           {data.map((item, itemIndex) => (
             <ItemContainer key={`practicalInfo-${item.title}-${itemIndex}`}>

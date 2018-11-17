@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import Img from 'gatsby-image'
 import {graphql} from 'gatsby'
 import PropTypes from 'prop-types'
 import Layout from 'layout'
