@@ -25,7 +25,7 @@ module.exports = {
   dateFormat: 'DD/MM/YYYY', // Date format for display.
   userName: 'Anna Dejewska', // Username to display in the author segment.
   phone: '+48 530 521 218',
-  userEmail: 'adejewska1@gmail.com',
+  userEmail: 'anna.dejewska@wrelacji.com.pl',
   userLocation: 'ul. Waryńskiego 40c/1, 80-433 Gdańsk-Wrzeszcz', // User location to display in the author segment.
   userAvatar: 'https://api.adorable.io/avatars/150/test.png', // User avatar to display in the author segment.
   userDescription: 'Anna Dejewska - psycholog, psychoterapeuta, coach',

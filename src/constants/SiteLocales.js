@@ -4,7 +4,7 @@ export default {
     name: 'Anna Dejewska',
     profession: 'psycholog, psychoterapeuta, coach',
     phone: '+48 530 521 218',
-    email: 'adejewska1@gmail.com',
+    email: 'anna.dejewska@wrelacji.com.pl',
     description: {
       main:
         'Jestem psychoterapeutką i psychologiem oraz certyfikowanym coachem. Od 10 lat pracuję z osobami, które borykają się z różnego rodzaju problemami i trudnościami w sferze  prywatnej i zawodowej oraz pragną poprawić jakość swojego życia. Jako terapeuta zajmuje się przede wszystkim z problemami związanymi z depresją, samotnością trudnościami w relacjach, agresją, nerwicami, stratą i traumatycznymi przeżyciami.',
